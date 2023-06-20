@@ -27,7 +27,8 @@ nb-configuration.xml
 
 # OSX
 .DS_Store
-
+# java
+.class
 # Vim
 *.swp
 *.swo

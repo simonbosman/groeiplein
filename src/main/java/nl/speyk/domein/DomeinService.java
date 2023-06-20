@@ -19,7 +19,7 @@ public class DomeinService {
   private final DomeinMapper domeinMapper;
 
   public Uni<List<Domein>> findAll() {
-    return domeinRepository.all();
+    return domeinRepository.getAll();
   }
 
   public Uni<Domein> findById(@NonNull UUID domeinId) {

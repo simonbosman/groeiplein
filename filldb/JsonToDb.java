@@ -10,7 +10,8 @@ public class JsonToDb {
     try {
 
       //Connect to db
-      String url = "jdbc:postgresql://localhost/digitaal_portfolio";
+      //String url = "jdbc:postgresql://localhost/digitaal_portfolio";
+      String url = "jdbc:sqlserver://speyk-digitaalportfolio-sql-server.database.windows.net:1433;database=digitaal_portfolio_dev;user=sql_admin@speyk-digitaalportfolio-sql-server;password=KnDqi8SDRg76BzDc;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
       Connection conn = DriverManager.getConnection(url);
       ObjectMapper om = new ObjectMapper();
       PreparedStatement st;

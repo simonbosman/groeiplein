@@ -18,8 +18,8 @@ public class DomeinRepository implements PanacheRepository<DomeinEntity> {
 
     private final DomeinMapper domeinMapper;
 
-    public Uni<List<Domein>> all() {
-        return findAll().list().onItem().transform(list ->
+    public Uni<List<Domein>> getAll() {
+        return listAll().onItem().transform(list ->
                 list.stream().map(domeinMapper::toDomain).collect(Collectors.toList())
         );
     }
