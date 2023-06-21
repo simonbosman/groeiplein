@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
-
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import java.util.UUID;
 
 @Entity(name = "Domein")
 @Table(name = "domein")
-@Cacheable
+//@Cacheable
+//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Data
 public class DomeinEntity {
 
