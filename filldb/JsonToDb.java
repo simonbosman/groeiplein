@@ -10,11 +10,8 @@ public class JsonToDb {
     try {
 
       //Connect to db
-      //String url = "jdbc:postgresql://localhost/digitaal_portfolio";
-      String url = "jdbc:sqlserver://speyk-digitaalportfolio-sql-server.database.windows.net:1433;" +
-              "database=digitaal_portfolio_dev;user=sql_admin@speyk-digitaalportfolio-sql-server;" +
-              "password=KnDqi8SDRg76BzDc;encrypt=true;trustServerCertificate=false;" +
-              "hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+      String url = "jdbc:postgresql://localhost/digitaal_portfolio";
+      //String url = "sqlserver://sql_admin:KnDqi8SDRg76BzDc@speyk-digitaalportfolio-sql-server.database.windows.net:1433/digitaal_portfolio_dev";
       Connection conn = DriverManager.getConnection(url);
       ObjectMapper om = new ObjectMapper();
       PreparedStatement st;
@@ -22,7 +19,7 @@ public class JsonToDb {
       // Fill domeinen
       Domein[] domeinen = om.readValue(new File("Domein.json"), Domein[].class);
       System.out.println("Vullen die database met domeinen");
-      st = conn.prepareStatement("INSERT INTO domein (domein_id, title) VALUES (?, ?)");
+      st = conn.prepareStatement("INSERT INTO domein (id, title) VALUES (?, ?)");
       for (Domein domein : domeinen) {
         st.setObject(1, UUID.fromString(domein.id));
         st.setObject(2, domein.title);

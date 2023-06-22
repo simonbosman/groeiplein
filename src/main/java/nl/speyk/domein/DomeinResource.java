@@ -1,13 +1,11 @@
 package nl.speyk.domein;
 
 import io.smallrye.mutiny.Uni;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
@@ -38,6 +36,6 @@ class DomeinResource {
             )
     )
     public Uni<List<Domein>> get() {
-        return domeinService.findAll();
+        return domeinService.listAll();
     }
 }
