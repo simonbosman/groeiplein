@@ -27,6 +27,6 @@ public class DomeinService {
     }
 
     public Uni<Domein> findById(@NonNull UUID domeinId) {
-        return domeinRepository.find("domein_id", domeinId).firstResult().map(domeinMapper::toDomain);
+        return domeinRepository.find("id", domeinId).firstResult().map(domeinMapper::toDomain);
     }
 }
