@@ -22,13 +22,9 @@ public class DomeinEntity {
     @Id
     @GeneratedValue
     @UuidGenerator(style = UuidGenerator.Style.TIME)
-    @Column(name = "id")
     private UUID domeinId;
 
     @Column
     @NotEmpty(message = "{Domein.title.required}")
     private String title;
-
-    @OneToMany(mappedBy = "domein", cascade = CascadeType.ALL)
-    private List<KerndoelEntity> kerndoelen = new ArrayList<>();
 }

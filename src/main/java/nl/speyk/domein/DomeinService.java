@@ -3,6 +3,7 @@ package nl.speyk.domein;
 import io.quarkus.cache.CacheResult;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +23,7 @@ public class DomeinService {
 
     @CacheResult(cacheName = "domein-cache")
     public Uni<List<Domein>> listAll() {
-        return domeinRepository.listAll().onItem().transform(list ->
-                list.stream().map(domeinMapper::toDomain).collect(Collectors.toList()));
+        return domeinRepository.listAll().onItem().transform(list -> list.stream().map(domeinMapper::toDomain).collect(Collectors.toList()));
     }
 
     public Uni<Domein> findById(@NonNull UUID domeinId) {

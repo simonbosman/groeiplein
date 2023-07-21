@@ -8,7 +8,6 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import nl.speyk.domein.Domein;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -30,7 +29,7 @@ public class KerndoelResource {
     @GET
     @APIResponse(
             responseCode =  "200",
-            description = "Get All Kerndoelen",
+            description = "Get all Kerndoelen",
             content = @Content(
                     mediaType =  MediaType.APPLICATION_JSON,
                     schema = @Schema(type = SchemaType.ARRAY, implementation = Kerndoel.class)

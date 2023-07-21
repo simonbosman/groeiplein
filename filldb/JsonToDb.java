@@ -1,35 +1,73 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.UUID;
 
 public class JsonToDb {
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    try {
+        try {
 
-      //Connect to db
-      String url = "jdbc:postgresql://localhost/digitaal_portfolio";
-      //String url = "sqlserver://sql_admin:KnDqi8SDRg76BzDc@speyk-digitaalportfolio-sql-server.database.windows.net:1433/digitaal_portfolio_dev";
-      Connection conn = DriverManager.getConnection(url);
-      ObjectMapper om = new ObjectMapper();
-      PreparedStatement st;
+            //Connect to db
+            String url = "jdbc:postgresql://localhost/digitaal_portfolio";
+            //String url = "sqlserver://sql_admin:KnDqi8SDRg76BzDc@speyk-digitaalportfolio-sql-server.database.windows.net:1433/digitaal_portfolio_dev";
+            Connection conn = DriverManager.getConnection(url);
+            ObjectMapper om = new ObjectMapper();
+            PreparedStatement st,st2;
 
-      // Fill domeinen
-      Domein[] domeinen = om.readValue(new File("Domein.json"), Domein[].class);
-      System.out.println("Vullen die database met domeinen");
-      st = conn.prepareStatement("INSERT INTO domein (id, title) VALUES (?, ?)");
-      for (Domein domein : domeinen) {
-        st.setObject(1, UUID.fromString(domein.id));
-        st.setObject(2, domein.title);
-        st.executeUpdate();
-      }
-      // Flll kerndoelen
+            System.out.println("Vullen die database:");
 
-      st.close();
-    } catch (IOException | SQLException ex) {
-      ex.printStackTrace();
+            // Flll kerndoelen
+            Kerndoel[] kerndoelen = om.readValue(new File("Kerndoel.json"), Kerndoel[].class);
+            System.out.println("Kerndoelen"); 
+            st = conn.prepareStatement("INSERT INTO kerndoel (kerndoelid, description, prefix, title) VALUES (?, ?, ?, ?) " + 
+                "ON CONFLICT ON CONSTRAINT kerndoel_pkey DO NOTHING;");
+            //sample from slo is ambigue, hence we switch the title and description
+            for (Kerndoel kerndoel : kerndoelen) {
+                st.setObject(1, UUID.fromString(kerndoel.id));
+                st.setObject(2, kerndoel.title);
+                st.setObject(3, kerndoel.prefix);
+                st.setObject(4, kerndoel.description);
+                st.executeUpdate();
+            }
+            st.close();
+
+            //Fill doelen
+            Doel[] doelen = om.readValue(new File("Doel.json"), Doel[].class);
+            System.out.println("Doelen");
+            st = conn.prepareStatement("INSERT INTO doel (doelid, bron, description, title) VALUES (?, ?, ?, ?)" + 
+              "ON CONFLICT ON CONSTRAINT doel_pkey DO NOTHING;");
+            for (Doel doel : doelen) {
+              st.setObject(1, UUID.fromString(doel.id));
+              st.setObject(2, doel.bron);
+              st.setObject(3, doel.description);
+              st.setObject(4, doel.title);
+              st.executeUpdate();
+            }
+            st.close();
+
+            // Fill domeinen
+            Domein[] domeinen = om.readValue(new File("Domein.json"), Domein[].class);
+            System.out.println("Domeinen");
+            st = conn.prepareStatement("INSERT INTO domein (domeinid, title) VALUES (?, ?)" + 
+                "ON CONFLICT ON CONSTRAINT domein_pkey DO NOTHING");
+            st2 = conn.prepareStatement("UPDATE kerndoel SET domein_domeinid = ? WHERE kerndoelid = ?");
+            for (Domein domein : domeinen) {
+                st.setObject(1, UUID.fromString(domein.id));
+                st.setObject(2, domein.title);
+                st.executeUpdate();
+                st2.setObject(1, UUID.fromString(domein.id));
+                for (String id : domein.kerndoel_id) {
+                  st2.setObject(2, UUID.fromString(id));
+                  st2.executeUpdate();
+                }
+            }
+            st.close();
+            st2.close();
+        } catch (IOException | SQLException ex) {
+            ex.printStackTrace();
+        }
     }
-  }
 }
