@@ -1,5 +1,6 @@
-package nl.speyk.doel;
+package nl.speyk.vakleergebied;
 
+import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -16,19 +17,20 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import java.util.List;
 
-@Path("/doelen")
+@Path("/vakleergebieden")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Tag(name = "doel", description = "Doel operations")
+@Tag(name = "vakleergebied", description = "Vakleergebied operations")
 @AllArgsConstructor
 @Slf4j
-public class DoelResource {
+public class VakleergebiedResource {
 
-    private final DoelService doelService;
+    private final VakleergebiedService vakleergebiedService;
+    private final VakleergebiedRepository vakleergebiedRepository;
 
     @GET
-    @APIResponse(responseCode = "200", description = "Get all Doelen", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.ARRAY, implementation = Doel.class)))
-    public Uni<List<Doel>> get() {
-        return doelService.listAll();
+    @APIResponse(responseCode = "200", description = "Get all Vakleergebieden", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.ARRAY, implementation = Vakleergebied.class)))
+    public Uni<List<Vakleergebied>> get() {
+        return vakleergebiedService.listAll();
     }
 }

@@ -5,8 +5,9 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "CDI")
 public interface DomeinMapper {
-  
-  Domein toDomain(DomeinEntity entity);
-  @InheritInverseConfiguration(name = "toDomain")
-  DomeinEntity toEntity(Domein domain);
+
+    Domein toDomain(DomeinEntity entity);
+
+    @InheritInverseConfiguration(name = "toDomain")
+    DomeinEntity toEntity(Domein domain);
 }

@@ -48,6 +48,35 @@ public class JsonToDb {
             }
             st.close();
 
+            //Fill niveaus
+            Niveau[] niveaus = om.readValue(new File("Niveau.json"), Niveau[].class);
+            System.out.println("Niveaus");
+            st = conn.prepareStatement("INSERT INTO niveau (niveauid, description, title, type, prefix) VALUES (?, ?, ?, ?, ?)" +
+              "ON CONFLICT ON CONSTRAINT niveau_pkey DO NOTHING;");
+            for (Niveau niveau : niveaus) {
+              st.setObject(1, UUID.fromString(niveau.id));
+              st.setObject(2, niveau.description);
+              st.setObject(3, niveau.title);
+              st.setObject(4, niveau.type);
+              st.setObject(5, niveau.prefix);
+              st.executeUpdate();
+            }
+            st.close();
+
+            //Fill vakleergebieden
+            Vakleergebied[] vakleergebieden = om.readValue(new File("Vakleergebied.json"), Vakleergebied[].class);
+            System.out.println("Vakleergebieden");
+            st = conn.prepareStatement("INSERT INTO vakleergebied (vakleergebiedid, description, prefix, title) VALUES (?, ?, ?, ?)" +
+              "ON CONFLICT ON CONSTRAINT vakleergebied_pkey DO NOTHING;");
+            for (Vakleergebied vakleergebied  : vakleergebieden) {
+              st.setObject(1, UUID.fromString(vakleergebied.id));
+              st.setObject(2, vakleergebied.description);
+              st.setObject(3, vakleergebied.prefix);
+              st.setObject(4, vakleergebied.title);
+              st.executeUpdate();
+            }
+            st.close();
+
             // Fill domeinen
             Domein[] domeinen = om.readValue(new File("Domein.json"), Domein[].class);
             System.out.println("Domeinen");

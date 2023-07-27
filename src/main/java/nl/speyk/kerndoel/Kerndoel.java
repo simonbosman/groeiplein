@@ -9,7 +9,6 @@ import nl.speyk.domein.Domein;
 
 @Data
 public class Kerndoel {
-    @NotEmpty(message = "Kerndoel.id.required")
     private UUID kerndoelId;
 
     @NotEmpty(message = "Kerndoel.prefix.required")

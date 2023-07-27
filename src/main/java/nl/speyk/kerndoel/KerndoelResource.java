@@ -1,11 +1,13 @@
 package nl.speyk.kerndoel;
 
+import io.smallrye.common.constraint.NotNull;
 import io.smallrye.mutiny.Uni;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.validation.Valid;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
@@ -14,7 +16,9 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @Path("/kerndoelen")
 @Produces(MediaType.APPLICATION_JSON)
@@ -27,13 +31,8 @@ public class KerndoelResource {
     private final KerndoelService kerndoelService;
 
     @GET
-    @APIResponse(
-            responseCode =  "200",
-            description = "Get all Kerndoelen",
-            content = @Content(
-                    mediaType =  MediaType.APPLICATION_JSON,
-                    schema = @Schema(type = SchemaType.ARRAY, implementation = Kerndoel.class)
-            )
-    )
-    public Uni<List<Kerndoel>> get() {return kerndoelService.listAll();}
+    @APIResponse(responseCode = "200", description = "Get all Kerndoelen", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.ARRAY, implementation = Kerndoel.class)))
+    public Uni<List<Kerndoel>> get() {
+        return kerndoelService.listAll();
+    }
 }
