@@ -30,6 +30,6 @@ public class KerndoelEntity {
     @NotEmpty(message = "Kerndoel.description.required")
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private DomeinEntity domein;
 }

@@ -42,15 +42,25 @@ class DomeinResource {
     @APIResponse(responseCode = "200", description = "Get Domein by domeinId", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = Domein.class)))
     @APIResponse(responseCode = "404", description = "Domein does not exist for domeinId", content = @Content(mediaType = MediaType.APPLICATION_JSON))
     public Uni<Response> getDomein(UUID domeinId) {
-        return domeinService.findById(domeinId).onItem().transform(domein -> domein != null ? Response.ok(domein) : Response.status(Response.Status.NOT_FOUND)).onItem().transform(Response.ResponseBuilder::build);
+        return domeinService.findById(domeinId)
+                .onItem()
+                .transform(domein -> domein != null ? Response.ok(domein) : Response.status(Response.Status.NOT_FOUND))
+                .onItem()
+                .transform(Response.ResponseBuilder::build);
     }
 
     @POST
-    @APIResponse(responseCode = "201", description = "Domein Created", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = Domein.class)))
+    @APIResponse(responseCode = "201", description = "Domein Created")
     @APIResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = ErrorResponse.class)))
     @APIResponse(responseCode = "400", description = "Bad request", content = @Content(mediaType = MediaType.APPLICATION_JSON))
     public Uni<Response> post(@NonNull @Valid Domein domein) {
-        return domeinService.save(domein).onItem().transform(domeinCreated -> URI.create("/domeinen/" + domeinCreated.getDomeinId())).onItem().transform(uri -> Response.created(uri).build());
+        return domeinService.save(domein)
+                .onItem()
+                .transform(domeinCreated -> URI.create("/domeinen/" + domeinCreated.getDomeinId()))
+                .onItem()
+                .transform(uri -> Response.created(uri).build())
+                .onFailure()
+                .transform(failure -> new ServiceException(failure.getMessage()));
     }
 
     @PUT
@@ -61,7 +71,11 @@ class DomeinResource {
     public Uni<Response> put(@NonNull UUID domeinId, @NonNull @Valid Domein domein) {
         if (!Objects.equals(domeinId, domein.getDomeinId()))
             throw new ServiceException("Path variable domeinId does not match Domein.domeinId");
-        return domeinService.update(domein).onItem().transform(res -> res >= 1 ? Response.status(Response.Status.NO_CONTENT) : Response.status(Response.Status.NOT_FOUND)).onItem().transform(Response.ResponseBuilder::build);
+        return domeinService.update(domein)
+                .onItem()
+                .transform(res -> res >= 1 ? Response.status(Response.Status.NO_CONTENT) : Response.status(Response.Status.NOT_FOUND))
+                .onItem()
+                .transform(Response.ResponseBuilder::build);
     }
 
     @DELETE
@@ -70,6 +84,12 @@ class DomeinResource {
     @APIResponse(responseCode = "500", description = "Database error", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = ErrorResponse.class)))
     @APIResponse(responseCode = "404", description = "No domein found for the domeinId provided")
     public Uni<Response> delete(@NonNull UUID domeinId) {
-        return domeinService.delete(domeinId).onFailure().transform(failure -> new ServiceException(failure.getMessage())).onItem().transform(res -> res >= 1 ? Response.status(Response.Status.NO_CONTENT) : Response.status(Response.Status.NOT_FOUND)).onItem().transform(Response.ResponseBuilder::build);
+        return domeinService.delete(domeinId)
+                .onItem()
+                .transform(res -> res >= 1 ? Response.status(Response.Status.NO_CONTENT) : Response.status(Response.Status.NOT_FOUND))
+                .onItem()
+                .transform(Response.ResponseBuilder::build)
+                .onFailure()
+                .transform(failure -> new ServiceException(failure.getMessage()));
     }
 }
