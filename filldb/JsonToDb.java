@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
 import java.util.UUID;
 
 public class JsonToDb {
@@ -11,9 +12,17 @@ public class JsonToDb {
         try {
 
             //Connect to db
-            String url = "jdbc:postgresql://localhost/digitaal_portfolio";
+            //String url = "jdbc:postgresql://localhost/digitaal_portfolio";
+            String url = "jdbc:postgresql://groeiplein-database.postgres.database.azure.com/groeiplein";
+            Properties props = new Properties();
+            props.setProperty("user", "cuygbottcp");
+            props.setProperty("password", "0J32342ZPC11AC11!");
+            //props.setProperty("ssl", "true");
+            Connection conn = DriverManager.getConnection(url, props);
+
+            //String url ="jdbc:postgresql://groeiplein-database.postgres.database.azure.com/groeiplein?user=cuygbottcp&password=0J32342ZPC11AC11$";
             //String url = "sqlserver://sql_admin:KnDqi8SDRg76BzDc@speyk-digitaalportfolio-sql-server.database.windows.net:1433/digitaal_portfolio_dev";
-            Connection conn = DriverManager.getConnection(url);
+            //Connection conn = DriverManager.getConnection(url);
             ObjectMapper om = new ObjectMapper();
             PreparedStatement st,st2;
 

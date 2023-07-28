@@ -1,6 +1,5 @@
 package nl.speyk.vakleergebied;
 
-import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -19,8 +18,12 @@ public class VakleergebiedService {
     private final VakleergebiedRepository vakleergebiedRepository;
     private final VakleergebiedMapper vakleergebiedMapper;
 
-    @CacheResult(cacheName = "vakleergebied-cache")
+    //@CacheResult(cacheName = "vakleergebied-cache")
     public Uni<List<Vakleergebied>> listAll() {
-        return vakleergebiedRepository.listAll().onItem().transform(list -> list.stream().map(vakleergebiedMapper::toVakleergebied).collect(Collectors.toList()));
+        return vakleergebiedRepository.listAll()
+                .onItem()
+                .transform(list -> list.stream()
+                        .map(vakleergebiedMapper::toVakleergebied)
+                        .collect(Collectors.toList()));
     }
 }

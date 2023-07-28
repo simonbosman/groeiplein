@@ -1,6 +1,5 @@
 package nl.speyk.niveau;
 
-import io.quarkus.cache.CacheResult;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.AllArgsConstructor;
@@ -17,8 +16,10 @@ public class NiveauService {
     private final NiveauRepository niveauRepository;
     private final NiveauMapper niveauMapper;
 
-    @CacheResult(cacheName = "niveau-cache")
+    //@CacheResult(cacheName = "niveau-cache")
     public Uni<List<Niveau>> listAll() {
-        return niveauRepository.listAll().onItem().transform(list -> list.stream().map(niveauMapper::toNiveau).collect(Collectors.toList()));
+        return niveauRepository.listAll()
+                .onItem()
+                .transform(list -> list.stream().map(niveauMapper::toNiveau).collect(Collectors.toList()));
     }
 }

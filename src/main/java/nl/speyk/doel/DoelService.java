@@ -1,6 +1,5 @@
 package nl.speyk.doel;
 
-import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.panache.PanacheQuery;
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.quarkus.panache.common.Page;
@@ -21,10 +20,12 @@ public class DoelService {
     private final DoelRepository doelRepository;
     private final DoelMapper doelMapper;
 
-    @CacheResult(cacheName = "doel-cache")
+    //@CacheResult(cacheName = "doel-cache")
     public Uni<List<Doel>> listAll() {
         PanacheQuery<DoelEntity> doelen = doelRepository.findAll();
         doelen.page(Page.ofSize(25));
-        return doelen.list().onItem().transform(list -> list.stream().map(doelMapper::toDoel).collect(Collectors.toList()));
+        return doelen.list()
+                .onItem()
+                .transform(list -> list.stream().map(doelMapper::toDoel).collect(Collectors.toList()));
     }
 }
