@@ -1,5 +1,6 @@
 package nl.speyk.niveau;
 
+import io.quarkus.cache.CacheResult;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.AllArgsConstructor;

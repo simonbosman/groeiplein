@@ -1,5 +1,6 @@
 package nl.speyk.doel;
 
+import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.panache.PanacheQuery;
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.quarkus.panache.common.Page;
@@ -28,4 +29,6 @@ public class DoelService {
                 .onItem()
                 .transform(list -> list.stream().map(doelMapper::toDoel).collect(Collectors.toList()));
     }
+
+
 }

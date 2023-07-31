@@ -81,7 +81,7 @@ class DomeinResource {
     @DELETE
     @Path("/{domeinId}")
     @APIResponse(responseCode = "204", description = "Domein is deleted")
-    @APIResponse(responseCode = "500", description = "Database error", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = ErrorResponse.class)))
+    @APIResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = ErrorResponse.class)))
     @APIResponse(responseCode = "404", description = "No domein found for the domeinId provided")
     public Uni<Response> delete(@NonNull UUID domeinId) {
         return domeinService.delete(domeinId)

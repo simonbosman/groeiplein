@@ -1,5 +1,6 @@
 package nl.speyk.vakleergebied;
 
+import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -27,3 +28,24 @@ public class VakleergebiedService {
                         .collect(Collectors.toList()));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
