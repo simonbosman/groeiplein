@@ -6,5 +6,5 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 @WithSession
-public class KerndoelRepository implements PanacheRepository<KerndoelEntity>{
+public class KerndoelRepository implements PanacheRepository<Kerndoel>{
 }

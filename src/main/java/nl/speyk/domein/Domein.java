@@ -1,15 +1,19 @@
 package nl.speyk.domein;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
-import java.util.UUID;
-
+@Entity(name = "Domein")
+@Table(name = "domein")
 @Data
 public class Domein {
 
-    private UUID domeinId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
+    @Column
     @NotEmpty(message = "{Domein.title.required}")
     private String title;
 }

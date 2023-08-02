@@ -6,5 +6,5 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 @WithSession
-public class VakleergebiedRepository implements PanacheRepository<VakleergebiedEntity> {
+public class VakleergebiedRepository implements PanacheRepository<Vakleergebied> {
 }

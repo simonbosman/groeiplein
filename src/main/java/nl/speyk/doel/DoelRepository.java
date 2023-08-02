@@ -6,7 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 @WithSession
-public class DoelRepository implements PanacheRepository<DoelEntity> {
+public class DoelRepository implements PanacheRepository<Doel> {
 }
 
 

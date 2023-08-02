@@ -6,5 +6,5 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 @WithSession
-public class DomeinRepository implements PanacheRepository<DomeinEntity> {
+public class DomeinRepository implements PanacheRepository<Domein> {
 }
