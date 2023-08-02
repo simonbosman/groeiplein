@@ -26,6 +26,5 @@ public class Niveau {
     private String type;
 
     @Column
-    @NotEmpty(message = "Niveau.type.required")
     private String prefix;
 }

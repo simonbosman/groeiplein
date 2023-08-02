@@ -14,7 +14,6 @@ public class Vakleergebied {
     private long id;
 
     @Column
-    @NotEmpty(message = "Vakleergebied.prefix.required")
     private String prefix;
 
     @Column
