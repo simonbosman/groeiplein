@@ -66,16 +66,18 @@ class DomeinResource {
     @PUT
     @Path("/{domeinId}")
     @APIResponse(responseCode = "204", description = "Domein is updated")
-    @APIResponse(responseCode = "500", description = "Path variable domeinId does not match Domein.domeinId")
+    @APIResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(type = SchemaType.OBJECT, implementation = ErrorResponse.class)))
     @APIResponse(responseCode = "404", description = "No domein found for the domeinId provided")
     public Uni<Response> put(@NonNull UUID domeinId, @NonNull @Valid Domein domein) {
         if (!Objects.equals(domeinId, domein.getDomeinId()))
             throw new ServiceException("Path variable domeinId does not match Domein.domeinId");
         return domeinService.update(domein)
                 .onItem()
-                .transform(res -> res >= 1 ? Response.status(Response.Status.NO_CONTENT) : Response.status(Response.Status.NOT_FOUND))
+                .transform(res -> res != null ? Response.status(Response.Status.NO_CONTENT) : Response.status(Response.Status.NOT_FOUND))
                 .onItem()
-                .transform(Response.ResponseBuilder::build);
+                .transform(Response.ResponseBuilder::build)
+                .onFailure()
+                .transform(failure -> new ServiceException(failure.getMessage()));
     }
 
     @DELETE

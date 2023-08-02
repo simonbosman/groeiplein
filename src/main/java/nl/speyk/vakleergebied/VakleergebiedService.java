@@ -19,7 +19,7 @@ public class VakleergebiedService {
     private final VakleergebiedRepository vakleergebiedRepository;
     private final VakleergebiedMapper vakleergebiedMapper;
 
-    //@CacheResult(cacheName = "vakleergebied-cache")
+    @CacheResult(cacheName = "vakleergebied-cache")
     public Uni<List<Vakleergebied>> listAll() {
         return vakleergebiedRepository.listAll()
                 .onItem()

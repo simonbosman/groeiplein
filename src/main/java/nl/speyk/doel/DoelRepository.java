@@ -8,3 +8,5 @@ import jakarta.enterprise.context.ApplicationScoped;
 @WithSession
 public class DoelRepository implements PanacheRepository<DoelEntity> {
 }
+
+

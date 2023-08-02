@@ -19,4 +19,6 @@ public class Vakleergebied {
 
     @NotEmpty(message = "Vakleergebied.description.required")
     private String description;
+
+
 }

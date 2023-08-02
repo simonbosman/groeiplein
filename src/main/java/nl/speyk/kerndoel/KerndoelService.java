@@ -19,7 +19,7 @@ public class KerndoelService {
     private final KerndoelRepository kerndoelRepository;
     private final KerndoelMapper kerndoelMapper;
 
-    //@CacheResult(cacheName = "kerndoel-cache")
+    @CacheResult(cacheName = "kerndoel-cache")
     public Uni<List<Kerndoel>> listAll() {
         return kerndoelRepository.listAll()
                 .onItem()
