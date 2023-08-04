@@ -2,6 +2,7 @@ package nl.speyk.doel;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.Setter;
 import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
-import nl.speyk.score.Score;
 import nl.speyk.vakleergebied.Vakleergebied;
 
 import java.util.ArrayList;
@@ -44,11 +44,12 @@ public class Doel {
     @Column
     private String periode;
 
-    @ManyToOne
-    private Kerndoel kerndoel;
+    @Column
+    @Positive
+    private Long hoofdoelId;
 
     @ManyToOne
-    private Doel HoofdDoel;
+    private Kerndoel kerndoel;
 
     @ManyToOne
     private Domein domein;
@@ -58,7 +59,4 @@ public class Doel {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Vakleergebied> vakleergebieden = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Score> scores = new ArrayList<>();
 }

@@ -28,6 +28,9 @@ public class Score {
     @ManyToOne
     private Feedback feedback;
 
+    @ManyToOne
+    private Doel doel;
+
     @Enumerated(EnumType.STRING)
     private AuthorType author;
 }
