@@ -2,6 +2,7 @@ package nl.speyk.leerling;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NonNull;
 import nl.speyk.doel.Doel;
@@ -24,6 +25,7 @@ public class Leerling {
     private long id;
 
     @Column(unique = true)
+    @NotNull
     private UUID studentUuid;
 
     @ManyToMany(fetch = FetchType.EAGER)
