@@ -5,6 +5,13 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import nl.speyk.vakleergebied.Vakleergebied;
 
+enum CategorieType {
+    WAT_KAN_IK,
+    WIE_BEN_IK,
+    WAT_WIL_IK,
+    COL;
+}
+
 @Entity(name = "Opdracht")
 @Table(name = "opdracht")
 @Data
@@ -24,8 +31,10 @@ public class Opdracht {
 
     @Column
     @NotEmpty(message = "{Opdracht.categorie.required}")
-    private String categorie;
+    @Enumerated(EnumType.STRING)
+    private CategorieType categorie;
 
+    @NotEmpty(message = "{Opdracht.vakleergebied.required}")
     @OneToOne
     Vakleergebied vakleergebied;
 

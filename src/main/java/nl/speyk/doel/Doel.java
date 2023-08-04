@@ -9,6 +9,7 @@ import lombok.Setter;
 import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
+import nl.speyk.score.Score;
 import nl.speyk.vakleergebied.Vakleergebied;
 
 import java.util.ArrayList;
@@ -57,4 +58,7 @@ public class Doel {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Vakleergebied> vakleergebieden = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "doel")
+    private List<Score> scores = new ArrayList<>();
 }

@@ -1,7 +1,9 @@
 package nl.speyk.leerling;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import lombok.NonNull;
 import nl.speyk.doel.Doel;
 import nl.speyk.inlevermoment.InleverMoment;
 import nl.speyk.opdracht.Opdracht;
@@ -21,7 +23,8 @@ public class Leerling {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(unique = true)
+    @NotEmpty(message = "{Leerling.UUID.required}")
     private UUID uuid;
 
     @ManyToMany(fetch = FetchType.EAGER)

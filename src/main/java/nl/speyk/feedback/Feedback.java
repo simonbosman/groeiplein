@@ -4,6 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
+
+enum AuthorType {
+    DOCENT,
+    LEERLING;
+}
+
 @Entity(name = "feedback")
 @Table(name = "Feedback")
 @Data
@@ -20,4 +26,7 @@ public class Feedback {
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Feedback.content.required}")
     private String content;
+
+    @Enumerated(EnumType.STRING)
+    private AuthorType author;
 }
