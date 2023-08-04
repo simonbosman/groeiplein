@@ -1,5 +1,6 @@
 package nl.speyk.leerling;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -37,7 +38,7 @@ public class Leerling {
     @OneToMany(fetch = FetchType.EAGER)
     private List<TijdlijnItem> tijdlijnItems = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "leerling")
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Score> doelScores = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.EAGER)

@@ -23,12 +23,6 @@ public class Score {
     private UUID authorUuid;
 
     @ManyToOne
-    private Leerling leerling;
-
-    @ManyToOne
-    private Doel doel;
-
-    @ManyToOne
     private ScoreValue value;
 
     @ManyToOne

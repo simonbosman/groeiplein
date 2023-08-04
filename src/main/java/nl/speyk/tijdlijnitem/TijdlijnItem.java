@@ -2,8 +2,11 @@ package nl.speyk.tijdlijnitem;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import nl.speyk.CategorieType;
+import nl.speyk.leerling.Leerling;
 
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem")
@@ -23,11 +26,12 @@ public class TijdlijnItem {
     private String content;
 
     @Column
-    @NotEmpty(message = "{TijdlijnItem.categorie.required}")
     @Enumerated(EnumType.STRING)
+    @NotNull
     private CategorieType categorie;
 
     @Column
-    @NotEmpty(message = "{TijdlijnItem.aanmaakdatum.required}")
+    @NotNull(message = "{TijdlijnItem.aanmaakdatum.required}")
+    @Positive
     private long aanmaakdatum;
 }

@@ -59,6 +59,6 @@ public class Doel {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Vakleergebied> vakleergebieden = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "doel")
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Score> scores = new ArrayList<>();
 }

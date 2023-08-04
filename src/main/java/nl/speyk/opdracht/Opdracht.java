@@ -28,10 +28,11 @@ public class Opdracht {
 
     @Column
     @Enumerated(EnumType.STRING)
+    @NotNull
     private CategorieType categorie;
 
     @NotNull(message = "{Opdracht.vakleergebied.required}")
-    @OneToOne
+    @ManyToOne
     Vakleergebied vakleergebied;
 
     @Column
