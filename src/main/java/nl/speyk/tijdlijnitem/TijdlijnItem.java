@@ -3,6 +3,7 @@ package nl.speyk.tijdlijnitem;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import nl.speyk.CategorieType;
 
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem")
@@ -23,7 +24,8 @@ public class TijdlijnItem {
 
     @Column
     @NotEmpty(message = "{TijdlijnItem.categorie.required}")
-    private String categorie;
+    @Enumerated(EnumType.STRING)
+    private CategorieType categorie;
 
     @Column
     @NotEmpty(message = "{TijdlijnItem.aanmaakdatum.required}")

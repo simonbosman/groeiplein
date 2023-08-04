@@ -2,15 +2,12 @@ package nl.speyk.opdracht;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
+import nl.speyk.CategorieType;
 import nl.speyk.vakleergebied.Vakleergebied;
-
-enum CategorieType {
-    WAT_KAN_IK,
-    WIE_BEN_IK,
-    WAT_WIL_IK,
-    COL;
-}
+import org.jboss.logging.annotations.Pos;
 
 @Entity(name = "Opdracht")
 @Table(name = "opdracht")
@@ -30,11 +27,10 @@ public class Opdracht {
     private String content;
 
     @Column
-    @NotEmpty(message = "{Opdracht.categorie.required}")
     @Enumerated(EnumType.STRING)
     private CategorieType categorie;
 
-    @NotEmpty(message = "{Opdracht.vakleergebied.required}")
+    @NotNull(message = "{Opdracht.vakleergebied.required}")
     @OneToOne
     Vakleergebied vakleergebied;
 
@@ -43,14 +39,17 @@ public class Opdracht {
     private String periode;
 
     @Column
-    @NotEmpty(message = "{Opdracht.leerjaar.required}")
+    @NotNull(message = "{Opdracht.leerjaar.required}")
+    @Positive
     private Integer leerjaar;
 
     @Column
-    @NotEmpty(message = "{Opdracht.inleverenop.required}")
+    @NotNull(message = "{Opdracht.inleverenop.required}")
+    @Positive
     private long inleverenop;
 
     @Column
-    @NotEmpty(message = "{Opdracht.aangemaaktop.required}")
+    @NotNull(message = "{Opdracht.aangemaaktop.required}")
+    @Positive
     private long aangemaaktop;
 }

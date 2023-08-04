@@ -24,8 +24,7 @@ public class Leerling {
     private long id;
 
     @Column(unique = true)
-    @NotEmpty(message = "{Leerling.UUID.required}")
-    private UUID uuid;
+    private UUID studentUuid;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Opdracht> opdrachten = new ArrayList<>();
@@ -36,7 +35,7 @@ public class Leerling {
     @OneToMany(fetch = FetchType.EAGER)
     private List<TijdlijnItem> tijdlijnItems = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "leerling")
     private List<Score> doelScores = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.EAGER)

@@ -3,21 +3,21 @@ package nl.speyk.feedback;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import nl.speyk.AuthorType;
 
+import java.util.UUID;
 
-enum AuthorType {
-    DOCENT,
-    LEERLING;
-}
-
-@Entity(name = "feedback")
-@Table(name = "Feedback")
+@Entity(name = "Feedback")
+@Table(name = "feedback")
 @Data
 public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(unique = true)
+    private UUID authorUuid;
 
     @Column
     @NotEmpty(message = "{Feedback.title.required}")

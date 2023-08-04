@@ -2,9 +2,13 @@ package nl.speyk.score;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import nl.speyk.AuthorType;
 import nl.speyk.doel.Doel;
 import nl.speyk.feedback.Feedback;
+import nl.speyk.leerling.Leerling;
 import nl.speyk.scorevalue.ScoreValue;
+
+import java.util.UUID;
 
 @Entity(name = "Score")
 @Table(name = "score")
@@ -15,6 +19,12 @@ public class Score {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(unique = true)
+    private UUID authorUuid;
+
+    @ManyToOne
+    private Leerling leerling;
+
     @ManyToOne
     private Doel doel;
 
@@ -23,4 +33,7 @@ public class Score {
 
     @ManyToOne
     private Feedback feedback;
+
+    @Enumerated(EnumType.STRING)
+    private AuthorType author;
 }
