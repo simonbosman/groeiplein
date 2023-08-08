@@ -13,6 +13,7 @@ import java.util.UUID;
 @Entity(name = "Score")
 @Table(name = "score")
 @Data
+@Cacheable
 public class Score {
 
     @Id

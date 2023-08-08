@@ -7,6 +7,7 @@ import lombok.Data;
 @Entity(name = "Niveau")
 @Table(name = "niveau")
 @Data
+@Cacheable
 public class Niveau {
 
     @Id

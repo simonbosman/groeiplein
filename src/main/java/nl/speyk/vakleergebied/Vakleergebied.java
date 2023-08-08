@@ -7,6 +7,7 @@ import lombok.Data;
 @Entity(name = "Vakleergebied")
 @Table(name = "vakleergebied")
 @Data
+@Cacheable
 public class Vakleergebied {
 
     @Id

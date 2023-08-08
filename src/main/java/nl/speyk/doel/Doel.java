@@ -21,6 +21,7 @@ import java.util.List;
 @Setter
 @RequiredArgsConstructor
 @EqualsAndHashCode
+@Cacheable
 public class Doel {
 
     @Id

@@ -8,6 +8,7 @@ import nl.speyk.domein.Domein;
 @Entity(name = "Kerndoel")
 @Table(name = "kerndoel")
 @Data
+@Cacheable
 public class Kerndoel {
 
     @Id

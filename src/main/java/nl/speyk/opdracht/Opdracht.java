@@ -12,6 +12,7 @@ import nl.speyk.vakleergebied.Vakleergebied;
 @Entity(name = "Opdracht")
 @Table(name = "opdracht")
 @Data
+@Cacheable
 public class Opdracht {
 
     @Id

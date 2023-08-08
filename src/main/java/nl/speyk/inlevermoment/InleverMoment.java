@@ -20,6 +20,7 @@ enum StatusType {
 @Entity(name = "InleverMoment")
 @Table(name = "inlevermoment")
 @Data
+@Cacheable
 public class InleverMoment {
 
     @NotEmpty(message = "{InleverMoment.opdracht.required}")

@@ -5,12 +5,14 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import nl.speyk.AuthorType;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.UUID;
 
 @Entity(name = "Feedback")
 @Table(name = "feedback")
 @Data
+@Cacheable
 public class Feedback {
 
     @Id

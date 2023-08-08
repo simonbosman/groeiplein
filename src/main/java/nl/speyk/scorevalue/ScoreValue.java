@@ -9,6 +9,7 @@ import lombok.Data;
 @Entity(name = "ScoreValue")
 @Table(name = "scorevalue")
 @Data
+@Cacheable
 public class ScoreValue {
 
     @Id

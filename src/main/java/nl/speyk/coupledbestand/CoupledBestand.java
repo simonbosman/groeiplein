@@ -7,6 +7,7 @@ import lombok.Data;
 @Entity(name = "CoupledBestand")
 @Table(name = "coupledbestand")
 @Data
+@Cacheable
 public class CoupledBestand {
 
     @Id

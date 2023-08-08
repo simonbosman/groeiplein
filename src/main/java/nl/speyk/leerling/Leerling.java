@@ -16,6 +16,7 @@ import java.util.UUID;
 @Entity(name = "Leerling")
 @Table(name = "leerling")
 @Data
+@Cacheable
 public class Leerling {
 
     @Id

@@ -10,6 +10,7 @@ import nl.speyk.CategorieType;
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem")
 @Data
+@Cacheable
 public class TijdlijnItem {
 
     @Id
