@@ -34,11 +34,5 @@ public class Leerling {
     private List<Doel> doelen = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<TijdlijnItem> tijdlijnItems = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.EAGER)
     private List<Score> doelScores = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<InleverMoment> inleverMomenten = new ArrayList<>();
 }

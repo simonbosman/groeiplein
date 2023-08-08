@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import nl.speyk.coupledbestand.CoupledBestand;
+import nl.speyk.leerling.Leerling;
 import nl.speyk.opdracht.Opdracht;
 
 import java.util.ArrayList;
@@ -23,22 +24,22 @@ enum StatusType {
 @Cacheable
 public class InleverMoment {
 
-    @NotEmpty(message = "{InleverMoment.opdracht.required}")
-    @ManyToOne
-    Opdracht opdracht;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotNull(message = "{InleverMoment.opdracht.required}")
+    @ManyToOne
+    Opdracht opdracht;
+
+    @NotNull(message = "{InleverMoment.leerling.required}")
+    @ManyToOne
+    Leerling leerling;
 
     @Column
     @Positive(message = "{InleverMoment.date.required}")
     @NotNull(message = "{InleverMoment.date.required}")
     private long date;
-
-    @NotEmpty(message = "{InleverMoment.bestand.required}")
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<CoupledBestand> coupledBestanden = new ArrayList<>();
 
     @Column
     @NotEmpty(message = "{InleverMoment.status.required}")

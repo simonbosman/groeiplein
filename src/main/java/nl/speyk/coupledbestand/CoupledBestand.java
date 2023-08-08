@@ -2,7 +2,9 @@ package nl.speyk.coupledbestand;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import nl.speyk.inlevermoment.InleverMoment;
 
 @Entity(name = "CoupledBestand")
 @Table(name = "coupledbestand")
@@ -21,4 +23,8 @@ public class CoupledBestand {
     @Column
     @NotEmpty(message = "{CoupledBestand.fileurl.required}")
     private String fileurl;
+
+    @ManyToOne
+    @NotNull(message = "{CoupledBestand.inleverMoment.required}")
+    private InleverMoment inleverMoment;
 }
