@@ -31,11 +31,11 @@ public class Doel {
     private String bron;
 
     @Column(columnDefinition = "TEXT")
-    @NotEmpty(message = "Doel.title.required")
+    @NotEmpty(message = "{Doel.title.required}")
     private String title;
 
     @Column(columnDefinition = "TEXT")
-    @NotEmpty(message = "Doel.description.required")
+    @NotEmpty(message = "{Doel.description.required}")
     private String description;
 
     @Column

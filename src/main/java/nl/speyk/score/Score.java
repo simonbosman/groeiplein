@@ -1,11 +1,11 @@
 package nl.speyk.score;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import nl.speyk.AuthorType;
 import nl.speyk.doel.Doel;
 import nl.speyk.feedback.Feedback;
-import nl.speyk.leerling.Leerling;
 import nl.speyk.scorevalue.ScoreValue;
 
 import java.util.UUID;
@@ -19,7 +19,8 @@ public class Score {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(unique = true)
+    @Column
+    @NotNull(message = "{Score.UUID.required}")
     private UUID authorUuid;
 
     @ManyToOne

@@ -5,5 +5,5 @@ public enum CategorieType {
     WIE_BEN_IK,
     WAT_WIL_IK,
     COL,
-    LO;
+    LO
 }

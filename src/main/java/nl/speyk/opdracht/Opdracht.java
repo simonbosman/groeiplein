@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import nl.speyk.CategorieType;
 import nl.speyk.vakleergebied.Vakleergebied;
-import org.jboss.logging.annotations.Pos;
+
 
 @Entity(name = "Opdracht")
 @Table(name = "opdracht")
@@ -31,10 +31,6 @@ public class Opdracht {
     @NotNull
     private CategorieType categorie;
 
-    @NotNull(message = "{Opdracht.vakleergebied.required}")
-    @ManyToOne
-    Vakleergebied vakleergebied;
-
     @Column
     @NotEmpty(message = "{Opdracht.periode.required}")
     private String periode;
@@ -53,4 +49,8 @@ public class Opdracht {
     @NotNull(message = "{Opdracht.aangemaaktop.required}")
     @Positive
     private long aangemaaktop;
+
+    @NotNull(message = "{Opdracht.vakleergebied.required}")
+    @ManyToOne
+    Vakleergebied vakleergebied;
 }

@@ -2,6 +2,7 @@ package nl.speyk.feedback;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import nl.speyk.AuthorType;
 
@@ -16,7 +17,8 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(unique = true)
+    @Column
+    @NotNull(message = "{Feedback.UUID.required}")
     private UUID authorUuid;
 
     @Column

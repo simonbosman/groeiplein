@@ -1,0 +1,2133 @@
+---
+openapi: 3.0.3
+info:
+  title: Groeiplein API
+  version: 1.0.0
+  description: Een PUT operatie kan zowel een update als een insert zijn. In het geval van een bestaand id is het een update, bij een niet bestaand id een insert.
+tags:
+- name: CoupledBestandResource
+- name: DoelResource
+- name: DomeinResource
+- name: FeedbackResource
+- name: InleverMomentResource
+- name: KerndoelResource
+- name: LeerlingResource
+- name: NiveauResource
+- name: OpdrachtResource
+- name: ScoreResource
+- name: ScoreValueResource
+- name: TijdlijnItemResource
+- name: VakleergebiedResource
+paths:
+  /coupled-bestand:
+    get:
+      tags:
+      - CoupledBestandResource
+      parameters:
+      - name: filename
+        in: query
+        schema:
+          type: string
+      - name: fileurl
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CoupledBestand'
+    post:
+      tags:
+      - CoupledBestandResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CoupledBestand'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoupledBestand'
+  /coupled-bestand/count:
+    get:
+      tags:
+      - CoupledBestandResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /coupled-bestand/{id}:
+    get:
+      tags:
+      - CoupledBestandResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoupledBestand'
+    put:
+      tags:
+      - CoupledBestandResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CoupledBestand'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoupledBestand'
+    delete:
+      tags:
+      - CoupledBestandResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /doel:
+    get:
+      tags:
+      - DoelResource
+      parameters:
+      - name: bron
+        in: query
+        schema:
+          type: string
+      - name: description
+        in: query
+        schema:
+          type: string
+      - name: hoofdoelId
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: leerjaar
+        in: query
+        schema:
+          format: int32
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: periode
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Doel'
+    post:
+      tags:
+      - DoelResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Doel'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Doel'
+  /doel/count:
+    get:
+      tags:
+      - DoelResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /doel/{id}:
+    get:
+      tags:
+      - DoelResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Doel'
+    put:
+      tags:
+      - DoelResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Doel'
+      responses:
+        "204":
+          content: {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Doel'
+    delete:
+      tags:
+      - DoelResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /domein:
+    get:
+      tags:
+      - DomeinResource
+      parameters:
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Domein'
+    post:
+      tags:
+      - DomeinResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Domein'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domein'
+  /domein/count:
+    get:
+      tags:
+      - DomeinResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /domein/{id}:
+    get:
+      tags:
+      - DomeinResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domein'
+    put:
+      tags:
+      - DomeinResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Domein'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domein'
+    delete:
+      tags:
+      - DomeinResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /feedback:
+    get:
+      tags:
+      - FeedbackResource
+      parameters:
+      - name: content
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Feedback'
+    post:
+      tags:
+      - FeedbackResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feedback'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feedback'
+  /feedback/count:
+    get:
+      tags:
+      - FeedbackResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /feedback/{id}:
+    get:
+      tags:
+      - FeedbackResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feedback'
+    put:
+      tags:
+      - FeedbackResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feedback'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feedback'
+    delete:
+      tags:
+      - FeedbackResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /inlever-moment:
+    get:
+      tags:
+      - InleverMomentResource
+      parameters:
+      - name: date
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InleverMoment'
+    post:
+      tags:
+      - InleverMomentResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InleverMoment'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InleverMoment'
+  /inlever-moment/count:
+    get:
+      tags:
+      - InleverMomentResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /inlever-moment/{id}:
+    get:
+      tags:
+      - InleverMomentResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InleverMoment'
+    put:
+      tags:
+      - InleverMomentResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InleverMoment'
+      responses:
+        "204":
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InleverMoment'
+    delete:
+      tags:
+      - InleverMomentResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /kerndoel:
+    get:
+      tags:
+      - KerndoelResource
+      parameters:
+      - name: description
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: prefix
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Kerndoel'
+    post:
+      tags:
+      - KerndoelResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kerndoel'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kerndoel'
+  /kerndoel/count:
+    get:
+      tags:
+      - KerndoelResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /kerndoel/{id}:
+    get:
+      tags:
+      - KerndoelResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kerndoel'
+    put:
+      tags:
+      - KerndoelResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kerndoel'
+      responses:
+        "204": {}
+    delete:
+      tags:
+      - KerndoelResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kerndoel'
+  /leerling:
+    get:
+      tags:
+      - LeerlingResource
+      parameters:
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Leerling'
+    post:
+      tags:
+      - LeerlingResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leerling'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leerling'
+  /leerling/count:
+    get:
+      tags:
+      - LeerlingResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /leerling/{id}:
+    get:
+      tags:
+      - LeerlingResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leerling'
+    put:
+      tags:
+      - LeerlingResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leerling'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leerling'
+    delete:
+      tags:
+      - LeerlingResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /niveau:
+    get:
+      tags:
+      - NiveauResource
+      parameters:
+      - name: description
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: prefix
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      - name: type
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Niveau'
+    post:
+      tags:
+      - NiveauResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Niveau'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Niveau'
+  /niveau/count:
+    get:
+      tags:
+      - NiveauResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /niveau/{id}:
+    get:
+      tags:
+      - NiveauResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Niveau'
+    put:
+      tags:
+      - NiveauResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Niveau'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Niveau'
+    delete:
+      tags:
+      - NiveauResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /opdracht:
+    get:
+      tags:
+      - OpdrachtResource
+      parameters:
+      - name: aangemaaktop
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: content
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: inleverenop
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: leerjaar
+        in: query
+        schema:
+          format: int32
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: periode
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opdracht'
+    post:
+      tags:
+      - OpdrachtResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opdracht'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opdracht'
+  /opdracht/count:
+    get:
+      tags:
+      - OpdrachtResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /opdracht/{id}:
+    get:
+      tags:
+      - OpdrachtResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opdracht'
+    put:
+      tags:
+      - OpdrachtResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opdracht'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opdracht'
+    delete:
+      tags:
+      - OpdrachtResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /score:
+    get:
+      tags:
+      - ScoreResource
+      parameters:
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Score'
+    post:
+      tags:
+      - ScoreResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Score'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Score'
+  /score-value:
+    get:
+      tags:
+      - ScoreValueResource
+      parameters:
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: kleur
+        in: query
+        schema:
+          type: string
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      - name: value
+        in: query
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScoreValue'
+    post:
+      tags:
+      - ScoreValueResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreValue'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreValue'
+  /score-value/count:
+    get:
+      tags:
+      - ScoreValueResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /score-value/{id}:
+    get:
+      tags:
+      - ScoreValueResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreValue'
+    put:
+      tags:
+      - ScoreValueResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreValue'
+      responses:
+        "204": {}
+    delete:
+      tags:
+      - ScoreValueResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreValue'
+  /score/count:
+    get:
+      tags:
+      - ScoreResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /score/{id}:
+    get:
+      tags:
+      - ScoreResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Score'
+    put:
+      tags:
+      - ScoreResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Score'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Score'
+    delete:
+      tags:
+      - ScoreResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /tijdlijn-item:
+    get:
+      tags:
+      - TijdlijnItemResource
+      parameters:
+      - name: aanmaakdatum
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: content
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TijdlijnItem'
+    post:
+      tags:
+      - TijdlijnItemResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TijdlijnItem'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TijdlijnItem'
+  /tijdlijn-item/count:
+    get:
+      tags:
+      - TijdlijnItemResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /tijdlijn-item/{id}:
+    get:
+      tags:
+      - TijdlijnItemResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TijdlijnItem'
+    put:
+      tags:
+      - TijdlijnItemResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TijdlijnItem'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TijdlijnItem'
+    delete:
+      tags:
+      - TijdlijnItemResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+  /vakleergebied:
+    get:
+      tags:
+      - VakleergebiedResource
+      parameters:
+      - name: description
+        in: query
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: namedQuery
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: prefix
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 20
+          type: integer
+      - name: sort
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: title
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vakleergebied'
+    post:
+      tags:
+      - VakleergebiedResource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vakleergebied'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vakleergebied'
+  /vakleergebied/count:
+    get:
+      tags:
+      - VakleergebiedResource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+  /vakleergebied/{id}:
+    get:
+      tags:
+      - VakleergebiedResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vakleergebied'
+    put:
+      tags:
+      - VakleergebiedResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vakleergebied'
+      responses:
+        "204": {}
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vakleergebied'
+    delete:
+      tags:
+      - VakleergebiedResource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204": {}
+components:
+  schemas:
+    AuthorType:
+      enum:
+      - DOCENT
+      - LEERLING
+      type: string
+    CategorieType:
+      enum:
+      - WAT_KAN_IK
+      - WIE_BEN_IK
+      - WAT_WIL_IK
+      - COL
+      - LO
+      type: string
+    CoupledBestand:
+      required:
+      - filename
+      - fileurl
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        filename:
+          minLength: 1
+          type: string
+        fileurl:
+          minLength: 1
+          type: string
+    CoupledBestandId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Doel:
+      required:
+      - title
+      - description
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        bron:
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        leerjaar:
+          format: int32
+          type: integer
+        periode:
+          type: string
+        hoofdoelId:
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+        kerndoel:
+          $ref: '#/components/schemas/KerndoelId'
+        domein:
+          $ref: '#/components/schemas/DomeinId'
+        niveaus:
+          type: array
+          items:
+            $ref: '#/components/schemas/NiveauId'
+        vakleergebieden:
+          type: array
+          items:
+            $ref: '#/components/schemas/VakleergebiedId'
+    DoelId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Domein:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          minLength: 1
+          type: string
+    DomeinId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Feedback:
+      required:
+      - title
+      - content
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        authorUuid:
+          $ref: '#/components/schemas/UUID'
+        title:
+          minLength: 1
+          type: string
+        content:
+          minLength: 1
+          type: string
+        author:
+          $ref: '#/components/schemas/AuthorType'
+    FeedbackId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    InleverMoment:
+      required:
+      - date
+      - coupledBestanden
+      - status
+      type: object
+      properties:
+        opdracht:
+          $ref: '#/components/schemas/OpdrachtId'
+        id:
+          format: int64
+          type: integer
+        date:
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+        coupledBestanden:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/CoupledBestandId'
+        status:
+          minLength: 1
+          type: string
+          allOf:
+          - $ref: '#/components/schemas/StatusType'
+    InleverMomentId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Kerndoel:
+      required:
+      - prefix
+      - title
+      - description
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        prefix:
+          minLength: 1
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        domein:
+          $ref: '#/components/schemas/DomeinId'
+    KerndoelId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Leerling:
+      required:
+      - studentUuid
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        studentUuid:
+          $ref: '#/components/schemas/UUID'
+        opdrachten:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpdrachtId'
+        doelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/DoelId'
+        tijdlijnItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/TijdlijnItemId'
+        doelScores:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoreId'
+        inleverMomenten:
+          type: array
+          items:
+            $ref: '#/components/schemas/InleverMomentId'
+    Niveau:
+      required:
+      - title
+      - description
+      - type
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        type:
+          minLength: 1
+          type: string
+        prefix:
+          type: string
+    NiveauId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Opdracht:
+      required:
+      - vakleergebied
+      - title
+      - content
+      - categorie
+      - periode
+      - leerjaar
+      - inleverenop
+      - aangemaaktop
+      type: object
+      properties:
+        vakleergebied:
+          $ref: '#/components/schemas/VakleergebiedId'
+        id:
+          format: int64
+          type: integer
+        title:
+          minLength: 1
+          type: string
+        content:
+          minLength: 1
+          type: string
+        categorie:
+          $ref: '#/components/schemas/CategorieType'
+        periode:
+          minLength: 1
+          type: string
+        leerjaar:
+          format: int32
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+        inleverenop:
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+        aangemaaktop:
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+    OpdrachtId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    Score:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        authorUuid:
+          $ref: '#/components/schemas/UUID'
+        value:
+          $ref: '#/components/schemas/ScoreValueId'
+        feedback:
+          $ref: '#/components/schemas/FeedbackId'
+        doel:
+          $ref: '#/components/schemas/DoelId'
+        author:
+          $ref: '#/components/schemas/AuthorType'
+    ScoreId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    ScoreValue:
+      required:
+      - title
+      - value
+      - kleur
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          minLength: 1
+          type: string
+        value:
+          format: int32
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+        kleur:
+          minLength: 1
+          type: string
+    ScoreValueId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    StatusType:
+      enum:
+      - VERLOPEN
+      - INGELEVERD
+      - OPEN
+      type: string
+    TijdlijnItem:
+      required:
+      - title
+      - content
+      - categorie
+      - aanmaakdatum
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          minLength: 1
+          type: string
+        content:
+          minLength: 1
+          type: string
+        categorie:
+          $ref: '#/components/schemas/CategorieType'
+        aanmaakdatum:
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          type: integer
+    TijdlijnItemId:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+    UUID:
+      format: uuid
+      pattern: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
+      type: string
+    Vakleergebied:
+      required:
+      - title
+      - description
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        prefix:
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+    VakleergebiedId:
+      type: object
+      properties:
+          id:
+            format: int66
+            type: integer
+
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: basic

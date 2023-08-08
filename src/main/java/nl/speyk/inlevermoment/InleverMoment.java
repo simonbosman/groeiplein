@@ -14,7 +14,7 @@ import java.util.List;
 enum StatusType {
     VERLOPEN,
     INGELEVERD,
-    OPEN;
+    OPEN
 }
 
 @Entity(name = "InleverMoment")

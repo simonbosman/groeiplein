@@ -1,11 +1,8 @@
 package nl.speyk.leerling;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NonNull;
 import nl.speyk.doel.Doel;
 import nl.speyk.inlevermoment.InleverMoment;
 import nl.speyk.opdracht.Opdracht;
