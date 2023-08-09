@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.Data;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
 
