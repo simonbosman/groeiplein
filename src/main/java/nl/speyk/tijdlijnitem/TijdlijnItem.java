@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.Data;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
 
@@ -16,7 +15,7 @@ import java.util.List;
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem")
 @Cacheable
-@NamedQuery(name = "Leerling", query = "from TijdlijnItem where leerling.id = :id")
+@NamedQuery(name = "TijdlijnItem.Leerling", query = "from TijdlijnItem where leerling.id = :id")
 public class TijdlijnItem extends PanacheEntity {
 
     @NotEmpty(message = "{TijdlijnItem.title.required}")
@@ -41,6 +40,6 @@ public class TijdlijnItem extends PanacheEntity {
     public Leerling leerling;
 
     public static Uni<List<TijdlijnItem>> getItemsByLeerlingId(Long leerlingId) {
-        return find("leerling.id = :leerlingId", Collections.singletonMap("leerlingId", leerlingId)).list();
+        return find("#TijdlijnItem.Leerling", Collections.singletonMap("id", leerlingId)).list();
     }
 }
