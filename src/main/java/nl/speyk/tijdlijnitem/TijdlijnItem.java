@@ -1,7 +1,7 @@
 package nl.speyk.tijdlijnitem;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
-import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
+import io.smallrye.mutiny.Uni;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -10,31 +10,37 @@ import lombok.Data;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
 
+import java.util.Collections;
+import java.util.List;
+
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem")
-@Data
 @Cacheable
 @NamedQuery(name = "Leerling", query = "from TijdlijnItem where leerling.id = :id")
 public class TijdlijnItem extends PanacheEntity {
 
     @NotEmpty(message = "{TijdlijnItem.title.required}")
-    private String title;
+    public String title;
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{TijdlijnItem.content.required}")
-    private String content;
+    public String content;
 
     @Column
     @Enumerated(EnumType.STRING)
     @NotNull
-    private CategorieType categorie;
+    public CategorieType categorie;
 
     @Column
     @NotNull(message = "{TijdlijnItem.aanmaakdatum.required}")
     @Positive
-    private long aanmaakdatum;
+    public long aanmaakdatum;
 
     @NotNull(message = "{TijdlijnItem.leerling.required}")
     @ManyToOne(fetch = FetchType.EAGER)
-    private Leerling leerling;
+    public Leerling leerling;
+
+    public static Uni<List<TijdlijnItem>> getItemsByLeerlingId(Long leerlingId) {
+        return find("leerling.id = :leerlingId", Collections.singletonMap("leerlingId", leerlingId)).list();
+    }
 }
