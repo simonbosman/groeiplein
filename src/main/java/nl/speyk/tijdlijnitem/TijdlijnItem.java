@@ -14,6 +14,7 @@ import nl.speyk.leerling.Leerling;
 @Table(name = "tijdlijnitem")
 @Data
 @Cacheable
+@NamedQuery(name = "Leerling", query = "from TijdlijnItem where leerling.id = :id")
 public class TijdlijnItem extends PanacheEntity {
 
     @NotEmpty(message = "{TijdlijnItem.title.required}")
