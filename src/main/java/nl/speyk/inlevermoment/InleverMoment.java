@@ -1,15 +1,14 @@
 package nl.speyk.inlevermoment;
 
+import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import io.smallrye.mutiny.Uni;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import lombok.Data;
-import nl.speyk.coupledbestand.CoupledBestand;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.opdracht.Opdracht;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 enum StatusType {
@@ -20,29 +19,37 @@ enum StatusType {
 
 @Entity(name = "InleverMoment")
 @Table(name = "inlevermoment")
-@Data
 @Cacheable
-public class InleverMoment {
+@NamedQueries({
+        @NamedQuery(name = "InleverMoment.Opdracht", query = "FROM InleverMoment WHERE opdracht.id = :id"),
+        @NamedQuery(name = "InleverMoment.Leerling", query = "FROM InleverMoment WHERE leerling.id = :id")
+})
+public class InleverMoment extends PanacheEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column
+    @Positive
+    @NotNull(message = "{InleverMoment.date.required}")
+    public long date;
 
+    @Column
+    @NotNull(message = "{InleverMoment.status.required}")
+    @Enumerated(EnumType.STRING)
+
+    public StatusType status;
     @NotNull(message = "{InleverMoment.opdracht.required}")
-    @ManyToOne
-    Opdracht opdracht;
+    @ManyToOne(fetch = FetchType.EAGER)
+    public Opdracht opdracht;
 
     @NotNull(message = "{InleverMoment.leerling.required}")
-    @ManyToOne
-    Leerling leerling;
+    @ManyToOne(fetch = FetchType.EAGER)
+    public Leerling leerling;
 
-    @Column
-    @Positive(message = "{InleverMoment.date.required}")
-    @NotNull(message = "{InleverMoment.date.required}")
-    private long date;
+    public static Uni<List<InleverMoment>> getMomentenByOpdrachtId(long opdrachtId) {
+        return find("#InleverMoment.Opdracht", Collections.singletonMap("id", opdrachtId)).list();
+    }
 
-    @Column
-    @NotEmpty(message = "{InleverMoment.status.required}")
-    @Enumerated(EnumType.STRING)
-    private StatusType status;
+    public static Uni<List<InleverMoment>> getMomentenByLeerlingId(long leerlingId) {
+        return find("#InleverMoment.Leerling", Collections.singletonMap("id", leerlingId)).list();
+    }
 }
+

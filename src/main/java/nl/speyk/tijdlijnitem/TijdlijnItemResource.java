@@ -17,7 +17,7 @@ public interface TijdlijnItemResource extends PanacheEntityResource<TijdlijnItem
     @GET
     @Path("/leerling/{leerlingId}")
     @Produces("application/json")
-    default Uni<List<TijdlijnItem>> findByLeerlingId(@PathParam("leerlingId") Long leerlingId) {
+    default Uni<List<TijdlijnItem>> findItemByLeerlingId(@PathParam("leerlingId") Long leerlingId) {
         return TijdlijnItem.getItemsByLeerlingId(leerlingId);
     }
 }
