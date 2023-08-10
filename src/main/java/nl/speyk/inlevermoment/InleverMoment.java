@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.opdracht.Opdracht;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Collections;
 import java.util.List;
@@ -34,14 +35,16 @@ public class InleverMoment extends PanacheEntity {
     @Column
     @NotNull(message = "{InleverMoment.status.required}")
     @Enumerated(EnumType.STRING)
-
     public StatusType status;
+
     @NotNull(message = "{InleverMoment.opdracht.required}")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     public Opdracht opdracht;
 
     @NotNull(message = "{InleverMoment.leerling.required}")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     public Leerling leerling;
 
     public static Uni<List<InleverMoment>> getMomentenByOpdrachtId(long opdrachtId) {
@@ -50,14 +53,6 @@ public class InleverMoment extends PanacheEntity {
 
     public static Uni<List<InleverMoment>> getMomentenByLeerlingId(long leerlingId) {
         return find("#InleverMoment.Leerling", Collections.singletonMap("id", leerlingId)).list();
-    }
-
-    public static Uni<Integer> setOpdrachtRelation(Long inleverMomentId, Long opdrachtId) {
-        return update("opdracht.id = ?1 WHERE id = ?2", opdrachtId, inleverMomentId);
-    }
-
-    public static Uni<Integer> setLeerlingRelation(Long inleverMomentId, Long leerlingId) {
-        return update("leerling.id = ?1 WHERE id = ?2", leerlingId, inleverMomentId);
     }
 }
 

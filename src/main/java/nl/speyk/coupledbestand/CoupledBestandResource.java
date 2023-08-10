@@ -14,11 +14,4 @@ public interface CoupledBestandResource extends PanacheEntityResource<CoupledBes
     default Uni<List<CoupledBestand>> findMomentByLeerlingId(@PathParam("inlevermomentId") Long inlevermomentId) {
         return CoupledBestand.getBestandenByInleverMomentId(inlevermomentId);
     }
-
-    @PUT
-    @Path("/relation/{bestandId}/{inleverMomentId}")
-    default Uni<Integer> setInleverMomentRelation(@PathParam("bestandId") Long bestandId,
-                                                  @PathParam("inleverMomentId") Long inleverMomentId) {
-        return CoupledBestand.setInleverMomentRelation(bestandId, inleverMomentId);
-    }
 }

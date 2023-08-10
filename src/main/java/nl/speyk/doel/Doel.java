@@ -11,6 +11,7 @@ import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
 import nl.speyk.vakleergebied.Vakleergebied;
+import org.hibernate.annotations.Cascade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,14 +51,18 @@ public class Doel {
     private Long hoofdoelId;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     private Kerndoel kerndoel;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     private Domein domein;
 
     @ManyToOne
+    @Cascade({org.hibernate.annotations.CascadeType.MERGE})
     private Niveau niveau;
 
     @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     private Vakleergebied vakleergebied;
 }

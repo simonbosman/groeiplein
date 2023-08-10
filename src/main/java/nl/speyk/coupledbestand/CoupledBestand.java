@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import nl.speyk.inlevermoment.InleverMoment;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,14 +26,11 @@ public class CoupledBestand extends PanacheEntity {
     public String fileurl;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     @NotNull(message = "{CoupledBestand.inleverMoment.required}")
     public InleverMoment inlevermoment;
 
     public static Uni<List<CoupledBestand>> getBestandenByInleverMomentId(Long inleverMomentId) {
         return find("#CoupledBestand.InleverMoment", Collections.singletonMap("id", inleverMomentId)).list();
-    }
-
-    public static Uni<Integer> setInleverMomentRelation(Long bestandId, Long inleverMomentId) {
-        return update("inlevermoment.id = ?1 WHERE id = ?2", inleverMomentId, bestandId);
     }
 }

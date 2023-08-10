@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Collections;
 import java.util.List;
@@ -37,13 +38,10 @@ public class TijdlijnItem extends PanacheEntity {
 
     @NotNull(message = "{TijdlijnItem.leerling.required}")
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     public Leerling leerling;
 
     public static Uni<List<TijdlijnItem>> getItemsByLeerlingId(Long leerlingId) {
         return find("#TijdlijnItem.Leerling", Collections.singletonMap("id", leerlingId)).list();
-    }
-
-    public static Uni<Integer> setLeerlingRelation(Long tijdlijnItemId, Long leerlingId) {
-        return update("leerling.id = ?1 WHERE id = ?2", leerlingId, tijdlijnItemId);
     }
 }

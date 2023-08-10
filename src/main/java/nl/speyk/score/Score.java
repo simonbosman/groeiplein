@@ -12,6 +12,7 @@ import nl.speyk.feedback.Feedback;
 import nl.speyk.inlevermoment.InleverMoment;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.scorevalue.ScoreValue;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Collections;
 import java.util.List;
@@ -37,9 +38,11 @@ public class Score extends PanacheEntity {
     private Feedback feedback;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     private Doel doel;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     private Leerling leerling;
 
     @Enumerated(EnumType.STRING)
@@ -51,13 +54,5 @@ public class Score extends PanacheEntity {
 
     public static Uni<List<Score>> getScoreByLeerlingId(long leerlingId) {
         return find("#Score.Leerling", Collections.singletonMap("id", leerlingId)).list();
-    }
-
-    public static Uni<Integer> setDoelRelation(Long scoreId, Long doelId) {
-        return update("doel.id = ?1 WHERE id = ?2", doelId, scoreId);
-    }
-
-    public static Uni<Integer> setLeerlingRelaiton(Long scoreId, Long leerlingId) {
-        return update("leerling.id = ?1 WHERE id = ?2", leerlingId, scoreId);
     }
 }
