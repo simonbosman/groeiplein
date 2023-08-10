@@ -52,4 +52,12 @@ public class Score extends PanacheEntity {
     public static Uni<List<Score>> getScoreByLeerlingId(long leerlingId) {
         return find("#Score.Leerling", Collections.singletonMap("id", leerlingId)).list();
     }
+
+    public static Uni<Integer> setDoelRelation(Long scoreId, Long doelId) {
+        return update("doel.id = ?1 WHERE id = ?2", doelId, scoreId);
+    }
+
+    public static Uni<Integer> setLeerlingRelaiton(Long scoreId, Long leerlingId) {
+        return update("leerling.id = ?1 WHERE id = ?2", leerlingId, scoreId);
+    }
 }

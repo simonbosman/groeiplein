@@ -51,5 +51,13 @@ public class InleverMoment extends PanacheEntity {
     public static Uni<List<InleverMoment>> getMomentenByLeerlingId(long leerlingId) {
         return find("#InleverMoment.Leerling", Collections.singletonMap("id", leerlingId)).list();
     }
+
+    public static Uni<Integer> setOpdrachtRelation(Long inleverMomentId, Long opdrachtId) {
+        return update("opdracht.id = ?1 WHERE id = ?2", opdrachtId, inleverMomentId);
+    }
+
+    public static Uni<Integer> setLeerlingRelation(Long inleverMomentId, Long leerlingId) {
+        return update("leerling.id = ?1 WHERE id = ?2", leerlingId, inleverMomentId);
+    }
 }
 

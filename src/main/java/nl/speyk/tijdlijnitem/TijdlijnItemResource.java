@@ -5,7 +5,6 @@ import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @ResourceProperties
@@ -19,9 +18,9 @@ public interface TijdlijnItemResource extends PanacheEntityResource<TijdlijnItem
     }
 
     @PUT
-    @Path("/relatie/{tijdlijnItemId}/{leerlingId}")
+    @Path("/relation/{tijdlijnItemId}/{leerlingId}")
     default Uni<Integer> setLeerlingRelation(@PathParam("tijdlijnItemId") Long tijdlijnItemId,
-                                        @PathParam("leerlingId") Long leerlingId) {
+                                             @PathParam("leerlingId") Long leerlingId) {
         return TijdlijnItem.setLeerlingRelation(tijdlijnItemId, leerlingId);
     }
 }

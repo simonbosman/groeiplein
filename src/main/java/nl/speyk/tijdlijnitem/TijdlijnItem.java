@@ -10,9 +10,7 @@ import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem")
@@ -46,6 +44,6 @@ public class TijdlijnItem extends PanacheEntity {
     }
 
     public static Uni<Integer> setLeerlingRelation(Long tijdlijnItemId, Long leerlingId) {
-            return update("leerling.id = ?1 WHERE id = ?2", leerlingId, tijdlijnItemId);
+        return update("leerling.id = ?1 WHERE id = ?2", leerlingId, tijdlijnItemId);
     }
 }

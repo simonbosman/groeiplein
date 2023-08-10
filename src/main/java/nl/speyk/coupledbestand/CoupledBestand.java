@@ -31,4 +31,8 @@ public class CoupledBestand extends PanacheEntity {
     public static Uni<List<CoupledBestand>> getBestandenByInleverMomentId(Long inleverMomentId) {
         return find("#CoupledBestand.InleverMoment", Collections.singletonMap("id", inleverMomentId)).list();
     }
+
+    public static Uni<Integer> setInleverMomentRelation(Long bestandId, Long inleverMomentId) {
+        return update("inlevermoment.id = ?1 WHERE id = ?2", inleverMomentId, bestandId);
+    }
 }

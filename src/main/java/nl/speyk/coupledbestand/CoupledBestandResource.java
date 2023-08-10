@@ -2,11 +2,7 @@ package nl.speyk.coupledbestand;
 
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.smallrye.mutiny.Uni;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import nl.speyk.inlevermoment.InleverMoment;
+import jakarta.ws.rs.*;
 
 import java.util.List;
 
@@ -19,4 +15,10 @@ public interface CoupledBestandResource extends PanacheEntityResource<CoupledBes
         return CoupledBestand.getBestandenByInleverMomentId(inlevermomentId);
     }
 
+    @PUT
+    @Path("/relation/{bestandId}/{inleverMomentId}")
+    default Uni<Integer> setInleverMomentRelation(@PathParam("bestandId") Long bestandId,
+                                                  @PathParam("inleverMomentId") Long inleverMomentId) {
+        return CoupledBestand.setInleverMomentRelation(bestandId, inleverMomentId);
+    }
 }

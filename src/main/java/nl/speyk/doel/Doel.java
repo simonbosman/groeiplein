@@ -55,9 +55,9 @@ public class Doel {
     @ManyToOne
     private Domein domein;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Niveau> niveaus = new ArrayList<>();
+    @ManyToOne
+    private Niveau niveau;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Vakleergebied> vakleergebieden = new ArrayList<>();
+    @ManyToOne
+    private Vakleergebied vakleergebied;
 }
