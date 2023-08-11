@@ -3,26 +3,20 @@ package nl.speyk.doel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
 import nl.speyk.vakleergebied.Vakleergebied;
 import org.hibernate.annotations.Cascade;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity(name = "Doel")
 @Table(name = "doel")
-@Getter
-@Setter
-@RequiredArgsConstructor
-@EqualsAndHashCode
+@Data
 @Cacheable
+@NamedQueries({
+        @NamedQuery(name = "Doel.Niveau", query = "FROM Doel WHERE niveau.id = :id"),
+        @NamedQuery(name = "Doel.Vakleergebied", query = "FROM Doel WHERE vakleergebied.id = :id")})
 public class Doel {
 
     @Id
