@@ -1,0 +1,52 @@
+'%dev':
+    quarkus:
+        datasource:
+            db-kind: postgresql
+            password: ''
+            reactive:
+                url: postgresql://localhost:5432/groeiplein
+            username: simon
+        hibernate-orm:
+            database:
+                generation: update
+        http:
+            cors:
+                origins: /.*/
+            port: 8082
+'%prod':
+    quarkus:
+        datasource:
+            db-kind: postgresql
+            password: 0J32342ZPC11AC11!
+            reactive:
+                postgresql:
+                    ssl-mode: require
+                reconnect-attempts: 3
+                url: postgresql://groeiplein-database.postgres.database.azure.com/groeiplein
+            username: cuygbottcp
+        hibernate-orm:
+            database:
+                generation: update
+        http:
+            cors:
+                origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/
+mp:
+    openapi:
+        scan:
+            disable: false
+quarkus:
+    hibernate-orm:
+        log:
+            sql: true
+        second-level-caching-enabled: true
+        statistics: true
+    http:
+        cors: true
+    package:
+        type: uber-jar
+    smallrye-openapi:
+        path: /openapi
+    swagger-ui:
+        always-include: true
+        path: /swagger
+

@@ -10,6 +10,7 @@ import java.util.UUID;
 @Table(name = "leerling")
 @Data
 @Cacheable
+@NamedQuery(name = "Leerling.Uuid", query = "FROM Leerling WHERE studentUuid = :id")
 public class Leerling {
 
     @Id
