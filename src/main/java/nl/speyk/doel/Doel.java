@@ -8,6 +8,7 @@ import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
 import nl.speyk.vakleergebied.Vakleergebied;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
 
 @Entity(name = "Doel")
@@ -46,17 +47,21 @@ public class Doel {
 
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Kerndoel kerndoel;
 
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Domein domein;
 
     @ManyToOne
     @Cascade({org.hibernate.annotations.CascadeType.MERGE})
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Niveau niveau;
 
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Vakleergebied vakleergebied;
 }

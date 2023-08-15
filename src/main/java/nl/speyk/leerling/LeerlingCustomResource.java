@@ -7,6 +7,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import java.util.UUID;
@@ -21,7 +22,9 @@ public class LeerlingCustomResource {
 
     @GET
     @Path("/uuid/{uuId}")
-    public Uni<Leerling> findLeerlingByUuid(@PathParam("uuId") UUID leerlingUuid) {
-        return leerlingService.getLeerlingByUuid(leerlingUuid);
+    public Uni<Response> findLeerlingByUuid(@PathParam("uuId") UUID leerlingUuid) {
+        return leerlingService.getLeerlingByUuid(leerlingUuid)
+                .map(entity -> entity == null ? Response.status(Response.Status.NOT_FOUND).build() :
+                        Response.ok(entity).build());
     }
 }
