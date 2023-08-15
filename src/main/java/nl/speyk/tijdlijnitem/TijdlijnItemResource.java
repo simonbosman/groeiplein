@@ -2,8 +2,11 @@ package nl.speyk.tijdlijnitem;
 
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
+import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.util.List;
 

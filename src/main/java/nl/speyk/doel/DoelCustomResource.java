@@ -1,5 +1,6 @@
 package nl.speyk.doel;
 
+import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -14,6 +15,7 @@ import java.util.List;
 @Path("/doel")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "DoelResource")
+@Authenticated
 public class DoelCustomResource {
 
     @Inject

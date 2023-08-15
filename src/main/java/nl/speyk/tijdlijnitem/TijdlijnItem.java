@@ -1,13 +1,16 @@
 package nl.speyk.tijdlijnitem;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
+import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.hibernate.annotations.Cascade;
 
 import java.util.Collections;
