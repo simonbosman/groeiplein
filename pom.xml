@@ -13,8 +13,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>999-SNAPSHOT</quarkus.platform.version>
+    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+    <quarkus.platform.version>3.2.4.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
   </properties>
@@ -189,10 +189,10 @@
         <version>2.11.0</version>
         <configuration>
           <schemaVersion>v2</schemaVersion>
-          <subscriptionId>f9e877ec-2fab-4ccc-949f-2e79414a8d80</subscriptionId>
-          <resourceGroup>groeiplein</resourceGroup>
+          <subscriptionId>ff0059e6-14c6-48c6-bfc7-4fb660e91fbe</subscriptionId>
+          <resourceGroup>Groeiplein</resourceGroup>
           <appName>groeiplein</appName>
-          <pricingTier>P1v2</pricingTier>
+          <pricingTier>B2</pricingTier>
           <region>northeurope</region>
           <runtime>
             <os>Linux</os>
