@@ -1,6 +1,8 @@
 package nl.speyk.doel;
 
+import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -21,12 +23,14 @@ public class DoelCustomResource {
 
     @GET
     @Path("/niveau/{niveauId}")
+    @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByNiveauId(@PathParam("niveauId") Long niveauId) {
         return doelService.getDoelenByNiveauId(niveauId);
     }
 
     @GET
     @Path("/vakleergebied/{vakleergebiedId}")
+    @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByVakleergebiedId(@PathParam("vakleergebiedId") Long vakleergebiedId) {
         return doelService.getDoelenByVakleergebiedId(vakleergebiedId);
     }

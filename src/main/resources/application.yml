@@ -31,10 +31,19 @@
             cors:
                 origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/
 mp:
+    jwt:
+        verify:
+            issuer: https://sts.windows.net/27f15159-a16a-4f84-af73-f3fa4f121752/
+            publickey:
+                location: certificate.pem
     openapi:
         scan:
             disable: false
 quarkus:
+    native:
+        resources:
+            include: certificate.pem
+
     hibernate-orm:
         log:
             sql: true
