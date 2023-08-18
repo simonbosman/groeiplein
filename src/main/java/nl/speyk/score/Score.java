@@ -1,15 +1,12 @@
 package nl.speyk.score;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
-import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
 import io.smallrye.mutiny.Uni;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 import nl.speyk.AuthorType;
 import nl.speyk.doel.Doel;
 import nl.speyk.feedback.Feedback;
-import nl.speyk.inlevermoment.InleverMoment;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.scorevalue.ScoreValue;
 import org.hibernate.annotations.Cascade;
@@ -29,24 +26,24 @@ public class Score extends PanacheEntity {
 
     @Column
     @NotNull(message = "{Score.UUID.required}")
-    private UUID authorUuid;
+    public UUID authorUuid;
 
     @ManyToOne
-    private ScoreValue value;
+    public ScoreValue value;
 
     @ManyToOne
-    private Feedback feedback;
+    public Feedback feedback;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    private Doel doel;
+    public Doel doel;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    private Leerling leerling;
+    public Leerling leerling;
 
     @Enumerated(EnumType.STRING)
-    private AuthorType author;
+    public AuthorType author;
 
     public static Uni<List<Score>> getScoreByDoelId(long doelId) {
         return find("#Score.doel", Collections.singletonMap("id", doelId)).list();
