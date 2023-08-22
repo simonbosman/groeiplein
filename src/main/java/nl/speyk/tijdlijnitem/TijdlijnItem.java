@@ -9,7 +9,10 @@ import jakarta.validation.constraints.Positive;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,10 +34,12 @@ public class TijdlijnItem extends PanacheEntity {
     @NotNull
     public CategorieType categorie;
 
-    @Column
-    @NotNull(message = "{TijdlijnItem.aanmaakdatum.required}")
-    @Positive
-    public long aanmaakdatum;
+    @Column(updatable = false)
+    @CreationTimestamp
+    public Timestamp timestamp;
+
+    @UpdateTimestamp
+    public Timestamp updateTimestamp;
 
     @NotNull(message = "{TijdlijnItem.leerling.required}")
     @ManyToOne(fetch = FetchType.EAGER)

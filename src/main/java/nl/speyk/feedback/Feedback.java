@@ -6,7 +6,10 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import nl.speyk.AuthorType;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity(name = "Feedback")
@@ -33,4 +36,12 @@ public class Feedback {
 
     @Enumerated(EnumType.STRING)
     private AuthorType author;
+
+    @Column(updatable = false)
+    @CreationTimestamp
+    public Timestamp timestamp;
+
+    @Column
+    @UpdateTimestamp
+    public Timestamp updateTimestamp;
 }

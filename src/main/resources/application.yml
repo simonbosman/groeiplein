@@ -9,6 +9,8 @@
         hibernate-orm:
             database:
                 generation: update
+            jdbc:
+                timezone: Europe/Amsterdam
         http:
             cors:
                 origins: /.*/
