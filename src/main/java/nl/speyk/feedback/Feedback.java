@@ -5,8 +5,10 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import nl.speyk.AuthorType;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity(name = "Feedback")
@@ -18,6 +20,14 @@ public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(updatable = false)
+    @CreationTimestamp
+    private Instant timestamp;
+
+    @Column
+    @UpdateTimestamp
+    private Instant updateTimestamp;
 
     @Column
     @NotNull(message = "{Feedback.UUID.required}")

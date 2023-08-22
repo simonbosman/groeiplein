@@ -8,7 +8,11 @@ import jakarta.validation.constraints.Positive;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.opdracht.Opdracht;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,14 +32,17 @@ enum StatusType {
 public class InleverMoment extends PanacheEntity {
 
     @Column
-    @Positive
-    @NotNull(message = "{InleverMoment.date.required}")
-    public long date;
-
-    @Column
     @NotNull(message = "{InleverMoment.status.required}")
     @Enumerated(EnumType.STRING)
     public StatusType status;
+
+    @Column(updatable = false)
+    @CreationTimestamp
+    public Instant timestamp;
+
+    @Column
+    @UpdateTimestamp
+    public Instant updateTimestamp;
 
     @NotNull(message = "{InleverMoment.opdracht.required}")
     @ManyToOne(fetch = FetchType.EAGER)

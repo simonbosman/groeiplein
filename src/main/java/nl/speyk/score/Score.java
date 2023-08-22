@@ -10,7 +10,11 @@ import nl.speyk.feedback.Feedback;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.scorevalue.ScoreValue;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +31,14 @@ public class Score extends PanacheEntity {
     @Column
     @NotNull(message = "{Score.UUID.required}")
     public UUID authorUuid;
+
+    @Column(updatable = false)
+    @CreationTimestamp
+    public Instant timestamp;
+
+    @Column
+    @UpdateTimestamp
+    public Instant updateTimestamp;
 
     @ManyToOne
     public ScoreValue value;

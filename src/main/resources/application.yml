@@ -9,6 +9,8 @@
         hibernate-orm:
             database:
                 generation: update
+            jdbc:
+                timezone: Europe/Amsterdam
         http:
             cors:
                 origins: /.*/
@@ -27,6 +29,8 @@
         hibernate-orm:
             database:
                 generation: update
+            jdbc:
+                timezone: Europe/Amsterdam
         http:
             cors:
                 origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/

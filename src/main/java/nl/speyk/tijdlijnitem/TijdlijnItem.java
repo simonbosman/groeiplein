@@ -5,11 +5,13 @@ import io.smallrye.mutiny.Uni;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import nl.speyk.CategorieType;
 import nl.speyk.leerling.Leerling;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,10 +33,12 @@ public class TijdlijnItem extends PanacheEntity {
     @NotNull
     public CategorieType categorie;
 
-    @Column
-    @NotNull(message = "{TijdlijnItem.aanmaakdatum.required}")
-    @Positive
-    public long aanmaakdatum;
+    @Column(updatable = false)
+    @CreationTimestamp
+    public Instant timestamp;
+
+    @UpdateTimestamp
+    public Instant updateTimestamp;
 
     @NotNull(message = "{TijdlijnItem.leerling.required}")
     @ManyToOne(fetch = FetchType.EAGER)
