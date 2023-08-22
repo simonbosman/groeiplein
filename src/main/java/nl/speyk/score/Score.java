@@ -14,6 +14,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -33,11 +34,11 @@ public class Score extends PanacheEntity {
 
     @Column(updatable = false)
     @CreationTimestamp
-    public Timestamp timestamp;
+    public Instant timestamp;
 
     @Column
     @UpdateTimestamp
-    public Timestamp updateTimestamp;
+    public Instant updateTimestamp;
 
     @ManyToOne
     public ScoreValue value;

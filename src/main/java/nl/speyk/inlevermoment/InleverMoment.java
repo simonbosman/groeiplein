@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,11 +38,11 @@ public class InleverMoment extends PanacheEntity {
 
     @Column(updatable = false)
     @CreationTimestamp
-    public Timestamp timestamp;
+    public Instant timestamp;
 
     @Column
     @UpdateTimestamp
-    public Timestamp updateTimestamp;
+    public Instant updateTimestamp;
 
     @NotNull(message = "{InleverMoment.opdracht.required}")
     @ManyToOne(fetch = FetchType.EAGER)
