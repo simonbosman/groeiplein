@@ -1,5 +1,6 @@
 package nl.speyk.doel;
 
+import io.quarkiverse.bucket4j.runtime.RateLimited;
 import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
