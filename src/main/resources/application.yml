@@ -55,6 +55,7 @@ quarkus:
         statistics: true
     http:
         cors: true
+        idle-timeout:
     package:
         type: uber-jar
     smallrye-openapi:
@@ -62,4 +63,12 @@ quarkus:
     swagger-ui:
         always-include: true
         path: /swagger
-
+    rate-limiter:
+        buckets:
+            restapi:
+                limits:
+                    - permitted-uses: 100
+                      period: 1S
+                    - permitted-uses: 600
+                      period: 1M
+                identity-resolver: io.quarkiverse.bucket4j.runtime.resolver.IpResolver

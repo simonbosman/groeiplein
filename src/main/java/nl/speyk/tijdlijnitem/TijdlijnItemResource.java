@@ -1,5 +1,6 @@
 package nl.speyk.tijdlijnitem;
 
+import io.quarkiverse.bucket4j.runtime.RateLimited;
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 import io.quarkus.security.Authenticated;
@@ -11,7 +12,6 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.util.List;
 
-@ResourceProperties(rolesAllowed = "**")
 public interface TijdlijnItemResource extends PanacheEntityResource<TijdlijnItem, Long> {
 
     @GET

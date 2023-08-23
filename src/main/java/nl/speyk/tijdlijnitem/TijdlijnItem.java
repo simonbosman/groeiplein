@@ -1,7 +1,9 @@
 package nl.speyk.tijdlijnitem;
 
+import io.quarkiverse.bucket4j.runtime.RateLimited;
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import io.smallrye.mutiny.Uni;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
