@@ -9,6 +9,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponseSchema;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import java.util.UUID;
@@ -24,6 +25,8 @@ public class LeerlingCustomResource {
 
     @GET
     @Path("/uuid/{uuId}")
+    @Produces("application/json")
+    @APIResponseSchema(value = Leerling.class, responseCode = "200")
     public Uni<Response> findLeerlingByUuid(@PathParam("uuId") UUID leerlingUuid) {
         return leerlingService.getLeerlingByUuid(leerlingUuid)
                 .map(entity -> entity == null ? Response.status(Response.Status.NOT_FOUND).build() :
