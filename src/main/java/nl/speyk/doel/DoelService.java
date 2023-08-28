@@ -1,7 +1,6 @@
 package nl.speyk.doel;
 
 import io.quarkiverse.bucket4j.runtime.RateLimited;
-import io.quarkiverse.bucket4j.runtime.resolver.IpResolver;
 import io.quarkus.hibernate.reactive.panache.common.WithSessionOnDemand;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;

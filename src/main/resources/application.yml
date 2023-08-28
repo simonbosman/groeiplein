@@ -32,6 +32,10 @@
             jdbc:
                 timezone: Europe/Amsterdam
         http:
+            ssl:
+                certificate:
+                    key-store-file: Cert.p12
+                    key-store-password: password
             cors:
                 origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/
 mp:
@@ -44,18 +48,11 @@ mp:
         scan:
             disable: false
 quarkus:
-    native:
-        resources:
-            include: certificate.pem
-
     hibernate-orm:
         log:
             sql: true
         second-level-caching-enabled: true
         statistics: true
-    http:
-        cors: true
-        idle-timeout:
     package:
         type: uber-jar
     smallrye-openapi:
