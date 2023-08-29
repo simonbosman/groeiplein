@@ -17,8 +17,8 @@
             port: 8082
             ssl: 
                 certificate:
-                    key-store-file: Speyk_Wildcard.pfx
-                    key-store-password: robinislief 
+                    key-store-file: appspeyk.pfx 
+                    key-store-password: 1234
 '%prod':
     quarkus:
         datasource:
@@ -39,8 +39,8 @@
             insecure-requests: enabled 
             ssl:
                 certificate:
-                    key-store-file: Speyk_Wildcard.pfx
-                    key-store-password: robinislief 
+                    key-store-file: appspeyk.pfx 
+                    key-store-password: 1234 
             cors:
                 origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/
 mp:
