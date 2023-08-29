@@ -15,6 +15,10 @@
             cors:
                 origins: /.*/
             port: 8082
+            ssl: 
+                certificate:
+                    key-store-file: Speyk_Wildcard.pfx
+                    key-store-password: robinislief 
 '%prod':
     quarkus:
         datasource:
@@ -32,10 +36,11 @@
             jdbc:
                 timezone: Europe/Amsterdam
         http:
+            insecure-requests: enabled 
             ssl:
                 certificate:
-                    key-store-file: Cert.p12
-                    key-store-password: password
+                    key-store-file: Speyk_Wildcard.pfx
+                    key-store-password: robinislief 
             cors:
                 origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/
 mp:
