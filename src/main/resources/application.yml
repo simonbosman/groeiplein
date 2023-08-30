@@ -42,7 +42,7 @@
                     key-store-file: appspeyk.pfx 
                     key-store-password: 1234 
             cors:
-                origins: https://groeiplein.azurewebsites.net,/https://([a-z0-9\-_]+)\.sharepoint\.com/
+              origins: /https://([a-z0-9\-_]+)\.sharepoint\.com/
 mp:
     jwt:
         verify:
@@ -65,6 +65,8 @@ quarkus:
     swagger-ui:
         always-include: true
         path: /swagger
+    jib:
+      base-jvm-image: registry.access.redhat.com/ubi8/openjdk-17-runtime:1.16
     rate-limiter:
         buckets:
             restapi:
