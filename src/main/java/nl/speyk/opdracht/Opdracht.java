@@ -1,6 +1,15 @@
 package nl.speyk.opdracht;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -51,7 +60,6 @@ public class Opdracht {
     @Positive
     private long aangemaaktop;
 
-    @NotNull(message = "{Opdracht.vakleergebied.required}")
     @ManyToOne
     Vakleergebied vakleergebied;
 }
