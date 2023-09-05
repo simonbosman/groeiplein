@@ -16,7 +16,7 @@ import java.util.List;
 @Cacheable
 @NamedQuery(name = "CoupledBestand.InleverMoment", query = "FROM CoupledBestand WHERE inlevermoment.id = :id")
 public class CoupledBestand extends PanacheEntity {
-
+ 
     @Column
     @NotEmpty(message = "{CoupledBestand.filename.required}")
     public String filename;
