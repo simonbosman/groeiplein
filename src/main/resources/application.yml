@@ -15,9 +15,9 @@
             cors:
                 origins: /.*/
             port: 8082
-            ssl: 
+            ssl:
                 certificate:
-                    key-store-file: appspeyk.pfx 
+                    key-store-file: appspeyk.pfx
                     key-store-password: 1234
 '%prod':
     quarkus:
@@ -36,13 +36,13 @@
             jdbc:
                 timezone: Europe/Amsterdam
         http:
-            insecure-requests: enabled 
+            insecure-requests: enabled
             ssl:
                 certificate:
-                    key-store-file: appspeyk.pfx 
-                    key-store-password: 1234 
+                    key-store-file: appspeyk.pfx
+                    key-store-password: 1234
             cors:
-              origins: /https://([a-z0-9\-_]+)\.sharepoint\.com/
+               origins: /https://([a-z0-9\-_]+)\.sharepoint\.com/
 mp:
     jwt:
         verify:
