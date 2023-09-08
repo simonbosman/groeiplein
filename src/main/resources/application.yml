@@ -1,4 +1,6 @@
 '%test':
+  speyk:
+    jwt: jsonwebtoken
   quarkus:
     datasource:
       db-kind: postgresql

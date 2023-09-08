@@ -1,6 +1,5 @@
 package nl.speyk.doel;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,19 +12,20 @@ import jakarta.inject.Inject;
 @RunOnVertxContext
 class DoelServiceTest {
 
+    // Given
     private static long niveauId = 1;
+
     @Inject
     DoelService doelService;
 
     @Test
     void shouldGetDoelenByNiveauId(TransactionalUniAsserter asserter) {
-        asserter
-                .execute(
-                        () -> doelService.getDoelenByNiveauId(niveauId))
-                .assertThat(
-                        () -> doelService.getDoelenByNiveauId(niveauId),
-                        t -> {
-                            Assertions.assertNotNull(t);
-                        });
+        asserter.assertThat(
+                () -> // when
+                doelService.getDoelenByNiveauId(niveauId),
+                t -> {
+                    // then
+                    Assertions.assertNotNull(t);
+                });
     }
 }
