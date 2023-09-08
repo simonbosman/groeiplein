@@ -1,0 +1,35 @@
+package nl.speyk.coupledbestand;
+
+import static io.restassured.RestAssured.given;
+
+import org.junit.jupiter.api.Test;
+
+import io.quarkus.test.common.http.TestHTTPEndpoint;
+import io.quarkus.test.junit.QuarkusTest;
+
+@QuarkusTest
+//@TestHTTPEndpoint(CoupledBestandResource.class)
+public class CoupledBestandResourceTest {
+
+    public static String jwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJodHRwczovL3NwZXlrZWR1LnNoYXJlcG9pbnQuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjdmMTUxNTktYTE2YS00Zjg0LWFmNzMtZjNmYTRmMTIxNzUyLyIsImlhdCI6MTY5NDE3NjQ4MiwibmJmIjoxNjk0MTc2NDgyLCJleHAiOjE2OTQxODIxNDEsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84VUFBQUFiZy9iWStwcGVIUytHRmZEQjg4aXJwQng2MFlMQUowdUNWTjRlbGVaU0pjUU1wNW42QW1vaU42cFlycDZudFd0aXBSUXFCY0xhbHJ1eUJFV1VGUDJMVzkzRXV2S1hIWFQyOVpHaUVtYzNqYz0iLCJhbXIiOlsicHdkIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IlNoYXJlUG9pbnQgT25saW5lIENsaWVudCBFeHRlbnNpYmlsaXR5IFdlYiBBcHBsaWNhdGlvbiBQcmluY2lwYWwiLCJhcHBpZCI6IjRhODY4ODJkLWFiNWEtNGFjOS05NzIwLWNhOWJjOWQzYjMyZCIsImFwcGlkYWNyIjoiMCIsImZhbWlseV9uYW1lIjoiU3VwcG9ydCIsImdpdmVuX25hbWUiOiJTUEVZSyIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjMxLjIwLjIxOC45OCIsIm5hbWUiOiJTUEVZSyBTdXBwb3J0Iiwib2lkIjoiMWRmNjMzOGQtM2M1Yy00NDk0LTg4MTEtZDEwNWM0YjBjMGY2IiwicHVpZCI6IjEwMDNCRkZEOThBMkFGRjEiLCJyaCI6IjAuQVY0QVdWSHhKMnFoaEUtdmNfUDZUeElYVWdNQUFBQUFBUEVQemdBQUFBQUFBQUJlQU9ZLiIsInNjcCI6IkNhbGVuZGFycy5SZWFkIENhbGVuZGFycy5SZWFkLlNoYXJlZCBDb250YWN0cy5SZWFkIERpcmVjdG9yeS5BY2Nlc3NBc1VzZXIuQWxsIEZpbGVzLlJlYWQgRmlsZXMuUmVhZC5BbGwgRmlsZXMuUmVhZFdyaXRlIEZpbGVzLlJlYWRXcml0ZS5BbGwgR3JvdXAuUmVhZC5BbGwgR3JvdXAuUmVhZFdyaXRlLkFsbCBNYWlsLlJlYWQgTWFpbC5SZWFkLlNoYXJlZCBNeUZpbGVzLlJlYWQgTm90ZXMuUmVhZCBOb3Rlcy5SZWFkLkFsbCBQZW9wbGUuUmVhZCBQZW9wbGUuUmVhZC5BbGwgU2l0ZXMuTWFuYWdlLkFsbCBTaXRlcy5SZWFkLkFsbCBTaXRlcy5SZWFkV3JpdGUuQWxsIFRhc2tzLlJlYWQgVGFza3MuUmVhZC5TaGFyZWQgVGFza3MuUmVhZFdyaXRlIFRhc2tzLlJlYWRXcml0ZS5TaGFyZWQgVXNlci5SZWFkIFVzZXIuUmVhZC5BbGwgVXNlci5SZWFkQmFzaWMuQWxsIFVzZXIuUmVhZFdyaXRlIFVzZXIuUmVhZFdyaXRlLkFsbCIsInNpZCI6ImY5Njg4NzAzLWJlNzktNDU2NC1iNmU1LTUyOGM1Njk4ODM3NSIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6IkoxdVdLYmdhVUd1THBQTVlFSFk1dnhFQUd4OWtVMHA2Q1M5MGNTWXZhSlEiLCJ0aWQiOiIyN2YxNTE1OS1hMTZhLTRmODQtYWY3My1mM2ZhNGYxMjE3NTIiLCJ1bmlxdWVfbmFtZSI6ImFkbWluQHNwZXlrZWR1Lm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6ImFkbWluQHNwZXlrZWR1Lm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6ImRrOTUzc1kxamtlbWRNMEZUaDFkQUEiLCJ2ZXIiOiIxLjAifQ.X2-8U-pNe2zkMg84rfApmCDzoQebaKVPijj57dzzPECYKmvn6wE3USY42mcFnVsIDOVJoyjJ4rBCbbv7HSFjfps96FDvemoYHFlYrnJFPi46CAFsAAz56xsv9n89d8s5GhCY4hFIsqRmh3jNYZu1a9ak0uPb6RMaJp58cuXYUIdh_4-RpntjtSgwMdAptsVIfKa8XywEYw_SW5qHveb8SGBWM_CjXKkpXxOzA4UNnO-JD06hc2qUC7LSc20bPY4ocAQVbNBi9XbfpgNppRSTbIFOGovr8zUznuCUxcnGODM2UElpMJWQOXQzG8pojMafVAMXmuHmorygyWGDjMmsuQ";
+
+   @Test
+   public void getAllNoJwt() {
+       given()
+           .when()
+           .get("/coupled-bestand")
+           .then()
+           .statusCode(401);
+   }
+
+   @Test
+   public void getAllJWt() {
+      given()
+        .when()
+        .header("Authorization", ("Bearer " + jwt))
+        .get("/coupled-bestand")
+        .then()
+        .statusCode(200);
+   }
+}
+

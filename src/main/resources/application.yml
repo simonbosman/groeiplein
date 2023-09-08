@@ -1,3 +1,19 @@
+'%test':
+  quarkus:
+    datasource:
+      db-kind: postgresql
+      password: ''
+      reactive:
+        url: postgresql://localhost:5432/groeiplein
+      username: simon
+    hibernate-orm:
+        database:
+          generation: update
+        jdbc:
+          timezone: Europe/Amsterdam
+    http:
+        cors:
+          origins: /.*/
 '%dev':
     quarkus:
         datasource:
