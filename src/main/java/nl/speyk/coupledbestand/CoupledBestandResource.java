@@ -15,7 +15,7 @@ public interface CoupledBestandResource extends PanacheEntityResource<CoupledBes
     @Path("/inlevermoment/{inlevermomentId}")
     @Produces("application/json")
     @RolesAllowed("**")
-    default Uni<List<CoupledBestand>> findMomentByLeerlingId(@PathParam("inlevermomentId") Long inlevermomentId) {
+    default Uni<List<CoupledBestand>> findBestandenByInlevermomentId(@PathParam("inlevermomentId") Long inlevermomentId) {
         return CoupledBestand.getBestandenByInleverMomentId(inlevermomentId);
     }
 }
