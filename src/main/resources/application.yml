@@ -64,9 +64,9 @@
 mp:
     jwt:
         verify:
-            issuer: https://sts.windows.net/27f15159-a16a-4f84-af73-f3fa4f121752/
+            issuer: https://sts.windows.net/3efd454f-c43e-4b1a-b0e0-3bbd0b597b35/
             publickey:
-                location: certificate.pem
+                location: https://login.microsoftonline.com/common/discovery/v2.0/keys
     openapi:
         scan:
             disable: false

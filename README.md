@@ -47,6 +47,11 @@ You can then execute your native executable with: `./target/digitaal-portfolio-1
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
+## Creating zig/transformed/ files
+mvn quarkus:dev -Dquarkus.debug.generated-sources-dir=dump_zig
+-Dquarkus.debug.generated-classes-dir=dump_classes
+-Dquarkus.debug.transformed-classes-dir=dump_transformed
+
 ## Related Guides
 
 - Flyway ([guide](https://quarkus.io/guides/flyway)): Handle your database schema migrations

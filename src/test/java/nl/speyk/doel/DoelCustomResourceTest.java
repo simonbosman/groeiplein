@@ -19,11 +19,11 @@ public class DoelCustomResourceTest {
 
     @Inject
     DoelCustomResource doelCustomResource;
-
+    
     @Test
     public void testFindDoelenByNiveauId(TransactionalUniAsserter asserter) throws Exception {
         asserter.assertThat(() -> //when
-                            doelCustomResource.findDoelenByNiveauId(niveauId),
+        doelCustomResource.findDoelenByNiveauId(niveauId),
                             t -> {
                                 //then
                                 Assertions.assertNotNull(t);

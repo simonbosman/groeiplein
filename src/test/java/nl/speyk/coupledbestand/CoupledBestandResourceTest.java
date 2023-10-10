@@ -1,8 +1,5 @@
 package nl.speyk.coupledbestand;
 
-import java.time.Duration;
-import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
