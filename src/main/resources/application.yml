@@ -46,7 +46,7 @@
                 postgresql:
                     ssl-mode: require
                 reconnect-attempts: 3
-                url: postgresql://groeiplein-database.postgres.database.azure.com/groeiplein
+                url: postgresql://groeiplein-database.postgres.database.azure.com/groeiplein_dev
             username: cuygbottcp
         hibernate-orm:
             database:
@@ -64,7 +64,7 @@
 mp:
     jwt:
         verify:
-            issuer: https://sts.windows.net/27f15159-a16a-4f84-af73-f3fa4f121752/
+            issuer: https://sts.windows.net/d71896c5-795f-424e-bfb5-558dd1f95bb1/
             publickey:
                 location: https://login.microsoftonline.com/common/discovery/v2.0/keys
     openapi:

@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @ResourceProperties(rolesAllowed = "**")
 public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long> {
+
     @GET
     @Path("/doelen/{groepUuid}")
     @Produces("application/json")
@@ -26,5 +27,17 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
             .transform(gdList -> gdList.stream()
                     .map(gd -> gd.doel)
                     .collect(Collectors.toList()));
+    }
+
+    @GET
+    @Path("/groepen/{doelId}")
+    @Produces("application/json")
+    @RolesAllowed("**")
+    default Uni<List<UUID>> findGroepenByDoelId(@PathParam("doelId") int doelId) {
+        return GroepDoel.getGroepenByDoelId(doelId)
+                .onItem()
+                .transform(gdList -> gdList.stream()
+                        .map(gd -> gd.groepUuid)
+                        .collect(Collectors.toList()));
     }
 }

@@ -18,7 +18,10 @@ import java.util.UUID;
         @UniqueConstraint(name = "groepdoel", columnNames={"groepUuid", "doel_id"})
 )
 @Cacheable
-@NamedQuery(name = "GroepDoel.Doel", query = "FROM GroepDoel WHERE groepUuid = :id")
+@NamedQueries({
+@NamedQuery(name = "GroepDoel.Doel", query = "FROM GroepDoel WHERE groepUuid = :id"),
+@NamedQuery(name = "GroepDoel.Groep", query = "FROM GroepDoel WHERE doel.id = :id")
+})
 public class GroepDoel extends PanacheEntity {
 
     @NotNull(message = "{GroepDoel.groepUuid.required}")
@@ -31,5 +34,9 @@ public class GroepDoel extends PanacheEntity {
 
     public static Uni<List<GroepDoel>> getDoelenByGroepUuid(UUID groepUuid) {
         return find("#GroepDoel.Doel", Collections.singletonMap("id", groepUuid)).list();
+    }
+
+    public static Uni<List<GroepDoel>> getGroepenByDoelId(int doelId) {
+        return find("#GroepDoel.Groep", Collections.singletonMap("id", doelId)).list();
     }
 }
