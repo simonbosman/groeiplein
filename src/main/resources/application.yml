@@ -71,6 +71,9 @@ mp:
         scan:
             disable: false
 quarkus:
+    native:
+      resources:
+        includes: appspeyk.pfx,certificate.pem
     hibernate-orm:
         log:
             sql: true

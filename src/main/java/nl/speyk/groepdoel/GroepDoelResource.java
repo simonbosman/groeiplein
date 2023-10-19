@@ -4,11 +4,10 @@ import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 import nl.speyk.doel.Doel;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
 import java.util.List;
 import java.util.UUID;
@@ -39,5 +38,20 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
                 .transform(gdList -> gdList.stream()
                         .map(gd -> gd.groepUuid)
                         .collect(Collectors.toList()));
+    }
+
+    @DELETE
+    @Path("/verwijder/{groepUuid}/{doelId}")
+    @RolesAllowed("**")
+    @APIResponse(
+            responseCode = "204"
+    )
+    default Uni<Response> deleteGroepDoel(@PathParam("groepUuid") UUID groepUuid, @PathParam("doelId") int doelId) {
+        return GroepDoel.deleteGroepDoel(groepUuid, doelId)
+                .map(numRecs -> {
+                    if(numRecs > 0)
+                        return Response.status(Response.Status.NO_CONTENT).build();
+                    return Response.status(Response.Status.FORBIDDEN).build();
+                });
     }
 }
