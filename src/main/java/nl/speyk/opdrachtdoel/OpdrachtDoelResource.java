@@ -21,7 +21,7 @@ public interface OpdrachtDoelResource extends PanacheEntityResource<OpdrachtDoel
     @Path("/doelen/{opdrachtId}")
     @Produces("application/json")
     @RolesAllowed("**")
-    default Uni<List<Doel>> findDoelenByOpdrachtId(@PathParam("oprachtId") int opdrachtId) {
+    default Uni<List<Doel>> findDoelenByOpdrachtId(@PathParam("opdrachtId") int opdrachtId) {
         return OpdrachtDoel.getDoelenbyOpdrachtId(opdrachtId)
                 .onItem()
                 .transform(odList -> odList.stream()

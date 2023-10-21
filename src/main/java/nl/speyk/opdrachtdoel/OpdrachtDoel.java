@@ -39,7 +39,7 @@ public class OpdrachtDoel extends PanacheEntity {
     public Doel doel;
 
     public static Uni<List<OpdrachtDoel>> getDoelenbyOpdrachtId(int opdrachtId) {
-        return find("#Opdracht.Doel", Collections.singletonMap("id", opdrachtId)).list();
+        return find("#OpdrachtDoel.Doel", Collections.singletonMap("id", opdrachtId)).list();
     }
 
     public static Uni<List<OpdrachtDoel>> getOpdrachtenByDoelId(int doelId) {

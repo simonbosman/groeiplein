@@ -26,7 +26,7 @@ public class DoelService {
     }
 
     public Uni<List<Doel>> getDoelenZonderOpdracht() {
-        return doelRepository.find("Doel.ZonderOpdrachten").list();
+        return doelRepository.find("#Doel.ZonderOpdrachten").list();
     }
 
     public Uni<List<Doel>> getDoelenByVakleergebiedId(Long vakleergebiedId) {
