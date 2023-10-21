@@ -41,7 +41,7 @@ public class GroepDoel extends PanacheEntity {
     }
 
    public static Uni<Long> deleteGroepDoel(UUID groepUuid, int doelId) {
-        Map<String, Object> params = new HashMap();
+        Map<String, Object> params = new HashMap<>();
         params.put("groepUuid", groepUuid);
         params.put("doelId", doelId);
         return delete("#GroepDoel.Delete", params);

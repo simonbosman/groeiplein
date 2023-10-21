@@ -7,6 +7,7 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 @RequestScoped
 public class UserResolver implements IdentityResolver {
+
     @Inject
     JsonWebToken jwt;
 
