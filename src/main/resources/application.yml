@@ -77,7 +77,7 @@ quarkus:
     hibernate-orm:
         log:
             sql: true
-        second-level-caching-enabled: true
+        second-level-caching-enabled: false
         statistics: true
     package:
         type: uber-jar

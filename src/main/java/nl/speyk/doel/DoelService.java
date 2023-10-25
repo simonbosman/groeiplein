@@ -25,10 +25,6 @@ public class DoelService {
         return doelRepository.find("#Doel.ZonderGroepen").list();
     }
 
-    public Uni<List<Doel>> getDoelenZonderOpdracht() {
-        return doelRepository.find("#Doel.ZonderOpdrachten").list();
-    }
-
     public Uni<List<Doel>> getDoelenByVakleergebiedId(Long vakleergebiedId) {
         return doelRepository.find("#Doel.Vakleergebied", Collections.singletonMap("id", vakleergebiedId)).list();
     }

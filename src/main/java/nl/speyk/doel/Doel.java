@@ -29,8 +29,6 @@ import nl.speyk.vakleergebied.Vakleergebied;
         @NamedQuery(name = "Doel.Niveau", query = "FROM Doel WHERE niveau.id = :id"),
         @NamedQuery(name = "Doel.ZonderGroepen", query = "SELECT d FROM Doel d WHERE d.id NOT IN " +
                 "(SELECT g.doel.id FROM GroepDoel g WHERE g.doel.id = d.id)"),
-        @NamedQuery(name = "Doel.ZonderOpdrachten", query = "SELECT d FROM Doel d WHERE d.id NOT IN " +
-                "(SELECT o.opdracht.id FROM OpdrachtDoel o WHERE o.doel.id = d.id)"),
         @NamedQuery(name = "Doel.Vakleergebied", query = "FROM Doel WHERE vakleergebied.id = :id") })
 public class Doel {
 

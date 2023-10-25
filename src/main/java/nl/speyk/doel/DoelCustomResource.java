@@ -35,13 +35,6 @@ public class DoelCustomResource {
     }
 
     @GET
-    @Path("/zonderopdracht")
-    @RolesAllowed("**")
-    public Uni<List<Doel>> findDoelenZonderOpdracht() {
-        return doelService.getDoelenZonderOpdracht();
-    }
-
-    @GET
     @Path("/vakleergebied/{vakleergebiedId}")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByVakleergebiedId(@PathParam("vakleergebiedId") Long vakleergebiedId) {

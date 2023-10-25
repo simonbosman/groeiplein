@@ -1,15 +1,6 @@
 package nl.speyk.opdracht;
 
-import jakarta.persistence.Cacheable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -22,6 +13,8 @@ import nl.speyk.vakleergebied.Vakleergebied;
 @Table(name = "opdracht")
 @Data
 @Cacheable
+@NamedQuery(name = "Opdracht.ZonderGroepen", query = "SELECT o FROM Opdracht o WHERE o.id NOT IN " +
+        "(SELECT g.opdracht.id FROM GroepOpdracht g WHERE g.opdracht.id = o.id)")
 public class Opdracht {
 
     @Id
