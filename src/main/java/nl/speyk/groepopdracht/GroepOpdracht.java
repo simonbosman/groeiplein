@@ -33,11 +33,11 @@ public class GroepOpdracht extends PanacheEntity {
     public Opdracht opdracht;
 
     public static Uni<List<GroepOpdracht>> getOpdrachtenByGroupUuid(UUID groepUuid) {
-        return find("#GroepOpdracht.Groep", Collections.singletonMap("id", groepUuid)).list();
+        return find("#GroepOpdracht.Opdracht", Collections.singletonMap("id", groepUuid)).list();
     }
 
     public static Uni<List<GroepOpdracht>> getGroepenByOpdrachtId(int opdrachtlId) {
-        return find("#GroepOpdracht.Opdracht", Collections.singletonMap("id", opdrachtlId)).list();
+        return find("#GroepOpdracht.Groep", Collections.singletonMap("id", opdrachtlId)).list();
     }
 
     public static Uni<Long> deleteGroepOpdracht(UUID groepUuid, int opdrachtId) {

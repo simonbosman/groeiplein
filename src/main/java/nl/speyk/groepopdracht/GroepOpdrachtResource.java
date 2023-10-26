@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdracht, Long> {
 
     @GET
-    @Path("/opdrachten/{groepUuid}}")
+    @Path("/opdrachten/{groepUuid}")
     @Produces("application/json")
     @RolesAllowed("**")
     default Uni<List<Opdracht>> findOpdrachtByGroupUid(@PathParam("groepUuid") UUID groepUuid) {
