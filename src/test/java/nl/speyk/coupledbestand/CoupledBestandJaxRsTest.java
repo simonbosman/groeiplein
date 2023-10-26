@@ -1,6 +1,7 @@
 package nl.speyk.coupledbestand;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.oauth2;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Test;
@@ -26,9 +27,8 @@ public class CoupledBestandJaxRsTest {
 
     @Test
     public void getAllJWt() {
-        given()
+        given().auth().preemptive().oauth2(jwt)
                 .when()
-                .header("Authorization", ("Bearer " + jwt))
                 .get("/coupled-bestand")
                 .then()
                 .statusCode(200);
