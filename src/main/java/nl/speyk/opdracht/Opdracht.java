@@ -1,12 +1,14 @@
 package nl.speyk.opdracht;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import nl.speyk.CategorieType;
 import nl.speyk.vakleergebied.Vakleergebied;
+import org.hibernate.validator.constraints.Length;
 
 
 @Entity(name = "Opdracht")
@@ -27,6 +29,7 @@ public class Opdracht {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Opdracht.content.required}")
+    @Length(max = 4096, message = "{Opdracht.content.length}")
     private String content;
 
     @Column

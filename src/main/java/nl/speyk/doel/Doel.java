@@ -20,6 +20,7 @@ import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
 import nl.speyk.vakleergebied.Vakleergebied;
+import org.hibernate.validator.constraints.Length;
 
 @Entity(name = "Doel")
 @Table(name = "doel")
@@ -41,10 +42,12 @@ public class Doel {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Doel.title.required}")
+    @Length(max = 1024, message = "{Doel.title.length}")
     private String title;
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Doel.description.required}")
+    @Length(max = 4096, message = "{Doel.description.length}")
     private String description;
 
     @Column

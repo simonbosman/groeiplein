@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import nl.speyk.domein.Domein;
+import org.hibernate.validator.constraints.Length;
 
 @Entity(name = "Kerndoel")
 @Table(name = "kerndoel")
@@ -21,10 +22,12 @@ public class Kerndoel {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "Kerndoel.title.required")
+    @Length(max = 1024, message = "Kerndoel.title.length")
     private String title;
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "Kerndoel.description.required")
+    @Length(max = 4096, message = "Kerndoel.description.length")
     private String description;
 
     @ManyToOne

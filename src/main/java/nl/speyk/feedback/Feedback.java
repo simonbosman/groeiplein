@@ -7,6 +7,7 @@ import lombok.Data;
 import nl.speyk.AuthorType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -39,6 +40,7 @@ public class Feedback {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Feedback.content.required}")
+    @Length(max = 1024, message = "{Feedback.content.length}")
     private String content;
 
     @Enumerated(EnumType.STRING)

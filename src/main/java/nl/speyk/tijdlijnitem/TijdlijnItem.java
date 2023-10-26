@@ -10,6 +10,7 @@ import nl.speyk.leerling.Leerling;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.Instant;
 import java.util.Collections;
@@ -26,6 +27,7 @@ public class TijdlijnItem extends PanacheEntity {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{TijdlijnItem.content.required}")
+    @Length(max = 1024, message = "{TijdlijnItem.content.length}")
     public String content;
 
     @Column
