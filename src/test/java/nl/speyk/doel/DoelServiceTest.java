@@ -20,12 +20,6 @@ class DoelServiceTest {
 
     @Test
     void shouldGetDoelenByNiveauId(TransactionalUniAsserter asserter) {
-        asserter.assertThat(
-                () -> // when
-                doelService.getDoelenByNiveauId(niveauId),
-                t -> {
-                    // then
-                    Assertions.assertNotNull(t);
-                });
+        asserter.assertNotNull(() -> doelService.getDoelenByNiveauId(niveauId));
     }
 }

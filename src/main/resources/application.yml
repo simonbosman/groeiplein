@@ -6,11 +6,11 @@
       db-kind: postgresql
       password: ''
       reactive:
-        url: postgresql://localhost:5432/groeiplein
+        url: postgresql://localhost:5432/groeiplein_test
       username: simon
     hibernate-orm:
         database:
-          generation: update
+          generation: drop-and-create
         jdbc:
           timezone: Europe/Amsterdam
     http:
@@ -73,7 +73,7 @@ mp:
 quarkus:
     native:
       resources:
-        includes: appspeyk.pfx,certificate.pem
+        includes: appspeyk.pfx,certificate.pem,import.sql
     hibernate-orm:
         log:
             sql: true
