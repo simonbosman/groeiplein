@@ -3,7 +3,6 @@ package nl.speyk.domein;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity(name = "Domein")
 @Table(name = "domein")

@@ -1,12 +1,12 @@
 package nl.speyk.feedback;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.contains;
+
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.contains;
 
 @QuarkusTest
 public class FeedbackResourceTest {
