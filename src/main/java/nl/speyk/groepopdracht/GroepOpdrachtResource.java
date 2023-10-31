@@ -21,7 +21,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @Produces("application/json")
     @RolesAllowed("**")
     default Uni<List<Opdracht>> findOpdrachtByGroupUid(@PathParam("groepUuid") UUID groepUuid) {
-        return GroepOpdracht.getOpdrachtenByGroupUuid(groepUuid)
+        return GroepOpdracht.findByGroepUuid(groepUuid)
                 .onItem()
                 .transform(odList -> odList.stream()
                         .map(go -> go.opdracht)
@@ -33,12 +33,13 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @Produces("application/json")
     @RolesAllowed("**")
     default Uni<List<UUID>> findGroepenByOpdrachtId(@PathParam("opdrachtId") int opdrachtId) {
-        return GroepOpdracht.getGroepenByOpdrachtId(opdrachtId)
+        return GroepOpdracht.findByOpdrachtId(opdrachtId)
                 .onItem()
                 .transform(odList -> odList.stream()
                         .map(go -> go.groepUuid)
                         .collect(Collectors.toList()));
     }
+
 
     @DELETE
     @Path("/verwijder/{groepUuid}/{opdrachtId}")

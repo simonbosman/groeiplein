@@ -16,20 +16,24 @@ import java.util.List;
 @Cacheable
 @NamedQuery(name = "CoupledBestand.InleverMoment", query = "FROM CoupledBestand WHERE inlevermoment.id = :id")
 public class CoupledBestand extends PanacheEntity {
- 
+
+    // File name associated with the coupled bestand
     @Column
     @NotEmpty(message = "{CoupledBestand.filename.required}")
     public String filename;
 
+    // File URL associated with the coupled bestand
     @Column
     @NotEmpty(message = "{CoupledBestand.fileurl.required}")
     public String fileurl;
 
+    // InleverMoment associated with the coupled bestand
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     @NotNull(message = "{CoupledBestand.inleverMoment.required}")
     public InleverMoment inlevermoment;
 
+    // Retrieve list of CoupledBestand by InleverMoment ID
     public static Uni<List<CoupledBestand>> getBestandenByInleverMomentId(Long inleverMomentId) {
         return find("#CoupledBestand.InleverMoment", Collections.singletonMap("id", inleverMomentId)).list();
     }

@@ -12,7 +12,6 @@ public class CoupledBestandTest {
     @Test
     @RunOnVertxContext
     public void testFindBestandenByInlevermomentId(TransactionalUniAsserter asserter) {
-        CoupledBestand coupledBestand = new CoupledBestand();
         asserter.execute(() -> new CoupledBestand().persist());
         asserter.assertEquals(CoupledBestand::count, 1l);
     }

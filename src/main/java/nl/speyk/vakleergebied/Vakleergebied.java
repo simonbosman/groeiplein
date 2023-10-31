@@ -24,4 +24,5 @@ public class Vakleergebied {
     @Column
     @NotEmpty(message = "Vakleergebied.description.required")
     private String description;
+
 }

@@ -21,7 +21,7 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @Produces("application/json")
     @RolesAllowed("**")
     default Uni<List<Doel>> findDoelenByGroupUuid(@PathParam("groepUuid") UUID groepUuid) {
-        return GroepDoel.getDoelenByGroepUuid(groepUuid)
+        return GroepDoel.findByGroepUuid(groepUuid)
             .onItem()
             .transform(gdList -> gdList.stream()
                     .map(gd -> gd.doel)
@@ -33,7 +33,7 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @Produces("application/json")
     @RolesAllowed("**")
     default Uni<List<UUID>> findGroepenByDoelId(@PathParam("doelId") int doelId) {
-        return GroepDoel.getGroepenByDoelId(doelId)
+        return GroepDoel.findByDoelId(doelId)
                 .onItem()
                 .transform(gdList -> gdList.stream()
                         .map(gd -> gd.groepUuid)

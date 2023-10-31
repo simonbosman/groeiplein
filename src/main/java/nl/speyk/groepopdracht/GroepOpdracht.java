@@ -11,16 +11,13 @@ import org.hibernate.annotations.CascadeType;
 import java.util.*;
 
 @Entity(name = "GroepOpdracht")
-@Table(name = "groep_opdracht",
-        uniqueConstraints =
-        @UniqueConstraint(name = "groepopdracht", columnNames = {"groepUuid", "opdracht_id"})
-)
+@Table(name = "groep_opdracht", uniqueConstraints = @UniqueConstraint(name = "groepopdracht", columnNames = {
+        "groepUuid", "opdracht_id" }))
 @Cacheable
 @NamedQueries({
-        @NamedQuery(name = "GroepOpdracht.Groep", query = "FROM GroepOpdracht WHERE opdracht.id = :id"),
-        @NamedQuery(name = "GroepOpdracht.Opdracht", query = "FROM GroepOpdracht WHERE groepUuid = :id"),
-        @NamedQuery(name = "GroepOpdracht.Delete", query = "DELETE FROM GroepOpdracht WHERE opdracht.id = :opdrachtId " +
-                "AND groepUuid = :groepId")
+        @NamedQuery(name = "GroepOpdracht.findByGroepUuid", query = "FROM GroepOpdracht WHERE groepUuid = :uuid"),
+        @NamedQuery(name = "GroepOpdracht.findByOpdrachtId", query = "FROM GroepOpdracht WHERE opdracht.id = :id"),
+        @NamedQuery(name = "GroepOpdracht.delete", query = "DELETE FROM GroepOpdracht WHERE opdracht.id = :opdrachtId AND groepUuid = :groepId")
 })
 public class GroepOpdracht extends PanacheEntity {
 
@@ -32,12 +29,12 @@ public class GroepOpdracht extends PanacheEntity {
     @NotNull(message = "{GroepOpdracht.opdracht.required}")
     public Opdracht opdracht;
 
-    public static Uni<List<GroepOpdracht>> getOpdrachtenByGroupUuid(UUID groepUuid) {
-        return find("#GroepOpdracht.Opdracht", Collections.singletonMap("id", groepUuid)).list();
+    public static Uni<List<GroepOpdracht>> findByGroepUuid(UUID groepUuid) {
+        return find("#GroepOpdracht.findByGroepUuid", Collections.singletonMap("uuid", groepUuid)).list();
     }
 
-    public static Uni<List<GroepOpdracht>> getGroepenByOpdrachtId(int opdrachtlId) {
-        return find("#GroepOpdracht.Groep", Collections.singletonMap("id", opdrachtlId)).list();
+    public static Uni<List<GroepOpdracht>> findByOpdrachtId(int opdrachtId) {
+        return find("#GroepOpdracht.findByOpdrachtId", Collections.singletonMap("id", opdrachtId)).list();
     }
 
     public static Uni<Long> deleteGroepOpdracht(UUID groepUuid, int opdrachtId) {
