@@ -7,7 +7,8 @@ import lombok.Data;
 import java.util.UUID;
 
 @Entity(name = "Leerling")
-@Table(name = "leerling")
+@Table(name = "leerling", indexes = {
+        @Index(columnList = "studentUuid") })
 @Data
 @Cacheable
 @NamedQuery(name = "Leerling.Uuid", query = "FROM Leerling WHERE studentUuid = :id")

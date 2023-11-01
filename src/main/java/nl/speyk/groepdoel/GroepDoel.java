@@ -11,8 +11,11 @@ import org.hibernate.annotations.CascadeType;
 import java.util.*;
 
 @Entity(name = "GroepDoel")
-@Table(name = "groep_doel", uniqueConstraints = @UniqueConstraint(name = "groepdoel", columnNames = { "groepUuid",
-        "doel_id" }))
+@Table(name = "groep_doel", indexes = {
+        @Index(columnList = "groepuuid"),
+        @Index(columnList = "doel_id") }, uniqueConstraints = @UniqueConstraint(name = "groepdoel", columnNames = {
+                "groepUuid",
+                "doel_id" }))
 @Cacheable
 @NamedQueries({
         @NamedQuery(name = "GroepDoel.findByGroepUuid", query = "FROM GroepDoel WHERE groepUuid = :uuid"),

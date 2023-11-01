@@ -17,9 +17,16 @@ public class OpdrachtResourceTest {
     @Test
     public void shouldListOpdrachten() {
         given().auth().preemptive().oauth2(jwt)
-            .when().get("/opdracht")
-            .then().statusCode(200)
-            .and().body("id", contains(1));
-        //TODO: fill other attributes
+                .when().get("/opdracht")
+                .then().statusCode(200)
+                .and().body("id", contains(1))
+                .and().body("title", contains("testtitle"))
+                .and().body("content", contains("testcontent"))
+                .and().body("categorie", contains("WIE_BEN_IK"))
+                .and().body("periode", contains("1"))
+                .and().body("leerjaar", contains(1))
+                .and().body("inleverenop", contains(1))
+                .and().body("aangemaaktop", contains(1))
+                .and().body("vakleergebied.id", contains(1));
     }
 }
