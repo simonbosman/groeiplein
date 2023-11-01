@@ -21,7 +21,9 @@ enum StatusType {
 }
 
 @Entity(name = "InleverMoment")
-@Table(name = "inlevermoment")
+@Table(name = "inlevermoment", indexes = {
+        @Index(columnList = "leerling_id"),
+        @Index(columnList = "opdracht_id") })
 @Cacheable
 @NamedQueries({
         @NamedQuery(name = "InleverMoment.Opdracht", query = "FROM InleverMoment WHERE opdracht.id = :id"),
@@ -60,4 +62,3 @@ public class InleverMoment extends PanacheEntity {
         return find("#InleverMoment.Leerling", Collections.singletonMap("id", leerlingId)).list();
     }
 }
-

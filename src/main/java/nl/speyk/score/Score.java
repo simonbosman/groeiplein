@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "Score")
-@Table(name = "score")
+@Table(name = "score", indexes = {
+        @Index(columnList = "doel_id"),
+        @Index(columnList = "leerling_id") })
 @Cacheable
 @NamedQueries({
         @NamedQuery(name = "Score.Doel", query = "FROM Score WHERE doel.id = :id"),

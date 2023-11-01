@@ -17,7 +17,8 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity(name = "TijdlijnItem")
-@Table(name = "tijdlijnitem")
+@Table(name = "tijdlijnitem", indexes = {
+        @Index(columnList = "leerling_id") })
 @Cacheable
 @NamedQuery(name = "TijdlijnItem.Leerling", query = "FROM TijdlijnItem WHERE leerling.id = :id")
 public class TijdlijnItem extends PanacheEntity {

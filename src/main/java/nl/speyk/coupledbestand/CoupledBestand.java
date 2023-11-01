@@ -12,7 +12,8 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity(name = "CoupledBestand")
-@Table(name = "coupledbestand")
+@Table(name = "coupledbestand", indexes = {
+        @Index(columnList = "inlevermoment_id")})
 @Cacheable
 @NamedQuery(name = "CoupledBestand.InleverMoment", query = "FROM CoupledBestand WHERE inlevermoment.id = :id")
 public class CoupledBestand extends PanacheEntity {

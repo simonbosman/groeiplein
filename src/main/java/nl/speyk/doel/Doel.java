@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -23,7 +24,9 @@ import nl.speyk.vakleergebied.Vakleergebied;
 import org.hibernate.validator.constraints.Length;
 
 @Entity(name = "Doel")
-@Table(name = "doel")
+@Table(name = "doel", indexes = {
+        @Index(columnList = "niveau_id"),
+        @Index(columnList = "vakleergebied_id") })
 @Data
 @Cacheable
 @NamedQueries({

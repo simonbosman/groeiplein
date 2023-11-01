@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity(name = "Leerling")
 @Table(name = "leerling", indexes = {
-        @Index(columnList = "studentUuid") })
+        @Index(columnList = "studentuuid") })
 @Data
 @Cacheable
 @NamedQuery(name = "Leerling.Uuid", query = "FROM Leerling WHERE studentUuid = :id")
