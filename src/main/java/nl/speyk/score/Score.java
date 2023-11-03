@@ -41,10 +41,10 @@ public class Score extends PanacheEntity {
     @UpdateTimestamp
     public Instant updateTimestamp;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     public ScoreValue value;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     public Feedback feedback;
 
     @ManyToOne(fetch = FetchType.EAGER)

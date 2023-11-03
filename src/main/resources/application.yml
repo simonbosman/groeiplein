@@ -22,7 +22,7 @@
             db-kind: postgresql
             password: ''
             reactive:
-                url: postgresql://localhost:5432/groeiplein
+                url: postgresql://localhost:5432/groeiplein_dev
             username: simon
         hibernate-orm:
             database:
