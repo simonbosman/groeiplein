@@ -251,9 +251,9 @@
           <schemaVersion>v2</schemaVersion>
           <subscriptionId>ff0059e6-14c6-48c6-bfc7-4fb660e91fbe</subscriptionId>
           <resourceGroup>Groeiplein</resourceGroup>
-          <appName>groeiplein</appName>
+          <appName>groeiplein-amsterdam</appName>
           <pricingTier>B2</pricingTier>
-          <region>northeurope</region>
+          <region>westeurope</region>
           <runtime>
             <os>Linux</os>
             <javaVersion>Java 17</javaVersion>

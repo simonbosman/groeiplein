@@ -5,6 +5,7 @@ insert into leerling(id, studentuuid) values (1, '4167fb9a-74cf-11ee-b962-0242ac
 insert into inlevermoment(id, status, timestamp, updatetimestamp, leerling_id, opdracht_id) values (1, 'OPEN',
                                                                                                     '2016-06-22 19:10:25-07', '2016-06-22 19:10:25-07', 1, 1);
 insert into coupledbestand(id, filename, fileurl, inlevermoment_id) values (1, 'testfile', 'testurl', 1);
+alter sequence coupledbestand_seq restart with 2;
 insert into domein(id, title) values (1, 'testtitle');
 insert into kerndoel(id, domein_id, title, description, prefix) values (1, 1, 'testtitle', 'testdescription', 'testprefix');
 insert into niveau(id, description, prefix, title, type) values (1, 'testdescription', 'testprefix', 'testtitle', 'testtype');
