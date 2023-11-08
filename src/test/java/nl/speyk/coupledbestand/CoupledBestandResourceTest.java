@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
 import nl.speyk.inlevermoment.InleverMoment;
 
+
+//We only test methods used by the frontend
 @QuarkusTest
 public class CoupledBestandResourceTest {
 
+    private static final String ENDPOINT = "/coupled-bestand";
     private static final int TEST_ID = 2;
     private static final String TEST_FILE_NAME = "testfilepost";
     private static final String TEST_FILE_URL = "testurlpost";
@@ -28,7 +28,7 @@ public class CoupledBestandResourceTest {
     @Test
     public void shouldListCoupledBestanden() {
         given().auth().preemptive().oauth2(jwt)
-                .when().get("/coupled-bestand")
+                .when().get(ENDPOINT)
                 .then().statusCode(200)
                 .and().body("id", contains(1))
                 .and().body("filename", contains("testfile"))
@@ -42,16 +42,27 @@ public class CoupledBestandResourceTest {
         CoupledBestand saved = given().auth().preemptive().oauth2(jwt)
                 .contentType(ContentType.JSON)
                 .body(coupledBestand)
-                .post("/coupled-bestand")
+                .post(ENDPOINT)
                 .then()
                 .statusCode(201)
                 .extract().as(CoupledBestand.class);
         assertThat(saved.id).isEqualTo(TEST_ID);
         given().auth().preemptive().oauth2(jwt)
                 .when()
-                .delete("/coupled-bestand/" + TEST_ID)
+                .delete(ENDPOINT + "/{coupledBestandId}", TEST_ID)
                 .then()
                 .statusCode(204);
+    }
+
+    @Test
+    public void shouldGetBestandenByInleverMomentId() {
+        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(jwt)
+                .when()
+                .get(ENDPOINT + "/inlevermoment/{inleverMomentId}", TEST_INLEVERMOMENT_ID)
+                .then()
+                .statusCode(200)
+                .extract().as(CoupledBestand[].class)[0];
+        assertThat(coupledBestand.id).isEqualTo(1);
     }
 
     private InleverMoment createInleverMoment() {

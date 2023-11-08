@@ -27,7 +27,7 @@ public class CoupledBestand extends PanacheEntity {
     @Column
     @NotEmpty(message = "{CoupledBestand.fileurl.required}")
     public String fileurl;
-    
+
     // InleverMoment associated with the coupled bestand
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
