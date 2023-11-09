@@ -79,7 +79,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/security/HttpSecurityRecorder#setupBasicAuth
     ASTORE 8
     ALOAD 1
-    LDC (String) "proxykey57"
+    LDC (String) "proxykey46"
     ALOAD 8
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

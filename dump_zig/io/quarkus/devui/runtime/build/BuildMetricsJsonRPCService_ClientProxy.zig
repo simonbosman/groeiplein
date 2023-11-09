@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#context
     RETURN
@@ -99,35 +103,6 @@ Method arc_bean : Lio/quarkus/arc/InjectableBean;
     GETFIELD io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#bean
     ARETURN
     ** label2
-    
-}
-
-// Access: public
-Method getBuildItems : Lio/vertx/core/json/JsonArray;
-(
-    // (no arguments)
-) {
-    ** label1
-    ALOAD 0
-    // Field descriptor: Lio/quarkus/arc/InjectableBean;
-    GETFIELD io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#bean
-    IFNULL label2
-    ** label3
-    ** label4
-    GOTO label5
-    ** label2
-    ALOAD 0
-    // Method descriptor: ()Lio/vertx/core/json/JsonArray;
-    INVOKESPECIAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService#getBuildItems
-    ARETURN
-    ** label5
-    ALOAD 0
-    // Method descriptor: ()Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCService;
-    INVOKEVIRTUAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#arc$delegate
-    // Method descriptor: ()Lio/vertx/core/json/JsonArray;
-    INVOKEVIRTUAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService#getBuildItems
-    ARETURN
-    ** label6
     
 }
 
@@ -244,6 +219,35 @@ Method getBuildMetrics : Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCServ
     INVOKEVIRTUAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#arc$delegate
     // Method descriptor: ()Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCService$BuildMetrics;
     INVOKEVIRTUAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService#getBuildMetrics
+    ARETURN
+    ** label6
+    
+}
+
+// Access: public
+Method getBuildItems : Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCService$BuildItems;
+(
+    // (no arguments)
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    // Method descriptor: ()Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCService$BuildItems;
+    INVOKESPECIAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService#getBuildItems
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCService;
+    INVOKEVIRTUAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService_ClientProxy#arc$delegate
+    // Method descriptor: ()Lio/quarkus/devui/runtime/build/BuildMetricsJsonRPCService$BuildItems;
+    INVOKEVIRTUAL io/quarkus/devui/runtime/build/BuildMetricsJsonRPCService#getBuildItems
     ARETURN
     ** label6
     

@@ -1,5 +1,10 @@
 package nl.speyk.doel;
 
+import java.util.List;
+
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
+import io.quarkus.cache.CacheResult;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
@@ -8,9 +13,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-
-import java.util.List;
 
 @Path("/doel")
 @Produces(MediaType.APPLICATION_JSON)
@@ -20,7 +22,10 @@ public class DoelCustomResource {
     @Inject
     DoelService doelService;
 
+    private static final String CACHE_NAME = "nl.speyk.doel.Doel";
+
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/niveau/{niveauId}")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByNiveauId(@PathParam("niveauId") Long niveauId) {
@@ -28,6 +33,7 @@ public class DoelCustomResource {
     }
 
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/zondergroep")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenZonderGroep() {
@@ -35,6 +41,7 @@ public class DoelCustomResource {
     }
 
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/vakleergebied/{vakleergebiedId}")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByVakleergebiedId(@PathParam("vakleergebiedId") Long vakleergebiedId) {

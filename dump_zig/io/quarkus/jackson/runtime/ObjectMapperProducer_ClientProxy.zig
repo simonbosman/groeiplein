@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD io/quarkus/jackson/runtime/ObjectMapperProducer_ClientProxy#context
     RETURN
@@ -137,6 +141,38 @@ Method objectMapper : Lcom/fasterxml/jackson/databind/ObjectMapper;
     arg 1 = Ljava/util/List;,
     arg 2 = Lio/quarkus/jackson/runtime/JacksonBuildTimeConfig;,
     arg 3 = Lio/quarkus/jackson/runtime/JacksonSupport;
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD io/quarkus/jackson/runtime/ObjectMapperProducer_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    // Method descriptor: (Ljava/util/List;Lio/quarkus/jackson/runtime/JacksonBuildTimeConfig;Lio/quarkus/jackson/runtime/JacksonSupport;)Lcom/fasterxml/jackson/databind/ObjectMapper;
+    INVOKESPECIAL io/quarkus/jackson/runtime/ObjectMapperProducer#objectMapper
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lio/quarkus/jackson/runtime/ObjectMapperProducer;
+    INVOKEVIRTUAL io/quarkus/jackson/runtime/ObjectMapperProducer_ClientProxy#arc$delegate
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    // Method descriptor: (Ljava/util/List;Lio/quarkus/jackson/runtime/JacksonBuildTimeConfig;Lio/quarkus/jackson/runtime/JacksonSupport;)Lcom/fasterxml/jackson/databind/ObjectMapper;
+    INVOKEVIRTUAL io/quarkus/jackson/runtime/ObjectMapperProducer#objectMapper
+    ARETURN
+    ** label6
+    
+}
+
+pport;
 ) {
     ** label1
     ALOAD 0

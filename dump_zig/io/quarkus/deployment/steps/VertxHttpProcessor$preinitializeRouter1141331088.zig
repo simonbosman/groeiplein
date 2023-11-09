@@ -85,7 +85,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#<init>
     ASTORE 9
     ALOAD 1
-    LDC (String) "proxykey69"
+    LDC (String) "proxykey66"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 10
@@ -96,12 +96,12 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#initializeRouter
     ASTORE 11
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey74"
     ALOAD 11
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey74"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 12
@@ -112,7 +112,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#createMutinyRouter
     ASTORE 13
     ALOAD 1
-    LDC (String) "proxykey81"
+    LDC (String) "proxykey76"
     ALOAD 13
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

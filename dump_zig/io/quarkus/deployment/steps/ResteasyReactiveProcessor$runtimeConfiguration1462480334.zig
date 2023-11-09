@@ -69,7 +69,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/smallrye/config/SmallRyeConfig#getConfigMapping
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey402"
+    LDC (String) "proxykey415"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 5
@@ -82,7 +82,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/server/runtime/ResteasyReactiveRuntimeRecorder#runtimeConfiguration
     ASTORE 7
     ALOAD 1
-    LDC (String) "proxykey411"
+    LDC (String) "proxykey425"
     ALOAD 7
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

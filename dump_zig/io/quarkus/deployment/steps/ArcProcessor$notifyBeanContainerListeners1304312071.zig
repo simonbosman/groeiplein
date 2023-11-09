@@ -63,7 +63,7 @@ Method deploy_0 : V
     INVOKESPECIAL java/util/ArrayList#<init>
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey96"
+    LDC (String) "proxykey94"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
@@ -74,7 +74,7 @@ Method deploy_0 : V
     INVOKEINTERFACE java/util/Collection#add
     POP
     ALOAD 1
-    LDC (String) "proxykey146"
+    LDC (String) "proxykey150"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 5
@@ -85,7 +85,7 @@ Method deploy_0 : V
     INVOKEINTERFACE java/util/Collection#add
     POP
     ALOAD 1
-    LDC (String) "proxykey190"
+    LDC (String) "proxykey182"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 7
@@ -98,7 +98,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/arc/runtime/ArcRecorder#initBeanContainer
     ASTORE 8
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     ALOAD 8
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

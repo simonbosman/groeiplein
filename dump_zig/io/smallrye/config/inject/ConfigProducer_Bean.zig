@@ -14,6 +14,9 @@ Field types : Ljava/util/Set;
 // Access: private volatile
 Field proxy : Lio/smallrye/config/inject/ConfigProducer_ClientProxy;
 
+// Access: private final
+Field interceptorProviderSupplier1 : Ljava/util/function/Supplier;
+
 // Access: private
 Method proxy : Lio/smallrye/config/inject/ConfigProducer_ClientProxy;
 (
@@ -32,7 +35,7 @@ Method proxy : Lio/smallrye/config/inject/ConfigProducer_ClientProxy;
     ** label2
     NEW io/smallrye/config/inject/ConfigProducer_ClientProxy
     DUP
-    LDC (String) "41d660d5c5ecdf874f4621bc533ee5c940ee765a"
+    LDC (String) "QdZg1cXs34dPRiG8Uz7lyUDudlo"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/smallrye/config/inject/ConfigProducer_ClientProxy#<init>
     ASTORE 1
@@ -50,7 +53,7 @@ Method proxy : Lio/smallrye/config/inject/ConfigProducer_ClientProxy;
 // Access: public
 Method <init> : V
 (
-    // (no arguments)
+    arg 1 = Ljava/util/function/Supplier;
 ) {
     ** label1
     ALOAD 0
@@ -60,32 +63,36 @@ Method <init> : V
     INVOKESTATIC java/lang/Thread#currentThread
     // Method descriptor: ()Ljava/lang/ClassLoader;
     INVOKEVIRTUAL java/lang/Thread#getContextClassLoader
-    ASTORE 1
+    ASTORE 2
+    ALOAD 0
+    ALOAD 1
+    // Field descriptor: Ljava/util/function/Supplier;
+    PUTFIELD io/smallrye/config/inject/ConfigProducer_Bean#interceptorProviderSupplier1
     ICONST_2
     ANEWARRAY java/lang/Object
-    ASTORE 2
+    ASTORE 3
     LDC (String) "io.smallrye.config.inject.ConfigProducer"
     ICONST_0
-    ALOAD 1
+    ALOAD 2
     // Method descriptor: (Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
     INVOKESTATIC java/lang/Class#forName
-    ASTORE 3
-    ALOAD 2
-    ICONST_0
-    ALOAD 3
-    AASTORE
-    LDC (Type) Ljava/lang/Object;
     ASTORE 4
-    ALOAD 2
-    ICONST_1
+    ALOAD 3
+    ICONST_0
     ALOAD 4
     AASTORE
-    ALOAD 2
+    LDC (Type) Ljava/lang/Object;
+    ASTORE 5
+    ALOAD 3
+    ICONST_1
+    ALOAD 5
+    AASTORE
+    ALOAD 3
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC io/quarkus/arc/impl/Sets#of
-    ASTORE 5
+    ASTORE 6
     ALOAD 0
-    ALOAD 5
+    ALOAD 6
     // Field descriptor: Ljava/util/Set;
     PUTFIELD io/smallrye/config/inject/ConfigProducer_Bean#types
     RETURN
@@ -99,7 +106,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "41d660d5c5ecdf874f4621bc533ee5c940ee765a"
+    LDC (String) "QdZg1cXs34dPRiG8Uz7lyUDudlo"
     ARETURN
     ** label2
     
@@ -123,10 +130,26 @@ Method doCreate : Lio/smallrye/config/inject/ConfigProducer;
     arg 1 = Ljakarta/enterprise/context/spi/CreationalContext;
 ) {
     ** label1
-    NEW io/smallrye/config/inject/ConfigProducer
+    ALOAD 0
+    // Field descriptor: Ljava/util/function/Supplier;
+    GETFIELD io/smallrye/config/inject/ConfigProducer_Bean#interceptorProviderSupplier1
+    // Method descriptor: ()Ljava/lang/Object;
+    INVOKEINTERFACE java/util/function/Supplier#get
+    ASTORE 2
+    NEW io/smallrye/config/inject/ConfigProducer_Subclass
     DUP
+    ALOAD 1
+    ALOAD 2
+    CHECKCAST io/quarkus/arc/InjectableInterceptor
+    // Method descriptor: (Ljakarta/enterprise/context/spi/CreationalContext;Lio/quarkus/arc/InjectableInterceptor;)V
+    INVOKESPECIAL io/smallrye/config/inject/ConfigProducer_Subclass#<init>
+    CHECKCAST io/smallrye/config/inject/ConfigProducer
+    ASTORE 3
+    ALOAD 3
+    CHECKCAST io/smallrye/config/inject/ConfigProducer_Subclass
     // Method descriptor: ()V
-    INVOKESPECIAL io/smallrye/config/inject/ConfigProducer#<init>
+    INVOKEVIRTUAL io/smallrye/config/inject/ConfigProducer_Subclass#arc$markConstructed
+    ALOAD 3
     ARETURN
     ** label2
     
@@ -311,7 +334,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "41d660d5c5ecdf874f4621bc533ee5c940ee765a"
+    LDC (String) "QdZg1cXs34dPRiG8Uz7lyUDudlo"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -326,7 +349,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) -1916466500
+    LDC (Integer) -1693541410
     IRETURN
     ** label2
     

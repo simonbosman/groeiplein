@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism_ClientProxy#context
     RETURN
@@ -308,6 +312,44 @@ Method getCredentialTransport : Lio/quarkus/vertx/http/runtime/security/HttpCred
     // Method descriptor: ()Lio/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism;
     INVOKEVIRTUAL io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism_ClientProxy#arc$delegate
     // Method descriptor: ()Lio/quarkus/vertx/http/runtime/security/HttpCredentialTransport;
+    INVOKEVIRTUAL io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism#getCredentialTransport
+    ARETURN
+    ** label6
+    
+}
+
+// Access: public
+Method getChallenge : Lio/smallrye/mutiny/Uni;
+(
+    arg 1 = Lio/vertx/ext/web/RoutingContext;
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    ALOAD 1
+    // Method descriptor: (Lio/vertx/ext/web/RoutingContext;)Lio/smallrye/mutiny/Uni;
+    INVOKESPECIAL io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism#getChallenge
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lio/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism;
+    INVOKEVIRTUAL io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism_ClientProxy#arc$delegate
+    ALOAD 1
+    // Method descriptor: (Lio/vertx/ext/web/RoutingContext;)Lio/smallrye/mutiny/Uni;
+    INVOKEVIRTUAL io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism#getChallenge
+    ARETURN
+    ** label6
+    
+}
+
+y/HttpCredentialTransport;
     INVOKEVIRTUAL io/quarkus/smallrye/jwt/runtime/auth/JWTAuthMechanism#getCredentialTransport
     ARETURN
     ** label6

@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.Length;
 @Entity(name = "Kerndoel")
 @Table(name = "kerndoel")
 @Data
-@Cacheable
 public class Kerndoel {
 
     @Id

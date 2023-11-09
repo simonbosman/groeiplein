@@ -126,7 +126,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/ArcDevRecorder#createSummaryHandler
     ASTORE 5
     ALOAD 1
-    LDC (String) "proxykey181"
+    LDC (String) "proxykey187"
     ALOAD 5
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -136,7 +136,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/ArcDevRecorder#createBeansHandler
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey182"
+    LDC (String) "proxykey188"
     ALOAD 6
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -155,7 +155,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 7
     ICONST_1
-    LDC (String) "io.quarkus.cache.runtime.CacheInvalidateInterceptor"
+    LDC (String) "io.smallrye.context.impl.cdi.SmallRyeCurrentThreadContextInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -172,7 +172,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 9
     ICONST_1
-    LDC (String) "io.quarkus.resteasy.reactive.server.runtime.StandardSecurityCheckInterceptor$PermissionsAllowedInterceptor"
+    LDC (String) "io.quarkus.cache.runtime.CacheResultInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -189,7 +189,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 10
     ICONST_1
-    LDC (String) "io.quarkus.hibernate.validator.runtime.interceptor.MethodValidationInterceptor"
+    LDC (String) "io.quarkus.resteasy.reactive.server.runtime.StandardSecurityCheckInterceptor$PermitAllInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -206,7 +206,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 11
     ICONST_1
-    LDC (String) "io.quarkus.security.runtime.interceptor.PermissionsAllowedInterceptor"
+    LDC (String) "io.quarkus.arc.impl.ActivateRequestContextInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -223,7 +223,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 12
     ICONST_1
-    LDC (String) "io.smallrye.context.impl.cdi.SmallRyeCurrentThreadContextInterceptor"
+    LDC (String) "io.quarkus.hibernate.reactive.panache.common.runtime.ReactiveTransactionalInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -240,7 +240,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 13
     ICONST_1
-    LDC (String) "io.quarkus.vertx.core.runtime.context.SafeVertxContextInterceptor"
+    LDC (String) "io.quarkus.security.runtime.interceptor.PermitAllInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -257,7 +257,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 14
     ICONST_1
-    LDC (String) "io.quarkus.cache.runtime.CacheResultInterceptor"
+    LDC (String) "io.quarkus.security.runtime.interceptor.PermissionsAllowedInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -274,7 +274,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 15
     ICONST_1
-    LDC (String) "io.quarkus.arc.impl.LockInterceptor"
+    LDC (String) "io.quarkus.cache.runtime.CacheInvalidateAllInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -291,7 +291,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 16
     ICONST_1
-    LDC (String) "io.quarkus.hibernate.reactive.panache.common.runtime.ReactiveTransactionalInterceptor"
+    LDC (String) "io.quarkus.cache.runtime.CacheInvalidateInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -308,7 +308,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 17
     ICONST_1
-    LDC (String) "io.quarkus.arc.impl.ActivateRequestContextInterceptor"
+    LDC (String) "io.quarkus.vertx.core.runtime.context.SafeVertxContextInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -325,7 +325,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 18
     ICONST_1
-    LDC (String) "io.quarkus.security.runtime.interceptor.PermitAllInterceptor"
+    LDC (String) "io.quarkus.hibernate.validator.runtime.interceptor.MethodValidationInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -342,7 +342,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 19
     ICONST_1
-    LDC (String) "io.quarkus.cache.runtime.CacheInvalidateAllInterceptor"
+    LDC (String) "io.quarkus.security.runtime.interceptor.DenyAllInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -359,7 +359,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 20
     ICONST_1
-    LDC (String) "io.quarkus.resteasy.reactive.server.runtime.StandardSecurityCheckInterceptor$PermitAllInterceptor"
+    LDC (String) "io.quarkus.arc.impl.LockInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -376,7 +376,7 @@ Method deploy_0 : V
     AASTORE
     ALOAD 21
     ICONST_1
-    LDC (String) "io.quarkus.security.runtime.interceptor.DenyAllInterceptor"
+    LDC (String) "io.quarkus.resteasy.reactive.server.runtime.StandardSecurityCheckInterceptor$PermissionsAllowedInterceptor"
     AASTORE
     ALOAD 8
     CHECKCAST java/util/Collection
@@ -391,7 +391,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/ArcDevRecorder#createRemovedBeansHandler
     ASTORE 22
     ALOAD 1
-    LDC (String) "proxykey183"
+    LDC (String) "proxykey189"
     ALOAD 22
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -400,7 +400,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/ArcDevRecorder#createObserversHandler
     ASTORE 23
     ALOAD 1
-    LDC (String) "proxykey184"
+    LDC (String) "proxykey190"
     ALOAD 23
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

@@ -61,7 +61,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#communicationHandler
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey298"
+    LDC (String) "proxykey307"
     ALOAD 3
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -77,7 +77,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 4
     ALOAD 4
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-vertx-http-dev-ui-resources__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-vertx-http-dev-ui-resources__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 4
@@ -115,7 +115,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 8
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-vertx-http-dev-ui-resources__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-vertx-http-dev-ui-resources__jar/dev-ui"
     LDC (String) "/q/dev-ui"
     ALOAD 5
     CHECKCAST java/util/List
@@ -125,7 +125,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 9
     ALOAD 1
-    LDC (String) "proxykey300"
+    LDC (String) "proxykey310"
     ALOAD 9
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -141,7 +141,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 10
     ALOAD 10
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-hibernate-orm-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-hibernate-orm-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 10
@@ -179,7 +179,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 13
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-hibernate-orm-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-hibernate-orm-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-hibernate-orm"
     ALOAD 11
     CHECKCAST java/util/List
@@ -189,7 +189,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 14
     ALOAD 1
-    LDC (String) "proxykey301"
+    LDC (String) "proxykey311"
     ALOAD 14
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -205,7 +205,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 15
     ALOAD 15
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-datasource-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-datasource-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 15
@@ -243,7 +243,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 18
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-datasource-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-datasource-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-datasource"
     ALOAD 16
     CHECKCAST java/util/List
@@ -253,7 +253,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 19
     ALOAD 1
-    LDC (String) "proxykey302"
+    LDC (String) "proxykey312"
     ALOAD 19
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -269,7 +269,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 20
     ALOAD 20
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-arc-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-arc-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 20
@@ -307,7 +307,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 23
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-arc-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-arc-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-arc"
     ALOAD 21
     CHECKCAST java/util/List
@@ -317,7 +317,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 24
     ALOAD 1
-    LDC (String) "proxykey303"
+    LDC (String) "proxykey313"
     ALOAD 24
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -333,7 +333,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 25
     ALOAD 25
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-resteasy-reactive-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-resteasy-reactive-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 25
@@ -371,7 +371,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 28
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-resteasy-reactive-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-resteasy-reactive-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-resteasy-reactive"
     ALOAD 26
     CHECKCAST java/util/List
@@ -381,7 +381,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 29
     ALOAD 1
-    LDC (String) "proxykey304"
+    LDC (String) "proxykey314"
     ALOAD 29
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -397,7 +397,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 30
     ALOAD 30
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-smallrye-openapi-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-smallrye-openapi-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 30
@@ -435,7 +435,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 33
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-smallrye-openapi-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-smallrye-openapi-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-smallrye-openapi"
     ALOAD 31
     CHECKCAST java/util/List
@@ -445,7 +445,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 34
     ALOAD 1
-    LDC (String) "proxykey306"
+    LDC (String) "proxykey315"
     ALOAD 34
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -461,7 +461,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 35
     ALOAD 35
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-caffeine-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-caffeine-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 35
@@ -499,7 +499,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 38
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-caffeine-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-caffeine-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-caffeine"
     ALOAD 36
     CHECKCAST java/util/List
@@ -509,7 +509,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 39
     ALOAD 1
-    LDC (String) "proxykey307"
+    LDC (String) "proxykey316"
     ALOAD 39
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -525,7 +525,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 40
     ALOAD 40
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-cache-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-cache-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 40
@@ -563,7 +563,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 43
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-cache-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-cache-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-cache"
     ALOAD 41
     CHECKCAST java/util/List
@@ -573,7 +573,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 44
     ALOAD 1
-    LDC (String) "proxykey308"
+    LDC (String) "proxykey317"
     ALOAD 44
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -589,7 +589,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 45
     ALOAD 45
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-kubernetes-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-kubernetes-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 45
@@ -627,7 +627,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 48
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-kubernetes-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-kubernetes-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-kubernetes"
     ALOAD 46
     CHECKCAST java/util/List
@@ -637,7 +637,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 49
     ALOAD 1
-    LDC (String) "proxykey309"
+    LDC (String) "proxykey319"
     ALOAD 49
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -653,7 +653,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 50
     ALOAD 50
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-container-image-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-container-image-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 50
@@ -691,7 +691,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 53
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkus_quarkus-container-image-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkus_quarkus-container-image-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkus.quarkus-container-image"
     ALOAD 51
     CHECKCAST java/util/List
@@ -701,7 +701,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 54
     ALOAD 1
-    LDC (String) "proxykey310"
+    LDC (String) "proxykey320"
     ALOAD 54
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -717,7 +717,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#<init>
     ASTORE 55
     ALOAD 55
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkiverse.bucket4j_quarkus-bucket4j-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkiverse.bucket4j_quarkus-bucket4j-deployment__jar/dev-ui"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/devmode/FileSystemStaticHandler$StaticWebRootConfiguration#setFileSystem
     ALOAD 55
@@ -755,7 +755,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 58
     ALOAD 7
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561/META-INF/io.quarkiverse.bucket4j_quarkus-bucket4j-deployment__jar/dev-ui"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar3802230162986017653/META-INF/io.quarkiverse.bucket4j_quarkus-bucket4j-deployment__jar/dev-ui"
     LDC (String) "/q/dev-ui/io.quarkiverse.bucket4j.quarkus-bucket4j"
     ALOAD 56
     CHECKCAST java/util/List
@@ -765,7 +765,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#uiHandler
     ASTORE 59
     ALOAD 1
-    LDC (String) "proxykey311"
+    LDC (String) "proxykey321"
     ALOAD 59
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -777,7 +777,7 @@ Method deploy_0 : V
     ALOAD 7
     ALOAD 60
     CHECKCAST io/quarkus/runtime/ShutdownContext
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186"
     // Method descriptor: (Lio/quarkus/runtime/ShutdownContext;Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#shutdownTask
     NEW java/util/HashMap
@@ -788,49 +788,49 @@ Method deploy_0 : V
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "io.quarkiverse.bucket4j.quarkus-bucket4j-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/io.quarkiverse.bucket4j.quarkus-bucket4j-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/io.quarkiverse.bucket4j.quarkus-bucket4j-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "devui-jsonrpc-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/devui-jsonrpc-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/devui-jsonrpc-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "devui-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/devui-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/devui-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "io.quarkus.quarkus-caffeine-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/io.quarkus.quarkus-caffeine-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/io.quarkus.quarkus-caffeine-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "io.quarkus.quarkus-container-image-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/io.quarkus.quarkus-container-image-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/io.quarkus.quarkus-container-image-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "io.quarkus.quarkus-datasource-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/io.quarkus.quarkus-datasource-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/io.quarkus.quarkus-datasource-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 61
     CHECKCAST java/util/Map
     LDC (String) "io.quarkus.quarkus-arc-data.js"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/io.quarkus.quarkus-arc-data.js"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/io.quarkus.quarkus-arc-data.js"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
@@ -842,7 +842,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#buildTimeStaticHandler
     ASTORE 62
     ALOAD 1
-    LDC (String) "proxykey413"
+    LDC (String) "proxykey454"
     ALOAD 62
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -854,7 +854,7 @@ Method deploy_0 : V
     ALOAD 63
     CHECKCAST java/util/Map
     LDC (String) "index.html"
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui8530912564322471570/index.html"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-devui14501880002143471186/index.html"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
@@ -866,7 +866,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#buildTimeStaticHandler
     ASTORE 64
     ALOAD 1
-    LDC (String) "proxykey414"
+    LDC (String) "proxykey459"
     ALOAD 64
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -876,7 +876,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 65
     ALOAD 1
-    LDC (String) "proxykey415"
+    LDC (String) "proxykey460"
     ALOAD 65
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -886,7 +886,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 66
     ALOAD 1
-    LDC (String) "proxykey416"
+    LDC (String) "proxykey461"
     ALOAD 66
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -896,7 +896,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 67
     ALOAD 1
-    LDC (String) "proxykey417"
+    LDC (String) "proxykey462"
     ALOAD 67
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -906,7 +906,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 68
     ALOAD 1
-    LDC (String) "proxykey418"
+    LDC (String) "proxykey463"
     ALOAD 68
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -916,7 +916,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 69
     ALOAD 1
-    LDC (String) "proxykey419"
+    LDC (String) "proxykey464"
     ALOAD 69
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -926,7 +926,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 70
     ALOAD 1
-    LDC (String) "proxykey420"
+    LDC (String) "proxykey465"
     ALOAD 70
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -936,7 +936,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 71
     ALOAD 1
-    LDC (String) "proxykey421"
+    LDC (String) "proxykey466"
     ALOAD 71
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -946,7 +946,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 72
     ALOAD 1
-    LDC (String) "proxykey422"
+    LDC (String) "proxykey467"
     ALOAD 72
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -956,7 +956,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 73
     ALOAD 1
-    LDC (String) "proxykey423"
+    LDC (String) "proxykey468"
     ALOAD 73
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -966,7 +966,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 74
     ALOAD 1
-    LDC (String) "proxykey424"
+    LDC (String) "proxykey469"
     ALOAD 74
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -976,7 +976,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#vaadinRouterHandler
     ASTORE 75
     ALOAD 1
-    LDC (String) "proxykey425"
+    LDC (String) "proxykey470"
     ALOAD 75
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1453,7 +1453,7 @@ Method deploy_0 : V
     ** label77
     NEW java/net/URL
     DUP
-    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/at/mvnpm/vaadin-webcomponents/24.1.7/vaadin-webcomponents-24.1.7.jar"
+    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/at/vanillawc/wc-codemirror/2.1.0/wc-codemirror-2.1.0.jar"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL java/net/URL#<init>
     ASTORE 108
@@ -1484,7 +1484,7 @@ Method deploy_0 : V
     ** label82
     NEW java/net/URL
     DUP
-    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/at/vanillawc/wc-codemirror/2.1.0/wc-codemirror-2.1.0.jar"
+    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/es-module-shims/1.8.0/es-module-shims-1.8.0.jar"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL java/net/URL#<init>
     ASTORE 110
@@ -1515,7 +1515,7 @@ Method deploy_0 : V
     ** label87
     NEW java/net/URL
     DUP
-    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/es-module-shims/1.8.0/es-module-shims-1.8.0.jar"
+    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/at/types/trusted-types/2.0.4/trusted-types-2.0.4.jar"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL java/net/URL#<init>
     ASTORE 112
@@ -1546,7 +1546,7 @@ Method deploy_0 : V
     ** label92
     NEW java/net/URL
     DUP
-    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/at/types/trusted-types/2.0.3/trusted-types-2.0.3.jar"
+    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/lit-html/2.8.0/lit-html-2.8.0.jar"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL java/net/URL#<init>
     ASTORE 114
@@ -1577,7 +1577,7 @@ Method deploy_0 : V
     ** label97
     NEW java/net/URL
     DUP
-    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/lit-html/2.8.0/lit-html-2.8.0.jar"
+    LDC (String) "file:/Users/simon/.m2/repository/org/mvnpm/at/mvnpm/vaadin-webcomponents/24.1.10/vaadin-webcomponents-24.1.10.jar"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL java/net/URL#<init>
     ASTORE 116
@@ -1613,7 +1613,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#mvnpmHandler
     ASTORE 117
     ALOAD 1
-    LDC (String) "proxykey426"
+    LDC (String) "proxykey471"
     ALOAD 117
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1623,7 +1623,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/DevUIRecorder#redirect
     ASTORE 118
     ALOAD 1
-    LDC (String) "proxykey427"
+    LDC (String) "proxykey472"
     ALOAD 118
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1642,6 +1642,10 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ANEWARRAY java/lang/Object
     ARETURN
     ** label2
+    
+}
+
+bel2
     
 }
 

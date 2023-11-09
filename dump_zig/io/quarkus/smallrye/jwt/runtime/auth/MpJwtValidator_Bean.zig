@@ -15,10 +15,10 @@ Field types : Ljava/util/Set;
 Field proxy : Lio/quarkus/smallrye/jwt/runtime/auth/MpJwtValidator_ClientProxy;
 
 // Access: private final
-Field injectProviderSupplier2 : Ljava/util/function/Supplier;
+Field injectProviderSupplier1 : Ljava/util/function/Supplier;
 
 // Access: private final
-Field injectProviderSupplier1 : Ljava/util/function/Supplier;
+Field injectProviderSupplier2 : Ljava/util/function/Supplier;
 
 // Access: private
 Method proxy : Lio/quarkus/smallrye/jwt/runtime/auth/MpJwtValidator_ClientProxy;
@@ -38,7 +38,7 @@ Method proxy : Lio/quarkus/smallrye/jwt/runtime/auth/MpJwtValidator_ClientProxy;
     ** label2
     NEW io/quarkus/smallrye/jwt/runtime/auth/MpJwtValidator_ClientProxy
     DUP
-    LDC (String) "0d9ead5881ac6996a5ccb144613fbb10467af2f9"
+    LDC (String) "DZ6tWIGsaZalzLFEYT-7EEZ68vk"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkus/smallrye/jwt/runtime/auth/MpJwtValidator_ClientProxy#<init>
     ASTORE 1
@@ -200,7 +200,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "0d9ead5881ac6996a5ccb144613fbb10467af2f9"
+    LDC (String) "DZ6tWIGsaZalzLFEYT-7EEZ68vk"
     ARETURN
     ** label2
     
@@ -454,7 +454,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "0d9ead5881ac6996a5ccb144613fbb10467af2f9"
+    LDC (String) "DZ6tWIGsaZalzLFEYT-7EEZ68vk"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -469,7 +469,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) -1680286148
+    LDC (Integer) 162260709
     IRETURN
     ** label2
     
@@ -485,6 +485,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+String
     ARETURN
     ** label2
     

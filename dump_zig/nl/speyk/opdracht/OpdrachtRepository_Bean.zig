@@ -35,7 +35,7 @@ Method proxy : Lnl/speyk/opdracht/OpdrachtRepository_ClientProxy;
     ** label2
     NEW nl/speyk/opdracht/OpdrachtRepository_ClientProxy
     DUP
-    LDC (String) "57d529e00ccc8aaa8773674421973c1acac8eb2f"
+    LDC (String) "V9Up4AzMiqqHc2dEIZc8GsrI6y8"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL nl/speyk/opdracht/OpdrachtRepository_ClientProxy#<init>
     ASTORE 1
@@ -177,7 +177,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "57d529e00ccc8aaa8773674421973c1acac8eb2f"
+    LDC (String) "V9Up4AzMiqqHc2dEIZc8GsrI6y8"
     ARETURN
     ** label2
     
@@ -405,7 +405,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "57d529e00ccc8aaa8773674421973c1acac8eb2f"
+    LDC (String) "V9Up4AzMiqqHc2dEIZc8GsrI6y8"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -420,7 +420,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 977753918
+    LDC (Integer) -642330593
     IRETURN
     ** label2
     
@@ -436,6 +436,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+ing
     ARETURN
     ** label2
     

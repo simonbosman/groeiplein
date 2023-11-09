@@ -43,6 +43,6 @@ public class GroepOpdracht extends PanacheEntity {
         Map<String, Object> params = new HashMap<>();
         params.put("opdrachtId", opdrachtId);
         params.put("groepId", groepUuid);
-        return delete("#GroepOpdracht.Delete", params);
+        return delete("#GroepOpdracht.delete", params);
     }
 }

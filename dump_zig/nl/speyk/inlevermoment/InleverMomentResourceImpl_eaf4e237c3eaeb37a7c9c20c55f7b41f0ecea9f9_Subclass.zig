@@ -170,6 +170,28 @@ Method <init> : V
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
+    ICONST_2
+    ANEWARRAY java/lang/Object
+    ASTORE 19
+    ALOAD 19
+    ICONST_0
+    ALOAD 17
+    AASTORE
+    ALOAD 19
+    ICONST_1
+    ALOAD 16
+    AASTORE
+    ALOAD 19
+    // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
+    INVOKESTATIC io/quarkus/arc/impl/Sets#of
+    ASTORE 20
+    ALOAD 9
+    CHECKCAST java/util/Map
+    LDC (String) "b3"
+    ALOAD 20
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
     ALOAD 0
     ALOAD 7
     CHECKCAST java/util/Map
@@ -494,249 +516,254 @@ Method arc$initMetadata0 : V
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
     ASTORE 20
+    ALOAD 2
+    LDC (String) "b3"
+    // Method descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#get
+    ASTORE 21
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$4
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$4#<init>
-    ASTORE 21
+    ASTORE 22
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 10
     CHECKCAST java/util/List
     ALOAD 20
-    ALOAD 12
-    CHECKCAST java/util/Set
     ALOAD 21
+    CHECKCAST java/util/Set
+    ALOAD 22
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 22
+    ASTORE 23
     ALOAD 0
-    ALOAD 22
+    ALOAD 23
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$4
     ICONST_1
     ANEWARRAY java/lang/Class
-    ASTORE 23
-    ALOAD 23
+    ASTORE 24
+    ALOAD 24
     ICONST_0
     LDC (Type) Ljava/lang/Object;
     AASTORE
     LDC (Type) Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     LDC (String) "get"
-    ALOAD 23
+    ALOAD 24
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
-    ASTORE 24
+    ASTORE 25
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$5
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$5#<init>
-    ASTORE 25
+    ASTORE 26
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 4
     CHECKCAST java/util/List
-    ALOAD 24
+    ALOAD 25
     ALOAD 6
     CHECKCAST java/util/Set
-    ALOAD 25
+    ALOAD 26
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 26
+    ASTORE 27
     ALOAD 0
-    ALOAD 26
+    ALOAD 27
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$5
     ICONST_2
     ANEWARRAY java/lang/Class
-    ASTORE 27
-    ALOAD 27
+    ASTORE 28
+    ALOAD 28
     ICONST_0
     LDC (Type) Lio/quarkus/panache/common/Page;
     AASTORE
-    ALOAD 27
+    ALOAD 28
     ICONST_1
     LDC (Type) Lio/quarkus/panache/common/Sort;
     AASTORE
     LDC (Type) Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     LDC (String) "list"
-    ALOAD 27
+    ALOAD 28
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
-    ASTORE 28
+    ASTORE 29
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$6
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$6#<init>
-    ASTORE 29
+    ASTORE 30
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 4
     CHECKCAST java/util/List
-    ALOAD 28
+    ALOAD 29
     ALOAD 6
     CHECKCAST java/util/Set
-    ALOAD 29
+    ALOAD 30
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 30
+    ASTORE 31
     ALOAD 0
-    ALOAD 30
+    ALOAD 31
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$6
     ICONST_4
     ANEWARRAY java/lang/Class
-    ASTORE 31
-    ALOAD 31
+    ASTORE 32
+    ALOAD 32
     ICONST_0
     LDC (Type) Lio/quarkus/panache/common/Page;
     AASTORE
-    ALOAD 31
+    ALOAD 32
     ICONST_1
     LDC (Type) Lio/quarkus/panache/common/Sort;
     AASTORE
-    ALOAD 31
+    ALOAD 32
     ICONST_2
     LDC (Type) Ljava/lang/String;
     AASTORE
-    ALOAD 31
+    ALOAD 32
     ICONST_3
     LDC (Type) Ljava/util/Map;
     AASTORE
     LDC (Type) Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     LDC (String) "list"
-    ALOAD 31
+    ALOAD 32
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
-    ASTORE 32
+    ASTORE 33
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$7
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$7#<init>
-    ASTORE 33
+    ASTORE 34
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 4
     CHECKCAST java/util/List
-    ALOAD 32
+    ALOAD 33
     ALOAD 6
     CHECKCAST java/util/Set
-    ALOAD 33
+    ALOAD 34
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 34
+    ASTORE 35
     ALOAD 0
-    ALOAD 34
+    ALOAD 35
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$7
     ICONST_2
     ANEWARRAY java/lang/Class
-    ASTORE 35
-    ALOAD 35
+    ASTORE 36
+    ALOAD 36
     ICONST_0
     LDC (Type) Ljava/lang/Object;
     AASTORE
-    ALOAD 35
+    ALOAD 36
     ICONST_1
     LDC (Type) Ljava/lang/Object;
     AASTORE
     LDC (Type) Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     LDC (String) "update"
-    ALOAD 35
+    ALOAD 36
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
-    ASTORE 36
+    ASTORE 37
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$8
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$8#<init>
-    ASTORE 37
+    ASTORE 38
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 10
     CHECKCAST java/util/List
-    ALOAD 36
+    ALOAD 37
     ALOAD 12
     CHECKCAST java/util/Set
-    ALOAD 37
+    ALOAD 38
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 38
+    ASTORE 39
     ALOAD 0
-    ALOAD 38
+    ALOAD 39
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$8
     ICONST_1
     ANEWARRAY java/lang/Class
-    ASTORE 39
-    ALOAD 39
+    ASTORE 40
+    ALOAD 40
     ICONST_0
     LDC (Type) Ljava/lang/Long;
     AASTORE
     LDC (Type) Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     LDC (String) "findMomentByLeerlingId"
-    ALOAD 39
+    ALOAD 40
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
-    ASTORE 40
+    ASTORE 41
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$9
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$9#<init>
-    ASTORE 41
+    ASTORE 42
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 4
     CHECKCAST java/util/List
-    ALOAD 40
+    ALOAD 41
     ALOAD 6
     CHECKCAST java/util/Set
-    ALOAD 41
+    ALOAD 42
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 42
+    ASTORE 43
     ALOAD 0
-    ALOAD 42
+    ALOAD 43
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$9
     ICONST_1
     ANEWARRAY java/lang/Class
-    ASTORE 43
-    ALOAD 43
+    ASTORE 44
+    ALOAD 44
     ICONST_0
     LDC (Type) Ljava/lang/Long;
     AASTORE
     LDC (Type) Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     LDC (String) "findMomentByOpdrachtId"
-    ALOAD 43
+    ALOAD 44
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
-    ASTORE 44
+    ASTORE 45
     NEW nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$10
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass$$function$$10#<init>
-    ASTORE 45
+    ASTORE 46
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 4
     CHECKCAST java/util/List
-    ALOAD 44
+    ALOAD 45
     ALOAD 6
     CHECKCAST java/util/Set
-    ALOAD 45
+    ALOAD 46
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 46
+    ASTORE 47
     ALOAD 0
-    ALOAD 46
+    ALOAD 47
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_Subclass#arc$10
     RETURN

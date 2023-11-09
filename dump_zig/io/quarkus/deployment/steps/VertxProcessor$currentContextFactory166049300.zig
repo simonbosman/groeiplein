@@ -59,7 +59,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/runtime/VertxEventBusConsumerRecorder#currentContextFactory
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey47"
+    LDC (String) "proxykey37"
     ALOAD 3
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

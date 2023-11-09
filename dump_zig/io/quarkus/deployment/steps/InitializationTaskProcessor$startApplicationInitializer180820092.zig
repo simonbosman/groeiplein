@@ -51,19 +51,19 @@ Method deploy_0 : V
     arg 2 = [Ljava/lang/Object;
 ) {
     ** label1
-    // Field descriptor: Lio/quarkus/runtime/init/InitRuntimeConfig;
-    GETSTATIC io/quarkus/runtime/generated/Config#InitRuntimeConfig
+    // Method descriptor: ()Lorg/eclipse/microprofile/config/Config;
+    INVOKESTATIC org/eclipse/microprofile/config/ConfigProvider#getConfig
+    CHECKCAST io/smallrye/config/SmallRyeConfig
+    LDC (Type) Lio/quarkus/runtime/init/InitRuntimeConfig;
+    LDC (String) "quarkus"
+    // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/smallrye/config/SmallRyeConfig#getConfigMapping
     ASTORE 3
-    NEW io/quarkus/runtime/RuntimeValue
-    DUP
-    ALOAD 3
-    // Method descriptor: (Ljava/lang/Object;)V
-    INVOKESPECIAL io/quarkus/runtime/RuntimeValue#<init>
-    ASTORE 4
     NEW io/quarkus/runtime/init/InitializationTaskRecorder
     DUP
-    ALOAD 4
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;)V
+    ALOAD 3
+    CHECKCAST io/quarkus/runtime/init/InitRuntimeConfig
+    // Method descriptor: (Lio/quarkus/runtime/init/InitRuntimeConfig;)V
     INVOKESPECIAL io/quarkus/runtime/init/InitializationTaskRecorder#<init>
     // Method descriptor: ()V
     INVOKEVIRTUAL io/quarkus/runtime/init/InitializationTaskRecorder#exitIfNeeded

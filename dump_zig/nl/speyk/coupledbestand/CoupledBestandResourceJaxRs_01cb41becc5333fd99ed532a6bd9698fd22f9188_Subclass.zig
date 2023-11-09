@@ -367,16 +367,16 @@ Method <init> : V
     ICONST_1
     ALOAD 21
     AASTORE
-    ALOAD 42
-    ICONST_2
-    ALOAD 33
-    AASTORE
     // Field descriptor: Lio/quarkus/hibernate/validator/runtime/jaxrs/JaxrsEndPointValidated_ArcAnnotationLiteral;
     GETSTATIC io/quarkus/hibernate/validator/runtime/jaxrs/JaxrsEndPointValidated_ArcAnnotationLiteral#INSTANCE
     ASTORE 43
     ALOAD 42
-    ICONST_3
+    ICONST_2
     ALOAD 43
+    AASTORE
+    ALOAD 42
+    ICONST_3
+    ALOAD 33
     AASTORE
     ALOAD 42
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
@@ -386,6 +386,36 @@ Method <init> : V
     CHECKCAST java/util/Map
     LDC (String) "b3"
     ALOAD 44
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ICONST_4
+    ANEWARRAY java/lang/Object
+    ASTORE 45
+    ALOAD 45
+    ICONST_0
+    ALOAD 43
+    AASTORE
+    ALOAD 45
+    ICONST_1
+    ALOAD 19
+    AASTORE
+    ALOAD 45
+    ICONST_2
+    ALOAD 21
+    AASTORE
+    ALOAD 45
+    ICONST_3
+    ALOAD 33
+    AASTORE
+    ALOAD 45
+    // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
+    INVOKESTATIC io/quarkus/arc/impl/Sets#of
+    ASTORE 46
+    ALOAD 22
+    CHECKCAST java/util/Map
+    LDC (String) "b4"
+    ALOAD 46
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
@@ -1093,25 +1123,30 @@ Method arc$initMetadata0 : V
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
     ASTORE 56
+    ALOAD 2
+    LDC (String) "b4"
+    // Method descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#get
+    ASTORE 57
     NEW nl/speyk/coupledbestand/CoupledBestandResourceJaxRs_01cb41becc5333fd99ed532a6bd9698fd22f9188_Subclass$$function$$12
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/coupledbestand/CoupledBestandResourceJaxRs_01cb41becc5333fd99ed532a6bd9698fd22f9188_Subclass$$function$$12#<init>
-    ASTORE 57
+    ASTORE 58
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 36
     CHECKCAST java/util/List
     ALOAD 56
-    ALOAD 38
-    CHECKCAST java/util/Set
     ALOAD 57
+    CHECKCAST java/util/Set
+    ALOAD 58
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 58
+    ASTORE 59
     ALOAD 0
-    ALOAD 58
+    ALOAD 59
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/coupledbestand/CoupledBestandResourceJaxRs_01cb41becc5333fd99ed532a6bd9698fd22f9188_Subclass#arc$12
     RETURN

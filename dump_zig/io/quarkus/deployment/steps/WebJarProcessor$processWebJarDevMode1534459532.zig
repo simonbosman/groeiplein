@@ -64,7 +64,7 @@ Method deploy_0 : V
     ALOAD 3
     ALOAD 4
     CHECKCAST io/quarkus/runtime/ShutdownContext
-    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar12555582635017142561"
+    LDC (String) "/var/folders/yc/1smqm3vn1vx506f79f7ty3cc0000gn/T/quarkus-webjar16923967971670818937"
     // Method descriptor: (Lio/quarkus/runtime/ShutdownContext;Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/webjar/WebJarRecorder#shutdownTask
     RETURN

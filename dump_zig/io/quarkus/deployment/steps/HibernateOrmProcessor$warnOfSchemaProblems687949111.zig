@@ -55,7 +55,7 @@ Method deploy_0 : V
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies#<init>
-    ASTORE 34
+    ASTORE 38
     NEW java/util/HashMap
     DUP
     // Method descriptor: ()V
@@ -83,7 +83,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 3
-    LDC (String) "nl.speyk.inlevermoment.InleverMoment$HibernateProxy$SJ9z3air"
+    LDC (String) "nl.speyk.inlevermoment.InleverMoment$HibernateProxy$uN62iHcp"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -115,7 +115,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 6
-    LDC (String) "nl.speyk.domein.Domein$HibernateProxy$BkKpPAIi"
+    LDC (String) "nl.speyk.domein.Domein$HibernateProxy$cigZ3m6m"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -147,7 +147,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 8
-    LDC (String) "nl.speyk.tijdlijnitem.TijdlijnItem$HibernateProxy$MFJhaHVy"
+    LDC (String) "nl.speyk.tijdlijnitem.TijdlijnItem$HibernateProxy$imc13wS5"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -179,7 +179,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 10
-    LDC (String) "nl.speyk.opdracht.Opdracht$HibernateProxy$m4AmoWbp"
+    LDC (String) "nl.speyk.opdracht.Opdracht$HibernateProxy$nUCWbPuq"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -211,7 +211,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 12
-    LDC (String) "nl.speyk.doel.Doel$HibernateProxy$wukrW2FI"
+    LDC (String) "nl.speyk.doel.Doel$HibernateProxy$LIRKHeWK"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -243,7 +243,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 14
-    LDC (String) "io.quarkus.hibernate.reactive.panache.PanacheEntity$HibernateProxy$tewuYo3R"
+    LDC (String) "io.quarkus.hibernate.reactive.panache.PanacheEntity$HibernateProxy$0nQUWyZQ"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -275,7 +275,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 16
-    LDC (String) "nl.speyk.leerling.Leerling$HibernateProxy$tqTCj1C6"
+    LDC (String) "nl.speyk.leerling.Leerling$HibernateProxy$QiNdyLIV"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -307,7 +307,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 18
-    LDC (String) "io.quarkus.hibernate.reactive.panache.PanacheEntityBase$HibernateProxy$KdN8HPI0"
+    LDC (String) "io.quarkus.hibernate.reactive.panache.PanacheEntityBase$HibernateProxy$0XBZzcbF"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
@@ -339,12 +339,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 20
-    LDC (String) "nl.speyk.score.Score$HibernateProxy$C6Jwp0EP"
+    LDC (String) "nl.speyk.groepdoel.GroepDoel$HibernateProxy$veHsR0Bh"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.score.Score"
+    LDC (String) "nl.speyk.groepdoel.GroepDoel"
     ALOAD 20
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -371,12 +371,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 22
-    LDC (String) "nl.speyk.coupledbestand.CoupledBestand$HibernateProxy$OLaOwKsH"
+    LDC (String) "nl.speyk.score.Score$HibernateProxy$z8XmXGWv"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.coupledbestand.CoupledBestand"
+    LDC (String) "nl.speyk.score.Score"
     ALOAD 22
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -403,12 +403,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 24
-    LDC (String) "nl.speyk.feedback.Feedback$HibernateProxy$vL0nMNdb"
+    LDC (String) "nl.speyk.coupledbestand.CoupledBestand$HibernateProxy$8Vk75hbQ"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.feedback.Feedback"
+    LDC (String) "nl.speyk.coupledbestand.CoupledBestand"
     ALOAD 24
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -435,12 +435,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 26
-    LDC (String) "nl.speyk.scorevalue.ScoreValue$HibernateProxy$P8is20Xx"
+    LDC (String) "nl.speyk.feedback.Feedback$HibernateProxy$e2P8uQNq"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.scorevalue.ScoreValue"
+    LDC (String) "nl.speyk.feedback.Feedback"
     ALOAD 26
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -467,12 +467,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 28
-    LDC (String) "nl.speyk.kerndoel.Kerndoel$HibernateProxy$wdu071mw"
+    LDC (String) "nl.speyk.scorevalue.ScoreValue$HibernateProxy$vvSJObQC"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.kerndoel.Kerndoel"
+    LDC (String) "nl.speyk.scorevalue.ScoreValue"
     ALOAD 28
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -499,12 +499,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 30
-    LDC (String) "nl.speyk.vakleergebied.Vakleergebied$HibernateProxy$dJNKxCu5"
+    LDC (String) "nl.speyk.kerndoel.Kerndoel$HibernateProxy$TAKg70Yv"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.vakleergebied.Vakleergebied"
+    LDC (String) "nl.speyk.kerndoel.Kerndoel"
     ALOAD 30
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -531,24 +531,88 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/Set;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
     ALOAD 32
-    LDC (String) "nl.speyk.niveau.Niveau$HibernateProxy$wSs1dLXr"
+    LDC (String) "nl.speyk.vakleergebied.Vakleergebied$HibernateProxy$YyueWO3P"
+    // Method descriptor: (Ljava/lang/String;)V
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
+    ALOAD 5
+    CHECKCAST java/util/Map
+    LDC (String) "nl.speyk.vakleergebied.Vakleergebied"
+    ALOAD 32
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    NEW io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#<init>
+    ASTORE 34
+    NEW java/util/TreeSet
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL java/util/TreeSet#<init>
+    ASTORE 35
+    ALOAD 35
+    CHECKCAST java/util/Collection
+    LDC (String) "org.hibernate.proxy.HibernateProxy"
+    // Method descriptor: (Ljava/lang/Object;)Z
+    INVOKEINTERFACE java/util/Collection#add
+    POP
+    ALOAD 34
+    ALOAD 35
+    CHECKCAST java/util/Set
+    // Method descriptor: (Ljava/util/Set;)V
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
+    ALOAD 34
+    LDC (String) "nl.speyk.niveau.Niveau$HibernateProxy$j6UGhzia"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
     ALOAD 5
     CHECKCAST java/util/Map
     LDC (String) "nl.speyk.niveau.Niveau"
-    ALOAD 32
+    ALOAD 34
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
-    ALOAD 34
+    NEW io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#<init>
+    ASTORE 36
+    NEW java/util/TreeSet
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL java/util/TreeSet#<init>
+    ASTORE 37
+    ALOAD 37
+    CHECKCAST java/util/Collection
+    LDC (String) "org.hibernate.proxy.HibernateProxy"
+    // Method descriptor: (Ljava/lang/Object;)Z
+    INVOKEINTERFACE java/util/Collection#add
+    POP
+    ALOAD 36
+    ALOAD 37
+    CHECKCAST java/util/Set
+    // Method descriptor: (Ljava/util/Set;)V
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setProxyInterfaces
+    ALOAD 36
+    LDC (String) "nl.speyk.groepopdracht.GroepOpdracht$HibernateProxy$Yyp90vGq"
+    // Method descriptor: (Ljava/lang/String;)V
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies$ProxyClassDetailsHolder#setClassName
+    ALOAD 5
+    CHECKCAST java/util/Map
+    LDC (String) "nl.speyk.groepopdracht.GroepOpdracht"
+    ALOAD 36
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 38
     ALOAD 5
     CHECKCAST java/util/Map
     // Method descriptor: (Ljava/util/Map;)V
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies#setProxies
     NEW io/quarkus/hibernate/orm/runtime/HibernateOrmRecorder
     DUP
-    ALOAD 34
+    ALOAD 38
     // Method descriptor: (Lio/quarkus/hibernate/orm/runtime/proxies/PreGeneratedProxies;)V
     INVOKESPECIAL io/quarkus/hibernate/orm/runtime/HibernateOrmRecorder#<init>
     LDC (String) "<default>"

@@ -62,7 +62,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
     ALOAD 1
-    LDC (String) "proxykey47"
+    LDC (String) "proxykey37"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 5
@@ -72,11 +72,12 @@ Method deploy_0 : V
     ALOAD 5
     CHECKCAST io/quarkus/runtime/RuntimeValue
     ICONST_0
-    // Method descriptor: (Lio/quarkus/runtime/ShutdownContext;Lio/quarkus/runtime/RuntimeValue;Z)Lio/quarkus/arc/ArcContainer;
+    ICONST_1
+    // Method descriptor: (Lio/quarkus/runtime/ShutdownContext;Lio/quarkus/runtime/RuntimeValue;ZZ)Lio/quarkus/arc/ArcContainer;
     INVOKEVIRTUAL io/quarkus/arc/runtime/ArcRecorder#initContainer
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey190"
+    LDC (String) "proxykey182"
     ALOAD 6
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

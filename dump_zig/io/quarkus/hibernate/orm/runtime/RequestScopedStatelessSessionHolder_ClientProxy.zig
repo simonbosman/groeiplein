@@ -10,6 +10,9 @@
 // Access: private final
 Field bean : Lio/quarkus/arc/InjectableBean;
 
+// Access: private final
+Field context : Lio/quarkus/arc/InjectableContext;
+
 // Access: public
 Method <init> : V
 (
@@ -21,6 +24,8 @@ Method <init> : V
     INVOKESPECIAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder#<init>
     // Method descriptor: ()Lio/quarkus/arc/ArcContainer;
     INVOKESTATIC io/quarkus/arc/Arc#container
+    ASTORE 3
+    ALOAD 3
     ALOAD 1
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/arc/InjectableBean;
     INVOKEINTERFACE io/quarkus/arc/ArcContainer#bean
@@ -29,6 +34,23 @@ Method <init> : V
     ALOAD 2
     // Field descriptor: Lio/quarkus/arc/InjectableBean;
     PUTFIELD io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#bean
+    ALOAD 2
+    // Method descriptor: ()Ljava/lang/Class;
+    INVOKEINTERFACE io/quarkus/arc/InjectableBean#getScope
+    ASTORE 4
+    ALOAD 3
+    ALOAD 4
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
+    ASTORE 5
+    ALOAD 0
+    ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
+    // Field descriptor: Lio/quarkus/arc/InjectableContext;
+    PUTFIELD io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#context
     RETURN
     ** label2
     
@@ -43,8 +65,13 @@ Method arc$delegate : Lio/quarkus/hibernate/orm/runtime/RequestScopedStatelessSe
     ALOAD 0
     // Field descriptor: Lio/quarkus/arc/InjectableBean;
     GETFIELD io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#bean
-    // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/Object;
-    INVOKESTATIC io/quarkus/arc/impl/ClientProxies#getDelegate
+    ASTORE 1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableContext;
+    GETFIELD io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#context
+    ALOAD 1
+    // Method descriptor: (Lio/quarkus/arc/InjectableContext;Lio/quarkus/arc/InjectableBean;)Ljava/lang/Object;
+    INVOKESTATIC io/quarkus/arc/impl/ClientProxies#getSingleContextDelegate
     CHECKCAST io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder
     ARETURN
     ** label2
@@ -132,6 +159,46 @@ Method getOrCreateSession : Lorg/hibernate/StatelessSession;
     ** label5
     ALOAD 0
     // Method descriptor: ()Lio/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder;
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#arc$delegate
+    ALOAD 1
+    ALOAD 2
+    // Method descriptor: (Ljava/lang/String;Lorg/hibernate/SessionFactory;)Lorg/hibernate/StatelessSession;
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder#getOrCreateSession
+    ARETURN
+    ** label6
+    
+}
+
+// Access: public
+Method destroy : V
+(
+    // (no arguments)
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder#destroy
+    RETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lio/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder;
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#arc$delegate
+    // Method descriptor: ()V
+    INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder#destroy
+    RETURN
+    ** label6
+    
+}
+
+sSessionHolder;
     INVOKEVIRTUAL io/quarkus/hibernate/orm/runtime/RequestScopedStatelessSessionHolder_ClientProxy#arc$delegate
     ALOAD 1
     ALOAD 2

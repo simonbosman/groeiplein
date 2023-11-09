@@ -61,7 +61,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
-    LDC (String) "DEVELOPMENT"
+    LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/runtime/LaunchMode;
     INVOKESTATIC io/quarkus/runtime/LaunchMode#valueOf
     ASTORE 5
@@ -88,5 +88,8 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ARETURN
     ** label2
     
+}
+
+ 
 }
 

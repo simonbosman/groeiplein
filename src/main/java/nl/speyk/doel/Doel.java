@@ -28,7 +28,6 @@ import org.hibernate.validator.constraints.Length;
         @Index(columnList = "niveau_id"),
         @Index(columnList = "vakleergebied_id") })
 @Data
-@Cacheable
 @NamedQueries({
         @NamedQuery(name = "Doel.Niveau", query = "FROM Doel WHERE niveau.id = :id"),
         @NamedQuery(name = "Doel.ZonderGroepen", query = "SELECT d FROM Doel d WHERE d.id NOT IN " +

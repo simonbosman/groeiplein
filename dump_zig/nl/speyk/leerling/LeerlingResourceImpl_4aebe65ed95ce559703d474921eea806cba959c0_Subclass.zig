@@ -93,8 +93,8 @@ Method <init> : V
     POP
     // Field descriptor: Lio/quarkus/hibernate/reactive/panache/common/WithSessionOnDemand_ArcAnnotationLiteral;
     GETSTATIC io/quarkus/hibernate/reactive/panache/common/WithSessionOnDemand_ArcAnnotationLiteral#INSTANCE
-    ASTORE 17
-    ALOAD 17
+    ASTORE 15
+    ALOAD 15
     // Method descriptor: (Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC java/util/Collections#singleton
     ASTORE 10
@@ -141,19 +141,19 @@ Method <init> : V
     POP
     ICONST_2
     ANEWARRAY java/lang/Object
-    ASTORE 15
+    ASTORE 16
+    ALOAD 16
+    ICONST_0
+    ALOAD 15
+    AASTORE
     // Field descriptor: Lio/quarkus/hibernate/reactive/panache/common/WithTransaction_ArcAnnotationLiteral;
     GETSTATIC io/quarkus/hibernate/reactive/panache/common/WithTransaction_ArcAnnotationLiteral#INSTANCE
-    ASTORE 16
-    ALOAD 15
-    ICONST_0
+    ASTORE 17
     ALOAD 16
-    AASTORE
-    ALOAD 15
     ICONST_1
     ALOAD 17
     AASTORE
-    ALOAD 15
+    ALOAD 16
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC io/quarkus/arc/impl/Sets#of
     ASTORE 18

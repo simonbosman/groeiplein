@@ -249,33 +249,33 @@ Method <init> : V
     POP
     ICONST_3
     ANEWARRAY java/lang/Object
-    ASTORE 31
-    ALOAD 31
-    ICONST_0
-    ALOAD 19
-    AASTORE
-    ALOAD 31
-    ICONST_1
-    ALOAD 21
-    AASTORE
+    ASTORE 32
     ICONST_1
     ANEWARRAY java/lang/String
-    ASTORE 32
-    ALOAD 32
+    ASTORE 31
+    ALOAD 31
     ICONST_0
     LDC (String) "**"
     AASTORE
     NEW jakarta/annotation/security/RolesAllowed_ArcAnnotationLiteral
     DUP
-    ALOAD 32
+    ALOAD 31
     // Method descriptor: ([Ljava/lang/String;)V
     INVOKESPECIAL jakarta/annotation/security/RolesAllowed_ArcAnnotationLiteral#<init>
     ASTORE 33
-    ALOAD 31
-    ICONST_2
+    ALOAD 32
+    ICONST_0
     ALOAD 33
     AASTORE
-    ALOAD 31
+    ALOAD 32
+    ICONST_1
+    ALOAD 19
+    AASTORE
+    ALOAD 32
+    ICONST_2
+    ALOAD 21
+    AASTORE
+    ALOAD 32
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC io/quarkus/arc/impl/Sets#of
     ASTORE 34
@@ -356,24 +356,24 @@ Method <init> : V
     ICONST_4
     ANEWARRAY java/lang/Object
     ASTORE 42
-    ALOAD 42
-    ICONST_0
-    ALOAD 19
-    AASTORE
-    ALOAD 42
-    ICONST_1
-    ALOAD 21
-    AASTORE
-    ALOAD 42
-    ICONST_2
-    ALOAD 33
-    AASTORE
     // Field descriptor: Lio/quarkus/hibernate/validator/runtime/jaxrs/JaxrsEndPointValidated_ArcAnnotationLiteral;
     GETSTATIC io/quarkus/hibernate/validator/runtime/jaxrs/JaxrsEndPointValidated_ArcAnnotationLiteral#INSTANCE
     ASTORE 43
     ALOAD 42
-    ICONST_3
+    ICONST_0
     ALOAD 43
+    AASTORE
+    ALOAD 42
+    ICONST_1
+    ALOAD 33
+    AASTORE
+    ALOAD 42
+    ICONST_2
+    ALOAD 19
+    AASTORE
+    ALOAD 42
+    ICONST_3
+    ALOAD 21
     AASTORE
     ALOAD 42
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
@@ -383,6 +383,36 @@ Method <init> : V
     CHECKCAST java/util/Map
     LDC (String) "b3"
     ALOAD 44
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ICONST_4
+    ANEWARRAY java/lang/Object
+    ASTORE 45
+    ALOAD 45
+    ICONST_0
+    ALOAD 33
+    AASTORE
+    ALOAD 45
+    ICONST_1
+    ALOAD 43
+    AASTORE
+    ALOAD 45
+    ICONST_2
+    ALOAD 19
+    AASTORE
+    ALOAD 45
+    ICONST_3
+    ALOAD 21
+    AASTORE
+    ALOAD 45
+    // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
+    INVOKESTATIC io/quarkus/arc/impl/Sets#of
+    ASTORE 46
+    ALOAD 22
+    CHECKCAST java/util/Map
+    LDC (String) "b4"
+    ALOAD 46
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
@@ -1047,25 +1077,30 @@ Method arc$initMetadata0 : V
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
     ASTORE 52
+    ALOAD 2
+    LDC (String) "b4"
+    // Method descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#get
+    ASTORE 53
     NEW nl/speyk/scorevalue/ScoreValueResourceJaxRs_8f7c621cb3876538c6522032eeeea9ec6e70aa82_Subclass$$function$$11
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/scorevalue/ScoreValueResourceJaxRs_8f7c621cb3876538c6522032eeeea9ec6e70aa82_Subclass$$function$$11#<init>
-    ASTORE 53
+    ASTORE 54
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 32
     CHECKCAST java/util/List
     ALOAD 52
-    ALOAD 34
-    CHECKCAST java/util/Set
     ALOAD 53
+    CHECKCAST java/util/Set
+    ALOAD 54
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 54
+    ASTORE 55
     ALOAD 0
-    ALOAD 54
+    ALOAD 55
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/scorevalue/ScoreValueResourceJaxRs_8f7c621cb3876538c6522032eeeea9ec6e70aa82_Subclass#arc$11
     RETURN

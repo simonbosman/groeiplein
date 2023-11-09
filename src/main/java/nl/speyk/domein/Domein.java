@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Entity(name = "Domein")
 @Table(name = "domein")
-@Cacheable
 @Data
 public class Domein {
 

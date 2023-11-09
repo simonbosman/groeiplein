@@ -74,7 +74,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/BannerRecorder#provideBannerSupplier
     ASTORE 5
     ALOAD 1
-    LDC (String) "proxykey76"
+    LDC (String) "proxykey63"
     ALOAD 5
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

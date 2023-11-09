@@ -57,7 +57,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/devui/runtime/continuoustesting/ContinuousTestingRecorder#<init>
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey198"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
@@ -75,7 +75,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/continuoustesting/ContinuousTestingRecorder#createContinuousTestingSharedStateManager
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey199"
+    LDC (String) "proxykey205"
     ALOAD 6
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

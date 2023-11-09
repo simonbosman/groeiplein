@@ -72,7 +72,7 @@ Method deploy_0 : V
     // Method descriptor: ()V
     INVOKESPECIAL java/util/ArrayList#<init>
     ASTORE 8
-    LDC (String) "DEVELOPMENT"
+    LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/runtime/LaunchMode;
     INVOKESTATIC io/quarkus/runtime/LaunchMode#valueOf
     ASTORE 6
@@ -82,7 +82,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 7
     ALOAD 1
-    LDC (String) "proxykey66"
+    LDC (String) "proxykey61"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 9
@@ -101,7 +101,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/core/runtime/VertxCoreRecorder#configureVertx
     ASTORE 10
     ALOAD 1
-    LDC (String) "proxykey69"
+    LDC (String) "proxykey66"
     ALOAD 10
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -110,7 +110,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/core/runtime/VertxCoreRecorder#mainSupplier
     ASTORE 11
     ALOAD 1
-    LDC (String) "proxykey70"
+    LDC (String) "proxykey67"
     ALOAD 11
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -119,7 +119,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/core/runtime/VertxCoreRecorder#bossSupplier
     ASTORE 12
     ALOAD 1
-    LDC (String) "proxykey71"
+    LDC (String) "proxykey68"
     ALOAD 12
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -139,5 +139,8 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ARETURN
     ** label2
     
+}
+
+ 
 }
 

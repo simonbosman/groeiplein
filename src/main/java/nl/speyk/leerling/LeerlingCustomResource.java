@@ -1,5 +1,6 @@
 package nl.speyk.leerling;
 
+import io.quarkus.cache.CacheResult;
 import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
@@ -20,16 +21,18 @@ import java.util.UUID;
 @Authenticated
 public class LeerlingCustomResource {
 
+    private static final String CACHE_NAME = "nl.speyk.leerling.Leerling";
     @Inject
     LeerlingService leerlingService;
 
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/uuid/{uuId}")
     @Produces("application/json")
     @APIResponseSchema(value = Leerling.class, responseCode = "200")
     public Uni<Response> findLeerlingByUuid(@PathParam("uuId") UUID leerlingUuid) {
         return leerlingService.getLeerlingByUuid(leerlingUuid)
-                .map(entity -> entity == null ? Response.status(Response.Status.NOT_FOUND).build() :
-                        Response.ok(entity).build());
+                .map(entity -> entity == null ? Response.status(Response.Status.NOT_FOUND).build()
+                        : Response.ok(entity).build());
     }
 }

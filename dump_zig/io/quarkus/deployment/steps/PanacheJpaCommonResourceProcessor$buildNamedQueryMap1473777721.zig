@@ -55,7 +55,7 @@ Method deploy_0 : V
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL io/quarkus/hibernate/reactive/panache/common/runtime/PanacheHibernateRecorder#<init>
-    ASTORE 19
+    ASTORE 21
     NEW java/util/HashMap
     DUP
     // Method descriptor: ()V
@@ -123,6 +123,13 @@ Method deploy_0 : V
     // Method descriptor: ()V
     INVOKESPECIAL java/util/HashMap#<init>
     ASTORE 7
+    ALOAD 7
+    CHECKCAST java/util/Map
+    LDC (String) "Opdracht.ZonderGroepen"
+    LDC (String) "SELECT o FROM Opdracht o WHERE o.id NOT IN (SELECT g.opdracht.id FROM GroepOpdracht g WHERE g.opdracht.id = o.id)"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
     ALOAD 4
     CHECKCAST java/util/Map
     LDC (String) "nl.speyk.opdracht.Opdracht"
@@ -139,6 +146,13 @@ Method deploy_0 : V
     CHECKCAST java/util/Map
     LDC (String) "Doel.Niveau"
     LDC (String) "FROM Doel WHERE niveau.id = :id"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 8
+    CHECKCAST java/util/Map
+    LDC (String) "Doel.ZonderGroepen"
+    LDC (String) "SELECT d FROM Doel d WHERE d.id NOT IN (SELECT g.doel.id FROM GroepDoel g WHERE g.doel.id = d.id)"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
@@ -206,21 +220,28 @@ Method deploy_0 : V
     ASTORE 12
     ALOAD 12
     CHECKCAST java/util/Map
-    LDC (String) "Score.Leerling"
-    LDC (String) "FROM Score WHERE leerling.id = :id"
+    LDC (String) "GroepDoel.findByDoelId"
+    LDC (String) "FROM GroepDoel WHERE doel.id = :id"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 12
     CHECKCAST java/util/Map
-    LDC (String) "Score.Doel"
-    LDC (String) "FROM Score WHERE doel.id = :id"
+    LDC (String) "GroepDoel.delete"
+    LDC (String) "DELETE FROM GroepDoel WHERE groepUuid = :groepUuid AND doel.id = :doelId"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 12
+    CHECKCAST java/util/Map
+    LDC (String) "GroepDoel.findByGroepUuid"
+    LDC (String) "FROM GroepDoel WHERE groepUuid = :uuid"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.score.Score"
+    LDC (String) "nl.speyk.groepdoel.GroepDoel"
     ALOAD 12
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -232,14 +253,21 @@ Method deploy_0 : V
     ASTORE 13
     ALOAD 13
     CHECKCAST java/util/Map
-    LDC (String) "CoupledBestand.InleverMoment"
-    LDC (String) "FROM CoupledBestand WHERE inlevermoment.id = :id"
+    LDC (String) "Score.Leerling"
+    LDC (String) "FROM Score WHERE leerling.id = :id"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 13
+    CHECKCAST java/util/Map
+    LDC (String) "Score.Doel"
+    LDC (String) "FROM Score WHERE doel.id = :id"
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.coupledbestand.CoupledBestand"
+    LDC (String) "nl.speyk.score.Score"
     ALOAD 13
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -249,9 +277,16 @@ Method deploy_0 : V
     // Method descriptor: ()V
     INVOKESPECIAL java/util/HashMap#<init>
     ASTORE 14
+    ALOAD 14
+    CHECKCAST java/util/Map
+    LDC (String) "CoupledBestand.InleverMoment"
+    LDC (String) "FROM CoupledBestand WHERE inlevermoment.id = :id"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.feedback.Feedback"
+    LDC (String) "nl.speyk.coupledbestand.CoupledBestand"
     ALOAD 14
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -263,7 +298,7 @@ Method deploy_0 : V
     ASTORE 15
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.scorevalue.ScoreValue"
+    LDC (String) "nl.speyk.feedback.Feedback"
     ALOAD 15
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -275,7 +310,7 @@ Method deploy_0 : V
     ASTORE 16
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.kerndoel.Kerndoel"
+    LDC (String) "nl.speyk.scorevalue.ScoreValue"
     ALOAD 16
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -287,7 +322,7 @@ Method deploy_0 : V
     ASTORE 17
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.vakleergebied.Vakleergebied"
+    LDC (String) "nl.speyk.kerndoel.Kerndoel"
     ALOAD 17
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
@@ -299,12 +334,57 @@ Method deploy_0 : V
     ASTORE 18
     ALOAD 4
     CHECKCAST java/util/Map
-    LDC (String) "nl.speyk.niveau.Niveau"
+    LDC (String) "nl.speyk.vakleergebied.Vakleergebied"
     ALOAD 18
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
+    NEW java/util/HashMap
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL java/util/HashMap#<init>
+    ASTORE 19
+    ALOAD 4
+    CHECKCAST java/util/Map
+    LDC (String) "nl.speyk.niveau.Niveau"
     ALOAD 19
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    NEW java/util/HashMap
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL java/util/HashMap#<init>
+    ASTORE 20
+    ALOAD 20
+    CHECKCAST java/util/Map
+    LDC (String) "GroepOpdracht.delete"
+    LDC (String) "DELETE FROM GroepOpdracht WHERE opdracht.id = :opdrachtId AND groepUuid = :groepId"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 20
+    CHECKCAST java/util/Map
+    LDC (String) "GroepOpdracht.findByOpdrachtId"
+    LDC (String) "FROM GroepOpdracht WHERE opdracht.id = :id"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 20
+    CHECKCAST java/util/Map
+    LDC (String) "GroepOpdracht.findByGroepUuid"
+    LDC (String) "FROM GroepOpdracht WHERE groepUuid = :uuid"
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 4
+    CHECKCAST java/util/Map
+    LDC (String) "nl.speyk.groepopdracht.GroepOpdracht"
+    ALOAD 20
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 21
     ALOAD 4
     CHECKCAST java/util/Map
     // Method descriptor: (Ljava/util/Map;)V

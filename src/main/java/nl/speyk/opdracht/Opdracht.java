@@ -13,7 +13,6 @@ import org.hibernate.validator.constraints.Length;
 @Entity(name = "Opdracht")
 @Table(name = "opdracht")
 @Data
-@Cacheable
 @NamedQuery(name = "Opdracht.ZonderGroepen", query = "SELECT o FROM Opdracht o WHERE o.id NOT IN " +
         "(SELECT g.opdracht.id FROM GroepOpdracht g WHERE g.opdracht.id = o.id)")
 public class Opdracht {

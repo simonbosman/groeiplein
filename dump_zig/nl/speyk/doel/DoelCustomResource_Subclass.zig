@@ -16,6 +16,9 @@ Field arc$1 : Lio/quarkus/arc/impl/InterceptedMethodMetadata;
 // Access: private
 Field arc$2 : Lio/quarkus/arc/impl/InterceptedMethodMetadata;
 
+// Access: private
+Field arc$3 : Lio/quarkus/arc/impl/InterceptedMethodMetadata;
+
 // Access: public
 Method <init> : V
 (
@@ -158,6 +161,20 @@ Method findDoelenByVakleergebiedId$$superforward : Lio/smallrye/mutiny/Uni;
 }
 
 // Access: public
+Method findDoelenZonderGroep$$superforward : Lio/smallrye/mutiny/Uni;
+(
+    // (no arguments)
+) {
+    ** label1
+    ALOAD 0
+    // Method descriptor: ()Lio/smallrye/mutiny/Uni;
+    INVOKESPECIAL nl/speyk/doel/DoelCustomResource#findDoelenZonderGroep
+    ARETURN
+    ** label2
+    
+}
+
+// Access: public
 Method arc$markConstructed : V
 (
     // (no arguments)
@@ -257,6 +274,36 @@ Method arc$initMetadata0 : V
     ALOAD 12
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/doel/DoelCustomResource_Subclass#arc$2
+    // Field descriptor: [Ljava/lang/Class;
+    GETSTATIC io/quarkus/arc/impl/AnnotationLiterals#EMPTY_CLASS_ARRAY
+    ASTORE 13
+    LDC (Type) Lnl/speyk/doel/DoelCustomResource;
+    LDC (String) "findDoelenZonderGroep"
+    ALOAD 13
+    // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
+    ASTORE 14
+    NEW nl/speyk/doel/DoelCustomResource_Subclass$$function$$3
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL nl/speyk/doel/DoelCustomResource_Subclass$$function$$3#<init>
+    ASTORE 15
+    NEW io/quarkus/arc/impl/InterceptedMethodMetadata
+    DUP
+    ALOAD 4
+    CHECKCAST java/util/List
+    ALOAD 14
+    ALOAD 6
+    CHECKCAST java/util/Set
+    ALOAD 15
+    CHECKCAST java/util/function/BiFunction
+    // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
+    INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
+    ASTORE 16
+    ALOAD 0
+    ALOAD 16
+    // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
+    PUTFIELD nl/speyk/doel/DoelCustomResource_Subclass#arc$3
     RETURN
     ** label2
     
@@ -388,6 +435,68 @@ Method findDoelenByVakleergebiedId : Lio/smallrye/mutiny/Uni;
     DUP
     LDC (String) "Error invoking subclass method"
     ALOAD 5
+    CHECKCAST java/lang/Throwable
+    // Method descriptor: (Ljava/lang/String;Ljava/lang/Throwable;)V
+    INVOKESPECIAL io/quarkus/arc/ArcUndeclaredThrowableException#<init>
+    CHECKCAST java/lang/Throwable
+    ATHROW
+    ** label12
+    GOTO label8
+    // Try from label6 to label7
+    // Catch java/lang/Exception by going to label11
+    ** label8
+    ** label13
+    
+}
+
+// Access: public
+Method findDoelenZonderGroep : Lio/smallrye/mutiny/Uni;
+(
+    // (no arguments)
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Z
+    GETFIELD nl/speyk/doel/DoelCustomResource_Subclass#arc$constructed
+    IFEQ label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    // Method descriptor: ()Lio/smallrye/mutiny/Uni;
+    INVOKEVIRTUAL nl/speyk/doel/DoelCustomResource_Subclass#findDoelenZonderGroep$$superforward
+    ARETURN
+    ** label5
+    ** label6
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
+    GETFIELD nl/speyk/doel/DoelCustomResource_Subclass#arc$3
+    ASTORE 1
+    ALOAD 0
+    ACONST_NULL
+    ALOAD 1
+    // Method descriptor: (Ljava/lang/Object;[Ljava/lang/Object;Lio/quarkus/arc/impl/InterceptedMethodMetadata;)Ljava/lang/Object;
+    INVOKESTATIC io/quarkus/arc/impl/InvocationContexts#performAroundInvoke
+    CHECKCAST io/smallrye/mutiny/Uni
+    ARETURN
+    ** label7
+    GOTO label8
+    ** label9
+    ASTORE 2
+    ALOAD 2
+    CHECKCAST java/lang/Throwable
+    ATHROW
+    ** label10
+    GOTO label8
+    // Try from label6 to label7
+    // Catch java/lang/RuntimeException by going to label9
+    ** label11
+    ASTORE 3
+    NEW io/quarkus/arc/ArcUndeclaredThrowableException
+    DUP
+    LDC (String) "Error invoking subclass method"
+    ALOAD 3
     CHECKCAST java/lang/Throwable
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Throwable;)V
     INVOKESPECIAL io/quarkus/arc/ArcUndeclaredThrowableException#<init>

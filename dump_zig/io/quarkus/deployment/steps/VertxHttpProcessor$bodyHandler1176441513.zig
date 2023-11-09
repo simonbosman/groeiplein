@@ -87,7 +87,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#createBodyHandler
     ASTORE 9
     ALOAD 1
-    LDC (String) "proxykey80"
+    LDC (String) "proxykey75"
     ALOAD 9
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

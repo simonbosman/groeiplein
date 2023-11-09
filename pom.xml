@@ -252,7 +252,7 @@
           <subscriptionId>ff0059e6-14c6-48c6-bfc7-4fb660e91fbe</subscriptionId>
           <resourceGroup>Groeiplein</resourceGroup>
           <appName>groeiplein-amsterdam</appName>
-          <pricingTier>B2</pricingTier>
+          <pricingTier>P2V3</pricingTier>
           <region>westeurope</region>
           <runtime>
             <os>Linux</os>

@@ -81,12 +81,12 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/smallrye/config/SmallRyeConfig#getConfigMapping
     ASTORE 8
     ALOAD 1
-    LDC (String) "proxykey150"
+    LDC (String) "proxykey154"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
     ALOAD 1
-    LDC (String) "proxykey53"
+    LDC (String) "proxykey56"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 5
@@ -109,27 +109,27 @@ Method deploy_0 : V
     CHECKCAST io/quarkus/reactive/pg/client/runtime/DataSourcesReactivePostgreSQLConfig
     ALOAD 9
     CHECKCAST io/quarkus/runtime/ShutdownContext
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Supplier;Ljava/lang/String;Lio/quarkus/datasource/runtime/DataSourcesRuntimeConfig;Lio/quarkus/reactive/datasource/runtime/DataSourcesReactiveRuntimeConfig;Lio/quarkus/reactive/pg/client/runtime/DataSourcesReactivePostgreSQLConfig;Lio/quarkus/runtime/ShutdownContext;)Lio/quarkus/runtime/RuntimeValue;
+    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Supplier;Ljava/lang/String;Lio/quarkus/datasource/runtime/DataSourcesRuntimeConfig;Lio/quarkus/reactive/datasource/runtime/DataSourcesReactiveRuntimeConfig;Lio/quarkus/reactive/pg/client/runtime/DataSourcesReactivePostgreSQLConfig;Lio/quarkus/runtime/ShutdownContext;)Ljava/util/function/Function;
     INVOKEVIRTUAL io/quarkus/reactive/pg/client/runtime/PgPoolRecorder#configurePgPool
     ASTORE 10
     ALOAD 1
-    LDC (String) "proxykey154"
+    LDC (String) "proxykey157"
     ALOAD 10
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
     ALOAD 1
-    LDC (String) "proxykey154"
+    LDC (String) "proxykey157"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 11
     ALOAD 3
     ALOAD 11
-    CHECKCAST io/quarkus/runtime/RuntimeValue
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;)Lio/quarkus/runtime/RuntimeValue;
+    CHECKCAST java/util/function/Function
+    // Method descriptor: (Ljava/util/function/Function;)Ljava/util/function/Function;
     INVOKEVIRTUAL io/quarkus/reactive/pg/client/runtime/PgPoolRecorder#mutinyPgPool
     ASTORE 12
     ALOAD 1
-    LDC (String) "proxykey155"
+    LDC (String) "proxykey158"
     ALOAD 12
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -148,6 +148,10 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ANEWARRAY java/lang/Object
     ARETURN
     ** label2
+    
+}
+
+ label2
     
 }
 

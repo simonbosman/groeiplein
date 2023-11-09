@@ -15,10 +15,10 @@ Field types : Ljava/util/Set;
 Field proxy : Lnl/speyk/vakleergebied/VakleergebiedResourceImpl_9173532900edd92ef7d330f471150993c8538b75_ClientProxy;
 
 // Access: private final
-Field interceptorProviderSupplier2 : Ljava/util/function/Supplier;
+Field interceptorProviderSupplier1 : Ljava/util/function/Supplier;
 
 // Access: private final
-Field interceptorProviderSupplier1 : Ljava/util/function/Supplier;
+Field interceptorProviderSupplier2 : Ljava/util/function/Supplier;
 
 // Access: private
 Method proxy : Lnl/speyk/vakleergebied/VakleergebiedResourceImpl_9173532900edd92ef7d330f471150993c8538b75_ClientProxy;
@@ -38,7 +38,7 @@ Method proxy : Lnl/speyk/vakleergebied/VakleergebiedResourceImpl_9173532900edd92
     ** label2
     NEW nl/speyk/vakleergebied/VakleergebiedResourceImpl_9173532900edd92ef7d330f471150993c8538b75_ClientProxy
     DUP
-    LDC (String) "68424527e9f0dddeaf9f2e4c3f31adcebca00d72"
+    LDC (String) "aEJFJ-nw3d6vny5MPzGtzrygDXI"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL nl/speyk/vakleergebied/VakleergebiedResourceImpl_9173532900edd92ef7d330f471150993c8538b75_ClientProxy#<init>
     ASTORE 1
@@ -213,7 +213,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "68424527e9f0dddeaf9f2e4c3f31adcebca00d72"
+    LDC (String) "aEJFJ-nw3d6vny5MPzGtzrygDXI"
     ARETURN
     ** label2
     
@@ -473,7 +473,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "68424527e9f0dddeaf9f2e4c3f31adcebca00d72"
+    LDC (String) "aEJFJ-nw3d6vny5MPzGtzrygDXI"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -488,7 +488,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 1741081934
+    LDC (Integer) 1958269592
     IRETURN
     ** label2
     
@@ -504,6 +504,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+ring
     ARETURN
     ** label2
     

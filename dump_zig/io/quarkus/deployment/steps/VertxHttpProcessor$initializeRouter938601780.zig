@@ -84,291 +84,301 @@ Method deploy_0 : V
     // Method descriptor: (Lio/quarkus/vertx/http/runtime/HttpBuildTimeConfig;Lio/quarkus/vertx/http/runtime/management/ManagementInterfaceBuildTimeConfig;Lio/quarkus/runtime/RuntimeValue;Lio/quarkus/runtime/RuntimeValue;)V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#<init>
     ASTORE 9
-    ALOAD 1
-    LDC (String) "proxykey69"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 10
-    ALOAD 9
-    ALOAD 10
-    CHECKCAST java/util/function/Supplier
-    // Method descriptor: (Ljava/util/function/Supplier;)Lio/quarkus/runtime/RuntimeValue;
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#initializeRouter
+    NEW io/quarkus/vertx/http/runtime/BasicRoute
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
     ASTORE 11
-    ALOAD 1
-    LDC (String) "proxykey429"
     ALOAD 11
-    // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
-    NEW io/quarkus/vertx/http/runtime/BasicRoute
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 13
-    ALOAD 13
-    LDC (String) "/arc"
-    // Method descriptor: (Ljava/lang/String;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
-    ALOAD 1
-    LDC (String) "proxykey429"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 12
-    ALOAD 1
-    LDC (String) "proxykey181"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 14
-    LDC (String) "NORMAL"
-    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
-    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 15
-    ALOAD 9
-    ALOAD 12
-    CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 13
-    CHECKCAST java/util/function/Function
-    ALOAD 14
-    CHECKCAST io/vertx/core/Handler
-    ALOAD 15
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
-    NEW io/quarkus/vertx/http/runtime/BasicRoute
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 17
-    ALOAD 17
-    LDC (String) "/arc/beans"
-    // Method descriptor: (Ljava/lang/String;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
-    ALOAD 1
-    LDC (String) "proxykey429"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 16
-    ALOAD 1
-    LDC (String) "proxykey182"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 18
-    LDC (String) "NORMAL"
-    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
-    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 19
-    ALOAD 9
-    ALOAD 16
-    CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 17
-    CHECKCAST java/util/function/Function
-    ALOAD 18
-    CHECKCAST io/vertx/core/Handler
-    ALOAD 19
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
-    NEW io/quarkus/vertx/http/runtime/BasicRoute
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 21
-    ALOAD 21
-    LDC (String) "/arc/removed-beans"
-    // Method descriptor: (Ljava/lang/String;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
-    ALOAD 1
-    LDC (String) "proxykey429"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 20
-    ALOAD 1
-    LDC (String) "proxykey183"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 22
-    LDC (String) "NORMAL"
-    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
-    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 23
-    ALOAD 9
-    ALOAD 20
-    CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 21
-    CHECKCAST java/util/function/Function
-    ALOAD 22
-    CHECKCAST io/vertx/core/Handler
-    ALOAD 23
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
-    NEW io/quarkus/vertx/http/runtime/BasicRoute
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 25
-    ALOAD 25
-    LDC (String) "/arc/observers"
-    // Method descriptor: (Ljava/lang/String;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
-    ALOAD 1
-    LDC (String) "proxykey429"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 24
-    ALOAD 1
-    LDC (String) "proxykey184"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 26
-    LDC (String) "NORMAL"
-    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
-    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 27
-    ALOAD 9
-    ALOAD 24
-    CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 25
-    CHECKCAST java/util/function/Function
-    ALOAD 26
-    CHECKCAST io/vertx/core/Handler
-    ALOAD 27
-    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
-    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
-    NEW io/quarkus/vertx/http/runtime/BasicRoute
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 29
-    ALOAD 29
     LDC (String) "/swagger"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey74"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 28
+    ASTORE 10
     ALOAD 1
-    LDC (String) "proxykey188"
+    LDC (String) "proxykey88"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 30
+    ASTORE 12
     LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
     INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 31
+    ASTORE 13
     ALOAD 9
-    ALOAD 28
+    ALOAD 10
     CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 29
+    ALOAD 11
     CHECKCAST java/util/function/Function
-    ALOAD 30
+    ALOAD 12
     CHECKCAST io/vertx/core/Handler
-    ALOAD 31
+    ALOAD 13
     // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
     NEW io/quarkus/vertx/http/runtime/BasicRoute
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 33
-    ALOAD 33
+    ASTORE 15
+    ALOAD 15
     LDC (String) "/swagger*"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey74"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 32
+    ASTORE 14
     ALOAD 1
-    LDC (String) "proxykey188"
+    LDC (String) "proxykey88"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 34
+    ASTORE 16
     LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
     INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 35
+    ASTORE 17
     ALOAD 9
-    ALOAD 32
+    ALOAD 14
     CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 33
+    ALOAD 15
     CHECKCAST java/util/function/Function
-    ALOAD 34
+    ALOAD 16
     CHECKCAST io/vertx/core/Handler
-    ALOAD 35
+    ALOAD 17
     // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
     NEW io/quarkus/vertx/http/runtime/BasicRoute
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 36
-    ALOAD 36
-    LDC (String) "/dev-ui/*"
+    ASTORE 18
+    ALOAD 18
+    LDC (String) "/"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
-    ALOAD 36
-    LDC (Integer) -300
+    ALOAD 18
+    LDC (Integer) 20500
     // Method descriptor: (I)Ljava/lang/Integer;
     INVOKESTATIC java/lang/Integer#valueOf
     // Method descriptor: (Ljava/lang/Integer;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setOrder
-    NEW io/quarkus/devui/runtime/DevUICORSFilter
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL io/quarkus/devui/runtime/DevUICORSFilter#<init>
-    ASTORE 38
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey74"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 37
+    ASTORE 19
+    ALOAD 1
+    LDC (String) "proxykey418"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 20
     LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
     INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 39
+    ASTORE 21
     ALOAD 9
-    ALOAD 37
+    ALOAD 19
     CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 36
+    ALOAD 18
     CHECKCAST java/util/function/Function
-    ALOAD 38
+    ALOAD 20
     CHECKCAST io/vertx/core/Handler
-    ALOAD 39
+    ALOAD 21
     // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
     NEW io/quarkus/vertx/http/runtime/BasicRoute
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
-    ASTORE 41
-    ALOAD 41
-    LDC (String) "/dev-ui/json-rpc-ws"
+    ASTORE 22
+    ALOAD 22
+    LDC (String) "/*"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
+    ALOAD 22
+    LDC (Integer) 20500
+    // Method descriptor: (I)Ljava/lang/Integer;
+    INVOKESTATIC java/lang/Integer#valueOf
+    // Method descriptor: (Ljava/lang/Integer;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setOrder
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey74"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 40
+    ASTORE 23
     ALOAD 1
-    LDC (String) "proxykey298"
+    LDC (String) "proxykey418"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 42
+    ASTORE 24
     LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
     INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
-    ASTORE 43
+    ASTORE 25
     ALOAD 9
-    ALOAD 40
+    ALOAD 23
     CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 41
+    ALOAD 22
     CHECKCAST java/util/function/Function
-    ALOAD 42
+    ALOAD 24
     CHECKCAST io/vertx/core/Handler
-    ALOAD 43
+    ALOAD 25
     // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
+    NEW io/quarkus/vertx/http/runtime/BasicRoute
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
+    ASTORE 27
+    ALOAD 27
+    LDC (String) "/openapi"
+    // Method descriptor: (Ljava/lang/String;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
+    ALOAD 1
+    LDC (String) "proxykey74"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 26
+    ALOAD 1
+    LDC (String) "proxykey423"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 28
+    LDC (String) "BLOCKING"
+    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
+    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
+    ASTORE 29
+    ALOAD 9
+    ALOAD 26
+    CHECKCAST io/quarkus/runtime/RuntimeValue
+    ALOAD 27
+    CHECKCAST java/util/function/Function
+    ALOAD 28
+    CHECKCAST io/vertx/core/Handler
+    ALOAD 29
+    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
+    NEW io/quarkus/vertx/http/runtime/BasicRoute
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
+    ASTORE 31
+    ALOAD 31
+    LDC (String) "/openapi.json"
+    // Method descriptor: (Ljava/lang/String;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
+    ALOAD 1
+    LDC (String) "proxykey74"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 30
+    ALOAD 1
+    LDC (String) "proxykey423"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 32
+    LDC (String) "NORMAL"
+    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
+    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
+    ASTORE 33
+    ALOAD 9
+    ALOAD 30
+    CHECKCAST io/quarkus/runtime/RuntimeValue
+    ALOAD 31
+    CHECKCAST java/util/function/Function
+    ALOAD 32
+    CHECKCAST io/vertx/core/Handler
+    ALOAD 33
+    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
+    NEW io/quarkus/vertx/http/runtime/BasicRoute
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
+    ASTORE 35
+    ALOAD 35
+    LDC (String) "/openapi.yaml"
+    // Method descriptor: (Ljava/lang/String;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
+    ALOAD 1
+    LDC (String) "proxykey74"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 34
+    ALOAD 1
+    LDC (String) "proxykey423"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 36
+    LDC (String) "NORMAL"
+    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
+    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
+    ASTORE 37
+    ALOAD 9
+    ALOAD 34
+    CHECKCAST io/quarkus/runtime/RuntimeValue
+    ALOAD 35
+    CHECKCAST java/util/function/Function
+    ALOAD 36
+    CHECKCAST io/vertx/core/Handler
+    ALOAD 37
+    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
+    NEW io/quarkus/vertx/http/runtime/BasicRoute
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
+    ASTORE 39
+    ALOAD 39
+    LDC (String) "/openapi.yml"
+    // Method descriptor: (Ljava/lang/String;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
+    ALOAD 1
+    LDC (String) "proxykey74"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 38
+    ALOAD 1
+    LDC (String) "proxykey423"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 40
+    LDC (String) "NORMAL"
+    // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
+    INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
+    ASTORE 41
+    ALOAD 9
+    ALOAD 38
+    CHECKCAST io/quarkus/runtime/RuntimeValue
+    ALOAD 39
+    CHECKCAST java/util/function/Function
+    ALOAD 40
+    CHECKCAST io/vertx/core/Handler
+    ALOAD 41
+    // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;Ljava/util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
+    INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
+    RETURN
+    ** label2
+    
+}
+
+// Access: public
+Method $quarkus$createArray : [Ljava/lang/Object;
+(
+    // (no arguments)
+) {
+    ** label1
+    ICONST_0
+    ANEWARRAY java/lang/Object
+    ARETURN
+    ** label2
+    
+}
+
+util/function/Function;Lio/vertx/core/Handler;Lio/quarkus/vertx/http/runtime/HandlerType;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/VertxHttpRecorder#addRoute
     NEW io/quarkus/vertx/http/runtime/BasicRoute
     DUP
@@ -380,12 +390,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 44
     ALOAD 1
-    LDC (String) "proxykey300"
+    LDC (String) "proxykey310"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 46
@@ -413,12 +423,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 48
     ALOAD 1
-    LDC (String) "proxykey300"
+    LDC (String) "proxykey310"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 50
@@ -446,12 +456,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 52
     ALOAD 1
-    LDC (String) "proxykey301"
+    LDC (String) "proxykey311"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 54
@@ -479,12 +489,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 56
     ALOAD 1
-    LDC (String) "proxykey302"
+    LDC (String) "proxykey312"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 58
@@ -512,12 +522,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 60
     ALOAD 1
-    LDC (String) "proxykey303"
+    LDC (String) "proxykey313"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 62
@@ -545,12 +555,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 64
     ALOAD 1
-    LDC (String) "proxykey304"
+    LDC (String) "proxykey314"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 66
@@ -578,12 +588,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 68
     ALOAD 1
-    LDC (String) "proxykey306"
+    LDC (String) "proxykey315"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 70
@@ -611,12 +621,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 72
     ALOAD 1
-    LDC (String) "proxykey307"
+    LDC (String) "proxykey316"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 74
@@ -644,12 +654,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 76
     ALOAD 1
-    LDC (String) "proxykey308"
+    LDC (String) "proxykey317"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 78
@@ -677,12 +687,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 80
     ALOAD 1
-    LDC (String) "proxykey309"
+    LDC (String) "proxykey319"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 82
@@ -710,12 +720,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 84
     ALOAD 1
-    LDC (String) "proxykey310"
+    LDC (String) "proxykey320"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 86
@@ -743,12 +753,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 88
     ALOAD 1
-    LDC (String) "proxykey311"
+    LDC (String) "proxykey321"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 90
@@ -782,12 +792,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/Integer;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setOrder
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey81"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 93
     ALOAD 1
-    LDC (String) "proxykey405"
+    LDC (String) "proxykey450"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 94
@@ -821,12 +831,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/Integer;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setOrder
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey81"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 97
     ALOAD 1
-    LDC (String) "proxykey405"
+    LDC (String) "proxykey450"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 98
@@ -850,20 +860,20 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
     ASTORE 101
     ALOAD 101
-    LDC (String) "/openapi"
+    LDC (String) "/dev-ui/*"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 100
     ALOAD 1
-    LDC (String) "proxykey412"
+    LDC (String) "proxykey454"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 102
-    LDC (String) "BLOCKING"
+    LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
     INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
     ASTORE 103
@@ -883,20 +893,20 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
     ASTORE 105
     ALOAD 105
-    LDC (String) "/openapi.json"
+    LDC (String) "/openapi"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey81"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 104
     ALOAD 1
-    LDC (String) "proxykey412"
+    LDC (String) "proxykey458"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 106
-    LDC (String) "NORMAL"
+    LDC (String) "BLOCKING"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/vertx/http/runtime/HandlerType;
     INVOKESTATIC io/quarkus/vertx/http/runtime/HandlerType#valueOf
     ASTORE 107
@@ -916,16 +926,16 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
     ASTORE 109
     ALOAD 109
-    LDC (String) "/openapi.yaml"
+    LDC (String) "/openapi.json"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey81"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 108
     ALOAD 1
-    LDC (String) "proxykey412"
+    LDC (String) "proxykey458"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 110
@@ -949,16 +959,16 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
     ASTORE 113
     ALOAD 113
-    LDC (String) "/openapi.yml"
+    LDC (String) "/openapi.yaml"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey79"
+    LDC (String) "proxykey81"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 112
     ALOAD 1
-    LDC (String) "proxykey412"
+    LDC (String) "proxykey458"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 114
@@ -982,16 +992,16 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/BasicRoute#<init>
     ASTORE 117
     ALOAD 117
-    LDC (String) "/dev-ui/*"
+    LDC (String) "/openapi.yml"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey81"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 116
     ALOAD 1
-    LDC (String) "proxykey413"
+    LDC (String) "proxykey458"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 118
@@ -1019,12 +1029,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 120
     ALOAD 1
-    LDC (String) "proxykey414"
+    LDC (String) "proxykey459"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 122
@@ -1052,12 +1062,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 124
     ALOAD 1
-    LDC (String) "proxykey415"
+    LDC (String) "proxykey460"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 126
@@ -1085,12 +1095,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 128
     ALOAD 1
-    LDC (String) "proxykey416"
+    LDC (String) "proxykey461"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 130
@@ -1118,12 +1128,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 132
     ALOAD 1
-    LDC (String) "proxykey417"
+    LDC (String) "proxykey462"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 134
@@ -1151,12 +1161,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 136
     ALOAD 1
-    LDC (String) "proxykey418"
+    LDC (String) "proxykey463"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 138
@@ -1184,12 +1194,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 140
     ALOAD 1
-    LDC (String) "proxykey419"
+    LDC (String) "proxykey464"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 142
@@ -1217,12 +1227,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 144
     ALOAD 1
-    LDC (String) "proxykey420"
+    LDC (String) "proxykey465"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 146
@@ -1250,12 +1260,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 148
     ALOAD 1
-    LDC (String) "proxykey421"
+    LDC (String) "proxykey466"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 150
@@ -1283,12 +1293,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 152
     ALOAD 1
-    LDC (String) "proxykey422"
+    LDC (String) "proxykey467"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 154
@@ -1316,12 +1326,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 156
     ALOAD 1
-    LDC (String) "proxykey423"
+    LDC (String) "proxykey468"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 158
@@ -1349,12 +1359,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 160
     ALOAD 1
-    LDC (String) "proxykey424"
+    LDC (String) "proxykey469"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 162
@@ -1382,12 +1392,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 164
     ALOAD 1
-    LDC (String) "proxykey425"
+    LDC (String) "proxykey470"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 166
@@ -1415,12 +1425,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 168
     ALOAD 1
-    LDC (String) "proxykey426"
+    LDC (String) "proxykey471"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 170
@@ -1448,12 +1458,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/BasicRoute#setPath
     ALOAD 1
-    LDC (String) "proxykey429"
+    LDC (String) "proxykey474"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 172
     ALOAD 1
-    LDC (String) "proxykey427"
+    LDC (String) "proxykey472"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 174

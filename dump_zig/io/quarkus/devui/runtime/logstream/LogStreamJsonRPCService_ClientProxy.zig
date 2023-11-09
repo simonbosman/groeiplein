@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD io/quarkus/devui/runtime/logstream/LogStreamJsonRPCService_ClientProxy#context
     RETURN

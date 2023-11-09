@@ -32,7 +32,7 @@ Method proxy : Lio/quarkus/vertx/http/runtime/CurrentVertxRequest_ClientProxy;
     ** label2
     NEW io/quarkus/vertx/http/runtime/CurrentVertxRequest_ClientProxy
     DUP
-    LDC (String) "d3fea7e849828428a20dd77c1de969b46fc0d001"
+    LDC (String) "0_6n6EmChCiiDdd8HelptG_A0AE"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkus/vertx/http/runtime/CurrentVertxRequest_ClientProxy#<init>
     ASTORE 1
@@ -99,7 +99,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "d3fea7e849828428a20dd77c1de969b46fc0d001"
+    LDC (String) "0_6n6EmChCiiDdd8HelptG_A0AE"
     ARETURN
     ** label2
     
@@ -311,7 +311,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "d3fea7e849828428a20dd77c1de969b46fc0d001"
+    LDC (String) "0_6n6EmChCiiDdd8HelptG_A0AE"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -326,7 +326,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 1294084034
+    LDC (Integer) -1022372765
     IRETURN
     ** label2
     
@@ -342,6 +342,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+ing
     ARETURN
     ** label2
     

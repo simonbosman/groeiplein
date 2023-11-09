@@ -66,26 +66,41 @@ Method deploy_0 : V
     // Method descriptor: (Lio/quarkus/runtime/RuntimeValue;)V
     INVOKESPECIAL io/quarkus/smallrye/openapi/runtime/OpenApiRecorder#<init>
     ASTORE 5
-    ALOAD 1
-    LDC (String) "io.quarkus.runtime.ShutdownContext"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    // Field descriptor: Lio/quarkus/smallrye/openapi/runtime/OpenApiRuntimeConfig;
+    GETSTATIC io/quarkus/runtime/generated/Config#OpenApiRuntimeConfig
     ASTORE 6
     ALOAD 5
     ALOAD 6
-    CHECKCAST io/quarkus/runtime/ShutdownContext
-    // Method descriptor: (Lio/quarkus/runtime/ShutdownContext;)V
-    INVOKEVIRTUAL io/quarkus/smallrye/openapi/runtime/OpenApiRecorder#setupClDevMode
-    // Field descriptor: Lio/quarkus/smallrye/openapi/runtime/OpenApiRuntimeConfig;
-    GETSTATIC io/quarkus/runtime/generated/Config#OpenApiRuntimeConfig
-    ASTORE 7
-    ALOAD 5
-    ALOAD 7
     // Method descriptor: (Lio/quarkus/smallrye/openapi/runtime/OpenApiRuntimeConfig;)Lio/vertx/core/Handler;
     INVOKEVIRTUAL io/quarkus/smallrye/openapi/runtime/OpenApiRecorder#handler
+    ASTORE 7
+    ALOAD 1
+    LDC (String) "proxykey423"
+    ALOAD 7
+    // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
+    RETURN
+    ** label2
+    
+}
+
+// Access: public
+Method $quarkus$createArray : [Ljava/lang/Object;
+(
+    // (no arguments)
+) {
+    ** label1
+    ICONST_0
+    ANEWARRAY java/lang/Object
+    ARETURN
+    ** label2
+    
+}
+
+rder#handler
     ASTORE 8
     ALOAD 1
-    LDC (String) "proxykey412"
+    LDC (String) "proxykey458"
     ALOAD 8
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

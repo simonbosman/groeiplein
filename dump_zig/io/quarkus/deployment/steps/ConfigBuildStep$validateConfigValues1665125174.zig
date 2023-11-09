@@ -544,3 +544,34 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     
 }
 
+o/quarkus/arc/runtime/ConfigRecorder$ConfigValidationMetadata#<init>
+    ASTORE 55
+    ALOAD 4
+    CHECKCAST java/util/Collection
+    ALOAD 55
+    // Method descriptor: (Ljava/lang/Object;)Z
+    INVOKEINTERFACE java/util/Collection#add
+    POP
+    ALOAD 56
+    ALOAD 4
+    CHECKCAST java/util/Set
+    // Method descriptor: (Ljava/util/Set;)V
+    INVOKEVIRTUAL io/quarkus/arc/runtime/ConfigRecorder#validateConfigProperties
+    RETURN
+    ** label2
+    
+}
+
+// Access: public
+Method $quarkus$createArray : [Ljava/lang/Object;
+(
+    // (no arguments)
+) {
+    ** label1
+    ICONST_0
+    ANEWARRAY java/lang/Object
+    ARETURN
+    ** label2
+    
+}
+

@@ -12,10 +12,10 @@
 Field types : Ljava/util/Set;
 
 // Access: private final
-Field injectProviderSupplier4 : Ljava/util/function/Supplier;
+Field injectProviderSupplier1 : Ljava/util/function/Supplier;
 
 // Access: private final
-Field injectProviderSupplier1 : Ljava/util/function/Supplier;
+Field injectProviderSupplier4 : Ljava/util/function/Supplier;
 
 // Access: private final
 Field injectProviderSupplier3 : Ljava/util/function/Supplier;
@@ -391,7 +391,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "d85a4d04366e1c2b2640fc09cfdacc6135dca6cb"
+    LDC (String) "2FpNBDZuHCsmQPwJz9rMYTXcpss"
     ARETURN
     ** label2
     
@@ -705,7 +705,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "d85a4d04366e1c2b2640fc09cfdacc6135dca6cb"
+    LDC (String) "2FpNBDZuHCsmQPwJz9rMYTXcpss"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -720,7 +720,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 1067620126
+    LDC (Integer) -1134646310
     IRETURN
     ** label2
     
@@ -737,6 +737,11 @@ Method toString : Ljava/lang/String;
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
     ARETURN
+    ** label2
+    
+}
+
+RN
     ** label2
     
 }

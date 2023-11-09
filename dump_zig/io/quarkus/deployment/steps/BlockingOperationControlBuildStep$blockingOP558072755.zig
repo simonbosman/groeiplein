@@ -63,7 +63,7 @@ Method deploy_0 : V
     INVOKESPECIAL java/util/ArrayList#<init>
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey48"
+    LDC (String) "proxykey50"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4

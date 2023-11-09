@@ -56,7 +56,7 @@ Method deploy_0 : V
     // Method descriptor: ()V
     INVOKESPECIAL io/quarkus/vertx/core/runtime/VertxCoreRecorder#<init>
     ASTORE 3
-    LDC (String) "DEVELOPMENT"
+    LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/runtime/LaunchMode;
     INVOKESTATIC io/quarkus/runtime/LaunchMode#valueOf
     ASTORE 4
@@ -86,5 +86,8 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ARETURN
     ** label2
     
+}
+
+ 
 }
 

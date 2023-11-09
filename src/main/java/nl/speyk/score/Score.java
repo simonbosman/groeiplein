@@ -22,7 +22,6 @@ import java.util.UUID;
 @Table(name = "score", indexes = {
         @Index(columnList = "doel_id"),
         @Index(columnList = "leerling_id") })
-@Cacheable
 @NamedQueries({
         @NamedQuery(name = "Score.Doel", query = "FROM Score WHERE doel.id = :id"),
         @NamedQuery(name = "Score.Leerling", query = "FROM Score WHERE leerling.id = :id")

@@ -18,10 +18,10 @@ Field proxy : Lnl/speyk/doel/DoelService_ClientProxy;
 Field injectProviderSupplier1 : Ljava/util/function/Supplier;
 
 // Access: private final
-Field interceptorProviderSupplier2 : Ljava/util/function/Supplier;
+Field interceptorProviderSupplier3 : Ljava/util/function/Supplier;
 
 // Access: private final
-Field interceptorProviderSupplier3 : Ljava/util/function/Supplier;
+Field interceptorProviderSupplier2 : Ljava/util/function/Supplier;
 
 // Access: private
 Method proxy : Lnl/speyk/doel/DoelService_ClientProxy;
@@ -41,7 +41,7 @@ Method proxy : Lnl/speyk/doel/DoelService_ClientProxy;
     ** label2
     NEW nl/speyk/doel/DoelService_ClientProxy
     DUP
-    LDC (String) "9314471caf57076e1a47720d30770fc2808854f0"
+    LDC (String) "kxRHHK9XB24aR3INMHcPwoCIVPA"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL nl/speyk/doel/DoelService_ClientProxy#<init>
     ASTORE 1
@@ -122,7 +122,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "9314471caf57076e1a47720d30770fc2808854f0"
+    LDC (String) "kxRHHK9XB24aR3INMHcPwoCIVPA"
     ARETURN
     ** label2
     
@@ -401,7 +401,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "9314471caf57076e1a47720d30770fc2808854f0"
+    LDC (String) "kxRHHK9XB24aR3INMHcPwoCIVPA"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -416,7 +416,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) -1923257868
+    LDC (Integer) -903246631
     IRETURN
     ** label2
     
@@ -432,6 +432,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+tring
     ARETURN
     ** label2
     

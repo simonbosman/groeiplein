@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD io/smallrye/config/inject/ConfigProducer_ClientProxy#context
     RETURN
@@ -682,6 +686,43 @@ Method producesMapConfigProperty : Ljava/util/Map;
     ALOAD 1
     // Method descriptor: (Ljakarta/enterprise/inject/spi/InjectionPoint;)Ljava/util/Map;
     INVOKEVIRTUAL io/smallrye/config/inject/ConfigProducer#producesMapConfigProperty
+    ARETURN
+    ** label6
+    
+}
+
+// Access: public
+Method produceDoubleConfigProperty : Ljava/lang/Double;
+(
+    arg 1 = Ljakarta/enterprise/inject/spi/InjectionPoint;
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD io/smallrye/config/inject/ConfigProducer_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    ALOAD 1
+    // Method descriptor: (Ljakarta/enterprise/inject/spi/InjectionPoint;)Ljava/lang/Double;
+    INVOKESPECIAL io/smallrye/config/inject/ConfigProducer#produceDoubleConfigProperty
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lio/smallrye/config/inject/ConfigProducer;
+    INVOKEVIRTUAL io/smallrye/config/inject/ConfigProducer_ClientProxy#arc$delegate
+    ALOAD 1
+    // Method descriptor: (Ljakarta/enterprise/inject/spi/InjectionPoint;)Ljava/lang/Double;
+    INVOKEVIRTUAL io/smallrye/config/inject/ConfigProducer#produceDoubleConfigProperty
+    ARETURN
+    ** label6
+    
+}
+
+apConfigProperty
     ARETURN
     ** label6
     

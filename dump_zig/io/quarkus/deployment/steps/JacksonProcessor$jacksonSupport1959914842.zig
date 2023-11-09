@@ -65,7 +65,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/jackson/runtime/JacksonSupportRecorder#supplier
     ASTORE 5
     ALOAD 1
-    LDC (String) "proxykey85"
+    LDC (String) "proxykey84"
     ALOAD 5
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

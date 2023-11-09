@@ -1,5 +1,7 @@
 package nl.speyk.groepopdracht;
 
+import io.quarkus.cache.CacheInvalidateAll;
+import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
@@ -16,7 +18,10 @@ import java.util.stream.Collectors;
 @ResourceProperties(rolesAllowed = "**")
 public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdracht, Long> {
 
+    static final String CACHE_NAME = "nl.speyk.groepopdracht.GroepOpdracht";
+
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/opdrachten/{groepUuid}")
     @Produces("application/json")
     @RolesAllowed("**")
@@ -29,6 +34,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     }
 
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/groepen/{opdrachtId}")
     @Produces("application/json")
     @RolesAllowed("**")
@@ -40,18 +46,16 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
                         .collect(Collectors.toList()));
     }
 
-
     @DELETE
+    @CacheInvalidateAll(cacheName = CACHE_NAME)
     @Path("/verwijder/{groepUuid}/{opdrachtId}")
     @RolesAllowed("**")
-    @APIResponse(
-            responseCode = "204"
-    )
+    @APIResponse(responseCode = "204")
     default Uni<Response> deleteGroepOpdracht(@PathParam("groepUuid") UUID groepUuid,
-                                              @PathParam("opdrachtId") int opdrachtId) {
+            @PathParam("opdrachtId") int opdrachtId) {
         return GroepOpdracht.deleteGroepOpdracht(groepUuid, opdrachtId)
                 .map(numRecs -> {
-                    if(numRecs > 0)
+                    if (numRecs > 0)
                         return Response.status(Response.Status.NO_CONTENT).build();
                     return Response.status(Response.Status.FORBIDDEN).build();
                 });

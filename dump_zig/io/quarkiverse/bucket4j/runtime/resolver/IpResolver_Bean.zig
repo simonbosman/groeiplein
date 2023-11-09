@@ -35,7 +35,7 @@ Method proxy : Lio/quarkiverse/bucket4j/runtime/resolver/IpResolver_ClientProxy;
     ** label2
     NEW io/quarkiverse/bucket4j/runtime/resolver/IpResolver_ClientProxy
     DUP
-    LDC (String) "cc415668073c9b9fe93461d8770bf61ff9f4b4b1"
+    LDC (String) "zEFWaAc8m5_pNGHYdwv2H_n0tLE"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkiverse/bucket4j/runtime/resolver/IpResolver_ClientProxy#<init>
     ASTORE 1
@@ -116,7 +116,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "cc415668073c9b9fe93461d8770bf61ff9f4b4b1"
+    LDC (String) "zEFWaAc8m5_pNGHYdwv2H_n0tLE"
     ARETURN
     ** label2
     
@@ -373,7 +373,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "cc415668073c9b9fe93461d8770bf61ff9f4b4b1"
+    LDC (String) "zEFWaAc8m5_pNGHYdwv2H_n0tLE"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -388,7 +388,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 1980144970
+    LDC (Integer) -187378159
     IRETURN
     ** label2
     
@@ -404,6 +404,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+ring
     ARETURN
     ** label2
     

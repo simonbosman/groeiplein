@@ -61,12 +61,12 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/server/runtime/ResteasyReactiveRecorder#createServerSerialisers
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     ALOAD 3
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 5
@@ -79,7 +79,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey345"
+    LDC (String) "proxykey359"
     ALOAD 6
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -98,7 +98,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey345"
+    LDC (String) "proxykey359"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 9
@@ -130,7 +130,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 11
@@ -143,7 +143,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 12
@@ -156,7 +156,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 13
     ALOAD 1
-    LDC (String) "proxykey346"
+    LDC (String) "proxykey360"
     ALOAD 13
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -175,7 +175,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey346"
+    LDC (String) "proxykey360"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 16
@@ -207,7 +207,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 18
@@ -220,7 +220,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 19
@@ -233,7 +233,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 20
     ALOAD 1
-    LDC (String) "proxykey347"
+    LDC (String) "proxykey361"
     ALOAD 20
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -252,7 +252,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey347"
+    LDC (String) "proxykey361"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 23
@@ -284,7 +284,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 25
@@ -297,7 +297,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 26
@@ -310,7 +310,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 27
     ALOAD 1
-    LDC (String) "proxykey348"
+    LDC (String) "proxykey362"
     ALOAD 27
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -329,7 +329,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey348"
+    LDC (String) "proxykey362"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 30
@@ -361,7 +361,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 32
@@ -374,7 +374,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 33
@@ -387,7 +387,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 34
     ALOAD 1
-    LDC (String) "proxykey349"
+    LDC (String) "proxykey363"
     ALOAD 34
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -427,7 +427,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey349"
+    LDC (String) "proxykey363"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 37
@@ -459,7 +459,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 39
@@ -472,7 +472,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 40
@@ -485,7 +485,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 41
     ALOAD 1
-    LDC (String) "proxykey350"
+    LDC (String) "proxykey364"
     ALOAD 41
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -501,7 +501,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey350"
+    LDC (String) "proxykey364"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 43
@@ -533,7 +533,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 45
@@ -546,7 +546,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 46
@@ -559,7 +559,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 47
     ALOAD 1
-    LDC (String) "proxykey351"
+    LDC (String) "proxykey365"
     ALOAD 47
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -575,7 +575,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey351"
+    LDC (String) "proxykey365"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 49
@@ -607,7 +607,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 51
@@ -620,7 +620,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 52
@@ -633,7 +633,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 53
     ALOAD 1
-    LDC (String) "proxykey352"
+    LDC (String) "proxykey366"
     ALOAD 53
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -649,7 +649,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey352"
+    LDC (String) "proxykey366"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 55
@@ -681,7 +681,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 57
@@ -694,7 +694,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 58
@@ -707,7 +707,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 59
     ALOAD 1
-    LDC (String) "proxykey353"
+    LDC (String) "proxykey367"
     ALOAD 59
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -723,7 +723,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey353"
+    LDC (String) "proxykey367"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 61
@@ -755,7 +755,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 63
@@ -768,7 +768,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 64
@@ -781,7 +781,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 65
     ALOAD 1
-    LDC (String) "proxykey354"
+    LDC (String) "proxykey368"
     ALOAD 65
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -797,7 +797,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey354"
+    LDC (String) "proxykey368"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 67
@@ -829,7 +829,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 69
@@ -842,7 +842,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 70
@@ -855,7 +855,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 71
     ALOAD 1
-    LDC (String) "proxykey355"
+    LDC (String) "proxykey369"
     ALOAD 71
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -874,7 +874,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey355"
+    LDC (String) "proxykey369"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 74
@@ -897,7 +897,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 75
@@ -910,7 +910,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 76
@@ -923,7 +923,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 77
     ALOAD 1
-    LDC (String) "proxykey356"
+    LDC (String) "proxykey370"
     ALOAD 77
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -942,7 +942,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey356"
+    LDC (String) "proxykey370"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 80
@@ -965,7 +965,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 81
@@ -978,7 +978,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 82
@@ -991,7 +991,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 83
     ALOAD 1
-    LDC (String) "proxykey357"
+    LDC (String) "proxykey371"
     ALOAD 83
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1010,7 +1010,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey357"
+    LDC (String) "proxykey371"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 86
@@ -1033,7 +1033,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 87
@@ -1046,7 +1046,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 88
@@ -1059,7 +1059,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 89
     ALOAD 1
-    LDC (String) "proxykey358"
+    LDC (String) "proxykey372"
     ALOAD 89
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1078,7 +1078,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey358"
+    LDC (String) "proxykey372"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 92
@@ -1101,7 +1101,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 93
@@ -1114,7 +1114,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 94
@@ -1127,7 +1127,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 95
     ALOAD 1
-    LDC (String) "proxykey359"
+    LDC (String) "proxykey373"
     ALOAD 95
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1146,7 +1146,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey359"
+    LDC (String) "proxykey373"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 98
@@ -1169,7 +1169,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 99
@@ -1182,7 +1182,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 100
@@ -1195,7 +1195,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 101
     ALOAD 1
-    LDC (String) "proxykey360"
+    LDC (String) "proxykey374"
     ALOAD 101
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1214,7 +1214,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey360"
+    LDC (String) "proxykey374"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 104
@@ -1237,7 +1237,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 105
@@ -1250,7 +1250,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 106
@@ -1263,7 +1263,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 107
     ALOAD 1
-    LDC (String) "proxykey361"
+    LDC (String) "proxykey375"
     ALOAD 107
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1282,7 +1282,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey361"
+    LDC (String) "proxykey375"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 110
@@ -1305,7 +1305,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 111
@@ -1318,7 +1318,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 112
@@ -1331,7 +1331,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 113
     ALOAD 1
-    LDC (String) "proxykey362"
+    LDC (String) "proxykey376"
     ALOAD 113
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1350,7 +1350,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey362"
+    LDC (String) "proxykey376"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 116
@@ -1373,7 +1373,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 117
@@ -1386,7 +1386,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 118
@@ -1399,7 +1399,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 119
     ALOAD 1
-    LDC (String) "proxykey363"
+    LDC (String) "proxykey377"
     ALOAD 119
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1418,7 +1418,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey363"
+    LDC (String) "proxykey377"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 122
@@ -1441,7 +1441,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 123
@@ -1454,7 +1454,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 124
@@ -1467,7 +1467,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 125
     ALOAD 1
-    LDC (String) "proxykey364"
+    LDC (String) "proxykey378"
     ALOAD 125
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1486,7 +1486,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey364"
+    LDC (String) "proxykey378"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 128
@@ -1509,7 +1509,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 129
@@ -1522,7 +1522,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 130
@@ -1535,7 +1535,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 131
     ALOAD 1
-    LDC (String) "proxykey365"
+    LDC (String) "proxykey379"
     ALOAD 131
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1554,7 +1554,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey365"
+    LDC (String) "proxykey379"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 134
@@ -1577,7 +1577,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 135
@@ -1590,7 +1590,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 136
@@ -1603,7 +1603,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 137
     ALOAD 1
-    LDC (String) "proxykey366"
+    LDC (String) "proxykey380"
     ALOAD 137
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1622,7 +1622,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey366"
+    LDC (String) "proxykey380"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 140
@@ -1645,7 +1645,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 141
@@ -1658,7 +1658,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 142
@@ -1671,7 +1671,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 143
     ALOAD 1
-    LDC (String) "proxykey367"
+    LDC (String) "proxykey381"
     ALOAD 143
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1690,7 +1690,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey367"
+    LDC (String) "proxykey381"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 146
@@ -1713,7 +1713,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 147
@@ -1726,7 +1726,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 148
@@ -1739,7 +1739,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 149
     ALOAD 1
-    LDC (String) "proxykey368"
+    LDC (String) "proxykey382"
     ALOAD 149
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1758,7 +1758,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey368"
+    LDC (String) "proxykey382"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 152
@@ -1781,7 +1781,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 153
@@ -1794,7 +1794,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 154
@@ -1807,7 +1807,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 155
     ALOAD 1
-    LDC (String) "proxykey369"
+    LDC (String) "proxykey383"
     ALOAD 155
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1826,7 +1826,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey369"
+    LDC (String) "proxykey383"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 158
@@ -1849,7 +1849,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 159
@@ -1862,7 +1862,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 160
@@ -1875,7 +1875,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 161
     ALOAD 1
-    LDC (String) "proxykey370"
+    LDC (String) "proxykey384"
     ALOAD 161
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1894,7 +1894,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey370"
+    LDC (String) "proxykey384"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 164
@@ -1917,7 +1917,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceWriter#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 165
@@ -1930,7 +1930,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceWriter;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerWriter
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 166
@@ -1943,7 +1943,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 167
     ALOAD 1
-    LDC (String) "proxykey371"
+    LDC (String) "proxykey385"
     ALOAD 167
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -1962,7 +1962,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey371"
+    LDC (String) "proxykey385"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 170
@@ -1985,7 +1985,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 171
@@ -1998,7 +1998,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 172
@@ -2011,7 +2011,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 173
     ALOAD 1
-    LDC (String) "proxykey372"
+    LDC (String) "proxykey386"
     ALOAD 173
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2030,7 +2030,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey372"
+    LDC (String) "proxykey386"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 176
@@ -2053,7 +2053,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 177
@@ -2066,7 +2066,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 178
@@ -2079,7 +2079,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 179
     ALOAD 1
-    LDC (String) "proxykey373"
+    LDC (String) "proxykey387"
     ALOAD 179
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2098,7 +2098,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey373"
+    LDC (String) "proxykey387"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 182
@@ -2121,7 +2121,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 183
@@ -2134,7 +2134,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 184
@@ -2147,7 +2147,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 185
     ALOAD 1
-    LDC (String) "proxykey374"
+    LDC (String) "proxykey388"
     ALOAD 185
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2166,7 +2166,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey374"
+    LDC (String) "proxykey388"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 188
@@ -2189,7 +2189,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 189
@@ -2202,7 +2202,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 190
@@ -2215,7 +2215,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 191
     ALOAD 1
-    LDC (String) "proxykey375"
+    LDC (String) "proxykey389"
     ALOAD 191
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2234,7 +2234,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey375"
+    LDC (String) "proxykey389"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 194
@@ -2257,7 +2257,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 195
@@ -2270,7 +2270,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 196
@@ -2283,7 +2283,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 197
     ALOAD 1
-    LDC (String) "proxykey376"
+    LDC (String) "proxykey390"
     ALOAD 197
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2302,7 +2302,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey376"
+    LDC (String) "proxykey390"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 200
@@ -2325,7 +2325,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 201
@@ -2338,7 +2338,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 202
@@ -2351,7 +2351,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 203
     ALOAD 1
-    LDC (String) "proxykey377"
+    LDC (String) "proxykey391"
     ALOAD 203
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2370,7 +2370,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey377"
+    LDC (String) "proxykey391"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 206
@@ -2393,7 +2393,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 207
@@ -2406,7 +2406,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 208
@@ -2419,7 +2419,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 209
     ALOAD 1
-    LDC (String) "proxykey378"
+    LDC (String) "proxykey392"
     ALOAD 209
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2438,7 +2438,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey378"
+    LDC (String) "proxykey392"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 212
@@ -2461,7 +2461,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 213
@@ -2474,7 +2474,7 @@ Method deploy_0 : V
     // Method descriptor: (Lorg/jboss/resteasy/reactive/common/core/Serialisers;Ljava/lang/String;Lorg/jboss/resteasy/reactive/common/model/ResourceReader;)V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#registerReader
     ALOAD 1
-    LDC (String) "proxykey192"
+    LDC (String) "proxykey184"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 214
@@ -2487,7 +2487,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/common/runtime/ResteasyReactiveCommonRecorder#factory
     ASTORE 215
     ALOAD 1
-    LDC (String) "proxykey379"
+    LDC (String) "proxykey393"
     ALOAD 215
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -2506,7 +2506,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setMediaTypeStrings
     POP
     ALOAD 1
-    LDC (String) "proxykey379"
+    LDC (String) "proxykey393"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 218
@@ -2538,7 +2538,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL org/jboss/resteasy/reactive/common/model/ResourceReader#setPriority
     POP
     ALOAD 1
-    LDC (String) "proxykey343"
+    LDC (String) "proxykey357"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 220

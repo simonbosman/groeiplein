@@ -15,7 +15,6 @@ import java.util.UUID;
 @Entity(name = "Feedback")
 @Table(name = "feedback")
 @Data
-@Cacheable
 public class Feedback {
 
     @Id

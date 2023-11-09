@@ -64,12 +64,12 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/resteasy/reactive/links/runtime/GetterAccessorsContainerRecorder#newContainer
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey341"
+    LDC (String) "proxykey355"
     ALOAD 3
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
     ALOAD 1
-    LDC (String) "proxykey341"
+    LDC (String) "proxykey355"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 5
@@ -108,6 +108,11 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ICONST_0
     ANEWARRAY java/lang/Object
     ARETURN
+    ** label2
+    
+}
+
+RN
     ** label2
     
 }

@@ -164,29 +164,29 @@ Method <init> : V
     POP
     ICONST_2
     ANEWARRAY java/lang/Object
-    ASTORE 18
-    // Field descriptor: Lio/quarkus/hibernate/reactive/panache/common/WithSessionOnDemand_ArcAnnotationLiteral;
-    GETSTATIC io/quarkus/hibernate/reactive/panache/common/WithSessionOnDemand_ArcAnnotationLiteral#INSTANCE
     ASTORE 19
-    ALOAD 18
-    ICONST_0
-    ALOAD 19
-    AASTORE
     // Field descriptor: Ljava/lang/Class;
     GETSTATIC io/quarkiverse/bucket4j/runtime/RateLimited_ArcAnnotationLiteral#identityResolver_default_value
-    ASTORE 20
+    ASTORE 18
     NEW io/quarkiverse/bucket4j/runtime/RateLimited_ArcAnnotationLiteral
     DUP
     LDC (String) "restapi"
-    ALOAD 20
+    ALOAD 18
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Class;)V
     INVOKESPECIAL io/quarkiverse/bucket4j/runtime/RateLimited_ArcAnnotationLiteral#<init>
+    ASTORE 20
+    ALOAD 19
+    ICONST_0
+    ALOAD 20
+    AASTORE
+    // Field descriptor: Lio/quarkus/hibernate/reactive/panache/common/WithSessionOnDemand_ArcAnnotationLiteral;
+    GETSTATIC io/quarkus/hibernate/reactive/panache/common/WithSessionOnDemand_ArcAnnotationLiteral#INSTANCE
     ASTORE 21
-    ALOAD 18
+    ALOAD 19
     ICONST_1
     ALOAD 21
     AASTORE
-    ALOAD 18
+    ALOAD 19
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC io/quarkus/arc/impl/Sets#of
     ASTORE 23
@@ -255,33 +255,33 @@ Method <init> : V
     POP
     ICONST_3
     ANEWARRAY java/lang/Object
-    ASTORE 31
-    ALOAD 31
-    ICONST_0
-    ALOAD 19
-    AASTORE
-    ALOAD 31
-    ICONST_1
-    ALOAD 21
-    AASTORE
+    ASTORE 32
     ICONST_1
     ANEWARRAY java/lang/String
-    ASTORE 32
-    ALOAD 32
+    ASTORE 31
+    ALOAD 31
     ICONST_0
     LDC (String) "**"
     AASTORE
     NEW jakarta/annotation/security/RolesAllowed_ArcAnnotationLiteral
     DUP
-    ALOAD 32
+    ALOAD 31
     // Method descriptor: ([Ljava/lang/String;)V
     INVOKESPECIAL jakarta/annotation/security/RolesAllowed_ArcAnnotationLiteral#<init>
     ASTORE 33
-    ALOAD 31
-    ICONST_2
+    ALOAD 32
+    ICONST_0
     ALOAD 33
     AASTORE
-    ALOAD 31
+    ALOAD 32
+    ICONST_1
+    ALOAD 20
+    AASTORE
+    ALOAD 32
+    ICONST_2
+    ALOAD 21
+    AASTORE
+    ALOAD 32
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC io/quarkus/arc/impl/Sets#of
     ASTORE 34
@@ -364,15 +364,15 @@ Method <init> : V
     ASTORE 42
     ALOAD 42
     ICONST_0
-    ALOAD 19
+    ALOAD 33
     AASTORE
     ALOAD 42
     ICONST_1
-    ALOAD 21
+    ALOAD 20
     AASTORE
     ALOAD 42
     ICONST_2
-    ALOAD 33
+    ALOAD 21
     AASTORE
     // Field descriptor: Lio/quarkus/hibernate/validator/runtime/jaxrs/JaxrsEndPointValidated_ArcAnnotationLiteral;
     GETSTATIC io/quarkus/hibernate/validator/runtime/jaxrs/JaxrsEndPointValidated_ArcAnnotationLiteral#INSTANCE
@@ -389,6 +389,36 @@ Method <init> : V
     CHECKCAST java/util/Map
     LDC (String) "b3"
     ALOAD 44
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ICONST_4
+    ANEWARRAY java/lang/Object
+    ASTORE 45
+    ALOAD 45
+    ICONST_0
+    ALOAD 43
+    AASTORE
+    ALOAD 45
+    ICONST_1
+    ALOAD 20
+    AASTORE
+    ALOAD 45
+    ICONST_2
+    ALOAD 21
+    AASTORE
+    ALOAD 45
+    ICONST_3
+    ALOAD 33
+    AASTORE
+    ALOAD 45
+    // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
+    INVOKESTATIC io/quarkus/arc/impl/Sets#of
+    ASTORE 46
+    ALOAD 22
+    CHECKCAST java/util/Map
+    LDC (String) "b4"
+    ALOAD 46
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
@@ -1133,25 +1163,30 @@ Method arc$initMetadata0 : V
     // Method descriptor: (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findMethod
     ASTORE 60
+    ALOAD 2
+    LDC (String) "b4"
+    // Method descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#get
+    ASTORE 61
     NEW nl/speyk/score/ScoreResourceJaxRs_8e7112a20a9d186435cf72a87844ad272740c9b9_Subclass$$function$$13
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL nl/speyk/score/ScoreResourceJaxRs_8e7112a20a9d186435cf72a87844ad272740c9b9_Subclass$$function$$13#<init>
-    ASTORE 61
+    ASTORE 62
     NEW io/quarkus/arc/impl/InterceptedMethodMetadata
     DUP
     ALOAD 40
     CHECKCAST java/util/List
     ALOAD 60
-    ALOAD 42
-    CHECKCAST java/util/Set
     ALOAD 61
+    CHECKCAST java/util/Set
+    ALOAD 62
     CHECKCAST java/util/function/BiFunction
     // Method descriptor: (Ljava/util/List;Ljava/lang/reflect/Method;Ljava/util/Set;Ljava/util/function/BiFunction;)V
     INVOKESPECIAL io/quarkus/arc/impl/InterceptedMethodMetadata#<init>
-    ASTORE 62
+    ASTORE 63
     ALOAD 0
-    ALOAD 62
+    ALOAD 63
     // Field descriptor: Lio/quarkus/arc/impl/InterceptedMethodMetadata;
     PUTFIELD nl/speyk/score/ScoreResourceJaxRs_8e7112a20a9d186435cf72a87844ad272740c9b9_Subclass#arc$13
     RETURN

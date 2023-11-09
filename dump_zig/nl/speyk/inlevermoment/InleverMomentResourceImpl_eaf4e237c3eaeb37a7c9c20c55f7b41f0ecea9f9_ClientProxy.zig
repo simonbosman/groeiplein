@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_ClientProxy#context
     RETURN
@@ -415,6 +419,46 @@ Method findMomentByOpdrachtId : Lio/smallrye/mutiny/Uni;
     ALOAD 0
     // Method descriptor: ()Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
     INVOKEVIRTUAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_ClientProxy#arc$delegate
+    ALOAD 1
+    // Method descriptor: (Ljava/lang/Long;)Lio/smallrye/mutiny/Uni;
+    INVOKEVIRTUAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9#findMomentByOpdrachtId
+    ARETURN
+    ** label6
+    
+}
+
+// Access: public
+Method get : Lio/smallrye/mutiny/Uni;
+(
+    arg 1 = Ljava/lang/Object;
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    ALOAD 1
+    // Method descriptor: (Ljava/lang/Object;)Lio/smallrye/mutiny/Uni;
+    INVOKESPECIAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9#get
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lnl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9;
+    INVOKEVIRTUAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_ClientProxy#arc$delegate
+    ALOAD 1
+    // Method descriptor: (Ljava/lang/Object;)Lio/smallrye/mutiny/Uni;
+    INVOKEVIRTUAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9#get
+    ARETURN
+    ** label6
+    
+}
+
+leverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9_ClientProxy#arc$delegate
     ALOAD 1
     // Method descriptor: (Ljava/lang/Long;)Lio/smallrye/mutiny/Uni;
     INVOKEVIRTUAL nl/speyk/inlevermoment/InleverMomentResourceImpl_eaf4e237c3eaeb37a7c9c20c55f7b41f0ecea9f9#findMomentByOpdrachtId

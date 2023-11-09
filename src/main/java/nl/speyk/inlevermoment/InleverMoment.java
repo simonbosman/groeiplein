@@ -24,7 +24,6 @@ enum StatusType {
 @Table(name = "inlevermoment", indexes = {
         @Index(columnList = "leerling_id"),
         @Index(columnList = "opdracht_id") })
-@Cacheable
 @NamedQueries({
         @NamedQuery(name = "InleverMoment.Opdracht", query = "FROM InleverMoment WHERE opdracht.id = :id"),
         @NamedQuery(name = "InleverMoment.Leerling", query = "FROM InleverMoment WHERE leerling.id = :id")

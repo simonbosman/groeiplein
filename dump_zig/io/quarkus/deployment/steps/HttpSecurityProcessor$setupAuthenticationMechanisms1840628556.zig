@@ -72,7 +72,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/security/HttpSecurityRecorder#authenticationMechanismHandler
     ASTORE 5
     ALOAD 1
-    LDC (String) "proxykey89"
+    LDC (String) "proxykey82"
     ALOAD 5
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -81,7 +81,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/http/runtime/security/HttpSecurityRecorder#permissionCheckHandler
     ASTORE 7
     ALOAD 1
-    LDC (String) "proxykey90"
+    LDC (String) "proxykey85"
     ALOAD 7
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

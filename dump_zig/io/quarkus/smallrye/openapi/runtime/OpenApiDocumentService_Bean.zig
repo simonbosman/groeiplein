@@ -20,6 +20,9 @@ Field injectProviderSupplier1 : Ljava/util/function/Supplier;
 // Access: private final
 Field injectProviderSupplier2 : Ljava/util/function/Supplier;
 
+// Access: private final
+Field injectProviderSupplier3 : Ljava/util/function/Supplier;
+
 // Access: private
 Method proxy : Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_ClientProxy;
 (
@@ -38,7 +41,7 @@ Method proxy : Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Clien
     ** label2
     NEW io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_ClientProxy
     DUP
-    LDC (String) "f8f96c0a450e60a0bba8d3b30a729c949a90fb39"
+    LDC (String) "-PlsCkUOYKC7qNOzCnKclJqQ-zk"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_ClientProxy#<init>
     ASTORE 1
@@ -57,7 +60,8 @@ Method proxy : Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Clien
 Method <init> : V
 (
     arg 1 = Ljava/util/function/Supplier;,
-    arg 2 = Ljava/util/function/Supplier;
+    arg 2 = Ljava/util/function/Supplier;,
+    arg 3 = Ljava/util/function/Supplier;
 ) {
     ** label1
     ALOAD 0
@@ -67,104 +71,170 @@ Method <init> : V
     INVOKESTATIC java/lang/Thread#currentThread
     // Method descriptor: ()Ljava/lang/ClassLoader;
     INVOKEVIRTUAL java/lang/Thread#getContextClassLoader
-    ASTORE 4
+    ASTORE 5
     // Field descriptor: Ljava/util/Set;
     GETSTATIC io/quarkus/arc/impl/Qualifiers#IP_DEFAULT_QUALIFIERS
-    ASTORE 6
+    ASTORE 7
     NEW java/util/HashSet
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL java/util/HashSet#<init>
-    ASTORE 7
-    ICONST_2
+    ASTORE 8
+    ICONST_3
     ANEWARRAY java/lang/Class
-    ASTORE 3
-    ALOAD 3
+    ASTORE 4
+    ALOAD 4
     ICONST_0
     LDC (Type) Lorg/eclipse/microprofile/openapi/OASFilter;
     AASTORE
-    ALOAD 3
+    ALOAD 4
     ICONST_1
+    LDC (Type) Lio/quarkus/smallrye/openapi/runtime/OpenApiRecorder$UserDefinedRuntimeFilters;
+    AASTORE
+    ALOAD 4
+    ICONST_2
     LDC (Type) Lorg/eclipse/microprofile/config/Config;
     AASTORE
     LDC (Type) Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService;
-    ALOAD 3
+    ALOAD 4
     // Method descriptor: (Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
     INVOKESTATIC io/quarkus/arc/impl/Reflections#findConstructor
-    ASTORE 8
+    ASTORE 9
     LDC (String) "org.eclipse.microprofile.openapi.OASFilter"
     ICONST_0
-    ALOAD 4
+    ALOAD 5
     // Method descriptor: (Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
     INVOKESTATIC java/lang/Class#forName
-    ASTORE 5
+    ASTORE 6
     NEW io/quarkus/arc/impl/CurrentInjectionPointProvider
     DUP
     ALOAD 0
     CHECKCAST io/quarkus/arc/InjectableBean
     ALOAD 1
-    ALOAD 5
-    CHECKCAST java/lang/reflect/Type
     ALOAD 6
+    CHECKCAST java/lang/reflect/Type
     ALOAD 7
-    CHECKCAST java/util/Set
     ALOAD 8
+    CHECKCAST java/util/Set
+    ALOAD 9
     CHECKCAST java/lang/reflect/Member
     ICONST_0
     ICONST_0
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;Ljava/util/function/Supplier;Ljava/lang/reflect/Type;Ljava/util/Set;Ljava/util/Set;Ljava/lang/reflect/Member;IZ)V
     INVOKESPECIAL io/quarkus/arc/impl/CurrentInjectionPointProvider#<init>
-    ASTORE 9
+    ASTORE 10
     NEW io/quarkus/arc/impl/FixedValueSupplier
     DUP
-    ALOAD 9
+    ALOAD 10
     // Method descriptor: (Ljava/lang/Object;)V
     INVOKESPECIAL io/quarkus/arc/impl/FixedValueSupplier#<init>
-    ASTORE 10
+    ASTORE 11
     ALOAD 0
-    ALOAD 10
+    ALOAD 11
     CHECKCAST java/util/function/Supplier
     // Field descriptor: Ljava/util/function/Supplier;
     PUTFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#injectProviderSupplier1
-    ALOAD 0
-    ALOAD 2
-    // Field descriptor: Ljava/util/function/Supplier;
-    PUTFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#injectProviderSupplier2
+    // Field descriptor: Ljava/util/Set;
+    GETSTATIC io/quarkus/arc/impl/Qualifiers#IP_DEFAULT_QUALIFIERS
+    ASTORE 14
+    NEW java/util/HashSet
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL java/util/HashSet#<init>
+    ASTORE 15
     ICONST_3
-    ANEWARRAY java/lang/Object
-    ASTORE 11
-    LDC (String) "io.quarkus.smallrye.openapi.runtime.OpenApiDocumentService"
+    ANEWARRAY java/lang/Class
+    ASTORE 12
+    ALOAD 12
     ICONST_0
-    ALOAD 4
+    LDC (Type) Lorg/eclipse/microprofile/openapi/OASFilter;
+    AASTORE
+    ALOAD 12
+    ICONST_1
+    LDC (Type) Lio/quarkus/smallrye/openapi/runtime/OpenApiRecorder$UserDefinedRuntimeFilters;
+    AASTORE
+    ALOAD 12
+    ICONST_2
+    LDC (Type) Lorg/eclipse/microprofile/config/Config;
+    AASTORE
+    LDC (Type) Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService;
+    ALOAD 12
+    // Method descriptor: (Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    INVOKESTATIC io/quarkus/arc/impl/Reflections#findConstructor
+    ASTORE 16
+    LDC (String) "io.quarkus.smallrye.openapi.runtime.OpenApiRecorder$UserDefinedRuntimeFilters"
+    ICONST_0
+    ALOAD 5
     // Method descriptor: (Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
     INVOKESTATIC java/lang/Class#forName
-    ASTORE 12
-    ALOAD 11
+    ASTORE 13
+    NEW io/quarkus/arc/impl/CurrentInjectionPointProvider
+    DUP
+    ALOAD 0
+    CHECKCAST io/quarkus/arc/InjectableBean
+    ALOAD 2
+    ALOAD 13
+    CHECKCAST java/lang/reflect/Type
+    ALOAD 14
+    ALOAD 15
+    CHECKCAST java/util/Set
+    ALOAD 16
+    CHECKCAST java/lang/reflect/Member
+    ICONST_1
     ICONST_0
-    ALOAD 12
+    // Method descriptor: (Lio/quarkus/arc/InjectableBean;Ljava/util/function/Supplier;Ljava/lang/reflect/Type;Ljava/util/Set;Ljava/util/Set;Ljava/lang/reflect/Member;IZ)V
+    INVOKESPECIAL io/quarkus/arc/impl/CurrentInjectionPointProvider#<init>
+    ASTORE 17
+    NEW io/quarkus/arc/impl/FixedValueSupplier
+    DUP
+    ALOAD 17
+    // Method descriptor: (Ljava/lang/Object;)V
+    INVOKESPECIAL io/quarkus/arc/impl/FixedValueSupplier#<init>
+    ASTORE 18
+    ALOAD 0
+    ALOAD 18
+    CHECKCAST java/util/function/Supplier
+    // Field descriptor: Ljava/util/function/Supplier;
+    PUTFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#injectProviderSupplier2
+    ALOAD 0
+    ALOAD 3
+    // Field descriptor: Ljava/util/function/Supplier;
+    PUTFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#injectProviderSupplier3
+    ICONST_3
+    ANEWARRAY java/lang/Object
+    ASTORE 19
+    LDC (String) "io.quarkus.smallrye.openapi.runtime.OpenApiDocumentService"
+    ICONST_0
+    ALOAD 5
+    // Method descriptor: (Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    INVOKESTATIC java/lang/Class#forName
+    ASTORE 20
+    ALOAD 19
+    ICONST_0
+    ALOAD 20
     AASTORE
     LDC (Type) Ljava/lang/Object;
-    ASTORE 13
-    ALOAD 11
+    ASTORE 21
+    ALOAD 19
     ICONST_1
-    ALOAD 13
+    ALOAD 21
     AASTORE
     LDC (String) "io.quarkus.smallrye.openapi.runtime.OpenApiDocumentHolder"
     ICONST_0
-    ALOAD 4
+    ALOAD 5
     // Method descriptor: (Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
     INVOKESTATIC java/lang/Class#forName
-    ASTORE 14
-    ALOAD 11
+    ASTORE 22
+    ALOAD 19
     ICONST_2
-    ALOAD 14
+    ALOAD 22
     AASTORE
-    ALOAD 11
+    ALOAD 19
     // Method descriptor: ([Ljava/lang/Object;)Ljava/util/Set;
     INVOKESTATIC io/quarkus/arc/impl/Sets#of
-    ASTORE 15
+    ASTORE 23
     ALOAD 0
-    ALOAD 15
+    ALOAD 23
     // Field descriptor: Ljava/util/Set;
     PUTFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#types
     RETURN
@@ -178,7 +248,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "f8f96c0a450e60a0bba8d3b30a729c949a90fb39"
+    LDC (String) "-PlsCkUOYKC7qNOzCnKclJqQ-zk"
     ARETURN
     ** label2
     
@@ -220,7 +290,7 @@ Method doCreate : Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService;
     CHECKCAST jakarta/enterprise/context/spi/CreationalContext
     // Method descriptor: (Ljakarta/enterprise/context/spi/CreationalContext;)Ljava/lang/Object;
     INVOKEINTERFACE io/quarkus/arc/InjectableReferenceProvider#get
-    ASTORE 6
+    ASTORE 8
     ALOAD 0
     // Field descriptor: Ljava/util/function/Supplier;
     GETFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#injectProviderSupplier2
@@ -239,14 +309,35 @@ Method doCreate : Lio/quarkus/smallrye/openapi/runtime/OpenApiDocumentService;
     CHECKCAST jakarta/enterprise/context/spi/CreationalContext
     // Method descriptor: (Ljakarta/enterprise/context/spi/CreationalContext;)Ljava/lang/Object;
     INVOKEINTERFACE io/quarkus/arc/InjectableReferenceProvider#get
+    ASTORE 9
+    ALOAD 0
+    // Field descriptor: Ljava/util/function/Supplier;
+    GETFIELD io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService_Bean#injectProviderSupplier3
+    // Method descriptor: ()Ljava/lang/Object;
+    INVOKEINTERFACE java/util/function/Supplier#get
+    ASTORE 6
+    ALOAD 6
+    CHECKCAST io/quarkus/arc/InjectableReferenceProvider
+    ALOAD 1
+    // Method descriptor: (Lio/quarkus/arc/InjectableReferenceProvider;Ljakarta/enterprise/context/spi/CreationalContext;)Lio/quarkus/arc/impl/CreationalContextImpl;
+    INVOKESTATIC io/quarkus/arc/impl/CreationalContextImpl#child
     ASTORE 7
+    ALOAD 6
+    CHECKCAST io/quarkus/arc/InjectableReferenceProvider
+    ALOAD 7
+    CHECKCAST jakarta/enterprise/context/spi/CreationalContext
+    // Method descriptor: (Ljakarta/enterprise/context/spi/CreationalContext;)Ljava/lang/Object;
+    INVOKEINTERFACE io/quarkus/arc/InjectableReferenceProvider#get
+    ASTORE 10
     NEW io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService
     DUP
-    ALOAD 6
+    ALOAD 8
     CHECKCAST org/eclipse/microprofile/openapi/OASFilter
-    ALOAD 7
+    ALOAD 9
+    CHECKCAST io/quarkus/smallrye/openapi/runtime/OpenApiRecorder$UserDefinedRuntimeFilters
+    ALOAD 10
     CHECKCAST org/eclipse/microprofile/config/Config
-    // Method descriptor: (Lorg/eclipse/microprofile/openapi/OASFilter;Lorg/eclipse/microprofile/config/Config;)V
+    // Method descriptor: (Lorg/eclipse/microprofile/openapi/OASFilter;Lio/quarkus/smallrye/openapi/runtime/OpenApiRecorder$UserDefinedRuntimeFilters;Lorg/eclipse/microprofile/config/Config;)V
     INVOKESPECIAL io/quarkus/smallrye/openapi/runtime/OpenApiDocumentService#<init>
     ARETURN
     ** label2
@@ -432,7 +523,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "f8f96c0a450e60a0bba8d3b30a729c949a90fb39"
+    LDC (String) "-PlsCkUOYKC7qNOzCnKclJqQ-zk"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -447,7 +538,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) -388050261
+    LDC (Integer) -1166913725
     IRETURN
     ** label2
     

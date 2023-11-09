@@ -16,7 +16,6 @@ import java.util.*;
         @Index(columnList = "doel_id") }, uniqueConstraints = @UniqueConstraint(name = "groepdoel", columnNames = {
                 "groepUuid",
                 "doel_id" }))
-@Cacheable
 @NamedQueries({
         @NamedQuery(name = "GroepDoel.findByGroepUuid", query = "FROM GroepDoel WHERE groepUuid = :uuid"),
         @NamedQuery(name = "GroepDoel.findByDoelId", query = "FROM GroepDoel WHERE doel.id = :id"),
@@ -44,6 +43,6 @@ public class GroepDoel extends PanacheEntity {
         Map<String, Object> params = new HashMap<>();
         params.put("groepUuid", groepUuid);
         params.put("doelId", doelId);
-        return delete("#GroepDoel.Delete", params);
+        return delete("#GroepDoel.delete", params);
     }
 }

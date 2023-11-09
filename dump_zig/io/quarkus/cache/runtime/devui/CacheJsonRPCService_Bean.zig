@@ -15,10 +15,10 @@ Field types : Ljava/util/Set;
 Field proxy : Lio/quarkus/cache/runtime/devui/CacheJsonRPCService_ClientProxy;
 
 // Access: private final
-Field injectProviderSupplier2 : Ljava/util/function/Supplier;
+Field injectProviderSupplier1 : Ljava/util/function/Supplier;
 
 // Access: private final
-Field injectProviderSupplier1 : Ljava/util/function/Supplier;
+Field injectProviderSupplier2 : Ljava/util/function/Supplier;
 
 // Access: private
 Method proxy : Lio/quarkus/cache/runtime/devui/CacheJsonRPCService_ClientProxy;
@@ -38,7 +38,7 @@ Method proxy : Lio/quarkus/cache/runtime/devui/CacheJsonRPCService_ClientProxy;
     ** label2
     NEW io/quarkus/cache/runtime/devui/CacheJsonRPCService_ClientProxy
     DUP
-    LDC (String) "b390eea2098e1242fcb951edb79898ca9a6f1631"
+    LDC (String) "s5DuogmOEkL8uVHtt5iYyppvFjE"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkus/cache/runtime/devui/CacheJsonRPCService_ClientProxy#<init>
     ASTORE 1
@@ -166,7 +166,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "b390eea2098e1242fcb951edb79898ca9a6f1631"
+    LDC (String) "s5DuogmOEkL8uVHtt5iYyppvFjE"
     ARETURN
     ** label2
     
@@ -466,7 +466,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "b390eea2098e1242fcb951edb79898ca9a6f1631"
+    LDC (String) "s5DuogmOEkL8uVHtt5iYyppvFjE"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -481,7 +481,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 1895399625
+    LDC (Integer) -1305189529
     IRETURN
     ** label2
     
@@ -497,6 +497,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+ing
     ARETURN
     ** label2
     

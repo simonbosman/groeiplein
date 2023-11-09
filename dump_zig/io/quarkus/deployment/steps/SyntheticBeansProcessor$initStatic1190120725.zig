@@ -57,7 +57,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/arc/runtime/ArcRecorder#<init>
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey85"
+    LDC (String) "proxykey84"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
@@ -68,12 +68,12 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/arc/runtime/ArcRecorder#createFunction
     ASTORE 5
     ALOAD 1
-    LDC (String) "proxykey160"
+    LDC (String) "proxykey163"
     ALOAD 5
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
     ALOAD 1
-    LDC (String) "proxykey102"
+    LDC (String) "proxykey100"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 6
@@ -84,41 +84,69 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/arc/runtime/ArcRecorder#createFunction
     ASTORE 7
     ALOAD 1
-    LDC (String) "proxykey162"
+    LDC (String) "proxykey165"
     ALOAD 7
+    // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
+    ALOAD 1
+    LDC (String) "proxykey112"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 8
+    ALOAD 3
+    ALOAD 8
+    CHECKCAST java/util/function/Supplier
+    // Method descriptor: (Ljava/util/function/Supplier;)Ljava/util/function/Function;
+    INVOKEVIRTUAL io/quarkus/arc/runtime/ArcRecorder#createFunction
+    ASTORE 9
+    ALOAD 1
+    LDC (String) "proxykey167"
+    ALOAD 9
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
     NEW java/util/HashMap
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL java/util/HashMap#<init>
-    ASTORE 8
+    ASTORE 10
     ALOAD 1
-    LDC (String) "proxykey162"
+    LDC (String) "proxykey167"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 9
-    ALOAD 8
+    ASTORE 11
+    ALOAD 10
     CHECKCAST java/util/Map
-    LDC (String) "io_quarkiverse_bucket4j_runtime_BucketPodStorage_1668d1821a13655c113838e60713d9b817403b6a"
-    ALOAD 9
+    LDC (String) "io_quarkus_smallrye_openapi_runtime_OpenApiRecorder$UserDefinedRuntimeFilters_f0aaf7440fd9d6194f5d91cce73ed2109e194e94"
+    ALOAD 11
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 1
-    LDC (String) "proxykey160"
+    LDC (String) "proxykey165"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 10
-    ALOAD 8
+    ASTORE 12
+    ALOAD 10
+    CHECKCAST java/util/Map
+    LDC (String) "io_quarkiverse_bucket4j_runtime_BucketPodStorage_1668d1821a13655c113838e60713d9b817403b6a"
+    ALOAD 12
+    // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/Map#put
+    POP
+    ALOAD 1
+    LDC (String) "proxykey163"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
+    ASTORE 13
+    ALOAD 10
     CHECKCAST java/util/Map
     LDC (String) "io_quarkus_jackson_runtime_JacksonSupport_56c398dc3fd5ab91aef6017dac718758e82b45da"
-    ALOAD 10
+    ALOAD 13
     // Method descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 3
-    ALOAD 8
+    ALOAD 10
     CHECKCAST java/util/Map
     // Method descriptor: (Ljava/util/Map;)V
     INVOKEVIRTUAL io/quarkus/arc/runtime/ArcRecorder#initStaticSupplierBeans

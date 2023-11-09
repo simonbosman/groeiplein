@@ -35,7 +35,7 @@ Method proxy : Lio/quarkus/smallrye/jwt/runtime/auth/JsonWebTokenCredentialProdu
     ** label2
     NEW io/quarkus/smallrye/jwt/runtime/auth/JsonWebTokenCredentialProducer_ClientProxy
     DUP
-    LDC (String) "09d5d3b8271eec47a52cc17283b9e4b872c3fbdc"
+    LDC (String) "CdXTuCce7EelLMFyg7nkuHLD-9w"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkus/smallrye/jwt/runtime/auth/JsonWebTokenCredentialProducer_ClientProxy#<init>
     ASTORE 1
@@ -106,7 +106,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "09d5d3b8271eec47a52cc17283b9e4b872c3fbdc"
+    LDC (String) "CdXTuCce7EelLMFyg7nkuHLD-9w"
     ARETURN
     ** label2
     
@@ -363,7 +363,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "09d5d3b8271eec47a52cc17283b9e4b872c3fbdc"
+    LDC (String) "CdXTuCce7EelLMFyg7nkuHLD-9w"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -378,7 +378,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) -1042499388
+    LDC (Integer) 163127709
     IRETURN
     ** label2
     
@@ -394,6 +394,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+String
     ARETURN
     ** label2
     

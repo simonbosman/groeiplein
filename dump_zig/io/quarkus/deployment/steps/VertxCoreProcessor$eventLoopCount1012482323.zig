@@ -71,7 +71,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/vertx/core/runtime/VertxCoreRecorder#calculateEventLoopThreads
     ASTORE 5
     ALOAD 1
-    LDC (String) "proxykey53"
+    LDC (String) "proxykey56"
     ALOAD 5
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

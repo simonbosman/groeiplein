@@ -93,6 +93,11 @@ Method deploy_0 : V
     DUP
     // Method descriptor: ()V
     INVOKESPECIAL java/util/ArrayList#<init>
+    ASTORE 11
+    NEW java/util/ArrayList
+    DUP
+    // Method descriptor: ()V
+    INVOKESPECIAL java/util/ArrayList#<init>
     ASTORE 12
     NEW java/util/ArrayList
     DUP
@@ -109,25 +114,15 @@ Method deploy_0 : V
     // Method descriptor: ()V
     INVOKESPECIAL java/util/ArrayList#<init>
     ASTORE 15
-    NEW java/util/ArrayList
-    DUP
-    // Method descriptor: ()V
-    INVOKESPECIAL java/util/ArrayList#<init>
+    ALOAD 1
+    LDC (String) "proxykey63"
+    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 16
-    ALOAD 1
-    LDC (String) "proxykey40"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 11
-    ALOAD 1
-    LDC (String) "proxykey76"
-    // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
-    INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
-    ASTORE 17
-    LDC (String) "DEVELOPMENT"
+    LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/runtime/LaunchMode;
     INVOKESTATIC io/quarkus/runtime/LaunchMode#valueOf
-    ASTORE 18
+    ASTORE 17
     ALOAD 7
     ALOAD 8
     ALOAD 9
@@ -136,8 +131,9 @@ Method deploy_0 : V
     CHECKCAST java/util/Map
     ICONST_0
     ACONST_NULL
+    ACONST_NULL
     ALOAD 11
-    CHECKCAST io/quarkus/runtime/RuntimeValue
+    CHECKCAST java/util/List
     ALOAD 12
     CHECKCAST java/util/List
     ALOAD 13
@@ -147,19 +143,36 @@ Method deploy_0 : V
     ALOAD 15
     CHECKCAST java/util/List
     ALOAD 16
-    CHECKCAST java/util/List
-    ALOAD 17
     CHECKCAST io/quarkus/runtime/RuntimeValue
-    ALOAD 18
+    ALOAD 17
     ICONST_1
     // Method descriptor: (Lio/quarkus/runtime/logging/LogConfig;Lio/quarkus/runtime/logging/LogBuildTimeConfig;Lio/quarkus/runtime/logging/DiscoveredLogComponents;Ljava/util/Map;ZLio/quarkus/runtime/RuntimeValue;Lio/quarkus/runtime/RuntimeValue;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lio/quarkus/runtime/RuntimeValue;Lio/quarkus/runtime/LaunchMode;Z)Lio/quarkus/runtime/shutdown/ShutdownListener;
     INVOKEVIRTUAL io/quarkus/runtime/logging/LoggingSetupRecorder#initializeLogging
-    ASTORE 19
+    ASTORE 18
     ALOAD 1
-    LDC (String) "proxykey87"
-    ALOAD 19
+    LDC (String) "proxykey80"
+    ALOAD 18
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
+    RETURN
+    ** label2
+    
+}
+
+// Access: public
+Method $quarkus$createArray : [Ljava/lang/Object;
+(
+    // (no arguments)
+) {
+    ** label1
+    ICONST_0
+    ANEWARRAY java/lang/Object
+    ARETURN
+    ** label2
+    
+}
+
+putValue
     RETURN
     ** label2
     

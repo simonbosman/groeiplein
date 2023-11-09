@@ -77,7 +77,7 @@ Method deploy_0 : V
     INVOKESTATIC java/lang/Class#forName
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey411"
+    LDC (String) "proxykey425"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 7
@@ -89,7 +89,7 @@ Method deploy_0 : V
     INVOKEINTERFACE java/util/Map#put
     POP
     ALOAD 1
-    LDC (String) "proxykey402"
+    LDC (String) "proxykey415"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 9

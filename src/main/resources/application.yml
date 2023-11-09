@@ -46,7 +46,7 @@
                 postgresql:
                     ssl-mode: require
                 reconnect-attempts: 3
-                url: postgresql://groeiplein-database.postgres.database.azure.com/groeiplein_dev
+                url: postgresql://speyk-dev-database.postgres.database.azure.com/groeiplein
             username: cuygbottcp
         hibernate-orm:
             database:
@@ -71,6 +71,8 @@ mp:
         scan:
             disable: false
 quarkus:
+    cache:
+      enabled: true
     native:
       resources:
         includes: appspeyk.pfx,certificate.pem,import.sql

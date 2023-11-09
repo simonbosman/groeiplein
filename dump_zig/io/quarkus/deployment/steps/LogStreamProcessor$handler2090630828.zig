@@ -59,7 +59,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/devui/runtime/logstream/LogStreamRecorder#mutinyLogHandler
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey40"
+    LDC (String) "proxykey28"
     ALOAD 3
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

@@ -57,7 +57,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/smallrye/context/runtime/SmallRyeContextPropagationRecorder#<init>
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey66"
+    LDC (String) "proxykey61"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4
@@ -74,7 +74,7 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/util/concurrent/ExecutorService;Lio/quarkus/runtime/ShutdownContext;)V
     INVOKEVIRTUAL io/quarkus/smallrye/context/runtime/SmallRyeContextPropagationRecorder#configureRuntime
     ALOAD 1
-    LDC (String) "proxykey66"
+    LDC (String) "proxykey61"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 6
@@ -85,7 +85,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/smallrye/context/runtime/SmallRyeContextPropagationRecorder#initializeManagedExecutor
     ASTORE 7
     ALOAD 1
-    LDC (String) "proxykey73"
+    LDC (String) "proxykey70"
     ALOAD 7
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD nl/speyk/ApiCli_ClientProxy#context
     RETURN
@@ -125,6 +129,44 @@ Method run : I
     ALOAD 0
     // Method descriptor: ()Lnl/speyk/ApiCli;
     INVOKEVIRTUAL nl/speyk/ApiCli_ClientProxy#arc$delegate
+    ALOAD 1
+    // Method descriptor: ([Ljava/lang/String;)I
+    INVOKEVIRTUAL nl/speyk/ApiCli#run
+    IRETURN
+    ** label6
+    
+}
+
+// Access: public
+Method toString : Ljava/lang/String;
+(
+    // (no arguments)
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD nl/speyk/ApiCli_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    // Method descriptor: ()Ljava/lang/String;
+    INVOKESPECIAL nl/speyk/ApiCli#toString
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lnl/speyk/ApiCli;
+    INVOKEVIRTUAL nl/speyk/ApiCli_ClientProxy#arc$delegate
+    // Method descriptor: ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/Object#toString
+    ARETURN
+    ** label6
+    
+}
+
+OKEVIRTUAL nl/speyk/ApiCli_ClientProxy#arc$delegate
     ALOAD 1
     // Method descriptor: ([Ljava/lang/String;)I
     INVOKEVIRTUAL nl/speyk/ApiCli#run

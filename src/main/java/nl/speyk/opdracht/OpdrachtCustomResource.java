@@ -1,5 +1,6 @@
 package nl.speyk.opdracht;
 
+import io.quarkus.cache.CacheResult;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
@@ -16,10 +17,13 @@ import java.util.List;
 @Tag(name = "OpdrachtResource")
 public class OpdrachtCustomResource {
 
+    private static final String CACHE_NAME = "nl.speyk.opdracht.Opdracht";
+
     @Inject
     OpdrachtService opdrachtService;
 
     @GET
+    @CacheResult(cacheName = CACHE_NAME)
     @Path("/zondergroep")
     @RolesAllowed("**")
     public Uni<List<Opdracht>> findOpdrachtenZonderGroep() {

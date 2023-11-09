@@ -32,7 +32,7 @@ Method proxy : Lio/quarkus/resteasy/reactive/server/runtime/devui/ResteasyReacti
     ** label2
     NEW io/quarkus/resteasy/reactive/server/runtime/devui/ResteasyReactiveJsonRPCService_ClientProxy
     DUP
-    LDC (String) "149d851e74627a63c1e4e8074431647c778994ff"
+    LDC (String) "FJ2FHnRiemPB5OgHRDFkfHeJlP8"
     // Method descriptor: (Ljava/lang/String;)V
     INVOKESPECIAL io/quarkus/resteasy/reactive/server/runtime/devui/ResteasyReactiveJsonRPCService_ClientProxy#<init>
     ASTORE 1
@@ -99,7 +99,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "149d851e74627a63c1e4e8074431647c778994ff"
+    LDC (String) "FJ2FHnRiemPB5OgHRDFkfHeJlP8"
     ARETURN
     ** label2
     
@@ -311,7 +311,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "149d851e74627a63c1e4e8074431647c778994ff"
+    LDC (String) "FJ2FHnRiemPB5OgHRDFkfHeJlP8"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -326,7 +326,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 632679898
+    LDC (Integer) 1695994092
     IRETURN
     ** label2
     
@@ -342,6 +342,12 @@ Method toString : Ljava/lang/String;
     CHECKCAST io/quarkus/arc/InjectableBean
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
+    ARETURN
+    ** label2
+    
+}
+
+ing
     ARETURN
     ** label2
     

@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD io/smallrye/jwt/auth/principal/DefaultJWTParser_ClientProxy#context
     RETURN
@@ -375,6 +379,40 @@ Method decrypt : Lorg/eclipse/microprofile/jwt/JsonWebToken;
 
 // Access: public
 Method decrypt : Lorg/eclipse/microprofile/jwt/JsonWebToken;
+    throws io/smallrye/jwt/auth/principal/ParseException
+(
+    arg 1 = Ljava/lang/String;,
+    arg 2 = Ljavax/crypto/SecretKey;
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD io/smallrye/jwt/auth/principal/DefaultJWTParser_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    // Method descriptor: (Ljava/lang/String;Ljavax/crypto/SecretKey;)Lorg/eclipse/microprofile/jwt/JsonWebToken;
+    INVOKESPECIAL io/smallrye/jwt/auth/principal/DefaultJWTParser#decrypt
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lio/smallrye/jwt/auth/principal/DefaultJWTParser;
+    INVOKEVIRTUAL io/smallrye/jwt/auth/principal/DefaultJWTParser_ClientProxy#arc$delegate
+    ALOAD 1
+    ALOAD 2
+    // Method descriptor: (Ljava/lang/String;Ljavax/crypto/SecretKey;)Lorg/eclipse/microprofile/jwt/JsonWebToken;
+    INVOKEVIRTUAL io/smallrye/jwt/auth/principal/DefaultJWTParser#decrypt
+    ARETURN
+    ** label6
+    
+}
+
+ecrypt : Lorg/eclipse/microprofile/jwt/JsonWebToken;
     throws io/smallrye/jwt/auth/principal/ParseException
 (
     arg 1 = Ljava/lang/String;,

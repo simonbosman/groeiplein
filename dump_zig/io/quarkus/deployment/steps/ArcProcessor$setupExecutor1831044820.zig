@@ -57,7 +57,7 @@ Method deploy_0 : V
     INVOKESPECIAL io/quarkus/arc/runtime/ArcRecorder#<init>
     ASTORE 3
     ALOAD 1
-    LDC (String) "proxykey66"
+    LDC (String) "proxykey61"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 4

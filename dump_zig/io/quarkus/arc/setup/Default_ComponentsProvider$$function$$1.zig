@@ -121,6 +121,12 @@ Method get : Ljava/lang/Object;
     // Method descriptor: (Ljava/util/List;Ljava/util/Map;)V
     INVOKESTATIC io/quarkus/arc/setup/Default_ComponentsProvider#addRemovedBeans16
     ALOAD 1
+    CHECKCAST java/util/List
+    ALOAD 2
+    CHECKCAST java/util/Map
+    // Method descriptor: (Ljava/util/List;Ljava/util/Map;)V
+    INVOKESTATIC io/quarkus/arc/setup/Default_ComponentsProvider#addRemovedBeans17
+    ALOAD 1
     ARETURN
     ** label3
     ** label4

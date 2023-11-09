@@ -40,11 +40,15 @@ Method <init> : V
     ASTORE 4
     ALOAD 3
     ALOAD 4
-    // Method descriptor: (Ljava/lang/Class;)Lio/quarkus/arc/InjectableContext;
-    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getActiveContext
+    // Method descriptor: (Ljava/lang/Class;)Ljava/util/List;
+    INVOKEINTERFACE io/quarkus/arc/ArcContainer#getContexts
+    ICONST_0
+    // Method descriptor: (I)Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List#get
     ASTORE 5
     ALOAD 0
     ALOAD 5
+    CHECKCAST io/quarkus/arc/InjectableContext
     // Field descriptor: Lio/quarkus/arc/InjectableContext;
     PUTFIELD nl/speyk/kerndoel/KerndoelRepository_ClientProxy#context
     RETURN
@@ -1378,6 +1382,44 @@ Method persist : Lio/smallrye/mutiny/Uni;
     INVOKEVIRTUAL nl/speyk/kerndoel/KerndoelRepository_ClientProxy#arc$delegate
     ALOAD 1
     // Method descriptor: (Ljava/lang/Object;)Lio/smallrye/mutiny/Uni;
+    INVOKEVIRTUAL nl/speyk/kerndoel/KerndoelRepository#persist
+    ARETURN
+    ** label6
+    
+}
+
+// Access: public
+Method listAll : Lio/smallrye/mutiny/Uni;
+(
+    arg 1 = Lio/quarkus/panache/common/Sort;
+) {
+    ** label1
+    ALOAD 0
+    // Field descriptor: Lio/quarkus/arc/InjectableBean;
+    GETFIELD nl/speyk/kerndoel/KerndoelRepository_ClientProxy#bean
+    IFNULL label2
+    ** label3
+    ** label4
+    GOTO label5
+    ** label2
+    ALOAD 0
+    ALOAD 1
+    // Method descriptor: (Lio/quarkus/panache/common/Sort;)Lio/smallrye/mutiny/Uni;
+    INVOKESPECIAL nl/speyk/kerndoel/KerndoelRepository#listAll
+    ARETURN
+    ** label5
+    ALOAD 0
+    // Method descriptor: ()Lnl/speyk/kerndoel/KerndoelRepository;
+    INVOKEVIRTUAL nl/speyk/kerndoel/KerndoelRepository_ClientProxy#arc$delegate
+    ALOAD 1
+    // Method descriptor: (Lio/quarkus/panache/common/Sort;)Lio/smallrye/mutiny/Uni;
+    INVOKEVIRTUAL nl/speyk/kerndoel/KerndoelRepository#listAll
+    ARETURN
+    ** label6
+    
+}
+
+)Lio/smallrye/mutiny/Uni;
     INVOKEVIRTUAL nl/speyk/kerndoel/KerndoelRepository#persist
     ARETURN
     ** label6

@@ -86,7 +86,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/cache/runtime/CacheManagerRecorder#noOpCacheManagerInfo
     ASTORE 6
     ALOAD 1
-    LDC (String) "proxykey42"
+    LDC (String) "proxykey49"
     ALOAD 6
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue
@@ -95,7 +95,7 @@ Method deploy_0 : V
     INVOKEVIRTUAL io/quarkus/cache/runtime/CacheManagerRecorder#getCacheManagerInfoWithoutMetrics
     ASTORE 8
     ALOAD 1
-    LDC (String) "proxykey58"
+    LDC (String) "proxykey57"
     ALOAD 8
     // Method descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#putValue

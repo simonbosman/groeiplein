@@ -122,7 +122,7 @@ Method getIdentifier : Ljava/lang/String;
     // (no arguments)
 ) {
     ** label1
-    LDC (String) "0a8b5f7883165528dcd253bf060fa727a03e3d4e"
+    LDC (String) "CotfeIMWVSjc0lO_Bg-nJ6A-PU4"
     ARETURN
     ** label2
     
@@ -508,7 +508,7 @@ Method equals : Z
     // Method descriptor: ()Ljava/lang/String;
     INVOKEINTERFACE io/quarkus/arc/InjectableBean#getIdentifier
     ASTORE 2
-    LDC (String) "0a8b5f7883165528dcd253bf060fa727a03e3d4e"
+    LDC (String) "CotfeIMWVSjc0lO_Bg-nJ6A-PU4"
     ALOAD 2
     // Method descriptor: (Ljava/lang/Object;)Z
     INVOKEVIRTUAL java/lang/Object#equals
@@ -523,7 +523,7 @@ Method hashCode : I
     // (no arguments)
 ) {
     ** label1
-    LDC (Integer) 60937212
+    LDC (Integer) 1437185027
     IRETURN
     ** label2
     
@@ -540,6 +540,11 @@ Method toString : Ljava/lang/String;
     // Method descriptor: (Lio/quarkus/arc/InjectableBean;)Ljava/lang/String;
     INVOKESTATIC io/quarkus/arc/impl/Beans#toString
     ARETURN
+    ** label2
+    
+}
+
+N
     ** label2
     
 }

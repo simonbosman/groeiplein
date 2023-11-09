@@ -90,7 +90,7 @@ Method deploy_0 : V
     INVOKESPECIAL java/util/ArrayList#<init>
     ASTORE 14
     ALOAD 1
-    LDC (String) "proxykey69"
+    LDC (String) "proxykey66"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 10
@@ -99,12 +99,12 @@ Method deploy_0 : V
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 11
-    LDC (String) "DEVELOPMENT"
+    LDC (String) "NORMAL"
     // Method descriptor: (Ljava/lang/String;)Lio/quarkus/runtime/LaunchMode;
     INVOKESTATIC io/quarkus/runtime/LaunchMode#valueOf
     ASTORE 12
     ALOAD 1
-    LDC (String) "proxykey53"
+    LDC (String) "proxykey56"
     // Method descriptor: (Ljava/lang/String;)Ljava/lang/Object;
     INVOKEVIRTUAL io/quarkus/runtime/StartupContext#getValue
     ASTORE 13
@@ -140,5 +140,8 @@ Method $quarkus$createArray : [Ljava/lang/Object;
     ARETURN
     ** label2
     
+}
+
+ 
 }
 
