@@ -13,6 +13,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import nl.speyk.utils.CustomCacheKeyGenerator;
 
 @Path("/doel")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,7 +26,7 @@ public class DoelCustomResource {
     private static final String CACHE_NAME = "nl.speyk.doel.Doel";
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/niveau/{niveauId}")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByNiveauId(@PathParam("niveauId") Long niveauId) {
@@ -33,7 +34,7 @@ public class DoelCustomResource {
     }
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/zondergroep")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenZonderGroep() {
@@ -41,7 +42,7 @@ public class DoelCustomResource {
     }
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/vakleergebied/{vakleergebiedId}")
     @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByVakleergebiedId(@PathParam("vakleergebiedId") Long vakleergebiedId) {

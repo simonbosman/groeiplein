@@ -1,5 +1,10 @@
 package nl.speyk.leerling;
 
+import java.util.UUID;
+
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponseSchema;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
 import io.quarkus.cache.CacheResult;
 import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
@@ -10,10 +15,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.eclipse.microprofile.openapi.annotations.responses.APIResponseSchema;
-import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-
-import java.util.UUID;
+import nl.speyk.utils.CustomCacheKeyGenerator;
 
 @Path("/leerling")
 @Produces(MediaType.APPLICATION_JSON)
@@ -26,7 +28,7 @@ public class LeerlingCustomResource {
     LeerlingService leerlingService;
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/uuid/{uuId}")
     @Produces("application/json")
     @APIResponseSchema(value = Leerling.class, responseCode = "200")

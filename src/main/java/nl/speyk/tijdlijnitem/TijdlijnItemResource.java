@@ -6,6 +6,7 @@ import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.*;
+import nl.speyk.utils.CustomCacheKeyGenerator;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface TijdlijnItemResource extends PanacheEntityResource<TijdlijnItem
     static final String CACHE_NAME = "nl.speyk.tijdlijnitem.TijdlijnItem";
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/leerling/{leerlingId}")
     @Produces("application/json")
     @RolesAllowed("**")

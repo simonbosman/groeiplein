@@ -79,7 +79,7 @@ quarkus:
     hibernate-orm:
         log:
             sql: true
-        second-level-caching-enabled: false
+        second-level-caching-enabled: false 
         statistics: true
     package:
         type: uber-jar
@@ -98,4 +98,4 @@ quarkus:
                       period: 1S
                     - permitted-uses: 600
                       period: 1M
-                identity-resolver: nl.speyk.resolver.UserResolver
+                identity-resolver: nl.speyk.utils.UserResolver

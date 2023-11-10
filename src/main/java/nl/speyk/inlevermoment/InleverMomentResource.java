@@ -1,13 +1,17 @@
 package nl.speyk.inlevermoment;
 
+import java.util.List;
+
 import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
-import jakarta.ws.rs.*;
-
-import java.util.List;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import nl.speyk.utils.CustomCacheKeyGenerator;
 
 @ResourceProperties(rolesAllowed = "**")
 public interface InleverMomentResource extends PanacheEntityResource<InleverMoment, Long> {
@@ -15,7 +19,7 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     static final String CACHE_NAME = "nl.speyk.inlevermoment.InleverMoment";
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/leerling/{leerlingId}")
     @Produces("application/json")
     @RolesAllowed("**")
@@ -24,7 +28,7 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     }
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/opdracht/{opdrachtId}")
     @Produces("application/json")
     @RolesAllowed("**")

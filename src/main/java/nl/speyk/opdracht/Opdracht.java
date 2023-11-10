@@ -1,14 +1,25 @@
 package nl.speyk.opdracht;
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import nl.speyk.CategorieType;
 import nl.speyk.vakleergebied.Vakleergebied;
-import org.hibernate.validator.constraints.Length;
-
 
 @Entity(name = "Opdracht")
 @Table(name = "opdracht")
@@ -54,6 +65,7 @@ public class Opdracht {
     @Positive
     private long aangemaaktop;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     Vakleergebied vakleergebied;
 }

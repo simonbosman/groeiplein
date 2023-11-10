@@ -6,6 +6,7 @@ import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.*;
+import nl.speyk.utils.CustomCacheKeyGenerator;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface ScoreResource extends PanacheEntityResource<Score, Long> {
     static final String CACHE_NAME = "nl.speyk.score.Score";
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/leerling/{leerlingId}")
     @Produces("application/json")
     @RolesAllowed("**")
@@ -24,7 +25,7 @@ public interface ScoreResource extends PanacheEntityResource<Score, Long> {
     }
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/doel/{doelId}")
     @Produces("application/json")
     @RolesAllowed("**")

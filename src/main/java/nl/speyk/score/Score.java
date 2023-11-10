@@ -41,9 +41,11 @@ public class Score extends PanacheEntity {
     public Instant updateTimestamp;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     public ScoreValue value;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
     public Feedback feedback;
 
     @ManyToOne(fetch = FetchType.EAGER)

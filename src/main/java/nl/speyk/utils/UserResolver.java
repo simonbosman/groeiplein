@@ -1,4 +1,4 @@
-package nl.speyk.resolver;
+package nl.speyk.utils;
 
 import io.quarkiverse.bucket4j.runtime.resolver.IdentityResolver;
 import jakarta.enterprise.context.RequestScoped;

@@ -1,19 +1,25 @@
 package nl.speyk.groepopdracht;
 
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+
 import io.quarkus.cache.CacheInvalidateAll;
 import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import nl.speyk.opdracht.Opdracht;
-import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
-
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
+import nl.speyk.utils.CustomCacheKeyGenerator;
 
 @ResourceProperties(rolesAllowed = "**")
 public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdracht, Long> {
@@ -21,7 +27,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     static final String CACHE_NAME = "nl.speyk.groepopdracht.GroepOpdracht";
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/opdrachten/{groepUuid}")
     @Produces("application/json")
     @RolesAllowed("**")
@@ -34,7 +40,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     }
 
     @GET
-    @CacheResult(cacheName = CACHE_NAME)
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/groepen/{opdrachtId}")
     @Produces("application/json")
     @RolesAllowed("**")
