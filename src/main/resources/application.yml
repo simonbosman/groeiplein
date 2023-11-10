@@ -46,7 +46,7 @@
                 postgresql:
                     ssl-mode: require
                 reconnect-attempts: 3
-                url: postgresql://speyk-dev-database.postgres.database.azure.com/groeiplein
+                url: postgresql://speyk-dev-database.postgres.database.azure.com/groeiplein_dev
             username: cuygbottcp
         hibernate-orm:
             database:
