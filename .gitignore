@@ -48,7 +48,3 @@ nb-configuration.xml
 /dump_classes
 /dump_transformed
 /dump_zig
-
-#certificates
-src/main/resources/appspeyk.pfx
-src/main/resources/certificate.pem
