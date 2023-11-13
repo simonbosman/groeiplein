@@ -11,7 +11,6 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import nl.speyk.inlevermoment.InleverMoment;
 
-
 //We only test methods used by the frontend
 @QuarkusTest
 public class CoupledBestandResourceTest {
@@ -28,6 +27,7 @@ public class CoupledBestandResourceTest {
     @Test
     public void shouldListCoupledBestanden() {
         given().auth().preemptive().oauth2(jwt)
+                .contentType(ContentType.JSON)
                 .when().get(ENDPOINT)
                 .then().statusCode(200)
                 .and().body("id", contains(1))
