@@ -1,0 +1,22 @@
+quarkus:
+    datasource:
+        db-kind: postgresql
+        password: 0J32342ZPC11AC11!
+        reactive:
+            postgresql:
+                ssl-mode: require
+            reconnect-attempts: 3
+            url: postgresql://speyk-dev-database.postgres.database.azure.com/groeiplein_dev
+        username: cuygbottcp
+    hibernate-orm:
+        database:
+            generation: update
+        jdbc:
+            timezone: Europe/Amsterdam
+    http:
+        ssl:
+            certificate:
+                key-store-file: appspeyk.pfx
+                key-store-password: 1234
+        cors:
+            origins: /https://([a-z0-9\-_]+)\.sharepoint\.com/
