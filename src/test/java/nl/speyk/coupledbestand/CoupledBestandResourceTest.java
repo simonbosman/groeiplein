@@ -11,7 +11,11 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import nl.speyk.inlevermoment.InleverMoment;
 
+<<<<<<< HEAD
 //We only test methods used by the frontend
+=======
+//We only test rest api's used by the frontend
+>>>>>>> main_orphan
 @QuarkusTest
 public class CoupledBestandResourceTest {
 
