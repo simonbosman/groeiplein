@@ -11,7 +11,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import nl.speyk.inlevermoment.InleverMoment;
 
-//We only test methods used by the frontend
+//We only test rest api's used by the frontend
 @QuarkusTest
 public class CoupledBestandResourceTest {
 
