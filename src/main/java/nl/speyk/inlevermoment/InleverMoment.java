@@ -26,7 +26,8 @@ enum StatusType {
         @Index(columnList = "opdracht_id") })
 @NamedQueries({
         @NamedQuery(name = "InleverMoment.Opdracht", query = "FROM InleverMoment WHERE opdracht.id = :id"),
-        @NamedQuery(name = "InleverMoment.Leerling", query = "FROM InleverMoment WHERE leerling.id = :id")
+        @NamedQuery(name = "InleverMoment.Leerling", query = "FROM InleverMoment WHERE leerling.id = :id"),
+        @NamedQuery(name = "InleverMoment.Leerlingen", query = "FROM InleverMoment WHERE leerling.id IN :ids")
 })
 public class InleverMoment extends PanacheEntity {
 
@@ -59,5 +60,9 @@ public class InleverMoment extends PanacheEntity {
 
     public static Uni<List<InleverMoment>> getMomentenByLeerlingId(long leerlingId) {
         return find("#InleverMoment.Leerling", Collections.singletonMap("id", leerlingId)).list();
+    }
+
+    public static Uni<List<InleverMoment>> getMomentenByLeerlingIds(List<Long> ids) {
+        return find("#InleverMoment.Leerlingen", Collections.singletonMap("ids", ids)).list();
     }
 }

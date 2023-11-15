@@ -18,6 +18,7 @@ import java.util.*;
 @Cacheable
 @NamedQueries({
         @NamedQuery(name = "GroepOpdracht.findByGroepUuid", query = "FROM GroepOpdracht WHERE groepUuid = :uuid"),
+        @NamedQuery(name = "GroepOpdracht.findByGroepUuids", query = "FROM GroepOpdracht WHERE groepUuid IN :uuids"),
         @NamedQuery(name = "GroepOpdracht.findByOpdrachtId", query = "FROM GroepOpdracht WHERE opdracht.id = :id"),
         @NamedQuery(name = "GroepOpdracht.delete", query = "DELETE FROM GroepOpdracht WHERE opdracht.id = :opdrachtId AND groepUuid = :groepId")
 })
@@ -33,6 +34,10 @@ public class GroepOpdracht extends PanacheEntity {
 
     public static Uni<List<GroepOpdracht>> findByGroepUuid(UUID groepUuid) {
         return find("#GroepOpdracht.findByGroepUuid", Collections.singletonMap("uuid", groepUuid)).list();
+    }
+
+    public static Uni<List<GroepOpdracht>> findByGroepUuids(List<UUID> groepUuids) {
+        return find("#GroepOpdracht.findByGroepUuids", Collections.singletonMap("uuids", groepUuids)).list();
     }
 
     public static Uni<List<GroepOpdracht>> findByOpdrachtId(int opdrachtId) {

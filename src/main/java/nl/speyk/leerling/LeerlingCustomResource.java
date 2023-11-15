@@ -1,5 +1,6 @@
 package nl.speyk.leerling;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponseSchema;
@@ -13,6 +14,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import nl.speyk.utils.CustomCacheKeyGenerator;
@@ -36,5 +38,13 @@ public class LeerlingCustomResource {
         return leerlingService.getLeerlingByUuid(leerlingUuid)
                 .map(entity -> entity == null ? Response.status(Response.Status.NOT_FOUND).build()
                         : Response.ok(entity).build());
+    }
+
+    @GET
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
+    @Path("/uuids")
+    @Produces("application/json")
+    public Uni<List<Leerling>> findLeerlingenByUuids(@QueryParam("uuid") List<UUID> uuids) {
+        return leerlingService.getLeerlingenByUuids(uuids);
     }
 }

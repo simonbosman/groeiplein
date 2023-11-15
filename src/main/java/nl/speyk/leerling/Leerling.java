@@ -11,6 +11,7 @@ import java.util.UUID;
         @Index(columnList = "studentuuid") })
 @Data
 @NamedQuery(name = "Leerling.Uuid", query = "FROM Leerling WHERE studentUuid = :id")
+@NamedQuery(name = "Leerling.Uuids", query = "FROM Leerling WHERE studentUuid IN :ids")
 public class Leerling {
 
     @Id

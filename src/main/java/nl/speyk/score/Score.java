@@ -24,7 +24,8 @@ import java.util.UUID;
         @Index(columnList = "leerling_id") })
 @NamedQueries({
         @NamedQuery(name = "Score.Doel", query = "FROM Score WHERE doel.id = :id"),
-        @NamedQuery(name = "Score.Leerling", query = "FROM Score WHERE leerling.id = :id")
+        @NamedQuery(name = "Score.Leerling", query = "FROM Score WHERE leerling.id = :id"),
+        @NamedQuery(name = "Score.Leerlingen", query = "FROM Score WHERE leerling.id IN :ids")
 })
 public class Score extends PanacheEntity {
 
@@ -65,5 +66,9 @@ public class Score extends PanacheEntity {
 
     public static Uni<List<Score>> getScoreByLeerlingId(long leerlingId) {
         return find("#Score.Leerling", Collections.singletonMap("id", leerlingId)).list();
+    }
+
+    public static Uni<List<Score>> getScoreByLeerlingIds(List<Long> leerlingIds) {
+        return find("#Score.Leerlingen", Collections.singletonMap("ids", leerlingIds)).list();
     }
 }

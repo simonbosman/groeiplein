@@ -6,6 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @ApplicationScoped
@@ -17,5 +18,9 @@ public class LeerlingService {
 
     public Uni<Leerling> getLeerlingByUuid(UUID leerlingUuid) {
         return leerlingRepository.find("#Leerling.Uuid", Collections.singletonMap("id", leerlingUuid)).firstResult();
+    }
+
+    public Uni<List<Leerling>> getLeerlingenByUuids(List<UUID> leerlingUuids) {
+        return leerlingRepository.find("#Leerling.Uuids", Collections.singletonMap("ids", leerlingUuids)).list();
     }
 }

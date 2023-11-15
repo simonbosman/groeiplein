@@ -17,6 +17,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import nl.speyk.opdracht.Opdracht;
 import nl.speyk.utils.CustomCacheKeyGenerator;
@@ -31,8 +32,21 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @Path("/opdrachten/{groepUuid}")
     @Produces("application/json")
     @RolesAllowed("**")
-    default Uni<List<Opdracht>> findOpdrachtByGroupUid(@PathParam("groepUuid") UUID groepUuid) {
+    default Uni<List<Opdracht>> findOpdrachtByGroupUuid(@PathParam("groepUuid") UUID groepUuid) {
         return GroepOpdracht.findByGroepUuid(groepUuid)
+                .onItem()
+                .transform(odList -> odList.stream()
+                        .map(go -> go.opdracht)
+                        .collect(Collectors.toList()));
+    }
+
+    @GET
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
+    @Path("/opdrachten")
+    @Produces("application/json")
+    @RolesAllowed("**")
+    default Uni<List<Opdracht>> findOpdrachtByGroepUuids(@QueryParam("groepUuid") List<UUID> groepUuids) {
+        return GroepOpdracht.findByGroepUuids(groepUuids)
                 .onItem()
                 .transform(odList -> odList.stream()
                         .map(go -> go.opdracht)

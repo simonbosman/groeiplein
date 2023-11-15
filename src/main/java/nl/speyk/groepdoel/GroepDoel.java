@@ -18,6 +18,7 @@ import java.util.*;
                 "doel_id" }))
 @NamedQueries({
         @NamedQuery(name = "GroepDoel.findByGroepUuid", query = "FROM GroepDoel WHERE groepUuid = :uuid"),
+        @NamedQuery(name = "GroepDoel.findByGroepUuids", query = "FROM GroepDoel WHERE groepUuid IN :uuids"),
         @NamedQuery(name = "GroepDoel.findByDoelId", query = "FROM GroepDoel WHERE doel.id = :id"),
         @NamedQuery(name = "GroepDoel.delete", query = "DELETE FROM GroepDoel WHERE groepUuid = :groepUuid AND doel.id = :doelId")
 })
@@ -33,6 +34,10 @@ public class GroepDoel extends PanacheEntity {
 
     public static Uni<List<GroepDoel>> findByGroepUuid(UUID groepUuid) {
         return find("#GroepDoel.findByGroepUuid", Collections.singletonMap("uuid", groepUuid)).list();
+    }
+
+    public static Uni<List<GroepDoel>> findByGroepUuids(List<UUID> groepUuids) {
+        return find("#GroepDoel.findByGroepUuids", Collections.singletonMap("uuids", groepUuids)).list();
     }
 
     public static Uni<List<GroepDoel>> findByDoelId(int doelId) {

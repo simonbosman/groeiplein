@@ -17,6 +17,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
 import nl.speyk.doel.Doel;
 import nl.speyk.utils.CustomCacheKeyGenerator;
@@ -33,6 +34,19 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @RolesAllowed("**")
     default Uni<List<Doel>> findDoelenByGroupUuid(@PathParam("groepUuid") UUID groepUuid) {
         return GroepDoel.findByGroepUuid(groepUuid)
+                .onItem()
+                .transform(gdList -> gdList.stream()
+                        .map(gd -> gd.doel)
+                        .collect(Collectors.toList()));
+    }
+
+    @GET
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
+    @Path("/doelen")
+    @Produces("application/json")
+    @RolesAllowed("**")
+    default Uni<List<Doel>> findDoelenByGroupUuids(@QueryParam("groepUuid") List<UUID> groepUuids) {
+        return GroepDoel.findByGroepUuids(groepUuids)
                 .onItem()
                 .transform(gdList -> gdList.stream()
                         .map(gd -> gd.doel)

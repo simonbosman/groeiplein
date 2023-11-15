@@ -14,10 +14,7 @@ import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
 import nl.speyk.vakleergebied.Vakleergebied;
 
-<<<<<<< HEAD
-=======
 //We only test rest api's used by the frontend
->>>>>>> main_orphan
 @QuarkusTest
 public class DoelResourceTest {
 

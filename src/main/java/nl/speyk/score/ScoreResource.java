@@ -26,6 +26,15 @@ public interface ScoreResource extends PanacheEntityResource<Score, Long> {
 
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
+    @Path("/leerlingen")
+    @Produces("application/json")
+    @RolesAllowed("**")
+    default Uni<List<Score>> findScoreByLeerlingIds(@QueryParam("leerlingId") List<Long> leerlingIds) {
+        return Score.getScoreByLeerlingIds(leerlingIds);
+    }
+
+    @GET
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/doel/{doelId}")
     @Produces("application/json")
     @RolesAllowed("**")

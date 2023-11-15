@@ -11,6 +11,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import nl.speyk.utils.CustomCacheKeyGenerator;
 
 @ResourceProperties(rolesAllowed = "**")
@@ -25,6 +26,15 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     @RolesAllowed("**")
     default Uni<List<InleverMoment>> findMomentByLeerlingId(@PathParam("leerlingId") Long leerlingId) {
         return InleverMoment.getMomentenByLeerlingId(leerlingId);
+    }
+
+    @GET
+    @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
+    @Path("/leerlingen")
+    @Produces("application/json")
+    @RolesAllowed("**")
+    default Uni<List<InleverMoment>> findMomentByLeerlingIds(@QueryParam("leerlingId") List<Long> leerlingIds) {
+        return InleverMoment.getMomentenByLeerlingIds(leerlingIds);
     }
 
     @GET
