@@ -1,0 +1,194 @@
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/JaxRsResourceImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/JaxRsResourceImplementor.java
+index 462c609f7c2..c18b609db81 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/JaxRsResourceImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/JaxRsResourceImplementor.java
+@@ -39,6 +39,7 @@ class JaxRsResourceImplementor {
+     private static final Logger LOGGER = Logger.getLogger(JaxRsResourceImplementor.class);
+     private static final String OPENAPI_TAG_ANNOTATION = "org.eclipse.microprofile.openapi.annotations.tags.Tag";
+     private static final String WITH_SESSION_ON_DEMAND_ANNOTATION = "io.quarkus.hibernate.reactive.panache.common.WithSessionOnDemand";
++    private static final String RATE_LIMITED_ANNOTATION = "io.quarkiverse.bucket4j.runtime.RateLimited";
+ 
+     private final List<MethodImplementor> methodImplementors;
+ 
+@@ -113,6 +114,7 @@ private void implementClassAnnotations(ClassCreator classCreator, ResourceMetada
+         if (capabilities.isPresent(Capability.HIBERNATE_REACTIVE)) {
+             classCreator.addAnnotation(WITH_SESSION_ON_DEMAND_ANNOTATION);
+         }
++        classCreator.addAnnotation(RATE_LIMITED_ANNOTATION).add("bucket", "restapi");
+     }
+ 
+     private FieldDescriptor implementResourceField(ClassCreator classCreator, ResourceMetadata resourceMetadata) {
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/AddMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/AddMethodImplementor.java
+index eb862c9601d..138588f4f62 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/AddMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/AddMethodImplementor.java
+@@ -110,7 +110,7 @@ protected void implementInternal(ClassCreator classCreator, ResourceMetadata res
+         // Add method annotations
+         addPathAnnotation(methodCreator, resourceProperties.getPath(RESOURCE_METHOD_NAME));
+         addMethodAnnotations(methodCreator, resourceProperties.getMethodAnnotations(RESOURCE_METHOD_NAME));
+-        addPostAnnotation(methodCreator);
++        addPostAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addContextAnnotation(methodCreator.getParameterAnnotations(1));
+         addConsumesAnnotation(methodCreator, APPLICATION_JSON);
+         addProducesJsonAnnotation(methodCreator, resourceProperties);
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/CountMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/CountMethodImplementor.java
+index a77e466b742..dfca0db0e8a 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/CountMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/CountMethodImplementor.java
+@@ -78,7 +78,7 @@ protected void implementInternal(ClassCreator classCreator, ResourceMetadata res
+                 isNotReactivePanache() ? responseType() : uniType(Long.class));
+ 
+         // Add method annotations
+-        addGetAnnotation(methodCreator);
++        addGetAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addProducesAnnotation(methodCreator, APPLICATION_JSON);
+         addPathAnnotation(methodCreator, appendToPath(resourceProperties.getPath(RESOURCE_METHOD_NAME), RESOURCE_METHOD_NAME));
+         addMethodAnnotations(methodCreator, resourceProperties.getMethodAnnotations(RESOURCE_METHOD_NAME));
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/DeleteMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/DeleteMethodImplementor.java
+index 0734705ec18..1d43777a141 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/DeleteMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/DeleteMethodImplementor.java
+@@ -89,7 +89,7 @@ protected void implementInternal(ClassCreator classCreator, ResourceMetadata res
+ 
+         // Add method annotations
+         addPathAnnotation(methodCreator, appendToPath(resourceProperties.getPath(RESOURCE_METHOD_NAME), "{id}"));
+-        addDeleteAnnotation(methodCreator);
++        addDeleteAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addPathParamAnnotation(methodCreator.getParameterAnnotations(0), "id");
+         addLinksAnnotation(methodCreator, resourceProperties, resourceMetadata.getEntityType(), REL);
+         addMethodAnnotations(methodCreator, resourceProperties.getMethodAnnotations(RESOURCE_METHOD_NAME));
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/GetMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/GetMethodImplementor.java
+index 098fa9d3049..8701d8bf022 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/GetMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/GetMethodImplementor.java
+@@ -91,7 +91,7 @@ protected void implementInternal(ClassCreator classCreator, ResourceMetadata res
+ 
+         // Add method annotations
+         addPathAnnotation(methodCreator, appendToPath(resourceProperties.getPath(RESOURCE_METHOD_NAME), "{id}"));
+-        addGetAnnotation(methodCreator);
++        addGetAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addProducesJsonAnnotation(methodCreator, resourceProperties);
+         addMethodAnnotations(methodCreator, resourceProperties.getMethodAnnotations(RESOURCE_METHOD_NAME));
+         addOpenApiResponseAnnotation(methodCreator, Response.Status.OK, resourceMetadata.getEntityType());
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/ListMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/ListMethodImplementor.java
+index 1b8ec807759..bae3b0b849f 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/ListMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/ListMethodImplementor.java
+@@ -190,7 +190,7 @@ private void implementPaged(ClassCreator classCreator, ResourceMetadata resource
+                 parameters.toArray(new SignatureMethodCreator.Parameter[0]));
+ 
+         // Add method annotations
+-        addGetAnnotation(methodCreator);
++        addGetAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addPathAnnotation(methodCreator, resourceProperties.getPath(RESOURCE_METHOD_NAME));
+         addProducesJsonAnnotation(methodCreator, resourceProperties);
+         addLinksAnnotation(methodCreator, resourceProperties, resourceMetadata.getEntityType(), REL);
+@@ -199,12 +199,16 @@ private void implementPaged(ClassCreator classCreator, ResourceMetadata resource
+         addSecurityAnnotations(methodCreator, resourceProperties);
+         addSortQueryParamValidatorAnnotation(methodCreator);
+         addQueryParamAnnotation(methodCreator.getParameterAnnotations(0), "sort");
++        addCacheKeyAnnotation(methodCreator.getParamterAnnotations(0));
+         addQueryParamAnnotation(methodCreator.getParameterAnnotations(1), "page");
++        addCacheKeyAnnotation(methodCreator.getParameterAnnotations(1));
+         addDefaultValueAnnotation(methodCreator.getParameterAnnotations(1), Integer.toString(DEFAULT_PAGE_INDEX));
+         addQueryParamAnnotation(methodCreator.getParameterAnnotations(2), "size");
++        addCacheKeyAnnotation(methodCreator.getParameterAnnotations(2));
+         addDefaultValueAnnotation(methodCreator.getParameterAnnotations(2), Integer.toString(DEFAULT_PAGE_SIZE));
+         addContextAnnotation(methodCreator.getParameterAnnotations(3));
+         addQueryParamAnnotation(methodCreator.getParameterAnnotations(4), "namedQuery");
++        addCacheKeyAnnotation(methodCreator.getParameterAnnotaions(4));
+         Map<String, ResultHandle> fieldValues = new HashMap<>();
+         int index = 5;
+         for (SignatureMethodCreator.Parameter param : compatibleFieldsForQuery) {
+@@ -277,7 +281,7 @@ private void implementNotPaged(ClassCreator classCreator, ResourceMetadata resou
+                 parameters.toArray(new SignatureMethodCreator.Parameter[0]));
+ 
+         // Add method annotations
+-        addGetAnnotation(methodCreator);
++        addGetAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addPathAnnotation(methodCreator, resourceProperties.getPath(RESOURCE_METHOD_NAME));
+         addProducesJsonAnnotation(methodCreator, resourceProperties);
+         addLinksAnnotation(methodCreator, resourceProperties, resourceMetadata.getEntityType(), REL);
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/StandardMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/StandardMethodImplementor.java
+index 449cfc39e42..b9e904566e0 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/StandardMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/StandardMethodImplementor.java
+@@ -44,6 +44,9 @@ public abstract class StandardMethodImplementor implements MethodImplementor {
+     private static final String SCHEMA_TYPE_CLASS_NAME = "org.eclipse.microprofile.openapi.annotations.enums.SchemaType";
+     private static final String SCHEMA_TYPE_ARRAY = "ARRAY";
+     private static final String ROLES_ALLOWED_ANNOTATION = "jakarta.annotation.security.RolesAllowed";
++    private static final String CACHE_RESULT_ANNOTATION = "io.quarkus.cache.CacheResult";
++    private static final String CACHE_INVALIDATE_ALL_ANNOTATION = "io.quarkus.cache.CacheInvalidateAll";
++    private static final String CACHE_KEY = "io.quarkus.cache.CacheKey";
+     private static final Logger LOGGER = Logger.getLogger(StandardMethodImplementor.class);
+ 
+     protected final ResponseImplementor responseImplementor;
+@@ -84,23 +87,28 @@ protected TryBlock implementTryBlock(BytecodeCreator bytecodeCreator, String mes
+         return tryBlock;
+     }
+ 
+-    protected void addGetAnnotation(AnnotatedElement element) {
++    protected void addGetAnnotation(AnnotatedElement element, String entityClassName) {
+         element.addAnnotation(GET.class);
++        element.addAnnotation(CACHE_RESULT_ANNOTATION).addValue("cacheName", entityClassName);
+     }
+ 
+-    protected void addPostAnnotation(AnnotatedElement element) {
++    protected void addPostAnnotation(AnnotatedElement element, String entityClassName) {
+         element.addAnnotation(POST.class);
++        element.addAnnotation(CACHE_INVALIDATE_ALL_ANNOTATION).addValue("cacheName", entityClassName);
+     }
+ 
+-    protected void addPutAnnotation(AnnotatedElement element) {
++    protected void addPutAnnotation(AnnotatedElement element, String entityClassName) {
+         element.addAnnotation(PUT.class);
++        element.addAnnotation(CACHE_INVALIDATE_ALL_ANNOTATION).addValue("cacheName", entityClassName);
+     }
+ 
+-    protected void addDeleteAnnotation(AnnotatedElement element) {
++    protected void addDeleteAnnotation(AnnotatedElement element, String entityClassName) {
+         element.addAnnotation(DELETE.class);
++        element.addAnnotation(CACHE_INVALIDATE_ALL_ANNOTATION).addValue("cacheName", entityClassName);
+     }
+ 
+-    protected void addLinksAnnotation(AnnotatedElement element, ResourceProperties resourceProperties, String entityClassName,
++    protected void addLinksAnnotation(AnnotatedElement element, ResourceProperties resourceProperties,
++            String entityClassName,
+             String rel) {
+         if (resourceProperties.isHal()) {
+             if (isResteasyClassic()) {
+@@ -129,6 +137,10 @@ protected void addPathParamAnnotation(AnnotatedElement element, String value) {
+         element.addAnnotation(PathParam.class).addValue("value", value);
+     }
+ 
++    protected void addCacheKeyAnnotation(AnnotatedElement element) {
++        element.addAnnotation(CACHE_KEY);
++    }
++
+     protected void addQueryParamAnnotation(AnnotatedElement element, String value) {
+         element.addAnnotation(QueryParam.class).addValue("value", value);
+     }
+diff --git a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/UpdateMethodImplementor.java b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/UpdateMethodImplementor.java
+index 2f42be59383..c23e2c543d3 100644
+--- a/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/UpdateMethodImplementor.java
++++ b/extensions/panache/rest-data-panache/deployment/src/main/java/io/quarkus/rest/data/panache/deployment/methods/UpdateMethodImplementor.java
+@@ -143,7 +143,7 @@ protected void implementInternal(ClassCreator classCreator, ResourceMetadata res
+ 
+         // Add method annotations
+         addPathAnnotation(methodCreator, appendToPath(resourceProperties.getPath(RESOURCE_UPDATE_METHOD_NAME), "{id}"));
+-        addPutAnnotation(methodCreator);
++        addPutAnnotation(methodCreator, resourceMetadata.getEntityType());
+         addPathParamAnnotation(methodCreator.getParameterAnnotations(0), "id");
+         addContextAnnotation(methodCreator.getParameterAnnotations(2));
+         addConsumesAnnotation(methodCreator, APPLICATION_JSON);
+diff --git a/extensions/panache/rest-data-panache/pom.xml b/extensions/panache/rest-data-panache/pom.xml
+index b2f684e8be4..27f0b0ddf2f 100644
+--- a/extensions/panache/rest-data-panache/pom.xml
++++ b/extensions/panache/rest-data-panache/pom.xml
+@@ -18,4 +18,4 @@
+         <module>deployment</module>
+         <module>runtime</module>
+     </modules>
+-</project>
+\ No newline at end of file
++</project>    

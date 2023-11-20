@@ -32,4 +32,7 @@ public class ScoreValue {
     @Column
     @NotEmpty(message = "ScoreValue.kleur.required")
     private String kleur;
+
+    @Column
+    private String icon;
 }
