@@ -12,7 +12,7 @@ quarkus:
       enabled: true
     native:
       resources:
-        includes: appspeyk.pfx,certificate.pem,import.sql
+        includes: appspeyk.pfx,import.sql
     hibernate-orm:
         log:
             sql: true

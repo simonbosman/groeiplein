@@ -16,6 +16,7 @@ import io.restassured.http.ContentType;
 @QuarkusTest
 public class LeerlingResourceTest {
 
+    private static final String ENDPOINT = "/leerling";
     private static final int TEST_ID = 2;
     private static final UUID TEST_STUDENT_UUID = UUID.fromString("4167fb9a-74cf-11ee-b962-0242ac120003");
 
@@ -25,7 +26,8 @@ public class LeerlingResourceTest {
     @Test
     public void shouldListLeerlingen() {
         given().auth().preemptive().oauth2(jwt)
-                .when().get("/leerling")
+                .contentType(ContentType.JSON)
+                .when().get(ENDPOINT)
                 .then().statusCode(200)
                 .and().body("id", contains(1))
                 .and().body("studentUuid", contains("4167fb9a-74cf-11ee-b962-0242ac120002"));
@@ -37,14 +39,14 @@ public class LeerlingResourceTest {
         Leerling saved = given().auth().preemptive().oauth2(jwt)
                 .contentType(ContentType.JSON)
                 .body(leerling)
-                .post("/leerling")
+                .post(ENDPOINT)
                 .then()
                 .statusCode(201)
                 .extract().as(Leerling.class);
         assertThat(saved.getId()).isEqualTo(TEST_ID);
         given().auth().preemptive().oauth2(jwt)
                 .when()
-                .delete("/leerling/{leerlingId}", saved.getId())
+                .delete(ENDPOINT + "/{leerlingId}", saved.getId())
                 .then()
                 .statusCode(204);
     }
