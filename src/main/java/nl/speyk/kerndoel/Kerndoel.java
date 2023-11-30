@@ -19,12 +19,12 @@ public class Kerndoel {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "Kerndoel.title.required")
-    @Length(max = 1024, message = "Kerndoel.title.length")
+    @Length(max = 2048, message = "Kerndoel.title.length")
     private String title;
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "Kerndoel.description.required")
-    @Length(max = 4096, message = "Kerndoel.description.length")
+    @Length(max = 65535, message = "Kerndoel.description.length")
     private String description;
 
     @ManyToOne

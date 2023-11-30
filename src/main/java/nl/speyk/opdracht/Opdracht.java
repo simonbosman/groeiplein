@@ -36,7 +36,7 @@ public class Opdracht {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Opdracht.content.required}")
-    @Length(max = 4096, message = "{Opdracht.content.length}")
+    @Length(max = 65535, message = "{Opdracht.content.length}")
     private String content;
 
     @Column

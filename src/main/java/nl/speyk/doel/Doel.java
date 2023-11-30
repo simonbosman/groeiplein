@@ -41,12 +41,12 @@ public class Doel {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Doel.title.required}")
-    @Length(max = 1024, message = "{Doel.title.length}")
+    @Length(max = 2048, message = "{Doel.title.length}")
     private String title;
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Doel.description.required}")
-    @Length(max = 4096, message = "{Doel.description.length}")
+    @Length(max = 65535, message = "{Doel.description.length}")
     private String description;
 
     @Column

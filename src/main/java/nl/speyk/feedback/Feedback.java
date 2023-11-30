@@ -37,7 +37,7 @@ public class Feedback {
 
     @Column(columnDefinition = "TEXT")
     @NotEmpty(message = "{Feedback.content.required}")
-    @Length(max = 1024, message = "{Feedback.content.length}")
+    @Length(max = 2048, message = "{Feedback.content.length}")
     private String content;
 
     @Enumerated(EnumType.STRING)
