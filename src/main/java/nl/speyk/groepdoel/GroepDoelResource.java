@@ -69,7 +69,7 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @DELETE
     @CacheInvalidateAll(cacheName = CACHE_NAME)
     @Path("/verwijder/{groepUuid}/{doelId}")
-    @RolesAllowed("**")
+    @RolesAllowed("${speyk.roles.docent}")
     @APIResponse(responseCode = "204")
     default Uni<Response> deleteGroepDoel(@PathParam("groepUuid") UUID groepUuid, @PathParam("doelId") int doelId) {
         return GroepDoel.deleteGroepDoel(groepUuid, doelId)
