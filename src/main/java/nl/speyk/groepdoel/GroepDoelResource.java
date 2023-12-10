@@ -79,4 +79,13 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
                     return Response.status(Response.Status.FORBIDDEN).build();
                 });
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<GroepDoel> add(GroepDoel entity);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<GroepDoel> update(Long id, GroepDoel entity);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }

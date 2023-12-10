@@ -69,7 +69,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @DELETE
     @CacheInvalidateAll(cacheName = CACHE_NAME)
     @Path("/verwijder/{groepUuid}/{opdrachtId}")
-    @RolesAllowed("**")
+    @RolesAllowed("${speyk.roles.docent}")
     @APIResponse(responseCode = "204")
     default Uni<Response> deleteGroepOpdracht(@PathParam("groepUuid") UUID groepUuid,
             @PathParam("opdrachtId") int opdrachtId) {
@@ -80,4 +80,13 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
                     return Response.status(Response.Status.FORBIDDEN).build();
                 });
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<GroepOpdracht> add(GroepOpdracht groepOpdracht);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<GroepOpdracht> update(Long id, GroepOpdracht groepOpdracht);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }
