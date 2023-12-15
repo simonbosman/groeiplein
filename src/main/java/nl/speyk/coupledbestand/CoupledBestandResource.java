@@ -27,4 +27,10 @@ public interface CoupledBestandResource extends PanacheEntityResource<CoupledBes
             @PathParam("inlevermomentId") Long inlevermomentId) {
         return CoupledBestand.getBestandenByInleverMomentId(inlevermomentId);
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<CoupledBestand> update(Long id, CoupledBestand entity);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }

@@ -41,4 +41,10 @@ public interface ScoreResource extends PanacheEntityResource<Score, Long> {
     default Uni<List<Score>> findMomentByOpdrachtId(@PathParam("doelId") Long doelId) {
         return Score.getScoreByDoelId(doelId);
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Score> update(Long id, Score entity);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }

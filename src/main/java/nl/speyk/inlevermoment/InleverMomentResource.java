@@ -45,4 +45,10 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     default Uni<List<InleverMoment>> findMomentByOpdrachtId(@PathParam("opdrachtId") Long opdrachtId) {
         return InleverMoment.getMomentenByOpdrachtId(opdrachtId);
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<InleverMoment> update(Long id, InleverMoment entity);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }
