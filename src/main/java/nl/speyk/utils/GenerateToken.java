@@ -4,6 +4,8 @@ import io.smallrye.jwt.build.Jwt;
 
 /**
  * A simple utility class to generate and print a JWT token string to stdout.
+ * mvn exec:java -Dquarkus.profile=dev
+ * -Dexec.mainClass=nl.speyk.utils.GenerateToken
  */
 public class GenerateToken {
     /**
