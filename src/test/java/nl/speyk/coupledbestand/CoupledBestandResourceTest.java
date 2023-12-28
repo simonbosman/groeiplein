@@ -1,18 +1,23 @@
 package nl.speyk.coupledbestand;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.contains;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.junit.jupiter.api.Test;
-
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import nl.speyk.inlevermoment.InleverMoment;
 
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+
+import static io.restassured.RestAssured.given;
+import static nl.speyk.utils.JwtGenerator.generateValidAdminToken;
+import static nl.speyk.utils.JwtGenerator.generateValidUserToken;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.contains;
+
 //We only test rest api's used by the frontend
 @QuarkusTest
+@TestMethodOrder(OrderAnnotation.class)
 public class CoupledBestandResourceTest {
 
     private static final String ENDPOINT = "/coupled-bestand";
@@ -21,12 +26,10 @@ public class CoupledBestandResourceTest {
     private static final String TEST_FILE_URL = "testurlpost";
     private static final int TEST_INLEVERMOMENT_ID = 1;
 
-    @ConfigProperty(name = "speyk.jwt")
-    String jwt;
-
     @Test
+    @Order(1)
     public void shouldListCoupledBestanden() {
-        given().auth().preemptive().oauth2(jwt)
+        given().auth().preemptive().oauth2(generateValidUserToken())
                 .contentType(ContentType.JSON)
                 .when().get(ENDPOINT)
                 .then().statusCode(200)
@@ -37,9 +40,10 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
-    public void shouldCreateAndDeleteCoupledBestand() {
+    @Order(2)
+    public void shouldCreateCoupledBestand() {
         CoupledBestand coupledBestand = createCoupledBestand();
-        CoupledBestand saved = given().auth().preemptive().oauth2(jwt)
+        CoupledBestand saved = given().auth().preemptive().oauth2(generateValidUserToken())
                 .contentType(ContentType.JSON)
                 .body(coupledBestand)
                 .post(ENDPOINT)
@@ -47,7 +51,52 @@ public class CoupledBestandResourceTest {
                 .statusCode(201)
                 .extract().as(CoupledBestand.class);
         assertThat(saved.id).isEqualTo(TEST_ID);
-        given().auth().preemptive().oauth2(jwt)
+    }
+
+    @Test
+    @Order(3)
+    public void shouldNotUpdateCoupledBestandWithUserRole() {
+        CoupledBestand coupledBestand = createCoupledBestand();
+        coupledBestand.id = Integer.toUnsignedLong(TEST_ID);
+        coupledBestand.filename = TEST_FILE_NAME;
+        coupledBestand.fileurl = TEST_FILE_URL;
+        given().auth().preemptive().oauth2(generateValidUserToken())
+                .contentType(ContentType.JSON)
+                .body(coupledBestand)
+                .put(ENDPOINT + "/{coupledBestandId}", TEST_ID)
+                .then()
+                .statusCode(403);
+    }
+
+    @Test
+    @Order(4)
+    public void shouldUpdateCoupledBestandWithDocentRole() {
+        CoupledBestand coupledBestand = createCoupledBestand();
+        coupledBestand.id = Integer.toUnsignedLong(TEST_ID);
+        coupledBestand.filename = TEST_FILE_NAME;
+        coupledBestand.fileurl = TEST_FILE_URL;
+        given().auth().preemptive().oauth2(generateValidAdminToken())
+                .contentType(ContentType.JSON)
+                .body(coupledBestand)
+                .put(ENDPOINT + "/{coupledBestandId}", TEST_ID)
+                .then()
+                .statusCode(204);
+    }
+
+    @Test
+    @Order(5)
+    public void shouldNotDeleteCoupledBestandWithUserRole() {
+        given().auth().preemptive().oauth2(generateValidUserToken())
+                .when()
+                .delete(ENDPOINT + "/{coupledBestandId}", TEST_ID)
+                .then()
+                .statusCode(403);
+    }
+
+    @Test
+    @Order(6)
+    public void shouldDeleteCoupledBestandWithDocentRole() {
+        given().auth().preemptive().oauth2(generateValidAdminToken())
                 .when()
                 .delete(ENDPOINT + "/{coupledBestandId}", TEST_ID)
                 .then()
@@ -55,8 +104,9 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
+    @Order(7)
     public void shouldGetBestandenByInleverMomentId() {
-        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(jwt)
+        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(generateValidAdminToken())
                 .when()
                 .get(ENDPOINT + "/inlevermoment/{inleverMomentId}", TEST_INLEVERMOMENT_ID)
                 .then()
