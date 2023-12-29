@@ -13,7 +13,7 @@ import nl.speyk.utils.CustomCacheKeyGenerator;
 
 import java.util.List;
 
-@ResourceProperties(rolesAllowed = "**")
+@ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface CoupledBestandResource extends PanacheEntityResource<CoupledBestand, Long> {
 
     static final String CACHE_NAME = "nl.speyk.coupledbestand.CoupledBestand";
@@ -22,7 +22,7 @@ public interface CoupledBestandResource extends PanacheEntityResource<CoupledBes
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/inlevermoment/{inlevermomentId}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<CoupledBestand>> findBestandenByInlevermomentId(
             @PathParam("inlevermomentId") Long inlevermomentId) {
         return CoupledBestand.getBestandenByInleverMomentId(inlevermomentId);

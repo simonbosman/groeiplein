@@ -41,11 +41,24 @@ public class CoupledBestandResourceTest {
 
     @Test
     @Order(2)
+    public void shouldGetBestandenByInleverMomentId() {
+        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(generateValidUserToken())
+                .when()
+                .get(ENDPOINT + "/inlevermoment/{inleverMomentId}", TEST_INLEVERMOMENT_ID)
+                .then()
+                .statusCode(200)
+                .extract().as(CoupledBestand[].class)[0];
+        assertThat(coupledBestand.id).isEqualTo(1);
+    }
+
+    @Test
+    @Order(3)
     public void shouldCreateCoupledBestand() {
         CoupledBestand coupledBestand = createCoupledBestand();
         CoupledBestand saved = given().auth().preemptive().oauth2(generateValidUserToken())
                 .contentType(ContentType.JSON)
                 .body(coupledBestand)
+                .when()
                 .post(ENDPOINT)
                 .then()
                 .statusCode(201)
@@ -54,7 +67,7 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     public void shouldNotUpdateCoupledBestandWithUserRole() {
         CoupledBestand coupledBestand = createCoupledBestand();
         coupledBestand.id = Integer.toUnsignedLong(TEST_ID);
@@ -63,13 +76,14 @@ public class CoupledBestandResourceTest {
         given().auth().preemptive().oauth2(generateValidUserToken())
                 .contentType(ContentType.JSON)
                 .body(coupledBestand)
+                .when()
                 .put(ENDPOINT + "/{coupledBestandId}", TEST_ID)
                 .then()
                 .statusCode(403);
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     public void shouldUpdateCoupledBestandWithDocentRole() {
         CoupledBestand coupledBestand = createCoupledBestand();
         coupledBestand.id = Integer.toUnsignedLong(TEST_ID);
@@ -78,13 +92,14 @@ public class CoupledBestandResourceTest {
         given().auth().preemptive().oauth2(generateValidAdminToken())
                 .contentType(ContentType.JSON)
                 .body(coupledBestand)
+                .when()
                 .put(ENDPOINT + "/{coupledBestandId}", TEST_ID)
                 .then()
                 .statusCode(204);
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     public void shouldNotDeleteCoupledBestandWithUserRole() {
         given().auth().preemptive().oauth2(generateValidUserToken())
                 .when()
@@ -94,25 +109,13 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     public void shouldDeleteCoupledBestandWithDocentRole() {
         given().auth().preemptive().oauth2(generateValidAdminToken())
                 .when()
                 .delete(ENDPOINT + "/{coupledBestandId}", TEST_ID)
                 .then()
                 .statusCode(204);
-    }
-
-    @Test
-    @Order(7)
-    public void shouldGetBestandenByInleverMomentId() {
-        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(generateValidAdminToken())
-                .when()
-                .get(ENDPOINT + "/inlevermoment/{inleverMomentId}", TEST_INLEVERMOMENT_ID)
-                .then()
-                .statusCode(200)
-                .extract().as(CoupledBestand[].class)[0];
-        assertThat(coupledBestand.id).isEqualTo(1);
     }
 
     private InleverMoment createInleverMoment() {

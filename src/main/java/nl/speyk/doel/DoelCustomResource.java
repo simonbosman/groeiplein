@@ -28,7 +28,7 @@ public class DoelCustomResource {
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/niveau/{niveauId}")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     public Uni<List<Doel>> findDoelenByNiveauId(@PathParam("niveauId") Long niveauId) {
         return doelService.getDoelenByNiveauId(niveauId);
     }
@@ -36,7 +36,7 @@ public class DoelCustomResource {
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/zondergroep")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     public Uni<List<Doel>> findDoelenZonderGroep() {
         return doelService.getDoelenZonderGroep();
     }
@@ -44,7 +44,7 @@ public class DoelCustomResource {
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/vakleergebied/{vakleergebiedId}")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     public Uni<List<Doel>> findDoelenByVakleergebiedId(@PathParam("vakleergebiedId") Long vakleergebiedId) {
         return doelService.getDoelenByVakleergebiedId(vakleergebiedId);
     }
