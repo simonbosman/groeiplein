@@ -1,19 +1,19 @@
 package nl.speyk.coupledbestand;
 
-import io.quarkus.test.junit.QuarkusTest;
-import io.restassured.http.ContentType;
-import nl.speyk.inlevermoment.InleverMoment;
-
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-
 import static io.restassured.RestAssured.given;
 import static nl.speyk.utils.JwtGenerator.generateValidAdminToken;
 import static nl.speyk.utils.JwtGenerator.generateValidUserToken;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.contains;
+
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.ContentType;
+import nl.speyk.inlevermoment.InleverMoment;
 
 //We only test rest api's used by the frontend
 @QuarkusTest
@@ -68,6 +68,18 @@ public class CoupledBestandResourceTest {
 
     @Test
     @Order(4)
+    public void shouldGetCoupledBestand() {
+        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(generateValidUserToken())
+                .when()
+                .get(ENDPOINT + "/{coupledBestandId}", TEST_ID)
+                .then()
+                .statusCode(200)
+                .extract().as(CoupledBestand.class);
+        assertThat(coupledBestand.id).isEqualTo(TEST_ID);
+    }
+
+    @Test
+    @Order(5)
     public void shouldNotUpdateCoupledBestandWithUserRole() {
         CoupledBestand coupledBestand = createCoupledBestand();
         coupledBestand.id = Integer.toUnsignedLong(TEST_ID);
@@ -83,7 +95,7 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     public void shouldUpdateCoupledBestandWithDocentRole() {
         CoupledBestand coupledBestand = createCoupledBestand();
         coupledBestand.id = Integer.toUnsignedLong(TEST_ID);
@@ -99,7 +111,7 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     public void shouldNotDeleteCoupledBestandWithUserRole() {
         given().auth().preemptive().oauth2(generateValidUserToken())
                 .when()
@@ -109,7 +121,7 @@ public class CoupledBestandResourceTest {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     public void shouldDeleteCoupledBestandWithDocentRole() {
         given().auth().preemptive().oauth2(generateValidAdminToken())
                 .when()

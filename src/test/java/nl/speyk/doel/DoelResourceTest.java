@@ -1,10 +1,11 @@
 package nl.speyk.doel;
 
 import static io.restassured.RestAssured.given;
+import static nl.speyk.utils.JwtGenerator.generateValidAdminToken;
+import static nl.speyk.utils.JwtGenerator.generateValidUserToken;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.contains;
-import static nl.speyk.utils.JwtGenerator.generateValidUserToken;
-import static nl.speyk.utils.JwtGenerator.generateValidAdminToken;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -122,6 +123,27 @@ public class DoelResourceTest {
 
     @Test
     @Order(7)
+    public void shouldGetDoel() {
+        given().auth().preemptive().oauth2(generateValidUserToken())
+                .when()
+                .get(ENDPOINT + "/{doelId}", TEST_ID)
+                .then()
+                .statusCode(200)
+                .and().body("id", equalTo(TEST_ID))
+                .and().body("bron", equalTo(TEST_BRON))
+                .and().body("title", equalTo(TEST_TITLE))
+                .and().body("description", equalTo(TEST_DESCRIPTION))
+                .and().body("leerjaar", equalTo(TEST_LEERJAAR))
+                .and().body("periode", equalTo(TEST_PERIODE))
+                .and().body("hoofdoelId", equalTo((int) TEST_HOOFDOEL_ID))
+                .and().body("kerndoel.id", equalTo((int) TEST_KERNDOEL_ID))
+                .and().body("domein.id", equalTo((int) TEST_DOMEIN_ID))
+                .and().body("niveau.id", equalTo((int) TEST_NIVEAU_ID))
+                .and().body("vakleergebied.id", equalTo((int) TEST_VAKLEERGEBIED_ID));
+    }
+
+    @Test
+    @Order(8)
     public void shouldNotUpdateDoelWithUserRole() {
         Doel doel = createDoel();
         given().auth().preemptive().oauth2(generateValidUserToken())
@@ -134,7 +156,7 @@ public class DoelResourceTest {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
     public void shouldUpdateDoelWithDocentRole() {
         Doel doel = createDoel();
         given().auth().preemptive().oauth2(generateValidAdminToken())
@@ -147,7 +169,7 @@ public class DoelResourceTest {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
     public void shouldNotDeleteDoelWithUserRole() {
         given().auth().preemptive().oauth2(generateValidUserToken())
                 .when()
@@ -157,7 +179,7 @@ public class DoelResourceTest {
     }
 
     @Test
-    @Order(10)
+    @Order(11)
     public void shouldDeleteDoelWithDocentRole() {
         given().auth().preemptive().oauth2(generateValidAdminToken())
                 .when()

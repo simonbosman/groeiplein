@@ -1,16 +1,16 @@
 package nl.speyk.domein;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.contains;
-import static org.assertj.core.api.Assertions.assertThat;
 import static nl.speyk.utils.JwtGenerator.generateValidAdminToken;
 import static nl.speyk.utils.JwtGenerator.generateValidUserToken;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.equalTo;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 
@@ -61,6 +61,16 @@ public class DomeinResourceTest {
 
     @Test
     @Order(4)
+    public void shouldGetDomein() {
+        given().auth().preemptive().oauth2(generateValidUserToken())
+            .when().get(ENDPOINT + "/{domeinId}", TEST_ID)
+                .then().statusCode(200)
+                .and().body("id", equalTo(TEST_ID))
+                .and().body("title", equalTo(TEST_TITLE));
+    }
+
+    @Test
+    @Order(5)
     public void shouldNotUpdateDomeinWithUserRole() {
         Domein domein = createDomein();
         given().auth().preemptive().oauth2(generateValidUserToken())
@@ -71,7 +81,7 @@ public class DomeinResourceTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     public void shouldUpdateDomeinWithDocentRole() {
         Domein domein = createDomein();
         given().auth().preemptive().oauth2(generateValidAdminToken())
@@ -84,7 +94,7 @@ public class DomeinResourceTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     public void shouldNotDeleteDomeinWithUserRole() {
         given().auth().preemptive().oauth2(generateValidUserToken())
                 .when().delete(ENDPOINT + "/" + TEST_ID)
@@ -92,7 +102,7 @@ public class DomeinResourceTest {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     public void shouldDeleteDomeinWithDocentRole() {
         given().auth().preemptive().oauth2(generateValidAdminToken())
                 .when().delete(ENDPOINT + "/" + TEST_ID)
