@@ -13,7 +13,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import nl.speyk.utils.CustomCacheKeyGenerator;
 
-@ResourceProperties(rolesAllowed = "**")
+@ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface TijdlijnItemResource extends PanacheEntityResource<TijdlijnItem, Long> {
 
     static final String CACHE_NAME = "nl.speyk.tijdlijnitem.TijdlijnItem";
@@ -22,7 +22,7 @@ public interface TijdlijnItemResource extends PanacheEntityResource<TijdlijnItem
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/leerling/{leerlingId}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<TijdlijnItem>> findItemsByLeerlingId(@PathParam("leerlingId") Long leerlingId) {
         return TijdlijnItem.getItemsByLeerlingId(leerlingId);
     }

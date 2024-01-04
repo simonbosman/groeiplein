@@ -22,7 +22,7 @@ import jakarta.ws.rs.core.Response;
 import nl.speyk.doel.Doel;
 import nl.speyk.utils.CustomCacheKeyGenerator;
 
-@ResourceProperties(rolesAllowed = "**")
+@ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long> {
 
     static final String CACHE_NAME = "nl.speyk.groepdoel.GroepDoel";
@@ -31,7 +31,7 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/doelen/{groepUuid}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<Doel>> findDoelenByGroupUuid(@PathParam("groepUuid") UUID groepUuid) {
         return GroepDoel.findByGroepUuid(groepUuid)
                 .onItem()
@@ -44,7 +44,7 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/doelen")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<Doel>> findDoelenByGroupUuids(@QueryParam("groepUuid") List<UUID> groepUuids) {
         return GroepDoel.findByGroepUuids(groepUuids)
                 .onItem()
@@ -57,7 +57,7 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/groepen/{doelId}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<UUID>> findGroepenByDoelId(@PathParam("doelId") int doelId) {
         return GroepDoel.findByDoelId(doelId)
                 .onItem()
@@ -79,13 +79,4 @@ public interface GroepDoelResource extends PanacheEntityResource<GroepDoel, Long
                     return Response.status(Response.Status.FORBIDDEN).build();
                 });
     }
-
-    @RolesAllowed("${speyk.roles.docent}")
-    Uni<GroepDoel> add(GroepDoel entity);
-
-    @RolesAllowed("${speyk.roles.docent}")
-    Uni<GroepDoel> update(Long id, GroepDoel entity);
-
-    @RolesAllowed("${speyk.roles.docent}")
-    Uni<Boolean> delete(Long id);
 }

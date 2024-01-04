@@ -5,7 +5,7 @@ import io.quarkus.rest.data.panache.ResourceProperties;
 import io.smallrye.mutiny.Uni;
 import jakarta.annotation.security.RolesAllowed;
 
-@ResourceProperties(rolesAllowed = "**")
+@ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface FeedbackResource extends PanacheRepositoryResource<FeedbackRepository, Feedback, Long> {
 
     @RolesAllowed("${speyk.roles.docent}")
