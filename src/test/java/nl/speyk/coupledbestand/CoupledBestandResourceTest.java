@@ -5,6 +5,7 @@ import static nl.speyk.utils.JwtGenerator.generateValidAdminToken;
 import static nl.speyk.utils.JwtGenerator.generateValidUserToken;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -69,13 +70,15 @@ public class CoupledBestandResourceTest {
     @Test
     @Order(4)
     public void shouldGetCoupledBestand() {
-        CoupledBestand coupledBestand = given().auth().preemptive().oauth2(generateValidUserToken())
+        given().auth().preemptive().oauth2(generateValidUserToken())
                 .when()
                 .get(ENDPOINT + "/{coupledBestandId}", TEST_ID)
                 .then()
                 .statusCode(200)
-                .extract().as(CoupledBestand.class);
-        assertThat(coupledBestand.id).isEqualTo(TEST_ID);
+                .and().body("id", equalTo(TEST_ID))
+                .and().body("filename", equalTo(TEST_FILE_NAME))
+                .and().body("fileurl", equalTo(TEST_FILE_URL))
+                .and().body("inlevermoment.id", equalTo(TEST_INLEVERMOMENT_ID));
     }
 
     @Test
