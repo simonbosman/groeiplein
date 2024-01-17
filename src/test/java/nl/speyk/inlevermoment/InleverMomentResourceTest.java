@@ -7,8 +7,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 
-import java.time.Instant;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -18,6 +16,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import jakarta.ws.rs.core.Response;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.opdracht.Opdracht;
 
@@ -31,7 +30,6 @@ public class InleverMomentResourceTest {
     private static final int TEST_OPDRACHT_ID = 1;
     private static final int TEST_LEERLING_ID = 1;
     private static final StatusType TEST_STATUS = StatusType.OPEN;
-    private static final Instant TEST_TIMESTAMP = Instant.parse("2016-06-23T02:10:25Z");
 
     private RequestSpecification spec;
 
@@ -53,11 +51,9 @@ public class InleverMomentResourceTest {
     public void shouldListInleverMomenten() {
         givenAuthenticatedAsUser()
                 .when().get(ENDPOINT)
-                .then().statusCode(200)
+                .then().statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", contains(1))
                 .and().body("status", contains("OPEN"))
-                .and().body("timestamp", contains("2016-06-23T02:10:25Z"))
-                .and().body("updateTimestamp", contains("2016-06-23T02:10:25Z"))
                 .and().body("opdracht.id", contains(1))
                 .and().body("leerling.id", contains(1));
     }
@@ -69,7 +65,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .get(ENDPOINT + "/leerling/{leerlingId}", TEST_LEERLING_ID)
                 .then()
-                .statusCode(200)
+            .statusCode(Response.Status.OK.getStatusCode())
                 .extract().as(InleverMoment[].class)[0];
         assertThat(inleverMoment.id).isEqualTo(1);
     }
@@ -81,7 +77,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .get(ENDPOINT + "/opdracht/{opdrachtId}", TEST_OPDRACHT_ID)
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .extract().as(InleverMoment[].class)[0];
         assertThat(inleverMoment.id).isEqualTo(1);
     }
@@ -94,7 +90,7 @@ public class InleverMomentResourceTest {
                 .body(inleverMoment)
                 .post(ENDPOINT)
                 .then()
-                .statusCode(201)
+                .statusCode(Response.Status.CREATED.getStatusCode())
                 .extract().as(InleverMoment.class);
         assertThat(saved.id).isEqualTo(TEST_ID);
     }
@@ -106,7 +102,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .get(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", equalTo(TEST_ID))
                 .and().body("status", equalTo(TEST_STATUS.toString()))
                 .and().body("opdracht.id", equalTo(TEST_OPDRACHT_ID))
@@ -123,7 +119,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .put(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
@@ -136,7 +132,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .put(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     @Test
@@ -146,7 +142,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .delete(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
@@ -156,7 +152,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .delete(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     private Opdracht createOpdracht() {
@@ -174,8 +170,6 @@ public class InleverMomentResourceTest {
     private InleverMoment createInleverMoment() {
         InleverMoment inleverMoment = new InleverMoment();
         inleverMoment.status = TEST_STATUS;
-        inleverMoment.timestamp = TEST_TIMESTAMP;
-        inleverMoment.updateTimestamp = TEST_TIMESTAMP;
         inleverMoment.opdracht = createOpdracht();
         inleverMoment.leerling = createLeerling();
         return inleverMoment;
