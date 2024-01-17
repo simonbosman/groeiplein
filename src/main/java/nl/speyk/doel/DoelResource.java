@@ -7,6 +7,7 @@ import jakarta.annotation.security.RolesAllowed;
 
 @ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface DoelResource extends PanacheRepositoryResource<DoelRepository, Doel, Long> {
+
     @RolesAllowed("${speyk.roles.docent}")
     Uni<Doel> add(Doel entity);
 

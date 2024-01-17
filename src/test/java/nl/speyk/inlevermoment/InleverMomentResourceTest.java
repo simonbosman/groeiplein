@@ -65,7 +65,7 @@ public class InleverMomentResourceTest {
                 .when()
                 .get(ENDPOINT + "/leerling/{leerlingId}", TEST_LEERLING_ID)
                 .then()
-            .statusCode(Response.Status.OK.getStatusCode())
+                .statusCode(Response.Status.OK.getStatusCode())
                 .extract().as(InleverMoment[].class)[0];
         assertThat(inleverMoment.id).isEqualTo(1);
     }
@@ -87,6 +87,7 @@ public class InleverMomentResourceTest {
     public void shouldCreateInleverMoment() {
         InleverMoment inleverMoment = createInleverMoment();
         InleverMoment saved = givenAuthenticatedAsUser()
+                .when()
                 .body(inleverMoment)
                 .post(ENDPOINT)
                 .then()
@@ -115,8 +116,8 @@ public class InleverMomentResourceTest {
         InleverMoment inleverMoment = createInleverMoment();
         inleverMoment.status = StatusType.INGELEVERD;
         givenAuthenticatedAsUser()
-                .body(inleverMoment)
                 .when()
+                .body(inleverMoment)
                 .put(ENDPOINT + "/{id}", TEST_ID)
                 .then()
                 .statusCode(Response.Status.FORBIDDEN.getStatusCode());
@@ -128,8 +129,8 @@ public class InleverMomentResourceTest {
         InleverMoment inleverMoment = createInleverMoment();
         inleverMoment.status = StatusType.INGELEVERD;
         givenAuthenticatedAsAdmin()
-                .body(inleverMoment)
                 .when()
+                .body(inleverMoment)
                 .put(ENDPOINT + "/{id}", TEST_ID)
                 .then()
                 .statusCode(Response.Status.NO_CONTENT.getStatusCode());
