@@ -9,12 +9,14 @@ import static org.hamcrest.Matchers.contains;
 import java.util.UUID;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import jakarta.ws.rs.core.Response;
 import nl.speyk.doel.Doel;
 
@@ -31,10 +33,25 @@ public class GroepDoelResourceTest {
     private static final String TEST_DOEL_TITLE = "testdoel";
     private static final String TEST_DOEL_DESCRIPTION = "testdoel";
 
+    private RequestSpecification spec;
+
+    @BeforeEach
+    public void setup() {
+        spec = given().contentType(ContentType.JSON);
+    }
+
+    private RequestSpecification givenAuthenticatedAsUser() {
+        return spec.auth().preemptive().oauth2(generateValidUserToken());
+    }
+
+    private RequestSpecification givenAuthenticatedAsAdmin() {
+        return spec.auth().preemptive().oauth2(generateValidAdminToken());
+    }
+
     @Test
     @Order(1)
     public void shouldListGroepDoelen() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when().get(ENDPOINT)
                 .then().statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", contains(1))
@@ -45,7 +62,7 @@ public class GroepDoelResourceTest {
     @Test
     @Order(2)
     public void shouldGetDoelenByGroepUuid() {
-        Doel doel = given().auth().preemptive().oauth2(generateValidUserToken())
+        Doel doel = givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/doelen/{groepUuid}", TEST_GROEP_UUID)
                 .then()
@@ -57,7 +74,7 @@ public class GroepDoelResourceTest {
     @Test
     @Order(3)
     public void shouldGetGroepenByDoelId() {
-        String groupUid = given().auth().preemptive().oauth2(generateValidUserToken())
+        String groupUid = givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/groepen/{doelId}", TEST_DOEL_ID)
                 .then()
@@ -70,9 +87,9 @@ public class GroepDoelResourceTest {
     @Order(4)
     public void shouldNotCreateGroepDoelWithUserRole() {
         GroepDoel groepDoel = createGroepDoel();
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsUser()
                 .body(groepDoel)
+                .when()
                 .post(ENDPOINT)
                 .then()
                 .statusCode(Response.Status.FORBIDDEN.getStatusCode());
@@ -82,7 +99,7 @@ public class GroepDoelResourceTest {
     @Order(5)
     public void shouldCreateGroepDoelWithDocentRole() {
         GroepDoel groepDoel = createGroepDoel();
-        GroepDoel saved = given().auth().preemptive().oauth2(generateValidAdminToken())
+        GroepDoel saved = givenAuthenticatedAsAdmin()
                 .contentType(ContentType.JSON)
                 .body(groepDoel)
                 .post(ENDPOINT)
@@ -98,8 +115,7 @@ public class GroepDoelResourceTest {
         GroepDoel updateGroepDoel = createGroepDoel();
         updateGroepDoel.doel = createDoel();
         updateGroepDoel.groepUuid = TEST_GROEP_UUID_NEW;
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsUser()
                 .body(updateGroepDoel)
                 .when()
                 .put(ENDPOINT + "/{id}", TEST_ID)
@@ -113,8 +129,7 @@ public class GroepDoelResourceTest {
         GroepDoel updateGroepDoel = createGroepDoel();
         updateGroepDoel.doel = createDoel();
         updateGroepDoel.groepUuid = TEST_GROEP_UUID_NEW;
-        given().auth().preemptive().oauth2(generateValidAdminToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsAdmin()
                 .body(updateGroepDoel)
                 .when()
                 .put(ENDPOINT + "/{id}", TEST_ID)
@@ -125,7 +140,7 @@ public class GroepDoelResourceTest {
     @Test
     @Order(8)
     public void shouldNotDeleteGroepDoelWithUserRole() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when()
                 .delete(ENDPOINT + "/{id}", TEST_ID)
                 .then()
@@ -135,7 +150,7 @@ public class GroepDoelResourceTest {
     @Test
     @Order(9)
     public void shouldDeleteGroepDoelWithDocentRole() {
-        given().auth().preemptive().oauth2(generateValidAdminToken())
+        givenAuthenticatedAsAdmin()
                 .when()
                 .delete(ENDPOINT + "/{id}", TEST_ID)
                 .then()
@@ -145,7 +160,7 @@ public class GroepDoelResourceTest {
     @Test
     @Order(10)
     public void shouldNotVerwijderGroepDoelWithUserRole() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when()
                 .delete(ENDPOINT + "/verwijder/{groepUuid}/{doelId}", TEST_GROEP_UUID, TEST_DOEL_ID)
                 .then()
@@ -155,7 +170,7 @@ public class GroepDoelResourceTest {
     @Test
     @Order(11)
     public void shouldVerwijderGroepDoelWithDocentRole() {
-        given().auth().preemptive().oauth2(generateValidAdminToken())
+        givenAuthenticatedAsAdmin()
                 .when()
                 .delete(ENDPOINT + "/verwijder/{groepUuid}/{doelId}", TEST_GROEP_UUID, TEST_DOEL_ID)
                 .then()

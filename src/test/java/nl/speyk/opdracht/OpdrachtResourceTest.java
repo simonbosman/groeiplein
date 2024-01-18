@@ -124,6 +124,7 @@ public class OpdrachtResourceTest {
     @Order(6)
     public void shouldNotUpdateOpdrachtWithUserRole() {
         Opdracht opdracht = createOpdracht();
+        opdracht.setTitle("updatedtitle");
         givenAuthenticatedAsUser()
                 .when()
                 .body(opdracht)

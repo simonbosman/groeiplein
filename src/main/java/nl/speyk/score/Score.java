@@ -61,7 +61,7 @@ public class Score extends PanacheEntity {
     public AuthorType author;
 
     public static Uni<List<Score>> getScoreByDoelId(long doelId) {
-        return find("#Score.doel", Collections.singletonMap("id", doelId)).list();
+        return find("#Score.Doel", Collections.singletonMap("id", doelId)).list();
     }
 
     public static Uni<List<Score>> getScoreByLeerlingId(long leerlingId) {

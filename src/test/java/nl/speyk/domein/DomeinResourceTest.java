@@ -7,12 +7,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.specification.RequestSpecification;
+import jakarta.ws.rs.core.Response;
 
 //We only test rest api's used by the frontend
 @QuarkusTest
@@ -23,12 +26,27 @@ public class DomeinResourceTest {
     private static final int TEST_ID = 2;
     private static final String TEST_TITLE = "testtitlepost";
 
+    private RequestSpecification spec;
+
+    @BeforeEach
+    public void setup() {
+        spec = given().contentType("application/json");
+    }
+
+    private RequestSpecification givenAuthenticatedAsUser() {
+        return spec.auth().preemptive().oauth2(generateValidUserToken());
+    }
+
+    private RequestSpecification givenAuthenticatedAsAdmin() {
+        return spec.auth().preemptive().oauth2(generateValidAdminToken());
+    }
+
     @Test
     @Order(1)
     public void shouldListDomeinen() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when().get("/domein")
-                .then().statusCode(200)
+                .then().statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", contains(1))
                 .and().body("title", contains("testtitle"));
     }
@@ -37,24 +55,22 @@ public class DomeinResourceTest {
     @Order(2)
     public void shouldNotCreateDomeinWithUserRole() {
         Domein domein = createDomein();
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType("application/json")
+        givenAuthenticatedAsUser()
                 .body(domein)
                 .when().post(ENDPOINT)
-                .then().statusCode(403);
+                .then().statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(3)
     public void shouldCreateDomeinWithDocentRole() {
         Domein domein = createDomein();
-        Domein saved = given().auth().preemptive().oauth2(generateValidAdminToken())
-                .contentType("application/json")
+        Domein saved = givenAuthenticatedAsAdmin()
                 .body(domein)
                 .when()
                 .post(ENDPOINT)
                 .then()
-                .statusCode(201)
+                .statusCode(Response.Status.CREATED.getStatusCode())
                 .extract().as(Domein.class);
         assertThat(saved.getId()).isEqualTo(TEST_ID);
     }
@@ -62,9 +78,9 @@ public class DomeinResourceTest {
     @Test
     @Order(4)
     public void shouldGetDomein() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
-            .when().get(ENDPOINT + "/{domeinId}", TEST_ID)
-                .then().statusCode(200)
+        givenAuthenticatedAsUser()
+                .when().get(ENDPOINT + "/{domeinId}", TEST_ID)
+                .then().statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", equalTo(TEST_ID))
                 .and().body("title", equalTo(TEST_TITLE));
     }
@@ -73,40 +89,40 @@ public class DomeinResourceTest {
     @Order(5)
     public void shouldNotUpdateDomeinWithUserRole() {
         Domein domein = createDomein();
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType("application/json")
+        domein.setTitle("updatedtitle");
+        givenAuthenticatedAsUser()
                 .body(domein)
                 .when().put(ENDPOINT + "/" + TEST_ID)
-                .then().statusCode(403);
+                .then().statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(6)
     public void shouldUpdateDomeinWithDocentRole() {
         Domein domein = createDomein();
-        given().auth().preemptive().oauth2(generateValidAdminToken())
-                .contentType("application/json")
+        domein.setTitle("updatedtitle");
+        givenAuthenticatedAsAdmin()
                 .body(domein)
                 .when()
                 .put(ENDPOINT + "/" + TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     @Test
     @Order(7)
     public void shouldNotDeleteDomeinWithUserRole() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when().delete(ENDPOINT + "/" + TEST_ID)
-                .then().statusCode(403);
+                .then().statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(8)
     public void shouldDeleteDomeinWithDocentRole() {
-        given().auth().preemptive().oauth2(generateValidAdminToken())
+        givenAuthenticatedAsAdmin()
                 .when().delete(ENDPOINT + "/" + TEST_ID)
-                .then().statusCode(204);
+                .then().statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     private Domein createDomein() {

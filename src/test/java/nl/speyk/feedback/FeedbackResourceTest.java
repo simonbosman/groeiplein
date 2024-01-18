@@ -11,12 +11,15 @@ import java.time.Instant;
 import java.util.UUID;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import jakarta.ws.rs.core.Response;
 import nl.speyk.AuthorType;
 
 //We only test rest api's used by the frontend
@@ -32,12 +35,27 @@ public class FeedbackResourceTest {
     private static final UUID TEST_AUTHOR_UUID = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa7");
     private static final Instant TEST_TIMESTAMP = Instant.now();
 
+    private RequestSpecification spec;
+
+    @BeforeEach
+    public void setup() {
+        spec = given().contentType(ContentType.JSON);
+    }
+
+    private RequestSpecification givenAuthenticatedAsUser() {
+        return spec.auth().preemptive().oauth2(generateValidUserToken());
+    }
+
+    private RequestSpecification givenAuthenticatedAsAdmin() {
+        return spec.auth().preemptive().oauth2(generateValidAdminToken());
+    }
+
     @Test
     @Order(1)
     public void shouldListFeedback() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when().get("/feedback")
-                .then().statusCode(200)
+                .then().statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", contains(1))
                 .and().body("timestamp", contains("2022-03-10T16:15:50Z"))
                 .and().body("updateTimestamp", contains("2022-03-10T16:15:50Z"))
@@ -51,11 +69,10 @@ public class FeedbackResourceTest {
     @Order(2)
     public void shouldCreateFeedback() {
         Feedback feedback = createFeedback();
-        Feedback saved = given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        Feedback saved = givenAuthenticatedAsUser()
                 .body(feedback)
                 .when().post(ENDPOINT)
-                .then().statusCode(201)
+                .then().statusCode(Response.Status.CREATED.getStatusCode())
                 .and().extract().as(Feedback.class);
         assertThat(saved.getId()).isEqualTo(TEST_ID);
     }
@@ -63,11 +80,11 @@ public class FeedbackResourceTest {
     @Test
     @Order(3)
     public void shouldGetFeedback() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", equalTo(TEST_ID))
                 .and().body("authorUuid", equalTo(TEST_AUTHOR_UUID.toString()))
                 .and().body("content", equalTo(TEST_CONTENT))
@@ -80,13 +97,12 @@ public class FeedbackResourceTest {
     public void shouldNotUpdateFeedbackWithUserRole() {
         Feedback feedback = createFeedback();
         feedback.setContent("updatedcontent");
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsUser()
                 .body(feedback)
                 .when()
                 .put(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
@@ -94,33 +110,31 @@ public class FeedbackResourceTest {
     public void shouldUpdateFeedbackWithDocentRole() {
         Feedback feedback = createFeedback();
         feedback.setContent("updatedcontent");
-        given().auth().preemptive().oauth2(generateValidAdminToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsAdmin()
                 .body(feedback)
                 .when()
                 .put(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     @Test
     @Order(6)
     public void shouldNotDeleteFeedbackWithUserRole() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .when()
+        givenAuthenticatedAsUser().when()
                 .delete(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(7)
     public void shouldDeleteFeedbackWithDocentRole() {
-        given().auth().preemptive().oauth2(generateValidAdminToken())
+        givenAuthenticatedAsAdmin()
                 .when()
                 .delete(ENDPOINT + "/{id}", TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     private Feedback createFeedback() {

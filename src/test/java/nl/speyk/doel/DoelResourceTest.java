@@ -8,12 +8,15 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import jakarta.ws.rs.core.Response;
 import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
@@ -37,13 +40,27 @@ public class DoelResourceTest {
     private static final long TEST_NIVEAU_ID = 1l;
     private static final long TEST_VAKLEERGEBIED_ID = 1l;
 
+    private RequestSpecification spec;
+
+    @BeforeEach
+    public void setup() {
+        spec = given().contentType(ContentType.JSON);
+    }
+
+    private RequestSpecification givenAuthenticatedAsUser() {
+        return spec.auth().preemptive().oauth2(generateValidUserToken());
+    }
+
+    private RequestSpecification givenAuthenticatedAsAdmin() {
+        return spec.auth().preemptive().oauth2(generateValidAdminToken());
+    }
+
     @Test
     @Order(1)
     public void shouldListDoelen() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsUser()
                 .when().get(ENDPOINT)
-                .then().statusCode(200)
+                .then().statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", contains(1))
                 .and().body("bron", contains("testbron"))
                 .and().body("title", contains("testtitle"))
@@ -60,11 +77,11 @@ public class DoelResourceTest {
     @Test
     @Order(2)
     public void shouldGetDoelenByNiveauId() {
-        Doel doel = given().auth().preemptive().oauth2(generateValidUserToken())
+        Doel doel = givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/niveau/{niveauId}", TEST_NIVEAU_ID)
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .extract().as(Doel[].class)[0];
         assertThat(doel.getId()).isEqualTo(1);
     }
@@ -72,11 +89,11 @@ public class DoelResourceTest {
     @Test
     @Order(3)
     public void shouldGetDoelenByVakleergebiedId() {
-        Doel doel = given().auth().preemptive().oauth2(generateValidUserToken())
+        Doel doel = givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/vakleergebied/{vakleergebiedId}", TEST_VAKLEERGEBIED_ID)
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .extract().as(Doel[].class)[0];
         assertThat(doel.getId()).isEqualTo(1);
     }
@@ -84,11 +101,11 @@ public class DoelResourceTest {
     @Test
     @Order(4)
     public void shouldGetDoelenZonderGroep() {
-        Doel[] doelen = given().auth().preemptive().oauth2(generateValidUserToken())
+        Doel[] doelen = givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/zondergroep")
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .extract().as(Doel[].class);
         assertThat(doelen).isEmpty();
     }
@@ -97,26 +114,24 @@ public class DoelResourceTest {
     @Order(5)
     public void shouldNotCreateDoelWithUserRole() {
         Doel doel = createDoel();
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsUser()
                 .body(doel)
                 .when()
                 .post(ENDPOINT)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(6)
     public void shouldCreateDoelWithDocentRole() {
         Doel doel = createDoel();
-        Doel saved = given().auth().preemptive().oauth2(generateValidAdminToken())
-                .contentType(ContentType.JSON)
+        Doel saved = givenAuthenticatedAsAdmin()
                 .body(doel)
                 .when()
                 .post(ENDPOINT)
                 .then()
-                .statusCode(201)
+                .statusCode(Response.Status.CREATED.getStatusCode())
                 .extract().as(Doel.class);
         assertThat(saved.getId()).isEqualTo(TEST_ID);
     }
@@ -124,11 +139,11 @@ public class DoelResourceTest {
     @Test
     @Order(7)
     public void shouldGetDoel() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when()
                 .get(ENDPOINT + "/{doelId}", TEST_ID)
                 .then()
-                .statusCode(200)
+                .statusCode(Response.Status.OK.getStatusCode())
                 .and().body("id", equalTo(TEST_ID))
                 .and().body("bron", equalTo(TEST_BRON))
                 .and().body("title", equalTo(TEST_TITLE))
@@ -146,46 +161,44 @@ public class DoelResourceTest {
     @Order(8)
     public void shouldNotUpdateDoelWithUserRole() {
         Doel doel = createDoel();
-        given().auth().preemptive().oauth2(generateValidUserToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsUser()
                 .body(doel)
                 .when()
                 .put(ENDPOINT + "/{doelId}", TEST_ID)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(9)
     public void shouldUpdateDoelWithDocentRole() {
         Doel doel = createDoel();
-        given().auth().preemptive().oauth2(generateValidAdminToken())
-                .contentType(ContentType.JSON)
+        givenAuthenticatedAsAdmin()
                 .body(doel)
                 .when()
                 .put(ENDPOINT + "/{doelId}", TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     @Test
     @Order(10)
     public void shouldNotDeleteDoelWithUserRole() {
-        given().auth().preemptive().oauth2(generateValidUserToken())
+        givenAuthenticatedAsUser()
                 .when()
                 .delete(ENDPOINT + "/{doelId}", TEST_ID)
                 .then()
-                .statusCode(403);
+                .statusCode(Response.Status.FORBIDDEN.getStatusCode());
     }
 
     @Test
     @Order(11)
     public void shouldDeleteDoelWithDocentRole() {
-        given().auth().preemptive().oauth2(generateValidAdminToken())
+        givenAuthenticatedAsAdmin()
                 .when()
                 .delete(ENDPOINT + "/{doelId}", TEST_ID)
                 .then()
-                .statusCode(204);
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 
     private Kerndoel createKerndoel() {
