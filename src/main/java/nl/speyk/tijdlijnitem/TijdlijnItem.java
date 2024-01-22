@@ -1,20 +1,29 @@
 package nl.speyk.tijdlijnitem;
 
-import io.quarkus.hibernate.reactive.panache.PanacheEntity;
-import io.smallrye.mutiny.Uni;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import nl.speyk.CategorieType;
-import nl.speyk.leerling.Leerling;
-import org.hibernate.annotations.Cascade;
+import java.time.Instant;
+import java.util.Collections;
+import java.util.List;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 
-import java.time.Instant;
-import java.util.Collections;
-import java.util.List;
+import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import io.smallrye.mutiny.Uni;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Index;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import nl.speyk.CategorieType;
+import nl.speyk.leerling.Leerling;
 
 @Entity(name = "TijdlijnItem")
 @Table(name = "tijdlijnitem", indexes = {
@@ -30,7 +39,6 @@ public class TijdlijnItem extends PanacheEntity {
     @Length(max = 1024, message = "{TijdlijnItem.content.length}")
     public String content;
 
-    @Column
     @Enumerated(EnumType.STRING)
     @NotNull
     public CategorieType categorie;
@@ -43,8 +51,7 @@ public class TijdlijnItem extends PanacheEntity {
     public Instant updateTimestamp;
 
     @NotNull(message = "{TijdlijnItem.leerling.required}")
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     public Leerling leerling;
 
     public static Uni<List<TijdlijnItem>> getItemsByLeerlingId(Long leerlingId) {

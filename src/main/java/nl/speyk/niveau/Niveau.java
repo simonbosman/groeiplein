@@ -1,6 +1,10 @@
 package nl.speyk.niveau;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity(name = "Niveau")
@@ -11,19 +15,15 @@ public class Niveau {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     @NotEmpty(message = "Niveau.title.required")
     private String title;
 
-    @Column
     @NotEmpty(message = "Niveau.description.required")
     private String description;
 
-    @Column
     @NotEmpty(message = "Niveau.type.required")
     private String type;
 
-    @Column
     private String prefix;
 
     public long getId() {

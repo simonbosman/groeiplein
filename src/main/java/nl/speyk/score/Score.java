@@ -1,22 +1,33 @@
 package nl.speyk.score;
 
+import java.time.Instant;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import io.smallrye.mutiny.Uni;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Index;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import nl.speyk.AuthorType;
 import nl.speyk.doel.Doel;
 import nl.speyk.feedback.Feedback;
 import nl.speyk.leerling.Leerling;
 import nl.speyk.scorevalue.ScoreValue;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.Instant;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
 
 @Entity(name = "Score")
 @Table(name = "score", indexes = {
@@ -29,7 +40,6 @@ import java.util.UUID;
 })
 public class Score extends PanacheEntity {
 
-    @Column
     @NotNull(message = "{Score.UUID.required}")
     public UUID authorUuid;
 
@@ -37,24 +47,19 @@ public class Score extends PanacheEntity {
     @CreationTimestamp
     public Instant timestamp;
 
-    @Column
     @UpdateTimestamp
     public Instant updateTimestamp;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     public ScoreValue value;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     public Feedback feedback;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     public Doel doel;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     public Leerling leerling;
 
     @Enumerated(EnumType.STRING)

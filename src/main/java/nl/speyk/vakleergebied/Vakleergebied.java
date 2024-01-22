@@ -1,6 +1,12 @@
 package nl.speyk.vakleergebied;
 
-import jakarta.persistence.*;
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity(name = "Vakleergebied")
@@ -11,15 +17,13 @@ public class Vakleergebied {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     private String prefix;
 
-    @Column
     @NotEmpty(message = "Vakleergebied.title.required")
     private String title;
 
-    @Column
     @NotEmpty(message = "Vakleergebied.description.required")
+    @Length(max = 255, message = "Vakleergebied.description.length")
     private String description;
 
     public long getId() {

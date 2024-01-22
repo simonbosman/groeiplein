@@ -1,7 +1,8 @@
 package nl.speyk.doel;
 
-import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.Length;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,7 +20,6 @@ import nl.speyk.domein.Domein;
 import nl.speyk.kerndoel.Kerndoel;
 import nl.speyk.niveau.Niveau;
 import nl.speyk.vakleergebied.Vakleergebied;
-import org.hibernate.validator.constraints.Length;
 
 @Entity(name = "Doel")
 @Table(name = "doel", indexes = {
@@ -59,20 +59,16 @@ public class Doel {
     @Positive
     private Long hoofdoelId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Kerndoel kerndoel;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Domein domein;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Niveau niveau;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Vakleergebied vakleergebied;
 
     public long getId() {

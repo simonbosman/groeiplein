@@ -1,5 +1,7 @@
 package nl.speyk.coupledbestand;
 
+import java.util.List;
+
 import io.quarkus.cache.CacheResult;
 import io.quarkus.hibernate.reactive.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
@@ -11,8 +13,6 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import nl.speyk.utils.CustomCacheKeyGenerator;
 
-import java.util.List;
-
 @ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface CoupledBestandResource extends PanacheEntityResource<CoupledBestand, Long> {
 
@@ -22,7 +22,6 @@ public interface CoupledBestandResource extends PanacheEntityResource<CoupledBes
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/inlevermoment/{inlevermomentId}")
     @Produces("application/json")
-    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<CoupledBestand>> findBestandenByInlevermomentId(
             @PathParam("inlevermomentId") Long inlevermomentId) {
         return CoupledBestand.getBestandenByInleverMomentId(inlevermomentId);
