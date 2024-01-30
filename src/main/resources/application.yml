@@ -15,9 +15,9 @@ quarkus:
       includes: appspeyk.pfx,import.sql
   hibernate-orm:
     log:
-      sql: true
+      sql: false 
     second-level-caching-enabled: false
-    statistics: true
+    statistics: false 
   package:
     type: uber-jar
   smallrye-openapi:
