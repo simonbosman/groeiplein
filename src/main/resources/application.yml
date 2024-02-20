@@ -1,9 +1,10 @@
 mp:
     jwt:
         verify:
-            issuer: https://sts.windows.net/d71896c5-795f-424e-bfb5-558dd1f95bb1/
+            issuer: https://sts.windows.net/27f15159-a16a-4f84-af73-f3fa4f121752/ 
             publickey:
                 location: https://login.microsoftonline.com/common/discovery/v2.0/keys
+                algorithm: RS256
     openapi:
         scan:
             disable: false
@@ -23,7 +24,7 @@ quarkus:
     smallrye-openapi:
         path: /openapi
     swagger-ui:
-        always-include: true
+        always-include: true:w
         path: /swagger
     jib:
       base-jvm-image: registry.access.redhat.com/ubi8/openjdk-17-runtime:1.16
