@@ -1,9 +1,16 @@
 package nl.speyk.kerndoel;
 
-import jakarta.persistence.*;
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import nl.speyk.domein.Domein;
-import org.hibernate.validator.constraints.Length;
 
 @Entity(name = "Kerndoel")
 @Table(name = "kerndoel")
@@ -13,7 +20,6 @@ public class Kerndoel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     @NotEmpty(message = "Kerndoel.prefix.required")
     private String prefix;
 

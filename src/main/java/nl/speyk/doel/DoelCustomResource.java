@@ -18,6 +18,7 @@ import nl.speyk.utils.CustomCacheKeyGenerator;
 @Path("/doel")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "DoelResource")
+@RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
 public class DoelCustomResource {
 
     @Inject
@@ -28,15 +29,13 @@ public class DoelCustomResource {
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/niveau/{niveauId}")
-    @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByNiveauId(@PathParam("niveauId") Long niveauId) {
         return doelService.getDoelenByNiveauId(niveauId);
-    }
+}
 
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/zondergroep")
-    @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenZonderGroep() {
         return doelService.getDoelenZonderGroep();
     }
@@ -44,7 +43,6 @@ public class DoelCustomResource {
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/vakleergebied/{vakleergebiedId}")
-    @RolesAllowed("**")
     public Uni<List<Doel>> findDoelenByVakleergebiedId(@PathParam("vakleergebiedId") Long vakleergebiedId) {
         return doelService.getDoelenByVakleergebiedId(vakleergebiedId);
     }

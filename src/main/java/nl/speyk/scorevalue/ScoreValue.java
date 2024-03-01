@@ -1,6 +1,5 @@
 package nl.speyk.scorevalue;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,20 +17,16 @@ public class ScoreValue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     @NotEmpty(message = "ScoreValue.title.required")
     private String title;
 
-    @Column
     @Positive(message = "ScoreValue.value.required")
     @NotNull(message = "ScoreValue.value.required")
     private int value;
 
-    @Column
     @NotEmpty(message = "ScoreValue.kleur.required")
     private String kleur;
 
-    @Column
     private String icon;
 
     public long getId() {

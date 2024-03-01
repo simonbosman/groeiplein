@@ -27,7 +27,7 @@ public class OpdrachtCustomResource {
     @GET
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/zondergroep")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     public Uni<List<Opdracht>> findOpdrachtenZonderGroep() {
         return opdrachtService.getOpdrachtenZonderGroep();
     }

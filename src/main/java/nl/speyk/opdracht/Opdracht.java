@@ -1,8 +1,8 @@
 package nl.speyk.opdracht;
 
-import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Length;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -30,7 +30,6 @@ public class Opdracht {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     @NotEmpty(message = "{Opdracht.title.required}")
     private String title;
 
@@ -39,32 +38,26 @@ public class Opdracht {
     @Length(max = 65535, message = "{Opdracht.content.length}")
     private String content;
 
-    @Column
     @Enumerated(EnumType.STRING)
     @NotNull
     private CategorieType categorie;
 
-    @Column
     @NotEmpty(message = "{Opdracht.periode.required}")
     private String periode;
 
-    @Column
     @NotNull(message = "{Opdracht.leerjaar.required}")
     @Positive
     private Integer leerjaar;
 
-    @Column
     @NotNull(message = "{Opdracht.inleverenop.required}")
     @Positive
     private long inleverenop;
 
-    @Column
     @NotNull(message = "{Opdracht.aangemaaktop.required}")
     @Positive
     private long aangemaaktop;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     Vakleergebied vakleergebied;
 
     public long getId() {

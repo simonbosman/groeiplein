@@ -1,3 +1,7 @@
+speyk:
+  roles:
+    docent: 06258f22-c3dc-4176-a6db-b66e51e0990c
+    leerling: 61280a80-2837-4396-b5be-886c4159dd7c
 quarkus:
     datasource:
         db-kind: postgresql
