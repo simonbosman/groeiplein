@@ -1,4 +1,5 @@
 mp:
+
   jwt:
     verify:
       issuer: https://sts.windows.net/d71896c5-795f-424e-bfb5-558dd1f95bb1/
