@@ -7,8 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponseSchema;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import io.quarkus.cache.CacheResult;
-import io.quarkus.security.Authenticated;
 import io.smallrye.mutiny.Uni;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -22,7 +22,7 @@ import nl.speyk.utils.CustomCacheKeyGenerator;
 @Path("/leerling")
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "LeerlingResource")
-@Authenticated
+@RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
 public class LeerlingCustomResource {
 
     private static final String CACHE_NAME = "nl.speyk.leerling.Leerling";

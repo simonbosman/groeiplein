@@ -1,20 +1,36 @@
+speyk:
+  jwt: jsonwebtoken
+  roles:
+    docent: 06258f22-c3dc-4176-a6db-b66e51e0990c
+    leerling: 61280a80-2837-4396-b5be-886c4159dd7c
+mp:
+  jwt:
+    verify:
+      issuer: https://login.microsoftonline.com/d71896c5-795f-424e-bfb5-558dd1f95bb1/v2.0
+      publickey:
+        location: publicKey.pem
+smallrye:
+  jwt:
+    sign:
+      key:
+        location: privateKey.pem
 quarkus:
   datasource:
-      db-kind: postgresql
-      password: ''
-      reactive:
-          url: postgresql://localhost:5432/groeiplein_dev
-      username: simon
+    db-kind: postgresql
+    password: ""
+    reactive:
+      url: postgresql://localhost:5432/groeiplein_dev
+    username: simon
   hibernate-orm:
-      database:
-          generation: update
-      jdbc:
-          timezone: Europe/Amsterdam
+    database:
+      generation: update
+    jdbc:
+      timezone: Europe/Amsterdam
   http:
-      cors:
-          origins: /.*/
-      port: 8082
-      ssl:
-          certificate:
-              key-store-file: appspeyk.pfx
-              key-store-password: 1234
+    cors:
+      origins: /.*/
+    port: 8082
+    ssl:
+      certificate:
+        key-store-file: appspeyk.pfx
+        key-store-password: 1234

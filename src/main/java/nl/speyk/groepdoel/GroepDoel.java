@@ -1,14 +1,24 @@
 package nl.speyk.groepdoel;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import io.smallrye.mutiny.Uni;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Index;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotNull;
 import nl.speyk.doel.Doel;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
-import java.util.*;
 
 @Entity(name = "GroepDoel")
 @Table(name = "groep_doel", indexes = {
@@ -27,8 +37,7 @@ public class GroepDoel extends PanacheEntity {
     @NotNull(message = "{GroepDoel.groepUuid.required}")
     public UUID groepUuid;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @Cascade(CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @NotNull(message = "{GroepDoel.doel.required}")
     public Doel doel;
 

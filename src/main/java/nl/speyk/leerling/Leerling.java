@@ -1,9 +1,16 @@
 package nl.speyk.leerling;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-
 import java.util.UUID;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity(name = "Leerling")
 @Table(name = "leerling", indexes = {

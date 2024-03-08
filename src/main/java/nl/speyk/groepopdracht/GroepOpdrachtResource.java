@@ -22,7 +22,7 @@ import jakarta.ws.rs.core.Response;
 import nl.speyk.opdracht.Opdracht;
 import nl.speyk.utils.CustomCacheKeyGenerator;
 
-@ResourceProperties(rolesAllowed = "**")
+@ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdracht, Long> {
 
     static final String CACHE_NAME = "nl.speyk.groepopdracht.GroepOpdracht";
@@ -31,7 +31,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/opdrachten/{groepUuid}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<Opdracht>> findOpdrachtByGroupUuid(@PathParam("groepUuid") UUID groepUuid) {
         return GroepOpdracht.findByGroepUuid(groepUuid)
                 .onItem()
@@ -44,7 +44,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/opdrachten")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<Opdracht>> findOpdrachtByGroepUuids(@QueryParam("groepUuid") List<UUID> groepUuids) {
         return GroepOpdracht.findByGroepUuids(groepUuids)
                 .onItem()
@@ -57,7 +57,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/groepen/{opdrachtId}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<UUID>> findGroepenByOpdrachtId(@PathParam("opdrachtId") int opdrachtId) {
         return GroepOpdracht.findByOpdrachtId(opdrachtId)
                 .onItem()
@@ -69,7 +69,7 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
     @DELETE
     @CacheInvalidateAll(cacheName = CACHE_NAME)
     @Path("/verwijder/{groepUuid}/{opdrachtId}")
-    @RolesAllowed("**")
+    @RolesAllowed("${speyk.roles.docent}")
     @APIResponse(responseCode = "204")
     default Uni<Response> deleteGroepOpdracht(@PathParam("groepUuid") UUID groepUuid,
             @PathParam("opdrachtId") int opdrachtId) {
@@ -80,4 +80,13 @@ public interface GroepOpdrachtResource extends PanacheEntityResource<GroepOpdrac
                     return Response.status(Response.Status.FORBIDDEN).build();
                 });
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<GroepOpdracht> add(GroepOpdracht groepOpdracht);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<GroepOpdracht> update(Long id, GroepOpdracht groepOpdracht);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }

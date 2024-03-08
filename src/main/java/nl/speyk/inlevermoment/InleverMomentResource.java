@@ -14,7 +14,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import nl.speyk.utils.CustomCacheKeyGenerator;
 
-@ResourceProperties(rolesAllowed = "**")
+@ResourceProperties(rolesAllowed = "${speyk.roles.docent},${speyk.roles.leerling}")
 public interface InleverMomentResource extends PanacheEntityResource<InleverMoment, Long> {
 
     static final String CACHE_NAME = "nl.speyk.inlevermoment.InleverMoment";
@@ -23,7 +23,7 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/leerling/{leerlingId}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<InleverMoment>> findMomentByLeerlingId(@PathParam("leerlingId") Long leerlingId) {
         return InleverMoment.getMomentenByLeerlingId(leerlingId);
     }
@@ -32,7 +32,7 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/leerlingen")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<InleverMoment>> findMomentByLeerlingIds(@QueryParam("leerlingId") List<Long> leerlingIds) {
         return InleverMoment.getMomentenByLeerlingIds(leerlingIds);
     }
@@ -41,8 +41,14 @@ public interface InleverMomentResource extends PanacheEntityResource<InleverMome
     @CacheResult(cacheName = CACHE_NAME, keyGenerator = CustomCacheKeyGenerator.class)
     @Path("/opdracht/{opdrachtId}")
     @Produces("application/json")
-    @RolesAllowed("**")
+    @RolesAllowed({ "${speyk.roles.docent}", "${speyk.roles.leerling}" })
     default Uni<List<InleverMoment>> findMomentByOpdrachtId(@PathParam("opdrachtId") Long opdrachtId) {
         return InleverMoment.getMomentenByOpdrachtId(opdrachtId);
     }
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<InleverMoment> update(Long id, InleverMoment entity);
+
+    @RolesAllowed("${speyk.roles.docent}")
+    Uni<Boolean> delete(Long id);
 }
