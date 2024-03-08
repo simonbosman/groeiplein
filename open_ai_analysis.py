@@ -41,7 +41,7 @@ memory = ConversationSummaryMemory(
 )
 qa = ConversationalRetrievalChain.from_llm(llm, retriever=retriever, memory=memory)
 
-uestions = [
+questions = [
     "Kun je uitleggen wat de code doet?",
     "Wat kun je over doel vertellen?",
     "Zou je een test voor Doel kunnen schrijven?",
